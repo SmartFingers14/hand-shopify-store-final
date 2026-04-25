@@ -1,0 +1,123 @@
+<section style="background:#F5F1E8;color:#000;padding:80px 24px;border-bottom:6px solid #000">
+  <div style="max-width:1400px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:50px">
+      <div>
+        <p style="font-family:'Bungee',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#FF69B4">{{ section.settings.eyebrow }}</p>
+        <h2 style="font-family:'Fjalla One',sans-serif;font-size:clamp(36px,6vw,72px);text-transform:uppercase;line-height:.95;margin-top:10px">
+          {{ section.settings.heading_pre }}
+          <span style="background:#FFD400;padding:0 12px">{{ section.settings.heading_em }}</span>
+          {{ section.settings.heading_post }}
+        </h2>
+      </div>
+      <p style="max-width:380px;font-size:15px;line-height:1.5;color:#444">{{ section.settings.subhead }}</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+      {%- assign coll_handle = section.settings.collection -%}
+      {%- assign coll = collections[coll_handle] -%}
+      {%- assign limit = section.settings.product_count | default: 8 -%}
+
+      {%- if coll != blank and coll.products_count > 0 -%}
+        {%- for product in coll.products limit: limit -%}
+          {%- assign palette = 'F5F1E8,FFC1CC,FFD400,87CEEB,FFFFFF,000000' | split: ',' -%}
+          {%- assign idx = forloop.index0 | modulo: 6 -%}
+          {%- assign bg = palette[idx] -%}
+          {%- assign txt = '#000' -%}
+          {%- if bg == '000000' -%}{%- assign txt = '#FFD400' -%}{%- endif -%}
+          <a href="{{ product.url }}" style="display:flex;flex-direction:column;background:#{{ bg }};color:{{ txt }};border:2px solid #000;border-radius:14px;overflow:hidden;text-decoration:none;transition:transform .25s ease">
+            <div style="aspect-ratio:1/1;display:grid;place-items:center;padding:20px;position:relative">
+              {%- if product.featured_image -%}
+                <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title | escape }}" style="width:100%;height:100%;object-fit:cover;border-radius:8px" loading="lazy">
+              {%- else -%}
+                <div style="font-family:'Fjalla One',sans-serif;font-size:32px;text-align:center;text-transform:uppercase;letter-spacing:-.01em">☻<br>{{ product.title | truncate: 18 }}</div>
+              {%- endif -%}
+            </div>
+            <div style="padding:16px 18px 20px;border-top:2px solid #000">
+              <div style="font-family:'Bungee',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;opacity:.7">{{ product.vendor | default: 'HAND' }} · {{ product.type | default: 'Apparel' }}</div>
+              <div style="font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.02em;margin-top:6px">{{ product.title }}</div>
+              <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-family:'Fjalla One',sans-serif;font-size:18px">{{ product.price | money }}</span>
+                <span style="font-family:'Bungee',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase">Shop →</span>
+              </div>
+            </div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} Demo cards if no collection set yet {%- endcomment -%}
+        {%- for block in section.blocks -%}
+          <div style="display:flex;flex-direction:column;background:#{{ block.settings.bg | default: 'F5F1E8' }};color:{% if block.settings.bg == '000000' %}#FFD400{% else %}#000{% endif %};border:2px solid #000;border-radius:14px;overflow:hidden">
+            <div style="aspect-ratio:1/1;display:grid;place-items:center;padding:20px">
+              <div style="font-family:'Fjalla One',sans-serif;font-size:48px;line-height:1;text-align:center;text-transform:uppercase">☻<br><span style="font-size:18px">{{ block.settings.title }}</span></div>
+            </div>
+            <div style="padding:16px 18px;border-top:2px solid #000">
+              <div style="font-family:'Bungee',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;opacity:.7">{{ block.settings.tag }}</div>
+              <div style="font-weight:700;font-size:15px;text-transform:uppercase;margin-top:6px">{{ block.settings.title }}</div>
+              <div style="margin-top:10px;font-family:'Fjalla One',sans-serif;font-size:18px">{{ block.settings.price }}</div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_view_all -%}
+      <div style="text-align:center;margin-top:40px">
+        <a href="{{ coll.url | default: '/collections/all' }}" style="display:inline-block;padding:18px 28px;border:2px solid #000;border-radius:99px;font-family:'Bungee',sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#000;text-decoration:none">{{ section.settings.view_all_label }} →</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home products grid",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Featured · Have A Nice Day" },
+    { "type": "text", "id": "heading_pre", "label": "Heading start", "default": "The" },
+    { "type": "text", "id": "heading_em", "label": "Highlighted word", "default": "originals" },
+    { "type": "text", "id": "heading_post", "label": "Heading end", "default": "." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead", "default": "The pieces leading the comeback. Heavyweight unisex organic cotton, hand-printed in London." },
+    { "type": "collection", "id": "collection", "label": "Collection (optional)" },
+    { "type": "range", "id": "product_count", "label": "Number of products", "min": 4, "max": 16, "step": 1, "default": 8 },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show 'view all' button", "default": true },
+    { "type": "text", "id": "view_all_label", "label": "View all label", "default": "View All Products" }
+  ],
+  "blocks": [
+    {
+      "type": "demo",
+      "name": "Demo product (only if no collection)",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Sam The Man Tee" },
+        { "type": "text", "id": "tag",   "label": "Tag",   "default": "HAND · Tee" },
+        { "type": "text", "id": "price", "label": "Price", "default": "£29.99" },
+        { "type": "select", "id": "bg", "label": "Background",
+          "options": [
+            { "value": "F5F1E8", "label": "Cream" },
+            { "value": "FFC1CC", "label": "Soft pink" },
+            { "value": "FFD400", "label": "Acid yellow" },
+            { "value": "87CEEB", "label": "Sky blue" },
+            { "value": "FFFFFF", "label": "White" },
+            { "value": "000000", "label": "Black" }
+          ],
+          "default": "F5F1E8"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home products grid",
+      "blocks": [
+        { "type": "demo", "settings": { "title": "Sam The Man Tee", "tag": "HAND · Tee",         "price": "£29.99", "bg": "F5F1E8" } },
+        { "type": "demo", "settings": { "title": "Shurl Sweat",     "tag": "HAND · Sweatshirt",  "price": "£49",    "bg": "FFC1CC" } },
+        { "type": "demo", "settings": { "title": "DJ Dready Tee",   "tag": "Dready · Tee",       "price": "£32",    "bg": "FFD400" } },
+        { "type": "demo", "settings": { "title": "Vortex Skirt",    "tag": "Vortex · Bottom",    "price": "£59",    "bg": "87CEEB" } },
+        { "type": "demo", "settings": { "title": "Sis Beanie",      "tag": "Sista · Headwear",   "price": "£14.99", "bg": "FFFFFF" } },
+        { "type": "demo", "settings": { "title": "Records Slip",    "tag": "Handspun · Slip mat","price": "£15",    "bg": "000000" } },
+        { "type": "demo", "settings": { "title": "BTKA House Tee",  "tag": "BTKA · Tee",         "price": "£32",    "bg": "F5F1E8" } },
+        { "type": "demo", "settings": { "title": "Funky Dog Sweat", "tag": "Funky Dog · Sweat",  "price": "£49",    "bg": "FFC1CC" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

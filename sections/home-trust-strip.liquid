@@ -1,0 +1,25 @@
+<section style="background:#000;color:#FFD400;padding:18px 24px;border-bottom:6px solid #000;overflow:hidden">
+  <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:36px;font-family:'Bungee',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase">
+    {%- for block in section.blocks -%}
+      <span {{ block.shopify_attributes }}>☻ {{ block.settings.text }}</span>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home trust strip",
+  "max_blocks": 8,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "100% Organic Cotton" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Home trust strip" } ]
+}
+{% endschema %}

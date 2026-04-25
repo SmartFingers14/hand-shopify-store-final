@@ -1,0 +1,78 @@
+<section style="background:#000;color:#FFD400;padding:80px 24px;border-bottom:6px solid #000;overflow:hidden">
+  <div style="max-width:1400px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:40px">
+      <div>
+        <p style="font-family:'Bungee',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#FFD400">{{ section.settings.eyebrow }}</p>
+        <h2 style="font-family:'Fjalla One',sans-serif;font-size:clamp(36px,6vw,72px);text-transform:uppercase;line-height:.95;margin-top:10px;color:#fff">
+          {{ section.settings.heading_pre }}
+          <span style="background:#FFD400;color:#000;padding:0 12px">{{ section.settings.heading_em }}</span>
+        </h2>
+      </div>
+      <p style="max-width:380px;font-size:14px;line-height:1.5;color:#bdb8ad">{{ section.settings.subhead }}</p>
+    </div>
+
+    <div style="display:flex;gap:14px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }} style="flex:0 0 220px;scroll-snap-align:start;aspect-ratio:1/1;background:#{{ block.settings.bg | default: 'F5F1E8' }};color:{% if block.settings.bg == '000000' %}#FFD400{% else %}#000{% endif %};border:2px solid #FFD400;border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;padding:18px;text-decoration:none">
+          <span style="font-family:'Bungee',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase">{{ block.settings.tag }}</span>
+          <div>
+            <div style="font-family:'Fjalla One',sans-serif;font-size:32px;line-height:.9;text-transform:uppercase;letter-spacing:-.01em">{{ block.settings.title }}</div>
+            <div style="font-size:12px;margin-top:6px;opacity:.7">{{ block.settings.cta }} →</div>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home gallery",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Lookbook · Archive" },
+    { "type": "text", "id": "heading_pre", "label": "Heading start", "default": "From the" },
+    { "type": "text", "id": "heading_em", "label": "Highlight", "default": "archive." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead", "default": "Pieces from across the house. Pulled from old lookbooks and re-issued in 2026." }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Tile",
+      "settings": [
+        { "type": "text", "id": "tag",   "label": "Tag", "default": "Vortex · 2002" },
+        { "type": "text", "id": "title", "label": "Title", "default": "VRTX Skirt" },
+        { "type": "text", "id": "cta",   "label": "CTA",  "default": "View" },
+        { "type": "url",  "id": "link",  "label": "Link" },
+        { "type": "select", "id": "bg", "label": "Background",
+          "options": [
+            { "value": "FFD400", "label": "Acid yellow" },
+            { "value": "FF69B4", "label": "Hot pink" },
+            { "value": "87CEEB", "label": "Sky blue" },
+            { "value": "FFC1CC", "label": "Soft pink" },
+            { "value": "F5F1E8", "label": "Cream" },
+            { "value": "FFFFFF", "label": "White" },
+            { "value": "000000", "label": "Black" }
+          ],
+          "default": "FFD400"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home gallery",
+      "blocks": [
+        { "type": "tile", "settings": { "tag": "Vortex · 2002",  "title": "VRTX Skirt",        "cta": "View", "bg": "FFD400" } },
+        { "type": "tile", "settings": { "tag": "HAND · 1998",    "title": "Info The Robot",    "cta": "View", "bg": "FF69B4" } },
+        { "type": "tile", "settings": { "tag": "Sista · 1996",   "title": "Sis Beanie",        "cta": "View", "bg": "FFC1CC" } },
+        { "type": "tile", "settings": { "tag": "Dready · 2001",  "title": "DJ Dready",         "cta": "View", "bg": "87CEEB" } },
+        { "type": "tile", "settings": { "tag": "HAND · 1990",    "title": "Sam The Man ☻",     "cta": "View", "bg": "F5F1E8" } },
+        { "type": "tile", "settings": { "tag": "Records · 2003", "title": "Records Classic",   "cta": "View", "bg": "000000" } },
+        { "type": "tile", "settings": { "tag": "BTKA · 2004",    "title": "BTKA House",        "cta": "View", "bg": "FFFFFF" } },
+        { "type": "tile", "settings": { "tag": "Funky Dog · 99", "title": "Mongrel Soup",      "cta": "View", "bg": "FFD400" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

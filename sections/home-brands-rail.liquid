@@ -1,0 +1,89 @@
+<section style="background:#000;color:#FFD400;padding:80px 24px;border-bottom:6px solid #000;overflow:hidden">
+  <div style="max-width:1400px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:50px">
+      <div>
+        <p style="font-family:'Bungee',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#FFD400">{{ section.settings.eyebrow }}</p>
+        <h2 style="font-family:'Fjalla One',sans-serif;font-size:clamp(36px,6vw,72px);text-transform:uppercase;line-height:.95;margin-top:10px;color:#fff">
+          {{ section.settings.heading_pre }}
+          <span style="background:#FFD400;color:#000;padding:0 12px">{{ section.settings.heading_em }}</span>
+          {{ section.settings.heading_post }}
+        </h2>
+      </div>
+      <p style="max-width:380px;font-size:15px;line-height:1.5;color:#bdb8ad">{{ section.settings.subhead }}</p>
+    </div>
+
+    <div style="display:flex;gap:18px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link | default: '#' }}" style="flex:0 0 280px;scroll-snap-align:start;background:#{{ block.settings.bg | default: 'FFD400' }};color:{% if block.settings.bg == '000000' %}#FFD400{% else %}#000{% endif %};border:2px solid #FFD400;border-radius:14px;aspect-ratio:3/4;padding:24px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;position:relative;overflow:hidden" {{ block.shopify_attributes }}>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <span style="font-family:'Fjalla One',sans-serif;font-size:32px">{{ block.settings.number }}</span>
+            <span style="font-family:'Bungee',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;border:1px solid currentColor;padding:4px 8px;border-radius:99px">{{ block.settings.tag }}</span>
+          </div>
+          <div style="font-family:'Fjalla One',sans-serif;font-size:120px;line-height:.85;text-transform:uppercase;letter-spacing:-.04em;opacity:.18;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap">{{ block.settings.glyph }}</div>
+          <div style="position:relative;z-index:1">
+            <div style="font-family:'Fjalla One',sans-serif;font-size:30px;line-height:1;text-transform:uppercase">{{ block.settings.name }}</div>
+            <div style="font-size:13px;margin-top:6px;opacity:.75">{{ block.settings.desc }}</div>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+
+    <p style="margin-top:18px;font-size:11px;color:#888;letter-spacing:.18em;text-transform:uppercase;font-family:'Bungee',sans-serif">← Drag to explore the house →</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home brands rail",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The House" },
+    { "type": "text", "id": "heading_pre", "label": "Heading start", "default": "One house." },
+    { "type": "text", "id": "heading_em", "label": "Highlight", "default": "Nine independent" },
+    { "type": "text", "id": "heading_post", "label": "Heading end", "default": "brands." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead", "default": "Each one a different mood, a different memory of the rave. Pick yours — or wear them all." }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "01" },
+        { "type": "text", "id": "tag",    "label": "Tag",    "default": "Iconic" },
+        { "type": "text", "id": "name",   "label": "Name",   "default": "Have A Nice Day" },
+        { "type": "text", "id": "desc",   "label": "Desc",   "default": "The mother brand. The original smiley." },
+        { "type": "text", "id": "glyph",  "label": "Glyph",  "default": "HAND" },
+        { "type": "url",  "id": "link",   "label": "Link" },
+        { "type": "select", "id": "bg", "label": "Background",
+          "options": [
+            { "value": "FFD400", "label": "Acid yellow" },
+            { "value": "FF69B4", "label": "Hot pink" },
+            { "value": "87CEEB", "label": "Sky blue" },
+            { "value": "FFC1CC", "label": "Soft pink" },
+            { "value": "F5F1E8", "label": "Cream" },
+            { "value": "FFFFFF", "label": "White" },
+            { "value": "000000", "label": "Black" }
+          ],
+          "default": "FFD400"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home brands rail",
+      "blocks": [
+        { "type": "brand", "settings": { "number": "01", "tag": "Iconic",   "name": "Have A Nice Day", "desc": "The original smiley. The mother brand.",          "glyph": "HAND",    "bg": "FFD400" } },
+        { "type": "brand", "settings": { "number": "02", "tag": "Heavy",    "name": "Dready",          "desc": "Dub-plate prints, heavyweight cotton.",            "glyph": "DREADY",  "bg": "FF69B4" } },
+        { "type": "brand", "settings": { "number": "03", "tag": "Feminine", "name": "Sista",           "desc": "Cropped silhouettes, baby tees, glittered nostalgia.","glyph": "SIS",  "bg": "FFC1CC" } },
+        { "type": "brand", "settings": { "number": "04", "tag": "Sound",    "name": "Handspun Records","desc": "Slip mats, sleeves, vinyl tees.",                  "glyph": "RECORDS", "bg": "87CEEB" } },
+        { "type": "brand", "settings": { "number": "05", "tag": "House",    "name": "BTKA",            "desc": "Back To Kennington Acid. House music capsule.",    "glyph": "BTKA",    "bg": "000000" } },
+        { "type": "brand", "settings": { "number": "06", "tag": "Sport",    "name": "Vortex",          "desc": "Track sets, rave pants, technical streetwear.",     "glyph": "VRTX",    "bg": "FFFFFF" } },
+        { "type": "brand", "settings": { "number": "07", "tag": "Playful",  "name": "Funky Dog",       "desc": "Beanies, badges, accessories. Wear the joy.",      "glyph": "FUNKY",   "bg": "F5F1E8" } },
+        { "type": "brand", "settings": { "number": "08", "tag": "Wild",     "name": "Don't Do The Dodo","desc": "Save the species. Limited graphic capsule.",      "glyph": "DODO",    "bg": "FFD400" } },
+        { "type": "brand", "settings": { "number": "09", "tag": "New",      "name": "The Incubator",   "desc": "Licensing & wholesale arm. Build with us.",        "glyph": "NEW",     "bg": "FF69B4" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
