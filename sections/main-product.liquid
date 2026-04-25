@@ -24,7 +24,7 @@
       </div>
 
       <div>
-        <div class="card-cat">{{ product.vendor }} Â· {{ product.type }}</div>
+        <div class="card-cat">{{ product.vendor }} · {{ product.type }}</div>
         <h1 class="h2" style="margin-top:6px">{{ product.title }}</h1>
         <p style="font-family:'Fjalla One',sans-serif;font-size:28px;margin-top:14px">
           {%- if product.price_varies -%}<span style="font-size:13px;letter-spacing:.18em">From</span> {%- endif -%}
@@ -57,12 +57,12 @@
 
           <div class="modal-cta" style="margin-top:24px;display:grid;grid-template-columns:auto 1fr;gap:10px">
             <div class="qty">
-              <button type="button" id="pdpMinus">âˆ’</button>
+              <button type="button" id="pdpMinus">−</button>
               <span id="pdpQty">1</span>
               <button type="button" id="pdpPlus">+</button>
             </div>
             <button type="submit" class="add-big" {% unless product.available %}disabled{% endunless %}>
-              {%- if product.available -%}{{ 'products.product.add_to_cart' | t }} Â· {{ product.price | money }}
+              {%- if product.available -%}{{ 'products.product.add_to_cart' | t }} · {{ product.price | money }}
               {%- else -%}{{ 'products.product.sold_out' | t }}
               {%- endif -%}
             </button>
@@ -70,10 +70,10 @@
         {% endform %}
 
         <div class="modal-perks" style="margin-top:18px">
-          <span>Free UK shipping over Â£50</span>
+          <span>Free UK shipping over £50</span>
           <span>30-day returns</span>
           <span>Ships in 24h</span>
-          <span>Unisex Â· Organic cotton</span>
+          <span>Unisex · Organic cotton</span>
         </div>
       </div>
     </div>

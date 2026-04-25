@@ -1,7 +1,7 @@
 
         /* ==========================================================================
-   HAVE A NICE DAY LONDON Â· Accurate Redesign Â· 2026
-   Tone: 1990s rave heritage Â· acid-yellow smiley Â· conscious consumption
+   HAVE A NICE DAY LONDON · Accurate Redesign · 2026
+   Tone: 1990s rave heritage · acid-yellow smiley · conscious consumption
    ========================================================================== */
         *,
         *::before,
@@ -27,7 +27,7 @@
             --pink-soft: #FFC1CC;
             --sky: #87CEEB;
             --yellow: #FFD400;
-            /* legacy aliases â€” keep working without restructuring */
+            /* legacy aliases — keep working without restructuring */
             --acid: #FFD400;
             --acid-deep: #FFD400;
             --hot: #FF69B4;
@@ -79,7 +79,7 @@
             font-weight: 400
         }
 
-        /* Globally upgrade ALL Archivo Black references â†’ Fjalla One
+        /* Globally upgrade ALL Archivo Black references → Fjalla One
            without touching layout/structure. Fjalla One is a condensed
            blocky street-style display face that matches the pop-art board. */
         h1,
@@ -264,7 +264,7 @@
         }
 
         .nav-link.has-mega::before {
-            content: "â–¾";
+            content: "▾";
             position: absolute;
             right: 0;
             top: 8px;
@@ -1550,7 +1550,7 @@
         }
 
         .signup-inner::before {
-            content: "â˜»";
+            content: "☻";
             font-family: 'Archivo Black', sans-serif;
             font-size: 520px;
             position: absolute;
@@ -1639,7 +1639,7 @@
         }
 
         .signup-foot span::before {
-            content: "â—";
+            content: "●";
             color: var(--ink)
         }
 
@@ -1902,7 +1902,7 @@
         }
 
         /* ============================================================
-           CRO LAYER Â· 2026 â€” added without redesigning the visuals
+           CRO LAYER · 2026 — added without redesigning the visuals
            ============================================================ */
 
         /* Hero CTAs upgraded with conversion psychology */
@@ -1938,7 +1938,7 @@
         }
 
         .cta-meta span::before {
-            content: "âœ“";
+            content: "✓";
             color: #1b8a3a;
             font-weight: 700
         }
@@ -2145,7 +2145,7 @@
             opacity: 0
         }
 
-        /* Quick add â†’ bigger, more aggressive on mobile */
+        /* Quick add → bigger, more aggressive on mobile */
         .qbtn {
             font-size: 11px;
             letter-spacing: .14em
@@ -2260,7 +2260,7 @@
             }
         }
 
-        /* Live notification toast â€” social proof */
+        /* Live notification toast — social proof */
         .toast {
             position: fixed;
             left: 18px;
@@ -2400,7 +2400,7 @@
             display: block
         }
 
-        /* Hero â€” use real banner image */
+        /* Hero — use real banner image */
         .hero-art-real {
             position: relative;
             border-radius: var(--radius);
@@ -2419,7 +2419,7 @@
             object-fit: cover
         }
 
-        /* Brand tile â€” use real banner backgrounds */
+        /* Brand tile — use real banner backgrounds */
         .brand-tile.has-banner {
             background: var(--ink)
         }
@@ -2462,7 +2462,7 @@
 
 
         /* ============================================================
-           FULL APP UI Â· Drawers, Modals, Overlays
+           FULL APP UI · Drawers, Modals, Overlays
            ============================================================ */
 
         /* Backdrop shared by all overlays */
@@ -3152,7 +3152,7 @@
         }
 
         .modal-perks span::before {
-            content: "âœ“";
+            content: "✓";
             color: #1b8a3a;
             font-weight: 700
         }
@@ -3477,11 +3477,11 @@
         }
 
         /* =================================================================
-           âš¡ BRAND-ALIGNMENT OVERRIDE LAYER âš¡
-           Pink #FF69B4 Â· Sky #87CEEB Â· Yellow #FFD400 Â· Black Â· White
+           ⚡ BRAND-ALIGNMENT OVERRIDE LAYER ⚡
+           Pink #FF69B4 · Sky #87CEEB · Yellow #FFD400 · Black · White
            Typography: Fjalla One (display) + Inter (body)
-           Aesthetic: 90s pop-art Â· color-block Â· street/graffiti energy
-           NO layout changes â€” only visual language transformation.
+           Aesthetic: 90s pop-art · color-block · street/graffiti energy
+           NO layout changes — only visual language transformation.
            ================================================================= */
 
         /* --- Force Fjalla One on every display surface --- */
@@ -3600,7 +3600,7 @@
         }
 
         /* =================== COLOR SYSTEM RESET =================== */
-        /* Yellow highlight blocks â†’ switch to pink (primary attention) */
+        /* Yellow highlight blocks → switch to pink (primary attention) */
         .h2 em,
         .hero h1 .acid-bg {
             background: var(--pink) !important;
@@ -3610,7 +3610,7 @@
             padding: 0 .15em !important;
         }
 
-        /* Eyebrow â†’ pink underline accent */
+        /* Eyebrow → pink underline accent */
         .eyebrow {
             color: var(--ink) !important;
         }
@@ -3783,7 +3783,7 @@
             height: 8px !important;
         }
 
-        /* =================== TYPES STRIP (was black) â†’ flip to sky blue =================== */
+        /* =================== TYPES STRIP (was black) → flip to sky blue =================== */
         .types {
             background: var(--sky) !important;
             color: var(--ink) !important;
@@ -3816,7 +3816,7 @@
         }
 
         /* =================== SECTION COLOR-BLOCK ALTERNATION =================== */
-        /* WHITE â†’ SKY BLUE â†’ YELLOW â†’ WHITE â†’ PINK accents (using existing sections only) */
+        /* WHITE → SKY BLUE → YELLOW → WHITE → PINK accents (using existing sections only) */
         section#bestsellers {
             background: var(--bg) !important;
         }
@@ -3828,7 +3828,7 @@
             border-bottom: 3px solid var(--ink);
         }
 
-        /* Brands strip â†’ pink chunk */
+        /* Brands strip → pink chunk */
         .brands {
             background: var(--pink) !important;
             border-top: 4px solid var(--ink) !important;
@@ -3865,7 +3865,7 @@
             border-bottom: 3px solid var(--ink) !important;
         }
 
-        /* Incubator â†’ pink (was black) for high pop-art energy */
+        /* Incubator → pink (was black) for high pop-art energy */
         .incu {
             background: var(--pink) !important;
             color: var(--ink) !important;
@@ -3911,7 +3911,7 @@
             background: var(--bg);
         }
 
-        /* Signup â†’ yellow (already was) but flatten + add chunk */
+        /* Signup → yellow (already was) but flatten + add chunk */
         .signup-inner {
             background: var(--yellow) !important;
             border: 4px solid var(--ink) !important;
@@ -3938,7 +3938,7 @@
             color: var(--yellow) !important;
         }
 
-        /* Gallery â†’ white */
+        /* Gallery → white */
         #gallery {
             background: var(--bg) !important;
         }
@@ -4289,7 +4289,7 @@
             background: var(--yellow) !important;
         }
 
-        /* =================== STICKY BAR Â· DRAWER Â· MODAL Â· TOAST =================== */
+        /* =================== STICKY BAR · DRAWER · MODAL · TOAST =================== */
         .sticky-bar {
             background: var(--ink) !important;
             border: 3px solid var(--pink) !important;
@@ -4452,7 +4452,7 @@
         /* =================== MICRO POP-ART STAR/STARBURST DIVIDERS =================== */
         .brands::before,
         .why::before {
-            content: "â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜… â˜…";
+            content: "★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★";
             position: absolute;
             top: -3px;
             left: 0;
@@ -4478,7 +4478,7 @@
         /* Stars on hero corners */
         .hero::before,
         .hero::after {
-            content: "â˜…";
+            content: "★";
             position: absolute;
             font-size: 70px;
             color: var(--pink);

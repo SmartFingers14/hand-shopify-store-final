@@ -9,7 +9,7 @@
     <div class="why-grid">
       {%- for article in blog.articles -%}
         <a href="{{ article.url }}" class="why-card reveal" style="display:block">
-          <div class="ic">â˜…</div>
+          <div class="ic">★</div>
           <h4>{{ article.title }}</h4>
           <p>{{ article.excerpt_or_content | strip_html | truncate: 140 }}</p>
         </a>

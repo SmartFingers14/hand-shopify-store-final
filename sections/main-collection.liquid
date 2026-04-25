@@ -14,14 +14,14 @@
           {%- include 'product-card', product: product, forloop: forloop -%}
         {%- else -%}
           <div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--ink-soft)">
-            <p>No products yet â€” check back soon â˜»</p>
+            <p>No products yet — check back soon ☻</p>
           </div>
         {%- endfor -%}
 
         {%- if paginate.pages > 1 -%}
           <div style="grid-column:1/-1;text-align:center;margin-top:30px">
-            {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}" class="btn btn-ghost">â† Previous</a>{%- endif -%}
-            {%- if paginate.next -%}<a href="{{ paginate.next.url }}" class="btn btn-primary" style="margin-left:10px">Next â†’</a>{%- endif -%}
+            {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}" class="btn btn-ghost">← Previous</a>{%- endif -%}
+            {%- if paginate.next -%}<a href="{{ paginate.next.url }}" class="btn btn-primary" style="margin-left:10px">Next →</a>{%- endif -%}
           </div>
         {%- endif -%}
       {%- endpaginate -%}

@@ -21,7 +21,7 @@
               <div class="sub">{{ item.variant.title }}</div>
               <div class="qty" style="margin-top:8px">
                 <a href="{{ item.url_to_remove }}" style="font-size:11px;text-decoration:underline">Remove</a>
-                &nbsp;Â·&nbsp;
+                &nbsp;·&nbsp;
                 <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" style="width:60px;border:1.5px solid var(--ink);border-radius:8px;padding:6px;text-align:center">
               </div>
             </div>
@@ -31,7 +31,7 @@
 
         <div style="margin-top:30px;display:flex;justify-content:flex-end;gap:14px;flex-wrap:wrap">
           <button type="submit" name="update" class="btn btn-ghost">Update Bag</button>
-          <button type="submit" name="checkout" class="btn btn-primary">Checkout â€” {{ cart.total_price | money }} â†’</button>
+          <button type="submit" name="checkout" class="btn btn-primary">Checkout — {{ cart.total_price | money }} →</button>
         </div>
       </form>
     {%- else -%}
@@ -39,7 +39,7 @@
         <div class="big-smy" style="margin:0 auto 20px"></div>
         <h4 style="font-family:'Fjalla One',sans-serif;font-size:28px">{{ 'cart.general.empty' | t }}</h4>
         <p style="margin:14px 0 30px;color:var(--ink-soft)">Time to start the comeback.</p>
-        <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">Shop The Originals â†’</a>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">Shop The Originals →</a>
       </div>
     {%- endif -%}
   </div>

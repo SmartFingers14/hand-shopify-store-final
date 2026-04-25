@@ -10,7 +10,7 @@
       {%- for collection in collections -%}
         <a href="{{ collection.url }}" class="brand-tile bt-hand reveal">
           <span class="num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-          <span class="arr">â†’</span>
+          <span class="arr">→</span>
           <div class="vibe">{{ collection.title | upcase | truncate: 8 }}</div>
           <span class="label">{{ collection.title }}</span>
         </a>

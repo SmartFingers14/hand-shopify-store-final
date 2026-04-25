@@ -1,18 +1,18 @@
-HAVE A NICE DAY Â· LONDON  â€”  Shopify OS 2.0 Theme
+HAVE A NICE DAY · LONDON  —  Shopify OS 2.0 Theme
 ==================================================
 
 How to upload:
   1. Make sure the file you have is "hand-shopify-theme.zip"
-     (NOT a folder zipped inside another folder â€” the .zip
+     (NOT a folder zipped inside another folder — the .zip
      should contain layout/ templates/ sections/ etc. at root).
-  2. In your Shopify admin: Online Store â†’ Themes â†’ "Add theme"
-     â†’ "Upload zip file" â†’ select hand-shopify-theme.zip.
+  2. In your Shopify admin: Online Store → Themes → "Add theme"
+     → "Upload zip file" → select hand-shopify-theme.zip.
   3. Click "Customize" to edit sections in Shopify Editor.
 
 Editable everywhere:
-  - Theme settings (colors, logo, social) â†’ Theme Editor â†’ Theme settings
-  - Header/Footer/Announcement â†’ header & footer section groups
-  - Homepage â†’ templates/index.json (drag-and-drop sections)
+  - Theme settings (colors, logo, social) → Theme Editor → Theme settings
+  - Header/Footer/Announcement → header & footer section groups
+  - Homepage → templates/index.json (drag-and-drop sections)
 
 Folders:
   /layout   - theme.liquid (mandatory)

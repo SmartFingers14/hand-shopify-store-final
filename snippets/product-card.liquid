@@ -1,4 +1,4 @@
-{%- comment -%} Single product card Â· brand-aligned {%- endcomment -%}
+{%- comment -%} Single product card · brand-aligned {%- endcomment -%}
 {%- liquid
   assign p = product
   assign featured = p.featured_image
@@ -45,11 +45,11 @@
       <button class="qbtn" data-add data-variant-id="{{ p.selected_or_first_available_variant.id }}">
         {%- if p.available -%}Quick Add{%- else -%}Sold Out{%- endif -%}
       </button>
-      <a class="iconbtn" href="{{ p.url }}" aria-label="View {{ p.title | escape }}">â†—</a>
+      <a class="iconbtn" href="{{ p.url }}" aria-label="View {{ p.title | escape }}">↗</a>
     </div>
   </div>
   <div class="card-info">
-    <div class="card-cat">{{ p.vendor | default: p.type }} Â· {{ p.type | default: 'Apparel' }}</div>
+    <div class="card-cat">{{ p.vendor | default: p.type }} · {{ p.type | default: 'Apparel' }}</div>
     <div class="card-name">{{ p.title }}</div>
     <div class="card-meta">
       <span class="price">

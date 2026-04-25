@@ -31,14 +31,14 @@
               </div>
               <div class="card-quick">
                 <button class="qbtn" data-add>Quick Add</button>
-                <a class="iconbtn" href="#">â†—</a>
+                <a class="iconbtn" href="#">↗</a>
               </div>
             </div>
             <div class="card-info">
-              <div class="card-cat">Have A Nice Day Â· Tee</div>
+              <div class="card-cat">Have A Nice Day · Tee</div>
               <div class="card-name">Demo product {{ forloop.index }}</div>
               <div class="card-meta">
-                <span class="price">Â£29.99</span>
+                <span class="price">£29.99</span>
                 <span class="organic">Organic cotton</span>
               </div>
             </div>
@@ -50,7 +50,7 @@
     {%- if section.settings.show_view_all -%}
       <div style="text-align:center;margin-top:36px">
         <a href="{{ coll.url | default: routes.all_products_collection_url }}" class="btn btn-ghost">
-          {{ section.settings.view_all_label | default: 'View All Products' }} <span class="arr">â†’</span>
+          {{ section.settings.view_all_label | default: 'View All Products' }} <span class="arr">→</span>
         </a>
       </div>
     {%- endif -%}
@@ -62,11 +62,11 @@
   "name": "Featured products",
   "settings": [
     { "type": "text", "id": "section_id", "label": "HTML section id", "default": "bestsellers" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Featured Â· Have A Nice Day" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Featured · Have A Nice Day" },
     { "type": "text", "id": "heading_pre", "label": "Heading before highlight", "default": "The" },
     { "type": "text", "id": "heading_em",  "label": "Highlighted word", "default": "originals" },
     { "type": "text", "id": "heading_post","label": "Heading after highlight", "default": "." },
-    { "type": "textarea", "id": "subhead", "label": "Sub-heading", "default": "The four pieces leading the comeback â€” Sam The Man and Shurl The Girl, on heavyweight unisex cotton." },
+    { "type": "textarea", "id": "subhead", "label": "Sub-heading", "default": "The four pieces leading the comeback — Sam The Man and Shurl The Girl, on heavyweight unisex cotton." },
     { "type": "collection", "id": "collection", "label": "Collection" },
     { "type": "range", "id": "product_count", "label": "Number of products", "min": 2, "max": 16, "step": 1, "default": 8 },
     { "type": "checkbox", "id": "show_view_all", "label": "Show \"View all\" button", "default": true },

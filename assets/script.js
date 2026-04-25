@@ -1,6 +1,6 @@
 
         /* ============================================================
-           HAVE A NICE DAY Â· LONDON Â· Full-functionality JS
+           HAVE A NICE DAY · LONDON · Full-functionality JS
            ============================================================ */
         (function () {
             'use strict';
@@ -8,7 +8,7 @@
             // ---------- Helpers ----------
             const $ = (s, ctx = document) => ctx.querySelector(s);
             const $$ = (s, ctx = document) => Array.from(ctx.querySelectorAll(s));
-            const fmt = (n) => 'Â£' + n.toFixed(2);
+            const fmt = (n) => '£' + n.toFixed(2);
             const parseGBP = (s) => parseFloat(String(s).replace(/[^0-9.]/g, '')) || 0;
             const SHIP_FREE = 50;
 
@@ -27,7 +27,7 @@
             };
 
             // ---------- Toasts ----------
-            const toast = (msg, type = 'ok', icon = 'â˜»') => {
+            const toast = (msg, type = 'ok', icon = '☻') => {
                 const wrap = $('#toastWrap');
                 const el = document.createElement('div');
                 el.className = 'toast-msg' + (type === 'err' ? ' err' : '');
@@ -141,12 +141,12 @@
                     const row = document.createElement('div');
                     row.className = 'cart-item';
                     row.innerHTML = `
-                    <div class="thumb">${it.img ? `<img src="${it.img}" alt="">` : '<span style="font-size:24px">â˜»</span>'}</div>
+                    <div class="thumb">${it.img ? `<img src="${it.img}" alt="">` : '<span style="font-size:24px">☻</span>'}</div>
                     <div class="meta">
                         <div class="nm">${it.name}</div>
-                        <div class="sub">${it.cat || ''}${it.size ? ' Â· Size ' + it.size : ''}</div>
+                        <div class="sub">${it.cat || ''}${it.size ? ' · Size ' + it.size : ''}</div>
                         <div class="qty">
-                            <button data-dec="${idx}" aria-label="Decrease">âˆ’</button>
+                            <button data-dec="${idx}" aria-label="Decrease">−</button>
                             <span>${it.qty}</span>
                             <button data-inc="${idx}" aria-label="Increase">+</button>
                         </div>
@@ -161,7 +161,7 @@
                 cartSub.textContent = fmt(sub);
                 cartTotal.textContent = fmt(sub);
                 if (sub >= SHIP_FREE) {
-                    shipNote.innerHTML = '<b>â˜» Free UK shipping unlocked</b>';
+                    shipNote.innerHTML = '<b>☻ Free UK shipping unlocked</b>';
                     shipNote.style.background = 'rgba(27,138,58,.18)';
                     cartShip.textContent = 'Free';
                 } else {
@@ -188,10 +188,10 @@
             $('#checkoutBtn').addEventListener('click', () => {
                 if (!state.cart.length) return;
                 const total = state.cart.reduce((a, b) => a + b.qty * b.price, 0);
-                toast('Redirecting to secure checkout Â· ' + fmt(total), 'ok', 'â˜»');
+                toast('Redirecting to secure checkout · ' + fmt(total), 'ok', '☻');
                 // simulate
                 setTimeout(() => {
-                    alert('ðŸŽ‰ Demo checkout\n\nThis demo would now redirect to Shopify Checkout / Stripe.\n\nOrder total: ' + fmt(total) + '\nItems: ' + state.cart.reduce((a, b) => a + b.qty, 0));
+                    alert('🎉 Demo checkout\n\nThis demo would now redirect to Shopify Checkout / Stripe.\n\nOrder total: ' + fmt(total) + '\nItems: ' + state.cart.reduce((a, b) => a + b.qty, 0));
                 }, 800);
             });
 
@@ -228,7 +228,7 @@
                         name, price, cat, img, size: 'M'
                     });
                     const orig = btn.textContent;
-                    btn.textContent = 'â˜» Added';
+                    btn.textContent = '☻ Added';
                     btn.style.background = 'var(--acid)';
                     btn.style.color = 'var(--ink)';
                     setTimeout(() => {
@@ -274,7 +274,7 @@
             $$('[data-close-modal]').forEach(b => b.addEventListener('click', closeModal));
             modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-            // wire iconbtn (â†—) â†’ opens modal
+            // wire iconbtn (↗) → opens modal
             $$('.iconbtn, .card-media').forEach(el => {
                 // skip the quick-add buttons
                 if (el.matches('.iconbtn') || el.matches('.card-media')) {
@@ -351,7 +351,7 @@
                     : 'Featured products';
                 if (!list.length) {
                     searchResults.innerHTML = `<div class="search-empty" style="grid-column:1/-1">
-                    <div style="font-size:48px;margin-bottom:10px">â˜»</div>
+                    <div style="font-size:48px;margin-bottom:10px">☻</div>
                     <p>Nothing found. Try "Sam", "Dready" or "Beanie".</p></div>`;
                     return;
                 }
@@ -410,12 +410,12 @@
             });
             $$('[data-close-mob]').forEach(b => b.addEventListener('click', closeAll));
             $$('[data-mob]').forEach(a => a.addEventListener('click', () => {
-                // close after pick â€” smooth scroll handled by anchor handler
+                // close after pick — smooth scroll handled by anchor handler
                 setTimeout(closeAll, 100);
             }));
 
             // ============================================================
-            //  WISHLIST HEARTS â€” inject into every card
+            //  WISHLIST HEARTS — inject into every card
             // ============================================================
             $$('.card').forEach(card => {
                 // Avoid duplicates
@@ -425,7 +425,7 @@
                 btn.className = 'heart' + (state.wish.includes(id) ? ' on' : '');
                 btn.setAttribute('aria-label', 'Add to wishlist');
                 btn.dataset.heart = id;
-                btn.innerHTML = 'â™¥';
+                btn.innerHTML = '♥';
                 // Place to top-right (we already have card-badge top-left)
                 card.appendChild(btn);
             });
@@ -435,8 +435,8 @@
                 e.preventDefault(); e.stopPropagation();
                 const id = h.dataset.heart;
                 const i = state.wish.indexOf(id);
-                if (i > -1) { state.wish.splice(i, 1); h.classList.remove('on'); toast('Removed from wishlist', 'ok', 'âˆ’'); }
-                else { state.wish.push(id); h.classList.add('on'); toast('Saved to wishlist â™¥', 'ok', 'â™¥'); }
+                if (i > -1) { state.wish.splice(i, 1); h.classList.remove('on'); toast('Removed from wishlist', 'ok', '−'); }
+                else { state.wish.push(id); h.classList.add('on'); toast('Saved to wishlist ♥', 'ok', '♥'); }
                 persist();
             });
 
@@ -473,17 +473,17 @@
                     bar = document.createElement('div');
                     bar.id = 'filterBar';
                     bar.className = 'filter-bar show';
-                    bar.innerHTML = `Showing: <b>${label}</b> <span class="clear" id="filterClear">Clear filter âœ•</span>`;
+                    bar.innerHTML = `Showing: <b>${label}</b> <span class="clear" id="filterClear">Clear filter ✕</span>`;
                     const firstProducts = $('#bestsellers .container');
                     firstProducts.insertBefore(bar, firstProducts.querySelector('.products'));
                 } else {
-                    bar.innerHTML = `Showing: <b>${label}</b> <span class="clear" id="filterClear">Clear filter âœ•</span>`;
+                    bar.innerHTML = `Showing: <b>${label}</b> <span class="clear" id="filterClear">Clear filter ✕</span>`;
                     bar.classList.add('show');
                 }
                 $('#filterClear').addEventListener('click', clearFilter);
                 // scroll to bestsellers
                 $('#bestsellers').scrollIntoView({ behavior: 'smooth' });
-                toast(`Filtering: ${label}`, 'ok', 'âŒ•');
+                toast(`Filtering: ${label}`, 'ok', '⌕');
             };
             const clearFilter = () => {
                 $$('.products .card').forEach(c => c.classList.remove('hide'));
@@ -532,14 +532,14 @@
                     if (!list.includes(email)) list.push(email);
                     localStorage.setItem('hand_subs', JSON.stringify(list));
                     form.classList.add('done');
-                    form.innerHTML = '<div style="padding:14px 22px;font-family:\'Bungee\',sans-serif;font-size:13px;letter-spacing:.16em;color:var(--ink)">â˜» You\'re on the list. Check your inbox.</div>';
-                    $('#signupSuccess').textContent = 'Welcome to the family â€” drops & news headed your way.';
-                    toast('Subscribed â˜» Welcome to the family');
+                    form.innerHTML = '<div style="padding:14px 22px;font-family:\'Bungee\',sans-serif;font-size:13px;letter-spacing:.16em;color:var(--ink)">☻ You\'re on the list. Check your inbox.</div>';
+                    $('#signupSuccess').textContent = 'Welcome to the family — drops & news headed your way.';
+                    toast('Subscribed ☻ Welcome to the family');
                 }, 700);
             });
 
             // ============================================================
-            //  TYPE PILLS â€” filter by product type
+            //  TYPE PILLS — filter by product type
             // ============================================================
             const typeMap = {
                 't-shirts': /t-shirt|tee/i,
@@ -572,7 +572,7 @@
             });
 
             // ============================================================
-            //  Footer / "Log in" / Account links â€” graceful demo modal
+            //  Footer / "Log in" / Account links — graceful demo modal
             // ============================================================
             $$('.footer ul a, .nav-link, .footer .socials a').forEach(a => {
                 const txt = a.textContent.trim().toLowerCase();
@@ -584,12 +584,12 @@
                         if (a.classList.contains('socials') || a.parentElement.classList.contains('socials')) {
                             toast('Follow us on ' + (txt === 'fb' ? 'Facebook' : 'Instagram'));
                         } else {
-                            toast(`Going to: ${a.textContent.trim()}`, 'ok', 'â†’');
+                            toast(`Going to: ${a.textContent.trim()}`, 'ok', '→');
                         }
                     });
                 }
             });
-            // Log in link â†’ demo
+            // Log in link → demo
             $$('a').forEach(a => {
                 if (a.textContent.trim().toLowerCase() === 'log in' && a.getAttribute('href') === '#') {
                     a.addEventListener('click', (e) => {
@@ -597,7 +597,7 @@
                         const email = prompt('Demo Login\n\nEnter your email to sign in:');
                         if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                             localStorage.setItem('hand_user', email);
-                            toast('Welcome back, ' + email.split('@')[0] + ' â˜»');
+                            toast('Welcome back, ' + email.split('@')[0] + ' ☻');
                         } else if (email) toast('Invalid email', 'err', '!');
                     });
                 }
@@ -608,7 +608,7 @@
                 e.preventDefault();
                 const msg = prompt('Licensing & Wholesale Enquiry\n\nLeave us your email and a short note. We\'ll be in touch.\n\nYour email:');
                 if (msg && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(msg)) {
-                    toast('Thanks! We\'ll be in touch â˜»');
+                    toast('Thanks! We\'ll be in touch ☻');
                 } else if (msg) toast('Invalid email', 'err', '!');
             });
 
@@ -618,8 +618,8 @@
                 if (/View All|Open Full Gallery/i.test(txt)) {
                     btn.addEventListener('click', (e) => {
                         e.preventDefault();
-                        if (/Gallery/i.test(txt)) toast('Opening full gallery...', 'ok', 'â†’');
-                        else toast('Loading all 84 pieces...', 'ok', 'âŒ•');
+                        if (/Gallery/i.test(txt)) toast('Opening full gallery...', 'ok', '→');
+                        else toast('Loading all 84 pieces...', 'ok', '⌕');
                     });
                 }
             });
@@ -641,7 +641,7 @@
                 const wrap = $('#toastWrap');
                 const el = document.createElement('div');
                 el.className = 'toast-msg show';
-                el.innerHTML = `<span class="ic">â˜»</span><span><b>${p.name} from ${p.city}</b><br><span style="font-size:11px;color:rgba(255,254,247,.6)">just bought ${p.product}</span></span>`;
+                el.innerHTML = `<span class="ic">☻</span><span><b>${p.name} from ${p.city}</b><br><span style="font-size:11px;color:rgba(255,254,247,.6)">just bought ${p.product}</span></span>`;
                 el.style.transform = 'none';
                 wrap.appendChild(el);
                 setTimeout(() => { el.style.transform = 'translateX(120%)'; setTimeout(() => el.remove(), 400); }, 4500);
@@ -658,7 +658,7 @@
             //  Initial render
             // ============================================================
             renderCart();
-            if (state.cart.length) toast(`Welcome back Â· ${state.cart.length} item${state.cart.length === 1 ? '' : 's'} saved in bag`);
+            if (state.cart.length) toast(`Welcome back · ${state.cart.length} item${state.cart.length === 1 ? '' : 's'} saved in bag`);
 
             // Expose for debug
             window.HAND = { state, addToCart, openCart, openSearch, openModal, applyFilter, clearFilter, toast };

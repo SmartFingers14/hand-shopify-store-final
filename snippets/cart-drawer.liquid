@@ -3,7 +3,7 @@
     <h3>{{ 'cart.general.title' | t }}
       <span id="cartItemsCount" style="font-family:'Bungee',sans-serif;font-size:13px;color:var(--mute);letter-spacing:.14em;margin-left:6px">({{ cart.item_count }})</span>
     </h3>
-    <button class="x" data-close-cart aria-label="Close cart">âœ•</button>
+    <button class="x" data-close-cart aria-label="Close cart">✕</button>
   </div>
   <div class="drawer-body" id="cartBody">
     {%- if cart.item_count == 0 -%}
@@ -11,7 +11,7 @@
         <div class="big-smy"></div>
         <h4>{{ 'cart.general.empty' | t }}</h4>
         <p>Time to start the comeback. The originals are waiting.</p>
-        <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">Shop The Originals â†’</a>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">Shop The Originals →</a>
       </div>
     {%- else -%}
       <div class="empty-cart" id="emptyCart" style="display:none">
@@ -25,17 +25,17 @@
             {%- if item.image -%}
               <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}">
             {%- else -%}
-              <span style="font-size:24px">â˜»</span>
+              <span style="font-size:24px">☻</span>
             {%- endif -%}
           </div>
           <div class="meta">
             <div class="nm">{{ item.product.title }}</div>
             <div class="sub">
               {{ item.product.vendor }}
-              {%- if item.variant.title != 'Default Title' %} Â· {{ item.variant.title }}{% endif -%}
+              {%- if item.variant.title != 'Default Title' %} · {{ item.variant.title }}{% endif -%}
             </div>
             <div class="qty">
-              <button data-cart-dec="{{ item.key }}" aria-label="Decrease">âˆ’</button>
+              <button data-cart-dec="{{ item.key }}" aria-label="Decrease">−</button>
               <span>{{ item.quantity }}</span>
               <button data-cart-inc="{{ item.key }}" aria-label="Increase">+</button>
             </div>
@@ -52,7 +52,7 @@
     <div class="ship-note" id="shipNote">
       {%- assign threshold = 5000 -%}
       {%- if cart.total_price >= threshold -%}
-        <b>â˜» Free UK shipping unlocked</b>
+        <b>☻ Free UK shipping unlocked</b>
       {%- else -%}
         Add <b>{{ threshold | minus: cart.total_price | money }}</b> more for free UK shipping
       {%- endif -%}

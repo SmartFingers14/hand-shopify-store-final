@@ -32,28 +32,28 @@
   <div class="mega" id="megaMenu">
     <div class="mega-inner">
       <div>
-        <h6>{{ section.settings.mega_title | default: 'The House Â· 9 brands' }}</h6>
+        <h6>{{ section.settings.mega_title | default: 'The House · 9 brands' }}</h6>
         <ul>
           {%- for link in linklists[section.settings.mega_menu].links -%}
-            <li><a href="{{ link.url }}">{{ link.title }} <span class="arr">â†’</span></a></li>
+            <li><a href="{{ link.url }}">{{ link.title }} <span class="arr">→</span></a></li>
           {%- endfor -%}
         </ul>
         {%- if section.settings.mega_menu_2 != blank -%}
           <h6 style="margin-top:24px">By Type</h6>
           <ul style="gap:6px">
             {%- for link in linklists[section.settings.mega_menu_2].links -%}
-              <li><a href="{{ link.url }}" style="font-size:14px">{{ link.title }} <span class="arr">â†’</span></a></li>
+              <li><a href="{{ link.url }}" style="font-size:14px">{{ link.title }} <span class="arr">→</span></a></li>
             {%- endfor -%}
           </ul>
         {%- endif -%}
       </div>
       <div class="mega-feature">
         <div>
-          <div class="bungee" style="font-size:11px;letter-spacing:.18em;margin-bottom:10px">{{ section.settings.feature_eyebrow | default: 'Featured Â· The Original' }}</div>
+          <div class="bungee" style="font-size:11px;letter-spacing:.18em;margin-bottom:10px">{{ section.settings.feature_eyebrow | default: 'Featured · The Original' }}</div>
           <h4>{{ section.settings.feature_heading | default: 'Sam The Man.' }}<br>{{ section.settings.feature_sub | default: 'The icon since 1990.' }}</h4>
           <p>{{ section.settings.feature_text | default: 'The graphic that became part of UK rave history. Front-print tee & sweatshirt available now.' }}</p>
         </div>
-        <a class="gobtn" href="{{ section.settings.feature_link | default: '/collections/all' }}">Shop Sam <span>â†’</span></a>
+        <a class="gobtn" href="{{ section.settings.feature_link | default: '/collections/all' }}">Shop Sam <span>→</span></a>
       </div>
     </div>
   </div>
@@ -67,10 +67,10 @@
     { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" },
     { "type": "checkbox", "id": "hide_first", "label": "Hide first link (it's the Shop trigger)", "default": false },
     { "type": "header", "content": "Mega menu" },
-    { "type": "text", "id": "mega_title", "label": "Mega title", "default": "The House Â· 9 brands" },
+    { "type": "text", "id": "mega_title", "label": "Mega title", "default": "The House · 9 brands" },
     { "type": "link_list", "id": "mega_menu", "label": "Mega menu links", "default": "main-menu" },
     { "type": "link_list", "id": "mega_menu_2", "label": "Secondary mega menu (By type)", "default": "footer" },
-    { "type": "text", "id": "feature_eyebrow", "label": "Feature eyebrow", "default": "Featured Â· The Original" },
+    { "type": "text", "id": "feature_eyebrow", "label": "Feature eyebrow", "default": "Featured · The Original" },
     { "type": "text", "id": "feature_heading", "label": "Feature heading", "default": "Sam The Man." },
     { "type": "text", "id": "feature_sub", "label": "Feature subheading", "default": "The icon since 1990." },
     { "type": "textarea", "id": "feature_text", "label": "Feature text", "default": "The graphic that became part of UK rave history." },

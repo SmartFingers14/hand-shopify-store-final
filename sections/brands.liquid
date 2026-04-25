@@ -12,7 +12,7 @@
       {%- for block in section.blocks -%}
         <a href="{{ block.settings.link }}" class="brand-tile bt-{{ block.settings.style }} reveal" {{ block.shopify_attributes }}>
           <span class="num">{{ block.settings.num }}</span>
-          <span class="arr">â†’</span>
+          <span class="arr">→</span>
           <div class="vibe">{{ block.settings.vibe }}</div>
           <span class="label">{{ block.settings.label }}</span>
         </a>
@@ -26,7 +26,7 @@
   "name": "Brands rail",
   "max_blocks": 12,
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Brands Â· 9 Worlds" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Brands · 9 Worlds" },
     { "type": "text", "id": "heading_pre", "label": "Heading before highlight", "default": "One" },
     { "type": "text", "id": "heading_em",  "label": "Highlighted word", "default": "house" },
     { "type": "text", "id": "heading_post","label": "Heading after", "default": "Nine independent brands." },
@@ -38,7 +38,7 @@
       "name": "Brand tile",
       "settings": [
         { "type": "text", "id": "num",   "label": "Number", "default": "01" },
-        { "type": "text", "id": "vibe",  "label": "Vibe word", "default": "â˜»" },
+        { "type": "text", "id": "vibe",  "label": "Vibe word", "default": "☻" },
         { "type": "text", "id": "label", "label": "Brand name", "default": "Have A Nice Day" },
         { "type": "url",  "id": "link",  "label": "Link" },
         { "type": "select", "id": "style", "label": "Color style",
@@ -62,7 +62,7 @@
     {
       "name": "Brands rail",
       "blocks": [
-        { "type": "brand", "settings": { "num": "01", "vibe": "â˜»",     "label": "Have A Nice Day",  "style": "hand" } },
+        { "type": "brand", "settings": { "num": "01", "vibe": "☻",     "label": "Have A Nice Day",  "style": "hand" } },
         { "type": "brand", "settings": { "num": "02", "vibe": "DREAD", "label": "Dready",           "style": "dready" } },
         { "type": "brand", "settings": { "num": "03", "vibe": "SIS",   "label": "Sista",            "style": "sista" } },
         { "type": "brand", "settings": { "num": "04", "vibe": "RECORDS","label": "Handspun Records","style": "handspun" } },
