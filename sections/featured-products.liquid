@@ -19,7 +19,7 @@
       {%- assign limit = section.settings.product_count | default: 8 -%}
       {%- if coll != empty and coll.products_count > 0 -%}
         {%- for product in coll.products limit: limit -%}
-          {%- include 'product-card', product: product, forloop: forloop -%}
+          {% render 'product-card', product: product, index: forloop.index0 %}
         {%- endfor -%}
       {%- else -%}
         {%- for i in (1..limit) -%}

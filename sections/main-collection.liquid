@@ -11,7 +11,7 @@
     <div class="products">
       {%- paginate collection.products by 24 -%}
         {%- for product in collection.products -%}
-          {%- include 'product-card', product: product, forloop: forloop -%}
+          {% render 'product-card', product: product, index: forloop.index0 %}
         {%- else -%}
           <div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--ink-soft)">
             <p>No products yet — check back soon ☻</p>

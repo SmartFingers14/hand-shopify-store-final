@@ -15,7 +15,7 @@
     <div class="products">
       {%- for item in search.results -%}
         {%- if item.object_type == 'product' -%}
-          {%- include 'product-card', product: item, forloop: forloop -%}
+          {% render 'product-card', product: item, index: forloop.index0 %}
         {%- else -%}
           <a href="{{ item.url }}" class="card bg-cream reveal" style="padding:22px;display:block">
             <div class="card-cat">{{ item.object_type }}</div>

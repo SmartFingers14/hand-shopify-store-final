@@ -1,11 +1,11 @@
-{%- comment -%} Single product card · brand-aligned {%- endcomment -%}
+{%- comment -%} Single product card · brand-aligned. Render with: {% render 'product-card', product: product, index: forloop.index0 %} {%- endcomment -%}
 {%- liquid
   assign p = product
   assign featured = p.featured_image
   assign price = p.price | money
   assign bg_classes = 'bg-cream,bg-pink,bg-acid,bg-blue,bg-mint,bg-blk'
   assign bg_arr = bg_classes | split: ','
-  assign idx = forloop.index0 | default: 0
+  assign idx = index | default: 0
   assign mod = idx | modulo: bg_arr.size
   assign bg_class = bg_arr[mod]
 -%}
