@@ -231,7 +231,7 @@
   .hand-foot-marquee {
     display: flex;
     gap: 0;
-    animation: hand-foot-scroll 22s linear infinite;
+    animation: hand-foot-scroll 60s linear infinite;
     white-space: nowrap;
     width: max-content;
   }
@@ -256,6 +256,9 @@
   @keyframes hand-foot-scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+  }
+  .hand-foot-marquee:hover {
+    animation-play-state: paused;
   }
 
   /* ===== BIG WORDMARK ===== */
