@@ -1,0 +1,340 @@
+{% comment %}
+  Brand Page: Dready Original
+  Shows all products from the "dready" collection
+  Uses Motion.dev for scroll-triggered animations
+{% endcomment %}
+
+{%- assign brand_col = collections['dready'] -%}
+
+<!-- BRAND HERO -->
+<section class="hand-brand-hero dready-hero">
+  <div class="hand-brand-hero-bg dready-bg"></div>
+  <div class="dready-hero-pattern"></div>
+  <div class="hand-container">
+    <div class="hand-brand-hero-inner">
+      <div class="hand-brand-eyebrow">
+        <span class="hand-brand-num">02 / Roots</span>
+        <span class="hand-brand-dot"></span>
+        <span>Est. 1990 · Camden, London</span>
+      </div>
+      <h1 class="hand-brand-h1 dready-h1">
+        <span class="hand-brand-line">Dready</span>
+        <span class="hand-brand-line dready-line-2">Original<span class="hand-brand-reg">®</span></span>
+      </h1>
+      <div class="hand-brand-hero-meta">
+        <p class="hand-brand-tagline">{{ section.settings.tagline | default: 'Roots. Reggae. Rebellion. Born in Camden, raised on culture — Dready Original has been printing the underground since 1990.' }}</p>
+        <div class="hand-brand-hero-stats">
+          <div class="hand-brand-stat">
+            <span class="hand-brand-stat-num">{{ brand_col.products_count | default: '155+' }}</span>
+            <span class="hand-brand-stat-label">Products</span>
+          </div>
+          <div class="hand-brand-stat">
+            <span class="hand-brand-stat-num">1990</span>
+            <span class="hand-brand-stat-label">Founded</span>
+          </div>
+          <div class="hand-brand-stat">
+            <span class="hand-brand-stat-num">30+</span>
+            <span class="hand-brand-stat-label">Years</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hand-brand-hero-scroll">
+      <span>Scroll</span>
+      <div class="hand-brand-scroll-line dready-scroll"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND IDENTITY STRIP -->
+<div class="dready-identity-strip">
+  <div class="hand-container">
+    <div class="dready-identity-grid">
+      <div class="dready-identity-item">
+        <span class="dready-identity-icon">🌿</span>
+        <div class="dready-identity-label">Roots</div>
+        <div class="dready-identity-sub">Reggae · Culture</div>
+      </div>
+      <div class="dready-identity-item">
+        <span class="dready-identity-icon">🎵</span>
+        <div class="dready-identity-label">Sound</div>
+        <div class="dready-identity-sub">Music · Vibes</div>
+      </div>
+      <div class="dready-identity-item">
+        <span class="dready-identity-icon">🏙️</span>
+        <div class="dready-identity-label">Camden</div>
+        <div class="dready-identity-sub">London · Street</div>
+      </div>
+      <div class="dready-identity-item">
+        <span class="dready-identity-icon">✊</span>
+        <div class="dready-identity-label">Rebellion</div>
+        <div class="dready-identity-sub">Underground · Real</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="hand-brand-ticker dready-ticker">
+  <div class="hand-brand-ticker-track">
+    <span>Dready Original</span><span class="dot">·</span>
+    <span>Roots Reggae</span><span class="dot">·</span>
+    <span>Camden London</span><span class="dot">·</span>
+    <span>Est. 1990</span><span class="dot">·</span>
+    <span>DJ Dready</span><span class="dot">·</span>
+    <span>Underground Culture</span><span class="dot">·</span>
+    <span>Free De Herb</span><span class="dot">·</span>
+    <span>Dready Original</span><span class="dot">·</span>
+    <span>Roots Reggae</span><span class="dot">·</span>
+    <span>Camden London</span><span class="dot">·</span>
+    <span>Est. 1990</span><span class="dot">·</span>
+    <span>DJ Dready</span><span class="dot">·</span>
+    <span>Underground Culture</span><span class="dot">·</span>
+    <span>Free De Herb</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- ALL PRODUCTS -->
+<section class="hand-brand-products hand-sec" id="hand-brand-shop">
+  <div class="hand-container">
+    <div class="hand-sec-head">
+      <div class="lhs">
+        <div class="eyebrow">The Full Collection</div>
+        <h2>All Products.</h2>
+      </div>
+      <div class="rhs">
+        <p>Every piece from Dready Original — from the classic 90s prints to the latest drops. All made in small UK batches.</p>
+        <div class="hand-brand-filter">
+          <button class="hand-filter-btn active" data-filter="all">All</button>
+          <button class="hand-filter-btn" data-filter="tee">T-Shirts</button>
+          <button class="hand-filter-btn" data-filter="hood">Hoodies</button>
+          <button class="hand-filter-btn" data-filter="dj">DJ Dready</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hand-grid hand-brand-grid" id="hand-brand-product-grid">
+      {%- for product in brand_col.products -%}
+        {%- assign filter_tag = 'all' -%}
+        {%- assign title_lower = product.title | downcase -%}
+        {%- if title_lower contains 'dj dready' or title_lower contains 'dj ' -%}
+          {%- assign filter_tag = 'dj' -%}
+        {%- elsif title_lower contains 'hoodie' or title_lower contains 'hood' or title_lower contains 'sweatshirt' or title_lower contains 'zip' -%}
+          {%- assign filter_tag = 'hood' -%}
+        {%- elsif title_lower contains 't-shirt' or title_lower contains 'tee' or title_lower contains 'long-sleeve' or title_lower contains 'longsleeve' -%}
+          {%- assign filter_tag = 'tee' -%}
+        {%- endif -%}
+        <a class="hand-card hand-brand-card" href="{{ product.url }}" data-filter="{{ filter_tag }}">
+          <div class="imgwrap">
+            <span class="tag">{{ product.type | default: 'Dready Original' }}</span>
+            {%- if product.featured_image -%}
+              <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" width="600" height="600" />
+            {%- else -%}
+              <div style="width:100%;height:340px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;">
+                <span style="color:#444;font-family:monospace;font-size:11px;letter-spacing:.1em;">DREADY ORIGINAL</span>
+              </div>
+            {%- endif -%}
+            <span class="quick">Quick Add &#8594;</span>
+          </div>
+          <div class="body">
+            <div class="vendor">{{ product.vendor }}</div>
+            <div class="name">{{ product.title }}</div>
+            <div class="row2">
+              <div class="price">{{ product.price | money }}</div>
+              {%- if product.compare_at_price > product.price -%}
+                <div class="price-was" style="text-decoration:line-through;color:#999;font-size:12px;">{{ product.compare_at_price | money }}</div>
+              {%- endif -%}
+            </div>
+          </div>
+        </a>
+      {%- else -%}
+        <div style="grid-column:1/-1;padding:60px;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:#888;text-transform:uppercase;">
+          No products found. Check back soon.
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STORY -->
+<section class="hand-brand-story dready-story">
+  <div class="hand-container">
+    <div class="hand-brand-story-inner">
+      <div class="hand-brand-story-lhs">
+        <div class="eyebrow">The Story</div>
+        <h2>Roots.<br>Reggae.<br>Camden.</h2>
+      </div>
+      <div class="hand-brand-story-rhs">
+        <p>{{ section.settings.story_text | default: "Dready Original was born from the same Camden market stall as Have A Nice Day — but with a different heartbeat. Reggae rhythms, Rastafarian culture, and the underground sound of London's streets. DJ Dready brought the music, the prints brought the message. Over 155 products later, the roots run deeper than ever." }}</p>
+        <a class="more" href="/pages/about-us">Our Full Story &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ============ DREADY HERO ============ */
+.dready-hero {
+  background: #0d1a0d !important;
+}
+.dready-bg {
+  background: radial-gradient(ellipse at 30% 60%, rgba(34,85,34,.25) 0%, transparent 55%),
+              radial-gradient(ellipse at 80% 20%, rgba(255,200,0,.08) 0%, transparent 50%) !important;
+}
+.dready-hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: .03;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #fff 0px, #fff 1px,
+    transparent 1px, transparent 20px
+  );
+}
+.dready-h1 .hand-brand-line { color: #fff; }
+.dready-line-2 { color: #c8e63c !important; }
+.hand-brand-reg { color: #c8e63c !important; }
+.dready-scroll::after { background: #c8e63c !important; }
+
+/* ============ IDENTITY STRIP ============ */
+.dready-identity-strip {
+  background: #111;
+  padding: 48px 0;
+  border-top: 1px solid rgba(200,230,60,.15);
+  border-bottom: 1px solid rgba(200,230,60,.15);
+}
+.dready-identity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(200,230,60,.1);
+}
+.dready-identity-item {
+  background: #111;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  transition: background .25s;
+}
+.dready-identity-item:hover { background: #1a2a0a; }
+.dready-identity-icon { font-size: 28px; }
+.dready-identity-label {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #c8e63c;
+  letter-spacing: -.01em;
+}
+.dready-identity-sub {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+}
+
+/* ============ DREADY TICKER ============ */
+.dready-ticker {
+  background: #c8e63c !important;
+}
+.dready-ticker .hand-brand-ticker-track {
+  color: #0d1a0d !important;
+}
+.dready-ticker .dot { color: #0d1a0d !important; opacity: .4; }
+
+/* ============ DREADY STORY ============ */
+.dready-story { background: #0d1a0d !important; }
+.dready-story .eyebrow { color: #c8e63c !important; }
+.dready-story h2 { color: #fff !important; }
+.dready-story p { color: rgba(255,255,255,.6) !important; }
+.dready-story .more { color: #c8e63c !important; border-color: #c8e63c !important; }
+
+/* ============ FILTER BUTTONS ============ */
+.hand-brand-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.hand-filter-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.hand-filter-btn:hover,
+.hand-filter-btn.active {
+  background: var(--ink);
+  color: #fff;
+}
+.hand-brand-card[style*="display:none"] { display: none !important; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .dready-identity-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var filterBtns = document.querySelectorAll('.hand-filter-btn');
+  var cards = document.querySelectorAll('.hand-brand-card');
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var filter = this.dataset.filter;
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+      cards.forEach(function(card) {
+        if (filter === 'all' || card.dataset.filter === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  if (window.Motion) {
+    var { animate, stagger, inView } = window.Motion;
+    animate('.hand-brand-eyebrow', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.2 });
+    animate('.hand-brand-line', { opacity: [0, 1], y: [60, 0] }, { delay: stagger(0.1, { start: 0.3 }), duration: 0.8, easing: [0.22, 1, 0.36, 1] });
+    animate('.hand-brand-tagline', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.7 });
+    animate('.hand-brand-hero-stats', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.9 });
+    inView('.dready-identity-item', function(el) {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.6, easing: [0.22, 1, 0.36, 1] });
+    }, { margin: '-5% 0px' });
+    inView('.hand-brand-card', function(el) {
+      animate(el, { opacity: [0, 1], y: [24, 0] }, { duration: 0.55, easing: [0.22, 1, 0.36, 1] });
+    }, { margin: '-5% 0px' });
+    inView('.hand-brand-story-inner', function(el) {
+      animate(el.querySelectorAll('.hand-brand-story-lhs, .hand-brand-story-rhs'),
+        { opacity: [0, 1], y: [30, 0] },
+        { delay: stagger(0.15), duration: 0.7, easing: [0.22, 1, 0.36, 1] }
+      );
+    }, { margin: '-10% 0px' });
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Brand: Dready Original",
+  "settings": [
+    { "type": "textarea", "id": "tagline", "label": "Hero tagline", "default": "Roots. Reggae. Rebellion. Born in Camden, raised on culture — Dready Original has been printing the underground since 1990." },
+    { "type": "textarea", "id": "story_text", "label": "Brand story text", "default": "Dready Original was born from the same Camden market stall as Have A Nice Day — but with a different heartbeat. Reggae rhythms, Rastafarian culture, and the underground sound of London's streets. DJ Dready brought the music, the prints brought the message. Over 155 products later, the roots run deeper than ever." }
+  ],
+  "presets": [
+    { "name": "Brand: Dready Original" }
+  ]
+}
+{% endschema %}
