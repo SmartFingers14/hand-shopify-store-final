@@ -112,6 +112,100 @@
     },
     "products": {
       "type": "v3-products",
+      "blocks": {
+        "p1": {
+          "type": "product_card",
+          "settings": {
+            "tag": "Reissue",
+            "vendor": "Have A Nice Day",
+            "title": "Sam The Man Front Print T-Shirt",
+            "price": "£29.99",
+            "link": "/collections/all"
+          }
+        },
+        "p2": {
+          "type": "product_card",
+          "settings": {
+            "tag": "New",
+            "tag_pink": true,
+            "vendor": "Have A Nice Day",
+            "title": "Shurl The Girl Front & Back Print Tee",
+            "price": "£34.99",
+            "link": "/collections/all"
+          }
+        },
+        "p3": {
+          "type": "product_card",
+          "settings": {
+            "tag": "Hoodie",
+            "vendor": "Vortex",
+            "title": "Close Encounter F&B Print Organic Hoodie",
+            "price": "£75.00",
+            "link": "/collections/all"
+          }
+        },
+        "p4": {
+          "type": "product_card",
+          "settings": {
+            "tag": "Heavy",
+            "vendor": "BTKA",
+            "title": "Punk Rocks 90s Classic F&B Hoodie",
+            "price": "£75.00",
+            "link": "/collections/all"
+          }
+        },
+        "p5": {
+          "type": "product_card",
+          "settings": {
+            "tag": "Funk",
+            "vendor": "Funky Dog",
+            "title": "Atomic Dog Hoodie",
+            "price": "£69.99",
+            "link": "/collections/all"
+          }
+        },
+        "p6": {
+          "type": "product_card",
+          "settings": {
+            "tag": "Sweat",
+            "vendor": "Don't Do The Dodo",
+            "title": "Professor Watercooler F&B Sweatshirt",
+            "price": "£50.00",
+            "link": "/collections/all"
+          }
+        },
+        "p7": {
+          "type": "product_card",
+          "settings": {
+            "tag": "Records",
+            "vendor": "Handspun Records",
+            "title": "Classic Front & Back Print Logo Tee",
+            "price": "£35.00",
+            "link": "/collections/all"
+          }
+        },
+        "p8": {
+          "type": "product_card",
+          "settings": {
+            "tag": "Roots",
+            "tag_pink": true,
+            "vendor": "Dready Original",
+            "title": "Free De Herb Front Print Tee",
+            "price": "£29.99",
+            "link": "/collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+      ],
       "settings": {
         "eyebrow": "Drop 04 / Featured Reissues",
         "heading": "Heritage Hits.",
@@ -143,7 +237,6 @@
             "number": "01 / Flagship",
             "name": "Have A Nice Day",
             "desc": "Sam The Man · Shurl The Girl",
-            "link": "/pages/have-a-nice-day",
             "style": "featured"
           }
         },
@@ -153,8 +246,7 @@
             "number": "02",
             "name": "Dready Original",
             "desc": "Roots · Reggae · Camden",
-            "style": "",
-            "link": "/pages/dready-original"
+            "style": ""
           }
         },
         "b3": {
@@ -163,8 +255,7 @@
             "number": "03",
             "name": "Handspun Records",
             "desc": "Vinyl · Sound · Wax",
-            "style": "accent",
-            "link": "/pages/handspun-records"
+            "style": "accent"
           }
         },
         "b4": {
@@ -245,7 +336,6 @@
         "c1": {
           "type": "category",
           "settings": {
-            "collection_handle": "t-shirts",
             "top_left": "01 / Cotton",
             "top_right": "From £29.99",
             "title": "T-Shirts",
@@ -255,7 +345,6 @@
         "c2": {
           "type": "category",
           "settings": {
-            "collection_handle": "btka",
             "top_left": "02 / Heavy",
             "top_right": "From £42.00",
             "title": "Sweatshirts",
@@ -265,7 +354,6 @@
         "c3": {
           "type": "category",
           "settings": {
-            "collection_handle": "hoodies",
             "top_left": "03 / Hooded",
             "top_right": "From £65.00",
             "title": "Hoodies",
@@ -275,7 +363,6 @@
         "c4": {
           "type": "category",
           "settings": {
-            "collection_handle": "sista",
             "top_left": "04 / Extras",
             "top_right": "From £5.00",
             "title": "Accessories",
