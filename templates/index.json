@@ -16,7 +16,7 @@
           "type": "stat",
           "settings": {
             "number": "1990",
-            "label": "Founded — Camden"
+            "label": "Founded â€” Camden"
           }
         },
         "s2": {
@@ -48,20 +48,20 @@
         "s4"
       ],
       "settings": {
-        "meta_left": "Est. 1990 — Vol. 04",
-        "meta_right": "Camden ↗ London NW1",
+        "meta_left": "Est. 1990 â€” Vol. 04",
+        "meta_right": "Camden â†— London NW1",
         "h1_line1": "From The",
         "h1_strike": "Underground",
         "h1_line3_pre": "To The",
         "h1_accent": "Streets",
         "h1_line3_post": ".",
-        "subtext": "Original Camden 90s rave streetwear. The label behind Sam The Man, Shurl The Girl, Dready, BTKA, Vortex, Funky Dog & more — reissued on heavyweight organic cotton, printed in the UK.",
+        "subtext": "Original Camden 90s rave streetwear. The label behind Sam The Man, Shurl The Girl, Dready, BTKA, Vortex, Funky Dog & more â€” reissued on heavyweight organic cotton, printed in the UK.",
         "cta1_label": "Shop The Drop",
         "cta2_label": "Our Story",
-        "topbar_left": "LIVE — DROP 04",
+        "topbar_left": "LIVE â€” DROP 04",
         "topbar_right": "Vol. 04 / 2026",
         "stamp_left_label": "Now Reissued",
-        "stamp_left_value": "Sam The Man™",
+        "stamp_left_value": "Sam The Manâ„¢",
         "stamp_right_label": "Original Brand",
         "stamp_right_value": "Camden 1990"
       }
@@ -119,7 +119,7 @@
             "tag": "Reissue",
             "vendor": "Have A Nice Day",
             "title": "Sam The Man Front Print T-Shirt",
-            "price": "£29.99",
+            "price": "Â£29.99",
             "link": "/collections/all"
           }
         },
@@ -130,7 +130,7 @@
             "tag_pink": true,
             "vendor": "Have A Nice Day",
             "title": "Shurl The Girl Front & Back Print Tee",
-            "price": "£34.99",
+            "price": "Â£34.99",
             "link": "/collections/all"
           }
         },
@@ -140,7 +140,7 @@
             "tag": "Hoodie",
             "vendor": "Vortex",
             "title": "Close Encounter F&B Print Organic Hoodie",
-            "price": "£75.00",
+            "price": "Â£75.00",
             "link": "/collections/all"
           }
         },
@@ -150,7 +150,7 @@
             "tag": "Heavy",
             "vendor": "BTKA",
             "title": "Punk Rocks 90s Classic F&B Hoodie",
-            "price": "£75.00",
+            "price": "Â£75.00",
             "link": "/collections/all"
           }
         },
@@ -160,7 +160,7 @@
             "tag": "Funk",
             "vendor": "Funky Dog",
             "title": "Atomic Dog Hoodie",
-            "price": "£69.99",
+            "price": "Â£69.99",
             "link": "/collections/all"
           }
         },
@@ -170,7 +170,7 @@
             "tag": "Sweat",
             "vendor": "Don't Do The Dodo",
             "title": "Professor Watercooler F&B Sweatshirt",
-            "price": "£50.00",
+            "price": "Â£50.00",
             "link": "/collections/all"
           }
         },
@@ -180,7 +180,7 @@
             "tag": "Records",
             "vendor": "Handspun Records",
             "title": "Classic Front & Back Print Logo Tee",
-            "price": "£35.00",
+            "price": "Â£35.00",
             "link": "/collections/all"
           }
         },
@@ -191,7 +191,7 @@
             "tag_pink": true,
             "vendor": "Dready Original",
             "title": "Free De Herb Front Print Tee",
-            "price": "£29.99",
+            "price": "Â£29.99",
             "link": "/collections/all"
           }
         }
@@ -209,8 +209,8 @@
       "settings": {
         "eyebrow": "Drop 04 / Featured Reissues",
         "heading": "Heritage Hits.",
-        "subtext": "Eight pieces from across the family — pulled from the original 1990 archive, printed in small UK batches on 220gsm organic cotton.",
-        "view_all_label": "Shop All Products →",
+        "subtext": "Eight pieces from across the family â€” pulled from the original 1990 archive, printed in small UK batches on 220gsm organic cotton.",
+        "view_all_label": "Shop All Products â†’",
         "product_count": 8
       }
     },
@@ -218,11 +218,11 @@
       "type": "v3-featured-product",
       "settings": {
         "eyebrow": "Spotlight / This Drop",
-        "badge": "Drop 04 — Featured",
+        "badge": "Drop 04 â€” Featured",
         "title_pre": "Sam The Man",
         "title_accent": "Front Print Tee",
         "description": "The original character. Hand-drawn in Camden 1990, now reissued on 220gsm organic cotton. Front print, relaxed fit, UK printed in small batches. The one that started it all.",
-        "price": "£29.99",
+        "price": "Â£29.99",
         "vendor": "Have A Nice Day",
         "cta_label": "Shop Now",
         "cta_link": "/collections/all"
@@ -236,7 +236,7 @@
           "settings": {
             "number": "01 / Flagship",
             "name": "Have A Nice Day",
-            "desc": "Sam The Man · Shurl The Girl",
+            "desc": "Sam The Man Â· Shurl The Girl",
             "style": "featured"
           }
         },
@@ -245,7 +245,7 @@
           "settings": {
             "number": "02",
             "name": "Dready Original",
-            "desc": "Roots · Reggae · Camden",
+            "desc": "Roots Â· Reggae Â· Camden",
             "style": ""
           }
         },
@@ -254,7 +254,7 @@
           "settings": {
             "number": "03",
             "name": "Handspun Records",
-            "desc": "Vinyl · Sound · Wax",
+            "desc": "Vinyl Â· Sound Â· Wax",
             "style": "accent"
           }
         },
@@ -263,7 +263,7 @@
           "settings": {
             "number": "04",
             "name": "BTKA",
-            "desc": "Punk Rocks · Sleazy Rider",
+            "desc": "Punk Rocks Â· Sleazy Rider",
             "style": ""
           }
         },
@@ -272,7 +272,7 @@
           "settings": {
             "number": "05",
             "name": "Vortex",
-            "desc": "Info The Robot · Close Encounter",
+            "desc": "Info The Robot Â· Close Encounter",
             "style": ""
           }
         },
@@ -281,7 +281,7 @@
           "settings": {
             "number": "06",
             "name": "Funky Dog",
-            "desc": "Atomic Dog · Mongrel Soup",
+            "desc": "Atomic Dog Â· Mongrel Soup",
             "style": ""
           }
         },
@@ -290,7 +290,7 @@
           "settings": {
             "number": "07",
             "name": "Don't Do The Dodo",
-            "desc": "Professor Watercooler · Crest",
+            "desc": "Professor Watercooler Â· Crest",
             "style": ""
           }
         },
@@ -299,7 +299,7 @@
           "settings": {
             "number": "08",
             "name": "Incubator",
-            "desc": "Divergent · Outside The Box",
+            "desc": "Divergent Â· Outside The Box",
             "style": ""
           }
         },
@@ -308,7 +308,7 @@
           "settings": {
             "number": "09",
             "name": "Sista",
-            "desc": "Script · Silhouette · Slip Mats",
+            "desc": "Script Â· Silhouette Â· Slip Mats",
             "style": "accent"
           }
         }
@@ -325,9 +325,9 @@
         "b9"
       ],
       "settings": {
-        "eyebrow": "The Family — 09 Sub-Brands",
+        "eyebrow": "The Family â€” 09 Sub-Brands",
         "heading": "One Camden HQ. Nine Identities.",
-        "subtext": "Have A Nice Day was always more than one logo. Each sub-brand is its own world — born out of music, scene, and 30+ years of underground London."
+        "subtext": "Have A Nice Day was always more than one logo. Each sub-brand is its own world â€” born out of music, scene, and 30+ years of underground London."
       }
     },
     "categories": {
@@ -337,7 +337,7 @@
           "type": "category",
           "settings": {
             "top_left": "01 / Cotton",
-            "top_right": "From £29.99",
+            "top_right": "From Â£29.99",
             "title": "T-Shirts",
             "link": "/collections/t-shirts"
           }
@@ -346,7 +346,7 @@
           "type": "category",
           "settings": {
             "top_left": "02 / Heavy",
-            "top_right": "From £42.00",
+            "top_right": "From Â£42.00",
             "title": "Sweatshirts",
             "link": "/collections/sweatshirts"
           }
@@ -355,7 +355,7 @@
           "type": "category",
           "settings": {
             "top_left": "03 / Hooded",
-            "top_right": "From £65.00",
+            "top_right": "From Â£65.00",
             "title": "Hoodies",
             "link": "/collections/hoodies"
           }
@@ -364,7 +364,7 @@
           "type": "category",
           "settings": {
             "top_left": "04 / Extras",
-            "top_right": "From £5.00",
+            "top_right": "From Â£5.00",
             "title": "Accessories",
             "link": "/collections/accessories"
           }
@@ -379,22 +379,22 @@
       "settings": {
         "eyebrow": "Shop By Category",
         "heading": "Pick Your Uniform.",
-        "subtext": "From £15 slip mats to £105 embroidered Dready zips. Tees, sweats, hoods and the bits that finish the fit."
+        "subtext": "From Â£15 slip mats to Â£105 embroidered Dready zips. Tees, sweats, hoods and the bits that finish the fit."
       }
     },
     "story": {
       "type": "v3-story",
       "settings": {
-        "eyebrow": "Camden / 1990 → Now",
+        "eyebrow": "Camden / 1990 â†’ Now",
         "h2_line1": "Born In",
         "h2_pink": "Camden.",
         "h2_line2": "Raised By",
         "h2_yellow": "Rave.",
         "h2_line3": "Back For Real.",
-        "body1": "Have A Nice Day started in 1990, in the back rooms of Camden's underground rave scene. The flyers, the flags, the dancefloors — and one hand-drawn character, Sam The Man, who became the face of a movement.",
-        "body2": "After 17 years off the shelves, the original archive is back — not as nostalgia, as continuation. Same characters. Same family of cult sub-brands. Now printed on heavyweight organic cotton, in the UK, by the people who started it.",
-        "cta_label": "Read The Full Story →",
-        "stamp_left_label": "Character — 001",
+        "body1": "Have A Nice Day started in 1990, in the back rooms of Camden's underground rave scene. The flyers, the flags, the dancefloors â€” and one hand-drawn character, Sam The Man, who became the face of a movement.",
+        "body2": "After 17 years off the shelves, the original archive is back â€” not as nostalgia, as continuation. Same characters. Same family of cult sub-brands. Now printed on heavyweight organic cotton, in the UK, by the people who started it.",
+        "cta_label": "Read The Full Story â†’",
+        "stamp_left_label": "Character â€” 001",
         "stamp_left_value": "Sam The Man",
         "stamp_right_label": "Est. 1990",
         "stamp_right_value": "Camden NW1"
@@ -508,7 +508,7 @@
         "eyebrow": "Join The List",
         "heading_pre": "Be First To",
         "heading_pink": "Know.",
-        "body": "Be the first to know about new collections and exclusive offers. Drops, archive reissues and Camden-only releases — straight to your inbox.",
+        "body": "Be the first to know about new collections and exclusive offers. Drops, archive reissues and Camden-only releases â€” straight to your inbox.",
         "cta": "Subscribe",
         "disclaimer": "By subscribing you agree to our privacy policy. Unsubscribe anytime."
       }
