@@ -143,6 +143,7 @@
             "number": "01 / Flagship",
             "name": "Have A Nice Day",
             "desc": "Sam The Man · Shurl The Girl",
+            "link": "/pages/have-a-nice-day",
             "style": "featured"
           }
         },
@@ -242,7 +243,6 @@
         "c1": {
           "type": "category",
           "settings": {
-            "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/collections/27EFD626-5F4E-414C-B871-E43816C71A33.jpg?v=1727086069",
             "collection_handle": "t-shirts",
             "top_left": "01 / Cotton",
             "top_right": "From £29.99",
@@ -253,7 +253,6 @@
         "c2": {
           "type": "category",
           "settings": {
-            "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/collections/image.jpg?v=1754989001",
             "collection_handle": "btka",
             "top_left": "02 / Heavy",
             "top_right": "From £42.00",
@@ -264,7 +263,6 @@
         "c3": {
           "type": "category",
           "settings": {
-            "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/collections/image.jpg?v=1754989001",
             "collection_handle": "hoodies",
             "top_left": "03 / Hooded",
             "top_right": "From £65.00",
@@ -275,7 +273,6 @@
         "c4": {
           "type": "category",
           "settings": {
-            "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/collections/986D11B2-9D31-4A16-B630-29E20BF87B7B.jpg?v=1753395564",
             "collection_handle": "sista",
             "top_left": "04 / Extras",
             "top_right": "From £5.00",
