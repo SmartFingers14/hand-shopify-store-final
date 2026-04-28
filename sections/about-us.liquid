@@ -472,21 +472,22 @@
     gap: 2px;
   }
   .hand-about-char-card {
-    background: #111;
+    background: #141414;
     padding: 40px 32px;
     position: relative;
     overflow: hidden;
-    transition: background .3s;
+    transition: background .3s, transform .3s;
     cursor: default;
+    border: 1px solid #222;
   }
-  .hand-about-char-card:hover { background: #161616; }
+  .hand-about-char-card:hover { background: #1c1c1c; transform: translateY(-2px); }
   .hand-about-char-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
+    height: 3px;
     background: #e91e8c;
     transform: scaleX(0);
     transform-origin: left;
@@ -495,29 +496,29 @@
   .hand-about-char-card:hover::before { transform: scaleX(1); }
   .hand-about-char-num {
     font-family: 'Anton', Impact, sans-serif;
-    font-size: 64px;
-    color: transparent;
-    -webkit-text-stroke: 1px #1e1e1e;
+    font-size: 48px;
+    color: #e91e8c;
+    opacity: 0.25;
     line-height: 1;
-    margin-bottom: -8px;
+    margin-bottom: 4px;
     display: block;
-    transition: -webkit-text-stroke-color .3s;
+    transition: opacity .3s;
   }
   .hand-about-char-card:hover .hand-about-char-num {
-    -webkit-text-stroke-color: rgba(233,30,140,.2);
+    opacity: 0.5;
   }
   .hand-about-char-name {
     font-family: 'Anton', Impact, sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     text-transform: uppercase;
-    color: #fff;
-    margin: 0 0 10px;
+    color: #ffffff;
+    margin: 0 0 12px;
     letter-spacing: .01em;
   }
   .hand-about-char-desc {
     font-size: 14px;
-    line-height: 1.7;
-    color: #555;
+    line-height: 1.75;
+    color: #999;
     margin: 0;
   }
 
