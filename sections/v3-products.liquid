@@ -12,19 +12,28 @@
     </div>
 
     <div class="hand-grid">
-      {% if section.settings.collection != blank %}
+      {%- assign product_limit = section.settings.product_count | default: 8 -%}
+      {%- if section.settings.collection != blank -%}
         {%- assign col = collections[section.settings.collection] -%}
-        {% for product in col.products limit: section.settings.product_count %}
+        {%- assign source = col.products -%}
+      {%- else -%}
+        {%- assign source = collections.all.products -%}
+      {%- endif -%}
+
+      {%- assign shown = 0 -%}
+      {%- for product in source -%}
+        {%- if shown < product_limit -%}
+          {%- assign shown = shown | plus: 1 -%}
           <a class="hand-card hand-reveal" href="{{ product.url }}">
             <div class="imgwrap">
               <span class="tag">{{ product.type | default: 'New' }}</span>
-              {% if product.featured_image %}
-                <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" />
-              {% else %}
-                <div style="width:100%;height:340px;background:#111;display:flex;align-items:center;justify-content:center;">
-                  <span style="color:#444;font-family:monospace;font-size:11px;letter-spacing:.1em;">NO IMAGE</span>
+              {%- if product.featured_image -%}
+                <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" width="600" height="600" />
+              {%- else -%}
+                <div style="width:100%;height:340px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;">
+                  <span style="color:#555;font-family:monospace;font-size:11px;letter-spacing:.1em;">{{ product.vendor | upcase }}</span>
                 </div>
-              {% endif %}
+              {%- endif -%}
               <span class="quick">Quick Add &#8594;</span>
             </div>
             <div class="body">
@@ -32,68 +41,18 @@
               <div class="name">{{ product.title }}</div>
               <div class="row2">
                 <div class="price">{{ product.price | money }}</div>
+                <div class="swatches">
+                  {%- for variant in product.variants limit: 4 -%}
+                    {%- if variant.option1 contains '#' -%}
+                      <span class="sw" style="background:{{ variant.option1 }}"></span>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
               </div>
             </div>
           </a>
-        {% endfor %}
-      {% elsif section.blocks.size > 0 %}
-        {% for block in section.blocks %}
-          {% if block.type == 'product_card' %}
-            <a class="hand-card hand-reveal" href="{{ block.settings.link | default: '/collections/all' }}" {{ block.shopify_attributes }}>
-              <div class="imgwrap">
-                <span class="tag{% if block.settings.tag_pink %} pink{% endif %}">{{ block.settings.tag }}</span>
-                {% if block.settings.image %}
-                  <img src="{{ block.settings.image | img_url: '600x' }}" alt="{{ block.settings.title }}" loading="lazy" />
-                {% elsif block.settings.image_url != blank %}
-                  <img src="{{ block.settings.image_url }}" alt="{{ block.settings.title }}" loading="lazy" />
-                {% else %}
-                  <div style="width:100%;height:340px;background:#111;display:flex;align-items:center;justify-content:center;">
-                    <span style="color:#444;font-family:monospace;font-size:11px;letter-spacing:.1em;">{{ block.settings.vendor | upcase }}</span>
-                  </div>
-                {% endif %}
-                <span class="quick">Quick Add &#8594;</span>
-              </div>
-              <div class="body">
-                <div class="vendor">{{ block.settings.vendor }}</div>
-                <div class="name">{{ block.settings.title }}</div>
-                <div class="row2">
-                  <div class="price">{{ block.settings.price }}</div>
-                  <div class="swatches">
-                    {% if block.settings.swatch1 != blank %}<span class="sw" style="background:{{ block.settings.swatch1 }}"></span>{% endif %}
-                    {% if block.settings.swatch2 != blank %}<span class="sw" style="background:{{ block.settings.swatch2 }}"></span>{% endif %}
-                    {% if block.settings.swatch3 != blank %}<span class="sw" style="background:{{ block.settings.swatch3 }}"></span>{% endif %}
-                  </div>
-                </div>
-              </div>
-            </a>
-          {% endif %}
-        {% endfor %}
-      {% else %}
-        {%- assign source_products = collections.all.products -%}
-        {%- assign product_limit = section.settings.product_count | default: 8 -%}
-        {% for product in source_products limit: product_limit %}
-          <a class="hand-card hand-reveal" href="{{ product.url }}">
-            <div class="imgwrap">
-              <span class="tag">{{ product.type | default: 'New' }}</span>
-              {% if product.featured_image %}
-                <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" />
-              {% else %}
-                <div style="width:100%;height:340px;background:#111;display:flex;align-items:center;justify-content:center;">
-                  <span style="color:#444;font-family:monospace;font-size:11px;letter-spacing:.1em;">NO IMAGE</span>
-                </div>
-              {% endif %}
-              <span class="quick">Quick Add &#8594;</span>
-            </div>
-            <div class="body">
-              <div class="vendor">{{ product.vendor }}</div>
-              <div class="name">{{ product.title }}</div>
-              <div class="row2">
-                <div class="price">{{ product.price | money }}</div>
-              </div>
-            </div>
-          </a>
-        {% endfor %}
-      {% endif %}
+        {%- endif -%}
+      {%- endfor -%}
     </div>
   </div>
 </section>
@@ -107,32 +66,11 @@
     { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Eight pieces from across the family — pulled from the original 1990 archive, printed in small UK batches on 220gsm organic cotton." },
     { "type": "text", "id": "view_all_label", "label": "View all label", "default": "Shop All Products" },
     { "type": "url", "id": "view_all_link", "label": "View all link" },
-    { "type": "collection", "id": "collection", "label": "Collection (optional — overrides auto-display)" },
+    { "type": "collection", "id": "collection", "label": "Collection (leave blank to show all products)" },
     { "type": "range", "id": "product_count", "min": 4, "max": 12, "step": 1, "label": "Products to show", "default": 8 }
   ],
-  "blocks": [
-    {
-      "type": "product_card",
-      "name": "Product Card",
-      "settings": [
-        { "type": "image_picker", "id": "image", "label": "Product image" },
-        { "type": "text", "id": "image_url", "label": "Image URL (auto-filled)" },
-        { "type": "text", "id": "tag", "label": "Tag label", "default": "Reissue" },
-        { "type": "checkbox", "id": "tag_pink", "label": "Pink tag?", "default": false },
-        { "type": "text", "id": "vendor", "label": "Brand / Vendor", "default": "Have A Nice Day" },
-        { "type": "text", "id": "title", "label": "Product title", "default": "Sam The Man Front Print T-Shirt" },
-        { "type": "text", "id": "price", "label": "Price", "default": "£29.99" },
-        { "type": "url", "id": "link", "label": "Product link" },
-        { "type": "color", "id": "swatch1", "label": "Swatch 1" },
-        { "type": "color", "id": "swatch2", "label": "Swatch 2" },
-        { "type": "color", "id": "swatch3", "label": "Swatch 3" }
-      ]
-    }
-  ],
   "presets": [
-    {
-      "name": "V3 Products"
-    }
+    { "name": "V3 Products" }
   ]
 }
 {% endschema %}
