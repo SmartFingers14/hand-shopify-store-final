@@ -19,7 +19,7 @@
             <div class="imgwrap">
               <span class="tag">{{ product.type | default: 'New' }}</span>
               {% if product.featured_image %}
-                <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" />
+                <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" />
               {% else %}
                 <div style="width:100%;height:340px;background:#111;display:flex;align-items:center;justify-content:center;">
                   <span style="color:#444;font-family:monospace;font-size:11px;letter-spacing:.1em;">NO IMAGE</span>
@@ -52,7 +52,7 @@
               <div class="imgwrap">
                 <span class="tag">{{ product.type | default: 'New' }}</span>
                 {% if product.featured_image %}
-                  <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" />
+                  <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" />
                 {% else %}
                   <div style="width:100%;height:340px;background:#111;display:flex;align-items:center;justify-content:center;">
                     <span style="color:#444;font-family:monospace;font-size:11px;letter-spacing:.1em;">NO IMAGE</span>
@@ -83,7 +83,7 @@
                 <div class="imgwrap">
                   <span class="tag{% if block.settings.tag_pink %} pink{% endif %}">{{ block.settings.tag }}</span>
                   {% if block.settings.image %}
-                    <img src="{{ block.settings.image | img_url: '600x' }}" alt="{{ block.settings.title }}" loading="lazy" />
+                    <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}" loading="lazy" />
                   {% else %}
                     <div style="width:100%;height:340px;background:#111;display:flex;align-items:center;justify-content:center;">
                       <span style="color:#444;font-family:monospace;font-size:11px;letter-spacing:.1em;">{{ block.settings.vendor | upcase }}</span>
