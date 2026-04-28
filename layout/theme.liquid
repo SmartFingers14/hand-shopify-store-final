@@ -1,75 +1,326 @@
 <!doctype html>
-<html lang="{{ request.locale.iso_code }}">
+<html lang="{{ request.locale.iso_code }}" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#FF69B4">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="{{ canonical_url }}">
 
   {%- if settings.favicon != blank -%}
     <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
   {%- endif -%}
 
+  <!-- SEO Title -->
   <title>
-    {{ page_title }}
-    {%- if current_tags %} &ndash; {{ 'general.meta.tags' | t: tags: current_tags | join: ', ' }}{% endif -%}
-    {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif -%}
-    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    {%- if template == 'index' -%}
+      {{ shop.name }} — Original 90s Camden Streetwear. Organic Cotton. UK Printed.
+    {%- elsif template contains 'product' -%}
+      {{ product.title }} — {{ product.vendor }} | {{ shop.name }}
+    {%- elsif template contains 'collection' -%}
+      {{ collection.title }} | {{ shop.name }}
+    {%- else -%}
+      {{ page_title }}
+      {%- unless page_title contains shop.name %} — {{ shop.name }}{%- endunless -%}
+    {%- endif -%}
+    {%- if current_page != 1 %} — Page {{ current_page }}{%- endif -%}
   </title>
 
-  {% if page_description %}
+  <!-- SEO Meta -->
+  {%- if page_description -%}
     <meta name="description" content="{{ page_description | escape }}">
-  {% endif %}
+  {%- elsif template == 'index' -%}
+    <meta name="description" content="Have A Nice Day London — original 90s Camden rave streetwear. Sam The Man, Shurl The Girl, Handspun Records, Dready, BTKA, Vortex, Funky Dog, Don't Do The Dodo, Incubator, Sista. Organic cotton. UK printed. Since 1990.">
+  {%- endif -%}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:wght@300;400;500;600;700;800&family=Bungee&family=Permanent+Marker&display=swap" rel="stylesheet">
-
-  {{ 'styles.css' | asset_url | stylesheet_tag }}
-
+  <!-- Open Graph / Social -->
   {%- render 'meta-tags' -%}
 
-  <style>
-    :root{
-      --pink: {{ settings.color_pink | default: '#FF69B4' }};
-      --pink-soft: {{ settings.color_pink_soft | default: '#FFC1CC' }};
-      --sky: {{ settings.color_sky | default: '#87CEEB' }};
-      --yellow: {{ settings.color_yellow | default: '#FFD400' }};
-      --ink: {{ settings.color_ink | default: '#000000' }};
-      --bg: {{ settings.color_bg | default: '#FFFFFF' }};
-      --acid: {{ settings.color_yellow | default: '#FFD400' }};
-      --acid-deep: {{ settings.color_yellow | default: '#FFD400' }};
-      --hot: {{ settings.color_pink | default: '#FF69B4' }};
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Have A Nice Day London",
+    "url": "{{ shop.url }}",
+    "logo": "{{ settings.logo | image_url: width: 400 }}",
+    "description": "Original 90s Camden rave streetwear. Organic cotton. UK printed. Since 1990.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Camden",
+      "addressRegion": "London",
+      "addressCountry": "GB"
+    },
+    "sameAs": [
+      "{{ settings.social_instagram }}",
+      "{{ settings.social_facebook }}"
+    ]
+  }
+  </script>
+
+  {%- if template contains 'product' -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "description": {{ product.description | strip_html | json }},
+    "brand": { "@type": "Brand", "name": {{ product.vendor | json }} },
+    "image": "{{ product.featured_image | image_url: width: 1200 }}",
+    "offers": {
+      "@type": "Offer",
+      "price": "{{ product.price | money_without_currency }}",
+      "priceCurrency": "{{ cart.currency.iso_code }}",
+      "availability": "{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
+      "url": "{{ shop.url }}{{ product.url }}"
     }
+  }
+  </script>
+  {%- endif -%}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Motion.dev (GSAP-compatible animation library) -->
+  <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js" defer></script>
+
+  <!-- Theme CSS -->
+  {{ 'styles.css' | asset_url | stylesheet_tag }}
+  {{ 'hand-v3.css' | asset_url | stylesheet_tag }}
+
+  <!-- Inline critical CSS overrides for v3 design -->
+  <style>
+    :root {
+      --ink: #0a0a0a;
+      --paper: #f4f1ea;
+      --paper-2: #ebe7dd;
+      --pink: #FF2E88;
+      --blue: #4FC2F7;
+      --yellow: #FFD400;
+      --display: 'Anton', Impact, sans-serif;
+      --body: 'Inter', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+      --maxw: 1440px;
+    }
+    html, body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      -webkit-font-smoothing: antialiased;
+      font-size: 15px;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    /* Loading screen */
+    #hand-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+      transition: opacity .5s ease, visibility .5s ease;
+    }
+    #hand-loader.loaded {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #hand-loader .loader-logo {
+      font-family: 'Anton', Impact, sans-serif;
+      font-size: clamp(32px, 6vw, 72px);
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: .02em;
+      line-height: 1;
+    }
+    #hand-loader .loader-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #888;
+    }
+    #hand-loader .loader-bar {
+      width: 200px;
+      height: 2px;
+      background: #222;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    #hand-loader .loader-bar-fill {
+      height: 100%;
+      background: var(--pink);
+      width: 0%;
+      transition: width 1.2s cubic-bezier(.22,1,.36,1);
+    }
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      background: var(--pink);
+      color: #fff;
+      padding: 10px 18px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      z-index: 10000;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 16px; }
+    /* Backdrop */
+    .hand-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .35s ease, visibility .35s ease;
+      backdrop-filter: blur(4px);
+    }
+    .hand-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    /* Toast */
+    #hand-toast-wrap {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .hand-toast {
+      background: var(--ink);
+      color: #fff;
+      padding: 14px 20px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: transform .35s cubic-bezier(.22,1,.36,1), opacity .35s ease;
+      pointer-events: auto;
+      max-width: 320px;
+    }
+    .hand-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .hand-toast.ok .ic { color: var(--pink); }
+    .hand-toast.err { background: #c0392b; }
   </style>
 
   {{ content_for_header }}
 </head>
-<body class="template-{{ template.name | handle }}">
 
-  <a class="skip-to-content-link visually-hidden" href="#MainContent">{{ 'accessibility.skip_to_text' | t }}</a>
+<body class="template-{{ template.name | handle }}{% if customer %} customer-logged-in{% endif %}">
 
+  <!-- Loading Screen -->
+  <div id="hand-loader" role="status" aria-label="Loading">
+    <div class="loader-logo">Have A Nice Day®</div>
+    <div class="loader-sub">London — Since 1990</div>
+    <div class="loader-bar"><div class="loader-bar-fill" id="loaderFill"></div></div>
+  </div>
+
+  <!-- Skip to content -->
+  <a class="skip-link" href="#MainContent">Skip to content</a>
+
+  <!-- Announcement bar -->
   {% sections 'header-group' %}
 
+  <!-- Main content -->
   <main id="MainContent" role="main" tabindex="-1">
     {{ content_for_layout }}
   </main>
 
+  <!-- Footer -->
   {% sections 'footer-group' %}
 
+  <!-- Overlays -->
   {%- render 'cart-drawer' -%}
   {%- render 'search-overlay' -%}
   {%- render 'mobile-menu' -%}
   {%- render 'product-modal' -%}
 
-  <div class="backdrop" id="backdrop"></div>
-  <div class="toast-wrap" id="toastWrap"></div>
-  <div class="sticky-bar" id="stickyBar">
-    <div class="lab"><b id="stickyName"></b><br><span id="stickyPrice"></span> · added to cart</div>
-    <button id="stickyView">View Cart →</button>
-  </div>
+  <!-- Backdrop -->
+  <div class="hand-backdrop" id="handBackdrop"></div>
 
+  <!-- Toast container -->
+  <div id="hand-toast-wrap"></div>
+
+
+  <!-- Main JS -->
   <script src="{{ 'script.js' | asset_url }}" defer></script>
+
+  <!-- Motion.dev animations + loader -->
+  <script>
+    // Loading screen
+    window.addEventListener('DOMContentLoaded', function() {
+      const fill = document.getElementById('loaderFill');
+      const loader = document.getElementById('hand-loader');
+      if (fill) fill.style.width = '100%';
+      setTimeout(function() {
+        if (loader) loader.classList.add('loaded');
+        document.documentElement.classList.remove('no-js');
+        // Trigger entrance animations after load
+        if (window.Motion) {
+          const { animate, stagger, inView } = window.Motion;
+          // Animate hero elements
+          animate('.hand-hero-h1 .l', { opacity: [0, 1], y: [40, 0] }, { delay: stagger(0.12), duration: 0.7, easing: [0.22, 1, 0.36, 1] });
+          animate('.hand-hero-meta', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.1 });
+          animate('.hand-hero-sub', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.5 });
+          animate('.hand-trust', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.7 });
+          animate('.hand-hero-right', { opacity: [0, 1] }, { duration: 0.8, delay: 0.3 });
+          // Scroll-triggered animations
+          inView('.hand-sec-head', function(el) {
+            animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.7, easing: [0.22, 1, 0.36, 1] });
+          }, { margin: '-10% 0px' });
+          inView('.hand-card', function(el) {
+            animate(el, { opacity: [0, 1], y: [24, 0] }, { duration: 0.55, easing: [0.22, 1, 0.36, 1] });
+          }, { margin: '-5% 0px' });
+          inView('.hand-roster a', function(el) {
+            animate(el, { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, easing: [0.22, 1, 0.36, 1] });
+          }, { margin: '-5% 0px' });
+          inView('.hand-cat', function(el) {
+            animate(el, { opacity: [0, 1], scale: [0.97, 1] }, { duration: 0.55, easing: [0.22, 1, 0.36, 1] });
+          }, { margin: '-5% 0px' });
+          inView('.hand-g', function(el) {
+            animate(el, { opacity: [0, 1], scale: [0.96, 1] }, { duration: 0.5, easing: [0.22, 1, 0.36, 1] });
+          }, { margin: '-5% 0px' });
+          inView('.hand-feature-strip > div', function(el) {
+            animate(el, { opacity: [0, 1], x: [-20, 0] }, { duration: 0.5, easing: [0.22, 1, 0.36, 1] });
+          }, { margin: '-5% 0px' });
+        }
+      }, 1400);
+    });
+
+    // Sticky CTA show/hide
+    window.addEventListener('scroll', function() {
+      const cta = document.getElementById('handStickyCta');
+      if (cta) {
+        if (window.scrollY > 400) {
+          cta.classList.add('visible');
+        } else {
+          cta.classList.remove('visible');
+        }
+      }
+    });
+  </script>
 </body>
 </html>
