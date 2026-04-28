@@ -14,7 +14,7 @@
     <div class="hand-cats">
       {% for block in section.blocks %}
         {% if block.type == 'category' %}
-          <a class="hand-cat hand-reveal" href="{{ block.settings.link | default: '/collections/all' }}" {{ block.shopify_attributes }}>
+          <a class="hand-cat" href="{{ block.settings.link | default: '/collections/all' }}" {{ block.shopify_attributes }}>
             <div class="img">
               {% if block.settings.image %}
                 <img src="{{ block.settings.image | img_url: '600x' }}" alt="{{ block.settings.title }}" loading="lazy" />

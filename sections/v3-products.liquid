@@ -15,7 +15,7 @@
       {% if section.settings.collection != blank %}
         {% assign col = collections[section.settings.collection] %}
         {% for product in col.products limit: section.settings.product_count %}
-          <a class="hand-card hand-reveal" href="{{ product.url }}">
+          <a class="hand-card" href="{{ product.url }}">
             <div class="imgwrap">
               <span class="tag">{{ product.type | default: 'New' }}</span>
               {% if product.featured_image %}
@@ -42,7 +42,7 @@
       {% else %}
         {% for block in section.blocks %}
           {% if block.type == 'product_card' %}
-            <a class="hand-card hand-reveal" href="{{ block.settings.link | default: '/collections/all' }}" {{ block.shopify_attributes }}>
+            <a class="hand-card" href="{{ block.settings.link | default: '/collections/all' }}" {{ block.shopify_attributes }}>
               <div class="imgwrap">
                 <span class="tag{% if block.settings.tag_pink %} pink{% endif %}">{{ block.settings.tag }}</span>
                 {% if block.settings.image %}
