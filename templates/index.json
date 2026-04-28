@@ -345,7 +345,8 @@
             "top_left": "01 / Cotton",
             "top_right": "From £29.99",
             "title": "T-Shirts",
-            "link": "/collections/t-shirts"
+            "link": "/collections/t-shirts",
+            "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/collections/27EFD626-5F4E-414C-B871-E43816C71A33.jpg?v=1727086069"
           }
         },
         "c2": {
@@ -354,7 +355,8 @@
             "top_left": "02 / Heavy",
             "top_right": "From £42.00",
             "title": "Sweatshirts",
-            "link": "/collections/sweatshirts"
+            "link": "/collections/sweatshirts",
+            "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/collections/image.jpg?v=1754989001"
           }
         },
         "c3": {
@@ -363,7 +365,8 @@
             "top_left": "03 / Hooded",
             "top_right": "From £65.00",
             "title": "Hoodies",
-            "link": "/collections/hoodies"
+            "link": "/collections/hoodies",
+            "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/collections/image.jpg?v=1754989001"
           }
         },
         "c4": {
@@ -372,7 +375,8 @@
             "top_left": "04 / Extras",
             "top_right": "From £5.00",
             "title": "Accessories",
-            "link": "/collections/accessories"
+            "link": "/collections/accessories",
+            "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/collections/986D11B2-9D31-4A16-B630-29E20BF87B7B.jpg?v=1753395564"
           }
         }
       },
