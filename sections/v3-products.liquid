@@ -24,7 +24,7 @@
       {%- for product in source -%}
         {%- if shown < product_limit -%}
           {%- assign shown = shown | plus: 1 -%}
-          <a class="hand-card hand-reveal" href="{{ product.url }}">
+          <a class="hand-card" href="{{ product.url }}">
             <div class="imgwrap">
               <span class="tag">{{ product.type | default: 'New' }}</span>
               {%- if product.featured_image -%}

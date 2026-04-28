@@ -21,7 +21,7 @@
           {%- elsif cat_href == blank -%}
             {%- assign cat_href = '/collections/all' -%}
           {%- endif -%}
-          <a class="hand-cat hand-reveal" href="{{ cat_href }}" {{ block.shopify_attributes }}>
+          <a class="hand-cat" href="{{ cat_href }}" {{ block.shopify_attributes }}>
             <div class="img">
               {%- if block.settings.image -%}
                 <img src="{{ block.settings.image | img_url: '600x' }}" alt="{{ block.settings.title }}" loading="lazy" width="600" height="600" />
