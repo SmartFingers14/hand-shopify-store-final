@@ -1,0 +1,977 @@
+{% comment %} Don't Do The Dodo Brand Page - Endangered Species / Eco-Conscious Street Art {% endcomment %}
+
+<style>
+  /* ===== DON'T DO THE DODO BRAND PAGE ===== */
+  .dodo-page {
+    background: #0d0d0d;
+    color: #fff;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .dodo-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #0d0d0d;
+  }
+
+  /* Organic texture background */
+  .dodo-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(0, 180, 120, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(255, 200, 0, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(0, 180, 120, 0.06) 0%, transparent 40%);
+  }
+
+  /* Leaf/feather pattern */
+  .dodo-hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      120deg,
+      transparent,
+      transparent 60px,
+      rgba(0, 180, 120, 0.03) 60px,
+      rgba(0, 180, 120, 0.03) 61px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 60px,
+      rgba(0, 180, 120, 0.03) 60px,
+      rgba(0, 180, 120, 0.03) 61px
+    );
+  }
+
+  /* Glowing orbs */
+  .dodo-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: dodo-orb-pulse 5s ease-in-out infinite alternate;
+  }
+  .dodo-orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,180,120,0.2), transparent 70%);
+    top: -150px; left: -150px;
+    animation-delay: 0s;
+  }
+  .dodo-orb-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,200,0,0.15), transparent 70%);
+    bottom: -100px; right: -100px;
+    animation-delay: 2.5s;
+  }
+  .dodo-orb-3 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(0,180,120,0.1), transparent 70%);
+    top: 40%; right: 10%;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes dodo-orb-pulse {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.2); }
+  }
+
+  .dodo-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 900px;
+  }
+
+  /* Dodo bird icon */
+  .dodo-bird-icon {
+    font-size: 70px;
+    margin-bottom: 20px;
+    display: block;
+    animation: dodo-bird-wobble 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(0,180,120,0.6));
+  }
+
+  @keyframes dodo-bird-wobble {
+    0%, 100% { transform: rotate(-3deg) scale(1); }
+    33% { transform: rotate(3deg) scale(1.05); }
+    66% { transform: rotate(-1deg) scale(0.98); }
+  }
+
+  .dodo-hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #00b478;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+  }
+
+  .dodo-hero-title {
+    font-size: clamp(52px, 10vw, 110px);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+
+  .dodo-title-dont {
+    display: block;
+    color: #fff;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.5);
+  }
+
+  .dodo-title-do {
+    display: block;
+    color: #00b478;
+    text-shadow:
+      4px 4px 0 #007a50,
+      8px 8px 0 rgba(0,180,120,0.3);
+    animation: dodo-title-glow 3s ease-in-out infinite alternate;
+  }
+
+  .dodo-title-the-dodo {
+    display: block;
+    color: #ffc800;
+    text-shadow:
+      4px 4px 0 #cc9900,
+      8px 8px 0 rgba(255,200,0,0.3);
+  }
+
+  @keyframes dodo-title-glow {
+    0% { text-shadow: 4px 4px 0 #007a50, 8px 8px 0 rgba(0,180,120,0.3); }
+    100% { text-shadow: 4px 4px 0 #007a50, 8px 8px 0 rgba(0,180,120,0.3), 0 0 40px rgba(0,180,120,0.4); }
+  }
+
+  .dodo-hero-tagline {
+    font-size: clamp(14px, 2vw, 18px);
+    color: rgba(255,255,255,0.6);
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    margin: 24px 0 44px;
+    letter-spacing: 2px;
+  }
+
+  .dodo-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #00b478;
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 18px 44px;
+    border: 3px solid #00b478;
+    position: relative;
+    transition: all 0.2s;
+    box-shadow: 6px 6px 0 #007a50;
+    font-family: 'Arial Black', sans-serif;
+  }
+
+  .dodo-hero-cta:hover {
+    background: #000;
+    color: #00b478;
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 #007a50;
+  }
+
+  /* ===== TICKER ===== */
+  .dodo-ticker {
+    background: #00b478;
+    padding: 14px 0;
+    overflow: hidden;
+    border-top: 3px solid #ffc800;
+    border-bottom: 3px solid #ffc800;
+  }
+
+  .dodo-ticker-track {
+    display: flex;
+    gap: 0;
+    animation: dodo-ticker-scroll 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes dodo-ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .dodo-ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 30px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #000;
+    font-family: 'Arial Black', sans-serif;
+  }
+
+  .dodo-ticker-dot {
+    width: 6px;
+    height: 6px;
+    background: #000;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ===== STORY SECTION ===== */
+  .dodo-story {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .dodo-story { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
+  }
+
+  .dodo-story-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Extinction clock graphic */
+  .dodo-clock {
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: conic-gradient(
+      #00b478 0deg,
+      #00b478 270deg,
+      #1a1a1a 270deg,
+      #1a1a1a 360deg
+    );
+    box-shadow:
+      0 0 0 6px #1a1a1a,
+      0 0 0 10px #00b478,
+      0 0 0 14px #1a1a1a,
+      0 0 60px rgba(0,180,120,0.4),
+      0 0 120px rgba(0,180,120,0.2);
+    animation: dodo-clock-spin 20s linear infinite;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .dodo-clock::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #0d0d0d 0%, #1a1a1a 100%);
+    box-shadow: 0 0 20px rgba(0,180,120,0.3);
+  }
+
+  @keyframes dodo-clock-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .dodo-clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .dodo-clock-bird {
+    font-size: 48px;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(0,180,120,0.8));
+  }
+
+  .dodo-story-text {}
+
+  .dodo-story-label {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #00b478;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .dodo-story-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: #00b478;
+  }
+
+  .dodo-story-heading {
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0 0 24px;
+    color: #fff;
+  }
+
+  .dodo-story-heading span {
+    color: #00b478;
+  }
+
+  .dodo-story-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  .dodo-story-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(0,180,120,0.3);
+  }
+
+  .dodo-stat {
+    text-align: center;
+  }
+
+  .dodo-stat-num {
+    font-size: 32px;
+    font-weight: 900;
+    color: #00b478;
+    display: block;
+    line-height: 1;
+  }
+
+  .dodo-stat-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Arial', sans-serif;
+    margin-top: 6px;
+    display: block;
+  }
+
+  /* ===== CHARACTERS SECTION ===== */
+  .dodo-characters {
+    padding: 80px 40px;
+    background: #111;
+    border-top: 1px solid rgba(0,180,120,0.2);
+    border-bottom: 1px solid rgba(0,180,120,0.2);
+  }
+
+  .dodo-section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .dodo-section-label {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #00b478;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .dodo-section-title {
+    font-size: clamp(30px, 5vw, 50px);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+  }
+
+  .dodo-section-title span { color: #00b478; }
+
+  .dodo-chars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .dodo-char-card {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    cursor: pointer;
+    background: #1a1a1a;
+  }
+
+  .dodo-char-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,180,120,0.15) 0%, transparent 60%);
+    z-index: 1;
+    transition: opacity 0.3s;
+  }
+
+  .dodo-char-card:hover::before { opacity: 0; }
+
+  .dodo-char-card-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    z-index: 2;
+    transition: transform 0.3s;
+  }
+
+  .dodo-char-card:hover .dodo-char-card-inner {
+    transform: scale(1.05);
+  }
+
+  .dodo-char-emoji {
+    font-size: 52px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 12px rgba(0,180,120,0.5));
+  }
+
+  .dodo-char-name {
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  }
+
+  .dodo-char-sub {
+    font-size: 11px;
+    color: #00b478;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  .dodo-char-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s;
+    filter: brightness(0.35);
+  }
+
+  .dodo-char-card:hover .dodo-char-card-bg {
+    transform: scale(1.1);
+    filter: brightness(0.25);
+  }
+
+  .dodo-char-card:nth-child(1) { border-bottom: 3px solid #00b478; }
+  .dodo-char-card:nth-child(2) { border-bottom: 3px solid #ffc800; }
+  .dodo-char-card:nth-child(3) { border-bottom: 3px solid #00b478; }
+  .dodo-char-card:nth-child(4) { border-bottom: 3px solid #ffc800; }
+
+  /* ===== PRODUCTS GRID ===== */
+  .dodo-products {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .dodo-products { padding: 60px 20px; }
+  }
+
+  .dodo-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .dodo-product-card {
+    background: #111;
+    border: 1px solid rgba(0,180,120,0.15);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .dodo-product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00b478, #ffc800, #00b478);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .dodo-product-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .dodo-product-card:hover {
+    border-color: rgba(0,180,120,0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,180,120,0.15);
+  }
+
+  .dodo-product-img-wrap {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #1a1a1a;
+    position: relative;
+  }
+
+  .dodo-product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+
+  .dodo-product-card:hover .dodo-product-img-wrap img {
+    transform: scale(1.08);
+  }
+
+  .dodo-product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #00b478;
+    color: #000;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    font-family: 'Arial Black', sans-serif;
+  }
+
+  .dodo-product-info {
+    padding: 16px 20px 20px;
+  }
+
+  .dodo-product-name {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 0 0 8px;
+    line-height: 1.3;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .dodo-product-price {
+    font-size: 16px;
+    font-weight: 900;
+    color: #00b478;
+  }
+
+  .dodo-product-cta {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: transparent;
+    border-top: 1px solid rgba(0,180,120,0.2);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    transition: all 0.2s;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .dodo-product-card:hover .dodo-product-cta {
+    background: #00b478;
+    color: #000;
+    border-color: #00b478;
+  }
+
+  /* ===== CLOSING CTA ===== */
+  .dodo-closing {
+    padding: 120px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: #0d0d0d;
+  }
+
+  .dodo-closing-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba(0,180,120,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 50%, rgba(255,200,0,0.05) 0%, transparent 50%);
+  }
+
+  /* Floating feathers */
+  .dodo-feather {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.08;
+    animation: dodo-feather-float 7s ease-in-out infinite;
+  }
+  .dodo-feather:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+  .dodo-feather:nth-child(2) { top: 20%; right: 8%; animation-delay: 1.2s; }
+  .dodo-feather:nth-child(3) { bottom: 15%; left: 10%; animation-delay: 2.4s; }
+  .dodo-feather:nth-child(4) { bottom: 25%; right: 5%; animation-delay: 3.6s; }
+  .dodo-feather:nth-child(5) { top: 50%; left: 2%; animation-delay: 1.8s; }
+  .dodo-feather:nth-child(6) { top: 40%; right: 3%; animation-delay: 3s; }
+
+  @keyframes dodo-feather-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
+    50% { transform: translateY(-25px) rotate(20deg); opacity: 0.15; }
+  }
+
+  .dodo-closing-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .dodo-closing-title {
+    font-size: clamp(36px, 7vw, 80px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin: 0 0 30px;
+  }
+
+  .dodo-closing-title .line1 { color: #fff; display: block; }
+  .dodo-closing-title .line2 { color: #00b478; display: block; }
+  .dodo-closing-title .line3 { color: #ffc800; display: block; }
+  .dodo-closing-title .line4 { color: rgba(255,255,255,0.4); display: block; font-size: 0.4em; letter-spacing: 8px; margin-top: 16px; }
+
+  .dodo-closing-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    margin-bottom: 50px;
+    font-style: italic;
+  }
+
+  .dodo-closing-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .dodo-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #00b478;
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    border: 3px solid #00b478;
+    box-shadow: 5px 5px 0 #007a50;
+    transition: all 0.2s;
+    font-family: 'Arial Black', sans-serif;
+  }
+
+  .dodo-btn-primary:hover {
+    background: #000;
+    color: #00b478;
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 #007a50;
+  }
+
+  .dodo-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    border: 3px solid rgba(255,255,255,0.3);
+    transition: all 0.2s;
+    font-family: 'Arial Black', sans-serif;
+  }
+
+  .dodo-btn-secondary:hover {
+    border-color: #ffc800;
+    color: #ffc800;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .dodo-characters { padding: 60px 20px; }
+    .dodo-chars-grid { grid-template-columns: repeat(2, 1fr); }
+    .dodo-products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .dodo-closing { padding: 80px 20px; }
+    .dodo-story-stats { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .dodo-products-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .dodo-chars-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+<div class="dodo-page">
+
+  <!-- ===== HERO ===== -->
+  <section class="dodo-hero">
+    <div class="dodo-hero-bg"></div>
+    <div class="dodo-hero-pattern"></div>
+    <div class="dodo-orb dodo-orb-1"></div>
+    <div class="dodo-orb dodo-orb-2"></div>
+    <div class="dodo-orb dodo-orb-3"></div>
+
+    <div class="dodo-hero-content">
+      <span class="dodo-bird-icon">🦤</span>
+      <p class="dodo-hero-eyebrow">Est. London &bull; Extinct &bull; But Not Forgotten</p>
+      <h1 class="dodo-hero-title">
+        <span class="dodo-title-dont">Don't</span>
+        <span class="dodo-title-do">Do The</span>
+        <span class="dodo-title-the-dodo">Dodo</span>
+      </h1>
+      <p class="dodo-hero-tagline">"Some things, once gone, are gone forever."</p>
+      <a href="#dodo-products" class="dodo-hero-cta">
+        Shop The Collection
+        <span>&#8595;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== TICKER ===== -->
+  <div class="dodo-ticker">
+    <div class="dodo-ticker-track">
+      {% assign dodo_ticker = "PROFESSOR WATERCOOLER,CREST,DON'T DO THE DODO,EXTINCT BUT ICONIC,CAMDEN UNDERGROUND,PROFESSOR WATERCOOLER,CREST,DON'T DO THE DODO,EXTINCT BUT ICONIC,CAMDEN UNDERGROUND,PROFESSOR WATERCOOLER,CREST,DON'T DO THE DODO,EXTINCT BUT ICONIC,CAMDEN UNDERGROUND" | split: "," %}
+      {% for item in dodo_ticker %}
+        <span class="dodo-ticker-item">
+          <span class="dodo-ticker-dot"></span>
+          {{ item }}
+        </span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- ===== STORY ===== -->
+  <section class="dodo-story">
+    <div class="dodo-story-visual">
+      <div class="dodo-clock">
+        <div class="dodo-clock-center">
+          <span class="dodo-clock-bird">🦤</span>
+        </div>
+      </div>
+    </div>
+    <div class="dodo-story-text">
+      <p class="dodo-story-label">The Story</p>
+      <h2 class="dodo-story-heading">Born From <span>Extinction</span></h2>
+      <p class="dodo-story-body">
+        Don't Do The Dodo is a Camden-born brand with a message: some things, once gone, are gone forever. Named after the most famous extinct bird in history, the brand channels that urgency into bold, graphic streetwear.
+      </p>
+      <p class="dodo-story-body">
+        From Professor Watercooler to the iconic Crest designs, every piece is a reminder to protect what matters — culture, community, and the underground scenes that make London what it is.
+      </p>
+      <div class="dodo-story-stats">
+        <div class="dodo-stat">
+          <span class="dodo-stat-num">1681</span>
+          <span class="dodo-stat-label">Last Dodo</span>
+        </div>
+        <div class="dodo-stat">
+          <span class="dodo-stat-num">100%</span>
+          <span class="dodo-stat-label">Organic</span>
+        </div>
+        <div class="dodo-stat">
+          <span class="dodo-stat-num">UK</span>
+          <span class="dodo-stat-label">Printed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHARACTERS ===== -->
+  <section class="dodo-characters">
+    <div class="dodo-section-header">
+      <p class="dodo-section-label">The Characters</p>
+      <h2 class="dodo-section-title">Meet The <span>Icons</span></h2>
+    </div>
+    <div class="dodo-chars-grid">
+      <div class="dodo-char-card">
+        <div class="dodo-char-card-bg" style="background-image: url('https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719');"></div>
+        <div class="dodo-char-card-inner">
+          <span class="dodo-char-emoji">🎓</span>
+          <span class="dodo-char-name">Professor Watercooler</span>
+          <span class="dodo-char-sub">The Academic</span>
+        </div>
+      </div>
+      <div class="dodo-char-card">
+        <div class="dodo-char-card-bg" style="background-image: url('https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719');"></div>
+        <div class="dodo-char-card-inner">
+          <span class="dodo-char-emoji">🛡️</span>
+          <span class="dodo-char-name">Crest</span>
+          <span class="dodo-char-sub">The Shield</span>
+        </div>
+      </div>
+      <div class="dodo-char-card">
+        <div class="dodo-char-card-bg" style="background-image: url('https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719');"></div>
+        <div class="dodo-char-card-inner">
+          <span class="dodo-char-emoji">🦤</span>
+          <span class="dodo-char-name">The Dodo</span>
+          <span class="dodo-char-sub">The Legend</span>
+        </div>
+      </div>
+      <div class="dodo-char-card">
+        <div class="dodo-char-card-bg" style="background-image: url('https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719');"></div>
+        <div class="dodo-char-card-inner">
+          <span class="dodo-char-emoji">🌿</span>
+          <span class="dodo-char-name">The Archive</span>
+          <span class="dodo-char-sub">Camden 1990</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="dodo-products" id="dodo-products">
+    <div class="dodo-section-header">
+      <p class="dodo-section-label">The Collection</p>
+      <h2 class="dodo-section-title">Shop <span>Don't Do The Dodo</span></h2>
+    </div>
+    <div class="dodo-products-grid">
+      {% assign dodo_collection = collections['dont-do-the-dodo'] %}
+      {% if dodo_collection and dodo_collection.products.size > 0 %}
+        {% for product in dodo_collection.products %}
+          <a href="{{ product.url }}" class="dodo-product-card">
+            <div class="dodo-product-img-wrap">
+              {% if product.featured_image %}
+                <img
+                  src="{{ product.featured_image | image_url: width: 500 }}"
+                  alt="{{ product.title | escape }}"
+                  loading="lazy"
+                  width="500"
+                  height="500"
+                >
+              {% else %}
+                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px;">🦤</div>
+              {% endif %}
+              <span class="dodo-product-badge">Don't Do The Dodo</span>
+            </div>
+            <div class="dodo-product-info">
+              <p class="dodo-product-name">{{ product.title | remove: "DON'T DO THE DODO - " | remove: "Don't Do The Dodo - " | remove: "DODO - " }}</p>
+              <p class="dodo-product-price">£{{ product.price | money_without_currency }}</p>
+            </div>
+            <span class="dodo-product-cta">Shop Now &rarr;</span>
+          </a>
+        {% endfor %}
+      {% else %}
+        <!-- Fallback hardcoded products -->
+        {% assign dodo_handles = "professor-watercooler-front-back-sweatshirt,professor-watercooler-tee,dodo-crest-hoodie,dodo-crest-tee,professor-watercooler-hoodie,dodo-logo-tee,professor-watercooler-sweatshirt,dodo-crest-sweatshirt" | split: "," %}
+        {% assign dodo_imgs = "https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/PROFESSORWATERCOOLER-23.png?v=1757240719" | split: "," %}
+        {% assign dodo_titles = "PROFESSOR WATERCOOLER F&B Sweatshirt,PROFESSOR WATERCOOLER Tee,CREST Hoodie,CREST Tee,PROFESSOR WATERCOOLER Hoodie,DODO LOGO Tee,PROFESSOR WATERCOOLER Sweatshirt,CREST Sweatshirt" | split: "," %}
+        {% assign dodo_prices = "50.00,29.99,69.99,29.99,69.99,29.99,50.00,50.00" | split: "," %}
+        {% for handle in dodo_handles %}
+          {% assign idx = forloop.index0 %}
+          <a href="/products/{{ handle }}" class="dodo-product-card">
+            <div class="dodo-product-img-wrap">
+              <img src="{{ dodo_imgs[idx] }}" alt="{{ dodo_titles[idx] }}" loading="lazy" width="500" height="500">
+              <span class="dodo-product-badge">Don't Do The Dodo</span>
+            </div>
+            <div class="dodo-product-info">
+              <p class="dodo-product-name">{{ dodo_titles[idx] }}</p>
+              <p class="dodo-product-price">£{{ dodo_prices[idx] }}</p>
+            </div>
+            <span class="dodo-product-cta">Shop Now &rarr;</span>
+          </a>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- ===== CLOSING CTA ===== -->
+  <section class="dodo-closing">
+    <div class="dodo-closing-bg"></div>
+    <span class="dodo-feather">🦤</span>
+    <span class="dodo-feather">🌿</span>
+    <span class="dodo-feather">🦤</span>
+    <span class="dodo-feather">🌿</span>
+    <span class="dodo-feather">🦤</span>
+    <span class="dodo-feather">🌿</span>
+    <div class="dodo-closing-content">
+      <h2 class="dodo-closing-title">
+        <span class="line1">Don't</span>
+        <span class="line2">Do The</span>
+        <span class="line3">Dodo</span>
+        <span class="line4">Don't Do The Dodo London</span>
+      </h2>
+      <p class="dodo-closing-sub">Extinct but iconic. Camden-born. Never forgotten.</p>
+      <div class="dodo-closing-btns">
+        <a href="/collections/dont-do-the-dodo" class="dodo-btn-primary">
+          🦤 Full Collection
+        </a>
+        <a href="/collections/all" class="dodo-btn-secondary">
+          All Brands &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% schema %}
+{
+  "name": "Dodo Brand Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Dodo Brand Page"
+    }
+  ]
+}
+{% endschema %}
