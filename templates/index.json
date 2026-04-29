@@ -277,7 +277,8 @@
             "number": "05",
             "name": "Vortex",
             "desc": "Info The Robot · Close Encounter",
-            "style": ""
+            "style": "",
+            "link": "/pages/vortex"
           }
         },
         "b6": {
