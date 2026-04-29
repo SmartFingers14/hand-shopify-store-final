@@ -3,7 +3,7 @@
   Raw, electric, anarchic — distressed textures, neon red, high-voltage energy
 {% endcomment %}
 
-{%- assign btka_products = collections['btka'].products -%}
+{%- assign btka_col = collections['btka'] -%}
 
 <!-- ============================================================
      HERO — Full viewport, electric punk aesthetic
@@ -148,13 +148,12 @@
     </div>
 
     <div class="hand-grid bk-product-grid" id="bk-product-grid">
-      {%- assign btka_vendor_products = collections.all.products | where: 'vendor', 'BTKA' -%}
-      {%- for product in btka_vendor_products -%}
+      {%- for product in btka_col.products -%}
         <a class="hand-card bk-card" href="{{ product.url }}">
           <div class="imgwrap">
             <span class="tag">{{ product.type | default: 'BTKA' }}</span>
             {%- if product.featured_image -%}
-              <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" width="600" height="600" />
+              <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" width="600" height="600" />
             {%- else -%}
               <div class="bk-no-img">BTKA</div>
             {%- endif -%}
@@ -172,11 +171,11 @@
           </div>
         </a>
       {%- else -%}
-        <!-- Fallback: show hardcoded products if collection not set up -->
+        <!-- Fallback if collection is empty — use real CDN URLs -->
         <a class="hand-card bk-card" href="/products/btka-sushi-font-front-print-t-shirt">
           <div class="imgwrap">
             <span class="tag">T-Shirt</span>
-            <img src="https://cdn.shopify.com/s/files/1/0737/7397/3795/files/E43E1F26-C8CB-4E99-92EC-8B5B5B5B5B5B_600x600.jpg" alt="BTKA Sushi Rising Run Front Print T-Shirt" loading="lazy" width="600" height="600" onerror="this.parentElement.innerHTML='<div class=bk-no-img>BTKA</div>'" />
+            <img src="https://cdn.shopify.com/s/files/1/0737/7397/3795/files/E43E1F26-C8CB-4E99-92EC-8F2E8EDE7989.jpg?v=1709665827" alt="BTKA Sushi Rising Run Front Print T-Shirt" loading="lazy" width="600" height="600" />
             <span class="quick">Quick Add &#8594;</span>
           </div>
           <div class="body">
@@ -188,7 +187,7 @@
         <a class="hand-card bk-card" href="/products/btka-take-all-bets-front-print-t-shirt">
           <div class="imgwrap">
             <span class="tag">T-Shirt</span>
-            <img src="https://cdn.shopify.com/s/files/1/0737/7397/3795/files/F04F540C-79FB-486F-8899-3B3B3B3B3B3B_600x600.jpg" alt="BTKA Take All Bets Shotgun Front Print T-Shirt" loading="lazy" width="600" height="600" onerror="this.parentElement.innerHTML='<div class=bk-no-img>BTKA</div>'" />
+            <img src="https://cdn.shopify.com/s/files/1/0737/7397/3795/files/F04F540C-79FB-486F-8899-39B3EC0A42B2.jpg?v=1752776866" alt="BTKA Take All Bets Shotgun Front Print T-Shirt" loading="lazy" width="600" height="600" />
             <span class="quick">Quick Add &#8594;</span>
           </div>
           <div class="body">
