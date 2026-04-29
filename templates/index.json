@@ -255,7 +255,8 @@
             "number": "03",
             "name": "Handspun Records",
             "desc": "Vinyl · Sound · Wax",
-            "style": "accent"
+            "style": "accent",
+            "link": "/pages/handspun-records"
           }
         },
         "b4": {
