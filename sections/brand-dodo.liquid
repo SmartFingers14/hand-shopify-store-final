@@ -744,7 +744,7 @@
     padding: 48px 40px;
     position: relative;
     overflow: hidden;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     cursor: default;
     transition: background 0.3s;
@@ -1314,15 +1314,7 @@
     }, { margin: '-10% 0px' });
   }
 
-  // ===== TIMELINE ITEMS =====
-  document.querySelectorAll('[data-timeline]').forEach((item, i) => {
-    inView(item, () => {
-      animate(item,
-        { opacity: [0, 1], x: [-30, 0] },
-        { duration: 0.7, delay: i * 0.12, easing: [0.25, 0.46, 0.45, 0.94] }
-      );
-    }, { margin: '-5% 0px' });
-  });
+  // Timeline section removed
 
   // ===== PRODUCTS GRID =====
   document.querySelectorAll('[data-product]').forEach((card, i) => {
@@ -1348,6 +1340,8 @@
 
   // ===== CABINET ITEMS =====
   document.querySelectorAll('[data-cabinet]').forEach((item, i) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
     inView(item, () => {
       animate(item,
         { opacity: [0, 1], y: [30, 0] },
@@ -1355,6 +1349,15 @@
       );
     }, { margin: '-10% 0px' });
   });
+  // Safety fallback for cabinet items
+  setTimeout(function() {
+    document.querySelectorAll('[data-cabinet]').forEach(function(item) {
+      if (parseFloat(item.style.opacity || '1') < 0.5) {
+        item.style.opacity = '1';
+        item.style.transform = 'none';
+      }
+    });
+  }, 2000);
 
   // ===== CTA SECTION =====
   const ctaInner = document.getElementById('dodoCtaInner');
