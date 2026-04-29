@@ -237,7 +237,8 @@
             "number": "01 / Flagship",
             "name": "Have A Nice Day",
             "desc": "Sam The Man · Shurl The Girl",
-            "style": "featured"
+            "style": "featured",
+            "link": "/pages/have-a-nice-day"
           }
         },
         "b2": {
@@ -246,7 +247,8 @@
             "number": "02",
             "name": "Dready Original",
             "desc": "Roots · Reggae · Camden",
-            "style": ""
+            "style": "",
+            "link": "/pages/dready-original"
           }
         },
         "b3": {
