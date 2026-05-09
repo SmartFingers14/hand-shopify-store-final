@@ -636,6 +636,20 @@ var pdpSelectedOptions = {};
 
 var pdpVariants = {{ product.variants | json }};
 
+// Build a map of variant image positions: variantId → image src
+// Shopify variants have a featured_image property with position
+var pdpVariantImages = {};
+{%- for variant in product.variants -%}
+  {%- if variant.featured_image -%}
+    pdpVariantImages[{{ variant.id }}] = {
+      src: {{ variant.featured_image | image_url: width: 1200 | json }},
+      thumb: {{ variant.featured_image | image_url: width: 200 | json }},
+      alt: {{ variant.featured_image.alt | default: product.title | json }},
+      position: {{ variant.featured_image.position }}
+    };
+  {%- endif -%}
+{%- endfor -%}
+
 function pdpSelectOption(btn) {
   const idx = parseInt(btn.dataset.optionIndex);
   const val = btn.dataset.optionValue;
@@ -667,6 +681,32 @@ function pdpSelectOption(btn) {
     // Update price
     const priceEl = document.querySelector('.hand-pdp-price');
     if (priceEl) priceEl.textContent = (variant.price / 100).toLocaleString('en-GB', { style: 'currency', currency: 'GBP' });
+
+    // ---- IMAGE SWAP: switch to variant's featured image ----
+    var varImg = pdpVariantImages[variant.id];
+    if (varImg) {
+      // Update main image
+      var mainImg = document.getElementById('pdpMainImgEl');
+      if (mainImg) {
+        mainImg.style.opacity = '0';
+        mainImg.style.transition = 'opacity .25s ease';
+        setTimeout(function() {
+          mainImg.src = varImg.src;
+          mainImg.alt = varImg.alt;
+          mainImg.style.opacity = '1';
+        }, 150);
+      }
+      // Highlight the matching thumbnail
+      var thumbs = document.querySelectorAll('.hand-pdp-thumb');
+      thumbs.forEach(function(t) {
+        t.classList.remove('active');
+        if (t.dataset.src === varImg.src) {
+          t.classList.add('active');
+          // Scroll thumbnail into view if needed
+          t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      });
+    }
   }
 }
 
