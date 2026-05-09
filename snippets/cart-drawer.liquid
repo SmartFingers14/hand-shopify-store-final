@@ -1,70 +1,750 @@
-<aside class="drawer" id="cartDrawer" aria-hidden="true">
-  <div class="drawer-head">
-    <h3>{{ 'cart.general.title' | t }}
-      <span id="cartItemsCount" style="font-family:'Bungee',sans-serif;font-size:13px;color:var(--mute);letter-spacing:.14em;margin-left:6px">({{ cart.item_count }})</span>
-    </h3>
-    <button class="x" data-close-cart aria-label="Close cart">✕</button>
-  </div>
-  <div class="drawer-body" id="cartBody">
-    {%- if cart.item_count == 0 -%}
-      <div class="empty-cart" id="emptyCart">
-        <div class="big-smy"></div>
-        <h4>{{ 'cart.general.empty' | t }}</h4>
-        <p>Time to start the comeback. The originals are waiting.</p>
-        <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">Shop The Originals →</a>
-      </div>
-    {%- else -%}
-      <div class="empty-cart" id="emptyCart" style="display:none">
-        <div class="big-smy"></div>
-        <h4>{{ 'cart.general.empty' | t }}</h4>
-        <p>Time to start the comeback. The originals are waiting.</p>
-      </div>
-      {%- for item in cart.items -%}
-        <div class="cart-item" data-key="{{ item.key }}">
-          <div class="thumb">
-            {%- if item.image -%}
-              <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}">
-            {%- else -%}
-              <span style="font-size:24px">☻</span>
-            {%- endif -%}
-          </div>
-          <div class="meta">
-            <div class="nm">{{ item.product.title }}</div>
-            <div class="sub">
-              {{ item.product.vendor }}
-              {%- if item.variant.title != 'Default Title' %} · {{ item.variant.title }}{% endif -%}
-            </div>
-            <div class="qty">
-              <button data-cart-dec="{{ item.key }}" aria-label="Decrease">−</button>
-              <span>{{ item.quantity }}</span>
-              <button data-cart-inc="{{ item.key }}" aria-label="Increase">+</button>
-            </div>
-          </div>
-          <div class="right">
-            <div class="price">{{ item.final_line_price | money }}</div>
-            <div class="rm" data-cart-rm="{{ item.key }}">{{ 'cart.general.remove' | t }}</div>
-          </div>
-        </div>
-      {%- endfor -%}
-    {%- endif -%}
-  </div>
-  <div class="drawer-foot" id="cartFoot" {% if cart.item_count == 0 %}style="display:none"{% endif %}>
-    <div class="ship-note" id="shipNote">
-      {%- assign threshold = 5000 -%}
-      {%- if cart.total_price >= threshold -%}
-        <b>☻ Free UK shipping unlocked</b>
-      {%- else -%}
-        Add <b>{{ threshold | minus: cart.total_price | money }}</b> more for free UK shipping
-      {%- endif -%}
+<!-- ============================================================
+   HAVE A NICE DAY LONDON — Slide-in Cart Drawer
+   Uses Shopify AJAX Cart API. Opens on ATC, never redirects.
+   ============================================================ -->
+
+<aside class="hand-cart-drawer" id="handCartDrawer" aria-hidden="true" role="dialog" aria-label="Shopping bag">
+
+  <!-- Header -->
+  <div class="hand-cart-head">
+    <div class="hand-cart-title">
+      <span class="hand-cart-title-text">YOUR BAG</span>
+      <span class="hand-cart-count" id="handCartDrawerCount">0</span>
     </div>
-    <div class="row"><span>{{ 'cart.general.subtotal' | t }}</span><span id="cartSub">{{ cart.total_price | money }}</span></div>
-    <div class="row"><span>Shipping</span><span id="cartShip">Calculated at checkout</span></div>
-    <div class="row total"><span>Total</span><b id="cartTotal">{{ cart.total_price | money }}</b></div>
-    <form action="{{ routes.cart_url }}" method="post" novalidate>
-      <button type="submit" name="checkout" class="check-btn">{{ 'cart.general.checkout' | t }}</button>
-    </form>
-    <p style="text-align:center;font-size:11px;color:var(--mute);margin-top:10px;letter-spacing:.06em">
-      Tax included. 30-day returns. Visa, Mastercard, Amex, PayPal, Klarna.
+    <button class="hand-cart-close" id="handCartClose" aria-label="Close bag">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 1l16 16M17 1L1 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <!-- Free shipping progress bar -->
+  <div class="hand-cart-ship-bar" id="handCartShipBar">
+    <div class="hand-cart-ship-text" id="handCartShipText">Add <strong id="handCartShipAmt">£50.00</strong> more for free UK shipping</div>
+    <div class="hand-cart-ship-track">
+      <div class="hand-cart-ship-fill" id="handCartShipFill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- Body: items list -->
+  <div class="hand-cart-body" id="handCartBody">
+    <!-- Populated by JS -->
+    <div class="hand-cart-empty" id="handCartEmpty">
+      <div class="hand-cart-smy">☻</div>
+      <p class="hand-cart-empty-title">Your bag is empty.</p>
+      <p class="hand-cart-empty-sub">Time to start the comeback.<br>The originals are waiting.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="hand-cart-shop-btn">Shop The Originals →</a>
+    </div>
+    <div class="hand-cart-items" id="handCartItems"></div>
+  </div>
+
+  <!-- Footer: totals + checkout -->
+  <div class="hand-cart-foot" id="handCartFoot" style="display:none">
+    <div class="hand-cart-totals">
+      <div class="hand-cart-row">
+        <span>Subtotal</span>
+        <span id="handCartSub">£0.00</span>
+      </div>
+      <div class="hand-cart-row">
+        <span>Shipping</span>
+        <span id="handCartShipCost">Calculated at checkout</span>
+      </div>
+      <div class="hand-cart-row hand-cart-row--total">
+        <span>Total</span>
+        <strong id="handCartTotal">£0.00</strong>
+      </div>
+    </div>
+    <a href="{{ routes.checkout_url }}" class="hand-cart-checkout-btn" id="handCartCheckout">
+      Checkout Securely →
+    </a>
+    <p class="hand-cart-trust">
+      Tax included &middot; 30-day returns &middot; Visa, Mastercard, Amex, PayPal, Klarna
     </p>
   </div>
+
 </aside>
+
+<!-- Backdrop -->
+<div class="hand-cart-backdrop" id="handCartBackdrop"></div>
+
+<style>
+/* ============================================================
+   CART DRAWER — Have A Nice Day London
+   UI/UX Pro Max: Neubrutalism + Brand Identity
+   ============================================================ */
+
+/* Drawer panel */
+.hand-cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 420px;
+  max-width: 100vw;
+  background: #f4f1ea;
+  z-index: 9100;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform .45s cubic-bezier(.22,1,.36,1);
+  border-left: 2px solid #0a0a0a;
+  box-shadow: -8px 0 40px rgba(0,0,0,.18);
+}
+.hand-cart-drawer.open {
+  transform: translateX(0);
+}
+
+/* Backdrop */
+.hand-cart-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,10,.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9090;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+.hand-cart-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Header */
+.hand-cart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 2px solid #0a0a0a;
+  background: #0a0a0a;
+  flex-shrink: 0;
+}
+.hand-cart-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hand-cart-title-text {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 20px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #f4f1ea;
+  line-height: 1;
+}
+.hand-cart-count {
+  background: #FF2E88;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+}
+.hand-cart-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.25);
+  display: grid;
+  place-items: center;
+  color: #f4f1ea;
+  background: none;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  flex-shrink: 0;
+}
+.hand-cart-close:hover {
+  border-color: #FF2E88;
+  background: #FF2E88;
+}
+
+/* Shipping progress bar */
+.hand-cart-ship-bar {
+  padding: 12px 24px;
+  background: #0a0a0a;
+  border-bottom: 2px solid #0a0a0a;
+  flex-shrink: 0;
+}
+.hand-cart-ship-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+.hand-cart-ship-text strong {
+  color: #FFD400;
+}
+.hand-cart-ship-text.unlocked {
+  color: #4ade80;
+}
+.hand-cart-ship-track {
+  height: 3px;
+  background: rgba(255,255,255,.12);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.hand-cart-ship-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF2E88, #FFD400);
+  border-radius: 99px;
+  transition: width .6s cubic-bezier(.22,1,.36,1);
+}
+
+/* Body */
+.hand-cart-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #FF2E88 transparent;
+}
+.hand-cart-body::-webkit-scrollbar { width: 4px; }
+.hand-cart-body::-webkit-scrollbar-thumb { background: #FF2E88; border-radius: 99px; }
+
+/* Empty state */
+.hand-cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 32px;
+  text-align: center;
+  min-height: 300px;
+}
+.hand-cart-smy {
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: 20px;
+  animation: hand-smy-bounce 2s ease-in-out infinite;
+}
+@keyframes hand-smy-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.hand-cart-empty-title {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #0a0a0a;
+  margin-bottom: 8px;
+}
+.hand-cart-empty-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .1em;
+  color: #888;
+  text-transform: uppercase;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.hand-cart-shop-btn {
+  display: inline-block;
+  background: #0a0a0a;
+  color: #FFD400;
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+  border: 2px solid #0a0a0a;
+}
+.hand-cart-shop-btn:hover {
+  background: #FF2E88;
+  border-color: #FF2E88;
+  color: #fff;
+}
+
+/* Cart items list */
+.hand-cart-items {
+  padding: 0 24px;
+}
+
+/* Single cart item */
+.hand-cart-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(10,10,10,.1);
+  align-items: start;
+  animation: hand-item-in .3s cubic-bezier(.22,1,.36,1);
+}
+@keyframes hand-item-in {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.hand-cart-item-img {
+  width: 80px;
+  height: 96px;
+  background: #ebe7dd;
+  border: 1.5px solid rgba(10,10,10,.12);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+.hand-cart-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hand-cart-item-img .hand-cart-item-placeholder {
+  font-size: 28px;
+  opacity: .4;
+}
+.hand-cart-item-meta {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hand-cart-item-name {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 14px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hand-cart-item-variant {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #888;
+}
+.hand-cart-item-qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid #0a0a0a;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.hand-cart-item-qty button {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #0a0a0a;
+  transition: background .15s;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+.hand-cart-item-qty button:hover {
+  background: #FFD400;
+}
+.hand-cart-item-qty span {
+  min-width: 30px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  border-left: 1.5px solid #0a0a0a;
+  border-right: 1.5px solid #0a0a0a;
+  height: 30px;
+  display: grid;
+  place-items: center;
+}
+.hand-cart-item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.hand-cart-item-price {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 16px;
+  letter-spacing: .02em;
+  color: #0a0a0a;
+}
+.hand-cart-item-remove {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #aaa;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color .2s;
+}
+.hand-cart-item-remove:hover {
+  color: #FF2E88;
+}
+
+/* Loading state */
+.hand-cart-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #888;
+}
+.hand-cart-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(10,10,10,.1);
+  border-top-color: #FF2E88;
+  border-radius: 50%;
+  animation: hand-spin .7s linear infinite;
+}
+@keyframes hand-spin { to { transform: rotate(360deg); } }
+
+/* Footer */
+.hand-cart-foot {
+  border-top: 2px solid #0a0a0a;
+  padding: 20px 24px;
+  background: #f4f1ea;
+  flex-shrink: 0;
+}
+.hand-cart-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.hand-cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #666;
+}
+.hand-cart-row--total {
+  padding-top: 12px;
+  border-top: 1px dashed rgba(10,10,10,.2);
+  margin-top: 6px;
+  color: #0a0a0a;
+}
+.hand-cart-row--total strong {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 24px;
+  letter-spacing: .02em;
+  color: #0a0a0a;
+}
+.hand-cart-checkout-btn {
+  display: block;
+  width: 100%;
+  background: #0a0a0a;
+  color: #FFD400;
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 16px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 18px 24px;
+  text-decoration: none;
+  border: 2px solid #0a0a0a;
+  transition: background .2s, color .2s, border-color .2s;
+  cursor: pointer;
+  line-height: 1;
+}
+.hand-cart-checkout-btn:hover {
+  background: #FF2E88;
+  border-color: #FF2E88;
+  color: #fff;
+}
+.hand-cart-trust {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hand-cart-drawer { width: 100vw; border-left: none; }
+}
+</style>
+
+<script>
+/* ============================================================
+   HAVE A NICE DAY — Cart Drawer JS
+   Shopify AJAX Cart API — no localStorage, real cart data
+   ============================================================ */
+(function() {
+  'use strict';
+
+  const FREE_SHIP_THRESHOLD = 7500; // £75 in pence
+
+  const drawer   = document.getElementById('handCartDrawer');
+  const backdrop = document.getElementById('handCartBackdrop');
+  const closeBtn = document.getElementById('handCartClose');
+  const body     = document.getElementById('handCartBody');
+  const items    = document.getElementById('handCartItems');
+  const empty    = document.getElementById('handCartEmpty');
+  const foot     = document.getElementById('handCartFoot');
+  const countEl  = document.getElementById('handCartDrawerCount');
+  const subEl    = document.getElementById('handCartSub');
+  const totalEl  = document.getElementById('handCartTotal');
+  const shipCost = document.getElementById('handCartShipCost');
+  const shipText = document.getElementById('handCartShipText');
+  const shipFill = document.getElementById('handCartShipFill');
+  const shipAmt  = document.getElementById('handCartShipAmt');
+  const headerCount = document.getElementById('handCartCount');
+
+  // ---- Format money ----
+  const money = (cents) => {
+    return '£' + (cents / 100).toFixed(2);
+  };
+
+  // ---- Open / Close ----
+  const openDrawer = () => {
+    drawer.classList.add('open');
+    backdrop.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    refreshCart();
+  };
+
+  const closeDrawer = () => {
+    drawer.classList.remove('open');
+    backdrop.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  closeBtn.addEventListener('click', closeDrawer);
+  backdrop.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+  // ---- Fetch cart from Shopify ----
+  const fetchCart = () => fetch('/cart.js', { headers: { 'Accept': 'application/json' } }).then(r => r.json());
+
+  // ---- Update shipping bar ----
+  const updateShipBar = (total) => {
+    const pct = Math.min((total / FREE_SHIP_THRESHOLD) * 100, 100);
+    shipFill.style.width = pct + '%';
+    if (total >= FREE_SHIP_THRESHOLD) {
+      shipText.innerHTML = '<strong style="color:#4ade80">☻ Free UK shipping unlocked!</strong>';
+      shipCost.textContent = 'Free';
+    } else {
+      const remaining = FREE_SHIP_THRESHOLD - total;
+      shipText.innerHTML = 'Add <strong id="handCartShipAmt">' + money(remaining) + '</strong> more for free UK shipping';
+      shipCost.textContent = 'Calculated at checkout';
+    }
+  };
+
+  // ---- Render cart ----
+  const renderCart = (cart) => {
+    const count = cart.item_count;
+    const total = cart.total_price;
+
+    // Update header count
+    if (headerCount) headerCount.textContent = count;
+    if (countEl) countEl.textContent = count;
+
+    // Update shipping bar
+    updateShipBar(total);
+
+    if (count === 0) {
+      empty.style.display = 'flex';
+      items.innerHTML = '';
+      foot.style.display = 'none';
+      return;
+    }
+
+    empty.style.display = 'none';
+    foot.style.display = 'block';
+
+    // Totals
+    subEl.textContent = money(total);
+    totalEl.textContent = money(total);
+
+    // Render items
+    items.innerHTML = cart.items.map((item, idx) => {
+      const imgHtml = item.image
+        ? `<img src="${item.image}" alt="${item.title.replace(/"/g, '&quot;')}" loading="lazy">`
+        : `<span class="hand-cart-item-placeholder">☻</span>`;
+      const variantLabel = item.variant_title && item.variant_title !== 'Default Title'
+        ? `${item.vendor} · ${item.variant_title}`
+        : item.vendor;
+      return `
+        <div class="hand-cart-item" data-key="${item.key}">
+          <div class="hand-cart-item-img">${imgHtml}</div>
+          <div class="hand-cart-item-meta">
+            <div class="hand-cart-item-name">${item.product_title}</div>
+            <div class="hand-cart-item-variant">${variantLabel}</div>
+            <div class="hand-cart-item-qty">
+              <button data-qty-dec="${item.key}" aria-label="Decrease quantity">−</button>
+              <span>${item.quantity}</span>
+              <button data-qty-inc="${item.key}" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <div class="hand-cart-item-right">
+            <div class="hand-cart-item-price">${money(item.final_line_price)}</div>
+            <button class="hand-cart-item-remove" data-remove="${item.key}" aria-label="Remove ${item.product_title}">Remove</button>
+          </div>
+        </div>`;
+    }).join('');
+  };
+
+  // ---- Show loading state ----
+  const showLoading = () => {
+    items.innerHTML = `<div class="hand-cart-loading"><div class="hand-cart-spinner"></div>Updating bag...</div>`;
+  };
+
+  // ---- Refresh cart from API ----
+  const refreshCart = () => {
+    showLoading();
+    fetchCart().then(renderCart).catch(() => {
+      items.innerHTML = '<div class="hand-cart-loading">Could not load bag. Please refresh.</div>';
+    });
+  };
+
+  // ---- Update item quantity ----
+  const updateQty = (key, qty) => {
+    showLoading();
+    fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ id: key, quantity: qty })
+    }).then(r => r.json()).then(renderCart).catch(refreshCart);
+  };
+
+  // ---- Remove item ----
+  const removeItem = (key) => {
+    showLoading();
+    fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ id: key, quantity: 0 })
+    }).then(r => r.json()).then(renderCart).catch(refreshCart);
+  };
+
+  // ---- Delegate clicks in items list ----
+  items.addEventListener('click', (e) => {
+    const dec = e.target.closest('[data-qty-dec]');
+    const inc = e.target.closest('[data-qty-inc]');
+    const rm  = e.target.closest('[data-remove]');
+    if (dec) {
+      const key = dec.dataset.qtyDec;
+      const row = dec.closest('.hand-cart-item');
+      const qty = parseInt(row.querySelector('span').textContent) - 1;
+      if (qty <= 0) removeItem(key); else updateQty(key, qty);
+    }
+    if (inc) {
+      const key = inc.dataset.qtyInc;
+      const row = inc.closest('.hand-cart-item');
+      const qty = parseInt(row.querySelector('span').textContent) + 1;
+      updateQty(key, qty);
+    }
+    if (rm) removeItem(rm.dataset.remove);
+  });
+
+  // ---- Global: add to cart via AJAX then open drawer ----
+  window.HAND_addToCart = function(variantId, qty, btn) {
+    qty = qty || 1;
+    if (btn) { btn.disabled = true; btn.textContent = 'Adding...'; }
+    return fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: qty })
+    })
+    .then(r => {
+      if (!r.ok) throw new Error('Cart add failed');
+      return r.json();
+    })
+    .then(() => {
+      if (btn) {
+        btn.textContent = '☻ Added';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = btn.dataset.origText || 'Quick Add';
+        }, 1800);
+      }
+      openDrawer();
+    })
+    .catch(() => {
+      if (btn) { btn.disabled = false; btn.textContent = 'Try Again'; }
+    });
+  };
+
+  // ---- Wire BAG button in header to open drawer ----
+  document.querySelectorAll('.hand-bag-btn, [data-open-cart]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openDrawer();
+    });
+  });
+
+  // ---- Wire Quick Add buttons (product cards) ----
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-add], .qbtn, [data-quick-add]');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const variantId = btn.dataset.variantId || btn.dataset.add;
+    if (!variantId || btn.textContent.trim() === 'Sold Out') return;
+    if (!btn.dataset.origText) btn.dataset.origText = btn.textContent.trim();
+    window.HAND_addToCart(variantId, 1, btn);
+  });
+
+  // ---- Wire product page ATC form ----
+  const pdpForm = document.querySelector('.pdp-form');
+  if (pdpForm) {
+    pdpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const variantId = document.getElementById('pdpVariantId')?.value;
+      const qty = parseInt(document.getElementById('pdpQty')?.value) || 1;
+      const btn = document.getElementById('pdpAddBtn');
+      if (!variantId || btn?.disabled) return;
+      if (!btn.dataset.origText) btn.dataset.origText = btn.innerHTML;
+      btn.innerHTML = 'Adding...';
+      btn.disabled = true;
+      window.HAND_addToCart(variantId, qty, null).then(() => {
+        btn.innerHTML = '☻ Added to Bag';
+        setTimeout(() => { btn.innerHTML = btn.dataset.origText; btn.disabled = false; }, 2000);
+      });
+    });
+  }
+
+  // ---- Initial count sync ----
+  fetchCart().then(cart => {
+    if (headerCount) headerCount.textContent = cart.item_count;
+    if (countEl) countEl.textContent = cart.item_count;
+  });
+
+  // Expose for external use
+  window.HAND_openCart = openDrawer;
+  window.HAND_closeCart = closeDrawer;
+  window.HAND_refreshCart = refreshCart;
+
+})();
+</script>

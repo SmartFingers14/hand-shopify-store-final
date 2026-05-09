@@ -42,7 +42,11 @@
     {%- endif -%}
 
     <div class="card-quick">
-      <button class="qbtn" data-add data-variant-id="{{ p.selected_or_first_available_variant.id }}">
+      <button class="qbtn"
+              data-quick-add
+              data-variant-id="{{ p.selected_or_first_available_variant.id }}"
+              data-product-title="{{ p.title | escape }}"
+              {%- unless p.available %} disabled{%- endunless -%}>
         {%- if p.available -%}Quick Add{%- else -%}Sold Out{%- endif -%}
       </button>
       <a class="iconbtn" href="{{ p.url }}" aria-label="View {{ p.title | escape }}">↗</a>

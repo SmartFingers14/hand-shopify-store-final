@@ -466,11 +466,11 @@
     <div class="hand-nav-actions">
       <button class="hand-action-btn" data-open-search aria-label="Search">SEARCH</button>
       <a class="hand-action-btn" href="{{ routes.account_url }}">ACCOUNT</a>
-      <a class="hand-bag-btn" href="{{ routes.cart_url }}" aria-label="Cart ({{ cart.item_count }} items)">
+      <button class="hand-bag-btn" data-open-cart aria-label="Open bag ({{ cart.item_count }} items)">
         BAG
         <span class="hand-bag-dot"></span>
         <span id="handCartCount">{{ cart.item_count }}</span>
-      </a>
+      </button>
       <button class="hand-burger" id="handBurger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
