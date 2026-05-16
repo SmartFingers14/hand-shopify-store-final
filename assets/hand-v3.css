@@ -88,7 +88,7 @@
     display: grid;
     grid-template-columns: 1.05fr 1fr;
     min-height: calc(100vh - 74px - 38px);
-    max-height: 920px;
+    max-height: none;
 }
 
 .hand-hero-left {
