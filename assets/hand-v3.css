@@ -159,7 +159,7 @@
     right: -2%;
     top: 50%;
     height: .10em;
-    background: var(--pink);
+    background: var(--blue);
     transform: translateY(-50%) rotate(-1.2deg);
 }
 
