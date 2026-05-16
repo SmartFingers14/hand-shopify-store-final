@@ -234,6 +234,7 @@
                         "number": "01 / Flagship",
                         "name": "Have A Nice Day",
                         "desc": "Sam The Man · Shurl The Girl",
+                        "link": "/pages/have-a-nice-day",
                         "style": "featured"
                     }
                 },
@@ -243,6 +244,7 @@
                         "number": "02",
                         "name": "Dready Original",
                         "desc": "Roots · Reggae · Camden",
+                        "link": "/pages/dready-original",
                         "style": ""
                     }
                 },
@@ -262,6 +264,7 @@
                         "number": "04",
                         "name": "BTKA",
                         "desc": "Punk Rocks · Sleazy Rider",
+                        "link": "/pages/btka",
                         "style": ""
                     }
                 },
