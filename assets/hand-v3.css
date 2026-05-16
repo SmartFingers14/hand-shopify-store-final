@@ -87,8 +87,7 @@
 .hand-hero-grid {
     display: grid;
     grid-template-columns: 1.05fr 1fr;
-    min-height: calc(100vh - 74px - 38px);
-    max-height: none;
+    height: calc(100vh - 74px - 38px);
 }
 
 .hand-hero-left {
