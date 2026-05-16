@@ -7,7 +7,7 @@
       </div>
       <div class="rhs">
         <p>{{ section.settings.subtext }}</p>
-        <a class="more" href="{{ section.settings.link | default: 'https://www.instagram.com/haveanicedaylondon' }}" target="_blank" rel="noopener">{{ section.settings.link_label | default: 'Follow Us On Instagram' }} &#8594;</a>
+        <a class="more" href="{{ section.settings.link | default: 'https://www.instagram.com/haveaniceday.london' }}" target="_blank" rel="noopener">{{ section.settings.link_label | default: 'Follow Us On Instagram' }} &#8594;</a>
       </div>
     </div>
 
@@ -70,7 +70,7 @@
             .then(function(r) { return r.json(); })
             .then(function(data) {
               if (data.error) {
-                grid.innerHTML = '<div class="hand-ig-error">Instagram feed unavailable. <a href="https://www.instagram.com/haveanicedaylondon" target="_blank" style="color:var(--ink);text-decoration:underline;">View on Instagram</a></div>';
+              grid.innerHTML = '<div class="hand-ig-error">Instagram feed unavailable. <a href="https://www.instagram.com/haveaniceday.london" target="_blank" style="color:var(--ink);text-decoration:underline;">View on Instagram</a></div>';
                 return;
               }
               var posts = data.data || [];
@@ -93,7 +93,7 @@
             })
             .catch(function(err) {
               console.warn('Instagram feed error:', err);
-              grid.innerHTML = '<div class="hand-ig-error">Could not load Instagram feed. <a href="https://www.instagram.com/haveanicedaylondon" target="_blank" style="color:var(--ink);text-decoration:underline;">View on Instagram</a></div>';
+              grid.innerHTML = '<div class="hand-ig-error">Could not load Instagram feed. <a href="https://www.instagram.com/haveaniceday.london" target="_blank" style="color:var(--ink);text-decoration:underline;">View on Instagram</a></div>';
             });
         })();
       </script>
@@ -103,7 +103,7 @@
       <div class="hand-gallery">
         {% for block in section.blocks %}
           {% if block.type == 'tile' %}
-            <a class="hand-g hand-ig-item {{ block.settings.span_class }}" href="{{ section.settings.link | default: 'https://www.instagram.com/haveanicedaylondon' }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>
+            <a class="hand-g hand-ig-item {{ block.settings.span_class }}" href="{{ section.settings.link | default: 'https://www.instagram.com/haveaniceday.london' }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>
               {% if block.settings.image %}
                 <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.handle }}" loading="lazy" />
               {% elsif block.settings.image_url != blank %}
@@ -131,7 +131,7 @@
     { "type": "header", "content": "Live Instagram Feed" },
     { "type": "paragraph", "content": "Paste your Instagram Long-Lived Access Token to show live posts. Get it from Meta for Developers > Your App > Instagram Basic Display > User Token Generator. Leave blank to use static tiles." },
     { "type": "text", "id": "access_token", "label": "Instagram Access Token (long-lived)" },
-    { "type": "text", "id": "ig_username", "label": "Instagram username (shown on hover)", "default": "@haveanicedaylondon" },
+    { "type": "text", "id": "ig_username", "label": "Instagram username (shown on hover)", "default": "@haveaniceday.london" },
     { "type": "range", "id": "post_count", "min": 6, "max": 12, "step": 1, "label": "Number of posts to show", "default": 10 }
   ],
   "blocks": [
