@@ -18,14 +18,14 @@
         :root {
             /* === BRAND BOARD ===
                Pink #FF69B4 (primary), Soft pink #FFC1CC,
-               Sky #87CEEB, Yellow #FFD400, Black #000, White #FFF */
+               Sky #68B6E5, Yellow #FFD400, Black #000, White #FFF */
             --bg: #FFFFFF;
             --ink: #000000;
             --ink-soft: #1a1a1a;
             --mute: #6b6b6b;
             --pink: #FF69B4;
             --pink-soft: #FFC1CC;
-            --sky: #87CEEB;
+            --sky: #68B6E5;
             --yellow: #FFD400;
             /* legacy aliases — keep working without restructuring */
             --acid: #FFD400;
@@ -3478,7 +3478,7 @@
 
         /* =================================================================
            ⚡ BRAND-ALIGNMENT OVERRIDE LAYER ⚡
-           Pink #FF69B4 · Sky #87CEEB · Yellow #FFD400 · Black · White
+           Pink #FF69B4 · Sky #68B6E5 · Yellow #FFD400 · Black · White
            Typography: Fjalla One (display) + Inter (body)
            Aesthetic: 90s pop-art · color-block · street/graffiti energy
            NO layout changes — only visual language transformation.
