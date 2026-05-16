@@ -3,7 +3,7 @@
         "hero": {
             "type": "v3-hero",
             "settings": {
-                "meta_left": "Est. 1990 — Vol. 04",
+                "meta_left": "Est. 1990 — Camden",
                 "meta_right": "Camden ↗ London NW1",
                 "h1_line1": "From The",
                 "h1_strike": "Underground",
@@ -13,8 +13,8 @@
                 "subtext": "Original Camden 90s rave streetwear. The label behind Sam The Man, Shurl The Girl, Dready, BTKA, Vortex, Funky Dog & more — reissued on heavyweight organic cotton, printed in the UK.",
                 "cta1_label": "Shop The Drop",
                 "cta2_label": "Our Story",
-                "topbar_left": "LIVE — DROP 04",
-                "topbar_right": "Vol. 04 / 2026",
+                "topbar_left": "LIVE — NEW ARRIVALS",
+                "topbar_right": "Camden 1990",
                 "stamp_left_label": "Now Reissued",
                 "stamp_left_value": "Sam The Man™",
                 "stamp_right_label": "Original Brand",
@@ -104,7 +104,7 @@
         "products": {
             "type": "v3-products",
             "settings": {
-                "eyebrow": "Drop 04 / Featured Reissues",
+                "eyebrow": "Featured Reissues",
                 "heading": "Heritage Hits.",
                 "subtext": "Eight pieces from across the family — pulled from the original 1990 archive, printed in small UK batches on 220gsm organic cotton.",
                 "view_all_label": "Shop All Products →",
@@ -209,7 +209,7 @@
             "type": "v3-featured-product",
             "settings": {
                 "eyebrow": "Spotlight / This Drop",
-                "badge": "Drop 04 — Featured",
+                "badge": "Featured",
                 "title_pre": "Sam The Man",
                 "title_accent": "Front Print Tee",
                 "description": "The original character. Hand-drawn in Camden 1990, now reissued on 220gsm organic cotton. Front print, relaxed fit, UK printed in small batches. The one that started it all.",
