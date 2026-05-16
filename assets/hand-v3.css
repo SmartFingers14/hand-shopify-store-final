@@ -80,14 +80,14 @@
 .hand-hero {
     position: relative;
     border-bottom: 1px solid var(--ink);
-    overflow: hidden;
+    overflow: visible;
     background: var(--paper);
 }
 
 .hand-hero-grid {
     display: grid;
     grid-template-columns: 1.05fr 1fr;
-    height: calc(100vh - 74px - 38px);
+    min-height: calc(100vh - 74px - 38px);
 }
 
 .hand-hero-left {
