@@ -521,6 +521,7 @@
         "brands",
         "categories",
         "story",
-        "gallery"
+        "gallery",
+        "newsletter"
     ]
 }
