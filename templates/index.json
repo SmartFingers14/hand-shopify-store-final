@@ -403,7 +403,10 @@
                 "eyebrow": "@haveanicedaylondon",
                 "heading": "The Camden Community.",
                 "subtext": "Tag #HaveANiceDayLondon for a feature. 30+ years of culture, same as it ever was.",
-                "ig_label": "Follow Us On Instagram →"
+                "link_label": "Follow Us On Instagram",
+                "access_token": "IGAAXlp0mtoBlBZAGF1S2ZA2aXdOU29KY1A1NTZAwOXVaaVlieHhla0RCRXk1cndNaGhLVUI3ZAmZAUU0FoemlWVWhsRW9GMGRJTVNJYlZA1dDl3LXpfcVpvQ0ZAwbTZA6ZADl0T2ZAadlMtZA3IxR2RjWE5PRk1fRXFHTU9fXzhmbHZAodUdIawZDZD",
+                "ig_username": "@haveanicedaylondon",
+                "post_count": 10
             },
             "blocks": {
                 "g1": {
