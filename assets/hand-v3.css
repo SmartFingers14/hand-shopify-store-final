@@ -9,7 +9,7 @@
     --paper-2: #ebe7dd;
     --line: #1a1a1a;
     --muted: #6b6b6b;
-    --pink: #FF2E88;
+    --pink: #F59DBA;
     --blue: #4FC2F7;
     --yellow: #FFD400;
     --display: 'Anton', Impact, sans-serif;
@@ -48,7 +48,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #FF2E88;
+    background: #F59DBA;
     margin-right: 8px;
     vertical-align: middle;
     animation: hand-pulse 1.6s ease-in-out infinite;
@@ -311,7 +311,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #FF2E88;
+    background: #F59DBA;
     margin-right: 8px;
     animation: hand-pulse 1.6s ease-in-out infinite;
 }
