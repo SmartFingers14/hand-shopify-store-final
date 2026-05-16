@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "brand-sista": {
+            "type": "brand-sista",
+            "settings": {}
+        }
+    },
+    "order": [
+        "brand-sista"
+    ]
+}
