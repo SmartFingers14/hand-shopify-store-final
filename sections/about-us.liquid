@@ -1,4 +1,5 @@
 <!-- HAVE A NICE DAY — About Us / Our Story Page -->
+{{ 'hand-v3.css' | asset_url | stylesheet_tag }}
 <style>
   /* ===== ABOUT US PAGE ===== */
   .hand-about {
@@ -853,70 +854,121 @@
     </div>
   </section>
 
-  <!-- ===== CHARACTERS ===== -->
-  <section class="hand-about-chars">
-    <div class="hand-about-chars-inner">
-      <div class="hand-about-chars-head">
-        <div>
-          <div class="hand-about-chars-tag">The Family</div>
-          <h2 class="hand-about-chars-h2">Nine Identities.<br>One Camden HQ.</h2>
+  <!-- ===== THE FAMILY — ROSTER (matches homepage) ===== -->
+  <section class="hand-sec" id="brands" style="background:#0d0d0d;">
+    <div class="hand-container">
+      <div class="hand-sec-head">
+        <div class="lhs">
+          <div class="eyebrow">The Family — 09 Sub-Brands</div>
+          <h2>One Camden HQ.
+Nine Identities.</h2>
         </div>
-        <a href="/collections" style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#F59DBA;text-decoration:none;">Browse All Brands →</a>
+        <div class="rhs">
+          <p>Have A Nice Day was always more than one logo. Each sub-brand is its own world — born out of music, scene, and 30+ years of underground London.</p>
+          <a class="more" href="/pages/brands">Browse All Brands &#8594;</a>
+        </div>
       </div>
-      <div class="hand-about-chars-grid">
-        <a href="/pages/have-a-nice-day" class="hand-about-char-card">
-          <span class="hand-about-char-num" aria-hidden="true">01</span>
-          <h3 class="hand-about-char-name">Have A Nice Day®</h3>
-          <p class="hand-about-char-desc">The original. The legend. Born Camden 1990 from a Hanes t-shirt concession in a dark corridor. The brand that started it all.</p>
+
+      <div class="hand-roster">
+        <a href="/pages/have-a-nice-day" class="featured">
+          <span class="num">01 / Flagship</span>
+          <span class="arrow">&#8599;</span>
+          <img class="brand-logo" src="{{ 'logo-sam-the-man.png' | asset_url }}" alt="Have A Nice Day logo" loading="lazy" />
+          <div>
+            <div class="name">Have A Nice Day</div>
+            <div class="desc">Sam The Man · Shurl The Girl</div>
+          </div>
         </a>
-        <a href="/pages/have-a-nice-day" class="hand-about-char-card">
-          <span class="hand-about-char-num" aria-hidden="true">02</span>
-          <h3 class="hand-about-char-name">Sam The Man</h3>
-          <p class="hand-about-char-desc">The first character. Hand-drawn, trademarked, and adopted by ravers across the UK. The face of a movement. The icon of the 90s rave scene.</p>
+        <a href="/pages/dready-original" class="">
+          <span class="num">02</span>
+          <span class="arrow">&#8599;</span>
+          <img class="brand-logo" src="{{ 'logo-dready.png' | asset_url }}" alt="Dready Original logo" loading="lazy" />
+          <div>
+            <div class="name">Dready Original</div>
+            <div class="desc">Roots · Reggae · Camden</div>
+          </div>
         </a>
-        <a href="/pages/have-a-nice-day" class="hand-about-char-card">
-          <span class="hand-about-char-num" aria-hidden="true">03</span>
-          <h3 class="hand-about-char-name">Shurl The Girl</h3>
-          <p class="hand-about-char-desc">Inspired by Marilyn Monroe. The iconic pink bubble over the lips — born from a creative problem, became the most recognisable graphic of the decade.</p>
+        <a href="/pages/handspun-records" class="accent">
+          <span class="num">03</span>
+          <span class="arrow">&#8599;</span>
+          <img class="brand-logo" src="{{ 'logo-handspun.png' | asset_url }}" alt="Handspun Records logo" loading="lazy" />
+          <div>
+            <div class="name">Handspun Records</div>
+            <div class="desc">Vinyl · Sound · Wax</div>
+          </div>
         </a>
-        <a href="/pages/btka" class="hand-about-char-card">
-          <span class="hand-about-char-num" aria-hidden="true">04</span>
-          <h3 class="hand-about-char-name">BTKA</h3>
-          <p class="hand-about-char-desc">Bold. Unapologetic. Raw energy from the underground. BTKA carries the spirit of the rave scene into every print.</p>
+        <a href="/pages/btka" class="">
+          <span class="num">04</span>
+          <span class="arrow">&#8599;</span>
+          <img class="brand-logo" src="{{ 'logo-btka.png' | asset_url }}" alt="BTKA logo" loading="lazy" />
+          <div>
+            <div class="name">BTKA</div>
+            <div class="desc">Punk Rocks · Sleazy Rider</div>
+          </div>
         </a>
-        <a href="/pages/handspun-records" class="hand-about-char-card">
-          <span class="hand-about-char-num" aria-hidden="true">05</span>
-          <h3 class="hand-about-char-name">Handspun Records</h3>
-          <p class="hand-about-char-desc">Where fashion meets music. The label that bridges the gap between the dancefloor and the wardrobe. Vinyl culture, wearable.</p>
+        <a href="/pages/vortex" class="">
+          <span class="num">05</span>
+          <span class="arrow">&#8599;</span>
+          <img class="brand-logo" src="{{ 'logo-vortex.png' | asset_url }}" alt="Vortex logo" loading="lazy" />
+          <div>
+            <div class="name">Vortex</div>
+            <div class="desc">Info The Robot · Close Encounter</div>
+          </div>
         </a>
-        <a href="/pages/dready-original" class="hand-about-char-card">
-          <span class="hand-about-char-num" aria-hidden="true">06</span>
-          <h3 class="hand-about-char-name">Dready Original</h3>
-          <p class="hand-about-char-desc">Roots, culture, and colour. Dready brings the warmth and spirit of reggae culture to the Have A Nice Day family.</p>
+        <a href="/pages/funky-dog" class="">
+          <span class="num">06</span>
+          <span class="arrow">&#8599;</span>
+          <img class="brand-logo" src="{{ 'logo-funky-dog.png' | asset_url }}" alt="Funky Dog logo" loading="lazy" />
+          <div>
+            <div class="name">Funky Dog</div>
+            <div class="desc">Atomic Dog · Mongrel Soup</div>
+          </div>
         </a>
-        <a href="/pages/vortex" class="hand-about-char-card">
-          <span class="hand-about-char-num" aria-hidden="true">07</span>
-          <h3 class="hand-about-char-name">Vortex</h3>
-          <p class="hand-about-char-desc">The psychedelic arm of the family. Swirling energy, cosmic graphics, and the spirit of the underground rave scene.</p>
+        <a href="/pages/dont-do-the-dodo" class="">
+          <span class="num">07</span>
+          <span class="arrow">&#8599;</span>
+          <img class="brand-logo" src="{{ 'logo-dodo.png' | asset_url }}" alt="Don't Do The Dodo logo" loading="lazy" />
+          <div>
+            <div class="name">Don't Do The Dodo</div>
+            <div class="desc">Professor Watercooler · Crest</div>
+          </div>
         </a>
-        <a href="/pages/funky-dog" class="hand-about-char-card">
-          <span class="hand-about-char-num" aria-hidden="true">08</span>
-          <h3 class="hand-about-char-name">Funky Dog</h3>
-          <p class="hand-about-char-desc">Playful, irreverent, and full of character. Funky Dog is the lighter side of the Have A Nice Day universe.</p>
+        <a href="/pages/incubator" class="">
+          <span class="num">08</span>
+          <span class="arrow">&#8599;</span>
+          <img class="brand-logo" src="{{ 'logo-incubator.png' | asset_url }}" alt="Incubator logo" loading="lazy" />
+          <div>
+            <div class="name">Incubator</div>
+            <div class="desc">Divergent · Outside The Box</div>
+          </div>
         </a>
-        <a href="/pages/dont-do-the-dodo" class="hand-about-char-card">
-          <span class="hand-about-char-num" aria-hidden="true">09</span>
-          <h3 class="hand-about-char-name">Don't Do The Dodo</h3>
-          <p class="hand-about-char-desc">The conscience of the brand. A call to action. Don't let the things that matter disappear — like the Dodo. Like the rave scene. Like Have A Nice Day itself.</p>
-        </a>
-        <a href="/pages/sista" class="hand-about-char-card">
-          <span class="hand-about-char-num" aria-hidden="true">10</span>
-          <h3 class="hand-about-char-name">Sista</h3>
-          <p class="hand-about-char-desc">Feminine energy meets vinyl culture. Script lettering, bold silhouettes, and slip mats — Sista is the rhythm of the Have A Nice Day family.</p>
+        <a href="/pages/sista" class="accent">
+          <span class="num">09</span>
+          <span class="arrow">&#8599;</span>
+          <img class="brand-logo" src="{{ 'logo-sista.png' | asset_url }}" alt="Sista logo" loading="lazy" />
+          <div>
+            <div class="name">Sista</div>
+            <div class="desc">Script · Silhouette · Slip Mats</div>
+          </div>
         </a>
       </div>
     </div>
   </section>
+  <!-- brand-logo positioning (same as homepage v3-brands) -->
+  <style>
+    .hand-about .hand-roster a { position: relative; }
+    .hand-about .brand-logo {
+      position: absolute; right: 20px; bottom: 50%; transform: translateY(50%);
+      width: 80px; height: 80px; object-fit: contain; opacity: .25;
+      pointer-events: none; transition: opacity .4s, transform .4s;
+    }
+    .hand-about .hand-roster a:hover .brand-logo { opacity: .6; transform: translateY(50%) scale(1.08); }
+    .hand-about .hand-roster .featured .brand-logo,
+    .hand-about .hand-roster .accent .brand-logo { opacity: .3; }
+    .hand-about .hand-roster .featured:hover .brand-logo,
+    .hand-about .hand-roster .accent:hover .brand-logo { opacity: .65; }
+    @media (max-width: 820px) { .hand-about .brand-logo { width: 60px; height: 60px; } }
+  </style>
 
   <!-- ===== MISSION ===== -->
   <section class="hand-about-mission">
