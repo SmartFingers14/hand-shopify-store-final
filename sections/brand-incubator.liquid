@@ -1,0 +1,522 @@
+{% comment %}
+  Brand Page: Incubator — The Experimental Arm
+  PERSONA: Futuristic, conceptual, lab-born. Divergent thinking meets streetwear.
+  Neon green (#00FF88) on dark (#050505). Grid-tech aesthetic. Outside The Box.
+{% endcomment %}
+
+{%- assign incu_col = collections['incubator'] -%}
+
+<!-- ============================================================
+     HERO — Dark lab aesthetic with scanning grid + neon pulse
+     ============================================================ -->
+<section class="ib-hero" id="ib-top">
+  <!-- Animated scan lines -->
+  <div class="ib-scan" aria-hidden="true"></div>
+  <!-- Grid overlay -->
+  <div class="ib-grid-bg" aria-hidden="true"></div>
+  <!-- Neon glow orbs -->
+  <div class="ib-orb ib-orb1" aria-hidden="true"></div>
+  <div class="ib-orb ib-orb2" aria-hidden="true"></div>
+
+  <!-- Floating code fragments -->
+  <div class="ib-code-frags" aria-hidden="true">
+    <span class="ib-frag ib-f1">{ divergent: true }</span>
+    <span class="ib-frag ib-f2">// outside the box</span>
+    <span class="ib-frag ib-f3">init()</span>
+    <span class="ib-frag ib-f4">→ experiment</span>
+    <span class="ib-frag ib-f5">[ prototype ]</span>
+  </div>
+
+  <div class="ib-hero-inner">
+    <div class="ib-hero-meta">
+      <span class="ib-meta-badge">08</span>
+      <span class="ib-meta-line"></span>
+      <span class="ib-meta-text">Sub-Brand / Experimental Arm</span>
+    </div>
+
+    <h1 class="ib-hero-title">
+      <span class="ib-title-row ib-tr1">INCU</span>
+      <span class="ib-title-row ib-tr2">BA<em>TOR</em></span>
+    </h1>
+
+    <p class="ib-hero-tagline">Where ideas go to become <span class="ib-neon">dangerous.</span></p>
+
+    <p class="ib-hero-desc">The experimental arm of Have A Nice Day London. A creative laboratory for divergent thinking — where concepts are tested, rules are broken, and the next generation of Camden streetwear is born.</p>
+
+    <div class="ib-hero-cta-row">
+      <a class="ib-cta-main" href="#ib-shop">
+        Enter The Lab
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="ib-hero-stats">
+        <div class="ib-hs"><span class="ib-hs-n">∞</span><span class="ib-hs-l">Concepts</span></div>
+        <div class="ib-hs-div"></div>
+        <div class="ib-hs"><span class="ib-hs-n">LTD</span><span class="ib-hs-l">Editions</span></div>
+        <div class="ib-hs-div"></div>
+        <div class="ib-hs"><span class="ib-hs-n">UK</span><span class="ib-hs-l">Lab-Made</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ib-scroll-cue">
+    <div class="ib-scroll-bar"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     MARQUEE — Glitch ticker
+     ============================================================ -->
+<div class="ib-marquee">
+  <div class="ib-mq-track">
+    {%- for i in (1..3) -%}
+    <span class="ib-mq-w">INCUBATOR</span><span class="ib-mq-dot">◆</span>
+    <span class="ib-mq-w ib-mq-outline">DIVERGENT</span><span class="ib-mq-dot">◆</span>
+    <span class="ib-mq-w">OUTSIDE THE BOX</span><span class="ib-mq-dot">◆</span>
+    <span class="ib-mq-w ib-mq-outline">PROTOTYPE</span><span class="ib-mq-dot">◆</span>
+    <span class="ib-mq-w">CAMDEN LAB</span><span class="ib-mq-dot">◆</span>
+    {%- endfor -%}
+  </div>
+</div>
+
+<!-- ============================================================
+     STORY — Lab concept editorial
+     ============================================================ -->
+<section class="ib-story">
+  <div class="ib-story-grid">
+    <div class="ib-story-lhs">
+      <div class="ib-lab-badge">
+        <svg class="ib-dna" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(0,255,136,.15)" stroke-width="1"/>
+          <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(0,255,136,.1)" stroke-width="1"/>
+          <circle cx="50" cy="50" r="15" fill="none" stroke="rgba(0,255,136,.08)" stroke-width="1"/>
+          <circle cx="50" cy="50" r="4" fill="#00FF88"/>
+        </svg>
+        <span class="ib-lab-text">LAB<br>008</span>
+      </div>
+      <div class="ib-concept-tags">
+        <span>Prototype</span><span>Divergent</span><span>Outside The Box</span><span>Experimental</span><span>Camden Lab</span>
+      </div>
+    </div>
+
+    <div class="ib-story-rhs">
+      <div class="ib-eyebrow"><span class="ib-eye-pulse"></span>The Concept</div>
+      <h2 class="ib-story-h2">
+        <span>Not a brand.</span>
+        <span class="ib-h2-neon">An experiment.</span>
+      </h2>
+      <p class="ib-story-p">Incubator isn't about following trends — it's about ignoring them entirely. Born in the back rooms of Camden's creative underground, this is where Have A Nice Day tests its wildest ideas.</p>
+      <p class="ib-story-p">Divergent graphics. Conceptual prints. Limited-run pieces that push the boundaries of what streetwear can be. Every design is a prototype — once it's gone, it's gone.</p>
+      <div class="ib-specs">
+        <div class="ib-spec"><span class="ib-spec-k">Origin</span><span class="ib-spec-v">Camden NW1</span></div>
+        <div class="ib-spec"><span class="ib-spec-k">Method</span><span class="ib-spec-v">Small-Batch Lab Prints</span></div>
+        <div class="ib-spec"><span class="ib-spec-k">Material</span><span class="ib-spec-v">220gsm Organic Cotton</span></div>
+        <div class="ib-spec"><span class="ib-spec-k">Status</span><span class="ib-spec-v ib-neon">Active</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRODUCTS
+     ============================================================ -->
+<section class="ib-shop hand-sec" id="ib-shop">
+  <div class="hand-container">
+    <div class="ib-shop-head">
+      <div>
+        <div class="ib-eyebrow"><span class="ib-eye-pulse"></span>The Output</div>
+        <h2 class="ib-shop-h2">Lab Releases.</h2>
+      </div>
+      <p class="ib-shop-sub">Every piece from Incubator — experimental graphics on heavyweight organic cotton. Limited editions, UK lab-printed.</p>
+    </div>
+
+    <div class="hand-grid ib-grid" id="ib-product-grid">
+      {%- if incu_col and incu_col.products.size > 0 -%}
+        {%- for product in incu_col.products -%}
+          <a class="hand-card ib-card" href="{{ product.url }}">
+            <div class="imgwrap">
+              <span class="tag">{{ product.type | default: 'Lab' }}</span>
+              {%- if product.featured_image -%}
+                <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" />
+              {%- else -%}
+                <div style="width:100%;height:340px;background:#0a0a0a;display:flex;align-items:center;justify-content:center;">
+                  <span style="color:#00FF88;font-family:monospace;font-size:11px;letter-spacing:.1em;">PROTOTYPE</span>
+                </div>
+              {%- endif -%}
+              <span class="quick">View Experiment →</span>
+            </div>
+            <div class="body">
+              <div class="name">{{ product.title }}</div>
+              <div class="row2">
+                <div class="price">{{ product.price | money }}</div>
+              </div>
+            </div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Fallback: pull from all products tagged 'incubator' or show message -->
+        <div class="ib-empty">
+          <div class="ib-empty-icon">⟐</div>
+          <h3>Experiments In Progress</h3>
+          <p>The next Incubator drop is being prototyped in the Camden lab. Sign up to be first to know.</p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA — Join the experiment
+     ============================================================ -->
+<section class="ib-cta">
+  <div class="ib-cta-inner">
+    <div class="ib-cta-badge">↗</div>
+    <h2 class="ib-cta-h2">Think <span class="ib-neon">different.</span><br>Wear different.</h2>
+    <p>The Incubator is always looking for collaborators, artists, and divergent thinkers. If you've got an idea that doesn't fit anywhere else — it fits here.</p>
+    <div class="ib-cta-btns">
+      <a class="ib-cta-main" href="/pages/contact">Get In Touch →</a>
+      <a class="ib-cta-ghost" href="/collections/all">Browse All Brands</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STYLES
+     ============================================================ -->
+<style>
+:root {
+  --ib-bg: #050505;
+  --ib-fg: #e8e8e8;
+  --ib-neon: #00FF88;
+  --ib-neon2: #00D4FF;
+  --ib-dim: #333;
+  --ib-surface: #0c0c0c;
+}
+
+/* === HERO === */
+.ib-hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--ib-bg);
+  color: var(--ib-fg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+}
+.ib-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,136,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.ib-scan {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent, transparent 2px,
+    rgba(0,255,136,.02) 2px, rgba(0,255,136,.02) 4px
+  );
+  pointer-events: none;
+  animation: ib-scan-move 8s linear infinite;
+}
+@keyframes ib-scan-move {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(60px); }
+}
+.ib-orb {
+  position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
+}
+.ib-orb1 {
+  width: 500px; height: 500px; top: -10%; right: -5%;
+  background: radial-gradient(circle, rgba(0,255,136,.15), transparent 70%);
+}
+.ib-orb2 {
+  width: 400px; height: 400px; bottom: 5%; left: -5%;
+  background: radial-gradient(circle, rgba(0,212,255,.1), transparent 70%);
+}
+.ib-code-frags {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.ib-frag {
+  position: absolute;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .15em;
+  color: rgba(0,255,136,.12); text-transform: uppercase;
+}
+.ib-f1 { top: 15%; right: 8%; }
+.ib-f2 { top: 35%; right: 15%; }
+.ib-f3 { bottom: 25%; left: 5%; }
+.ib-f4 { top: 60%; right: 5%; }
+.ib-f5 { bottom: 15%; left: 12%; }
+
+.ib-hero-inner {
+  position: relative; z-index: 2;
+  max-width: 900px; margin: 0 auto; padding: 0 32px;
+}
+.ib-hero-meta {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 40px;
+}
+.ib-meta-badge {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  background: var(--ib-neon); color: #000; padding: 6px 12px;
+  letter-spacing: .2em;
+}
+.ib-meta-line { width: 40px; height: 1px; background: var(--ib-dim); }
+.ib-meta-text {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .22em;
+  text-transform: uppercase; color: #666;
+}
+
+.ib-hero-title {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(80px, 14vw, 200px); line-height: .82;
+  letter-spacing: -.02em; color: var(--ib-fg);
+}
+.ib-tr2 em {
+  font-style: normal; color: var(--ib-neon);
+  text-shadow: 0 0 40px rgba(0,255,136,.3);
+}
+
+.ib-hero-tagline {
+  font-family: var(--body); font-size: 20px; margin-top: 30px;
+  color: #999; font-weight: 300;
+}
+.ib-neon { color: var(--ib-neon); text-shadow: 0 0 20px rgba(0,255,136,.25); }
+
+.ib-hero-desc {
+  max-width: 560px; font-size: 16px; line-height: 1.7;
+  color: #777; margin-top: 20px;
+}
+
+.ib-hero-cta-row {
+  display: flex; align-items: center; gap: 40px; margin-top: 40px;
+  flex-wrap: wrap;
+}
+.ib-cta-main {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 18px 32px; background: var(--ib-neon); color: #000;
+  font-family: var(--mono); text-transform: uppercase; font-size: 12px;
+  letter-spacing: .2em; font-weight: 700; text-decoration: none;
+  transition: all .3s; cursor: pointer;
+}
+.ib-cta-main:hover {
+  background: #fff; box-shadow: 0 0 30px rgba(0,255,136,.3);
+}
+
+.ib-hero-stats { display: flex; align-items: center; gap: 24px; }
+.ib-hs { text-align: center; }
+.ib-hs-n {
+  display: block; font-family: var(--display); font-size: 24px;
+  color: var(--ib-fg); line-height: 1;
+}
+.ib-hs-l {
+  display: block; font-family: var(--mono); font-size: 9px;
+  letter-spacing: .2em; text-transform: uppercase; color: #555; margin-top: 6px;
+}
+.ib-hs-div { width: 1px; height: 36px; background: var(--ib-dim); }
+
+.ib-scroll-cue {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  z-index: 2;
+}
+.ib-scroll-cue span {
+  font-family: var(--mono); font-size: 9px; letter-spacing: .3em;
+  text-transform: uppercase; color: #444;
+}
+.ib-scroll-bar {
+  width: 1px; height: 40px; background: linear-gradient(to bottom, var(--ib-neon), transparent);
+  animation: ib-scroll-pulse 2s ease-in-out infinite;
+}
+@keyframes ib-scroll-pulse {
+  0%,100% { opacity: .3; } 50% { opacity: 1; }
+}
+
+/* === MARQUEE === */
+.ib-marquee {
+  background: var(--ib-neon); overflow: hidden; padding: 14px 0;
+  border-top: 1px solid rgba(0,0,0,.1); border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.ib-mq-track {
+  display: flex; gap: 40px; white-space: nowrap;
+  animation: ib-mq 30s linear infinite;
+}
+.ib-mq-w {
+  font-family: var(--display); font-size: 28px; text-transform: uppercase;
+  letter-spacing: .04em; color: #000;
+}
+.ib-mq-outline {
+  -webkit-text-stroke: 1.5px #000; color: transparent;
+}
+.ib-mq-dot { color: #000; font-size: 12px; display: flex; align-items: center; }
+@keyframes ib-mq { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* === STORY === */
+.ib-story {
+  background: var(--ib-bg); color: var(--ib-fg);
+  padding: 120px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.ib-story-grid {
+  max-width: 1200px; margin: 0 auto; padding: 0 32px;
+  display: grid; grid-template-columns: .8fr 1fr; gap: 80px; align-items: center;
+}
+.ib-story-lhs {
+  display: flex; flex-direction: column; align-items: center; gap: 30px;
+}
+.ib-lab-badge {
+  position: relative; width: 180px; height: 180px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ib-dna { width: 100%; height: 100%; animation: ib-rotate 20s linear infinite; }
+@keyframes ib-rotate { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
+.ib-lab-text {
+  position: absolute; font-family: var(--mono); font-size: 18px;
+  font-weight: 700; letter-spacing: .3em; text-align: center;
+  color: var(--ib-neon); line-height: 1.2;
+}
+.ib-concept-tags {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+}
+.ib-concept-tags span {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .15em;
+  text-transform: uppercase; padding: 6px 12px;
+  border: 1px solid rgba(0,255,136,.2); color: rgba(0,255,136,.5);
+}
+
+.ib-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--ib-neon); margin-bottom: 20px;
+}
+.ib-eye-pulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--ib-neon); animation: ib-pulse 1.5s ease-in-out infinite;
+}
+@keyframes ib-pulse { 0%,100% { opacity:.4; } 50% { opacity:1; } }
+
+.ib-story-h2 {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(44px, 5vw, 80px); line-height: .92;
+}
+.ib-story-h2 span { display: block; }
+.ib-h2-neon { color: var(--ib-neon); text-shadow: 0 0 30px rgba(0,255,136,.2); }
+
+.ib-story-p {
+  color: #888; font-size: 16px; line-height: 1.75; margin-top: 20px; max-width: 500px;
+}
+
+.ib-specs {
+  margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.ib-spec {
+  padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,.06);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.ib-spec:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.06); }
+.ib-spec-k {
+  font-family: var(--mono); font-size: 9px; letter-spacing: .2em;
+  text-transform: uppercase; color: #555;
+}
+.ib-spec-v { font-family: var(--body); font-size: 14px; color: var(--ib-fg); font-weight: 500; }
+
+/* === PRODUCTS === */
+.ib-shop {
+  background: var(--ib-bg) !important; border-bottom-color: rgba(255,255,255,.06) !important;
+}
+.ib-shop-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 50px; flex-wrap: wrap; gap: 24px;
+}
+.ib-shop-h2 {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(48px, 6vw, 90px); line-height: .9; color: var(--ib-fg);
+}
+.ib-shop-sub {
+  max-width: 420px; font-size: 15px; line-height: 1.65; color: #666;
+}
+.ib-grid { background: rgba(255,255,255,.06) !important; }
+.ib-card {
+  background: var(--ib-surface) !important; color: var(--ib-fg) !important;
+}
+.ib-card:hover { background: #111 !important; }
+.ib-card .imgwrap { background: #0a0a0a !important; }
+.ib-card .body { border-top-color: rgba(255,255,255,.08) !important; }
+.ib-card .name { color: var(--ib-fg) !important; }
+.ib-card .price { color: var(--ib-neon) !important; }
+.ib-card .tag { background: var(--ib-neon) !important; color: #000 !important; }
+.ib-card .quick { background: var(--ib-neon) !important; color: #000 !important; }
+
+.ib-empty {
+  grid-column: 1 / -1; padding: 80px 40px; text-align: center;
+  background: var(--ib-surface);
+}
+.ib-empty-icon {
+  font-size: 48px; color: var(--ib-neon); margin-bottom: 20px;
+}
+.ib-empty h3 {
+  font-family: var(--display); font-size: 32px; text-transform: uppercase;
+  color: var(--ib-fg); margin-bottom: 12px;
+}
+.ib-empty p { color: #666; font-size: 15px; max-width: 400px; margin: 0 auto; }
+
+/* === CTA === */
+.ib-cta {
+  background: var(--ib-bg); padding: 120px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  position: relative; overflow: hidden;
+}
+.ib-cta::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(0,255,136,.06), transparent 60%);
+  pointer-events: none;
+}
+.ib-cta-inner {
+  max-width: 700px; margin: 0 auto; padding: 0 32px;
+  text-align: center; position: relative; z-index: 1;
+}
+.ib-cta-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 60px; height: 60px; border: 2px solid var(--ib-neon); color: var(--ib-neon);
+  font-size: 24px; font-family: var(--mono); margin-bottom: 30px;
+}
+.ib-cta-h2 {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(42px, 5.5vw, 76px); line-height: .92; color: var(--ib-fg);
+  margin-bottom: 20px;
+}
+.ib-cta p {
+  color: #777; font-size: 16px; line-height: 1.7; max-width: 500px; margin: 0 auto 36px;
+}
+.ib-cta-btns { display: flex; gap: 0; justify-content: center; }
+.ib-cta-ghost {
+  display: inline-flex; align-items: center; padding: 18px 28px;
+  border: 1px solid rgba(255,255,255,.15); color: var(--ib-fg);
+  font-family: var(--mono); text-transform: uppercase; font-size: 12px;
+  letter-spacing: .18em; text-decoration: none; transition: all .3s;
+  cursor: pointer;
+}
+.ib-cta-ghost:hover { background: rgba(255,255,255,.05); border-color: var(--ib-neon); color: var(--ib-neon); }
+
+/* === RESPONSIVE === */
+@media (max-width: 820px) {
+  .ib-hero { padding: 100px 0 60px; }
+  .ib-hero-title { font-size: clamp(56px, 16vw, 120px); }
+  .ib-hero-cta-row { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .ib-story-grid { grid-template-columns: 1fr; gap: 50px; }
+  .ib-story-lhs { order: 2; }
+  .ib-shop-head { flex-direction: column; align-items: flex-start; }
+  .ib-cta-btns { flex-direction: column; }
+  .ib-code-frags { display: none; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Brand — Incubator",
+  "settings": [],
+  "presets": [{ "name": "Brand Incubator" }]
+}
+{% endschema %}

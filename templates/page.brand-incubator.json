@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "brand-incubator": {
+            "type": "brand-incubator",
+            "settings": {}
+        }
+    },
+    "order": [
+        "brand-incubator"
+    ]
+}
