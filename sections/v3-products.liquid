@@ -76,13 +76,7 @@
     border: 1px solid var(--ink);
   }
   .hand-rotate-card {
-    transition: opacity .5s ease;
-  }
-  .hand-rotate-card.fade-out {
-    opacity: 0;
-  }
-  .hand-rotate-card.fade-in {
-    opacity: 1;
+    will-change: transform, opacity;
   }
   @media (max-width:1100px) {
     .hand-products-rotator { grid-template-columns: repeat(3, 1fr); }
@@ -95,59 +89,91 @@
   }
 </style>
 
+<!-- GSAP for premium animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var rotator = document.querySelector('.hand-products-rotator');
-    if (!rotator) return;
+    // Wait for GSAP to load
+    function initRotator() {
+      if (typeof gsap === 'undefined') {
+        return setTimeout(initRotator, 100);
+      }
 
-    var interval = parseInt(rotator.dataset.interval) || 6000;
-    var cards = rotator.querySelectorAll('.hand-rotate-card');
-    if (cards.length === 0) return;
+      var rotator = document.querySelector('.hand-products-rotator');
+      if (!rotator) return;
 
-    // Find max page index
-    var maxPage = 0;
-    cards.forEach(function(c) {
-      var p = parseInt(c.dataset.rotatePage) || 0;
-      if (p > maxPage) maxPage = p;
-    });
+      var intervalMs = parseInt(rotator.dataset.interval) || 6000;
+      var cards = rotator.querySelectorAll('.hand-rotate-card');
+      if (cards.length === 0) return;
 
-    // If only one page, no rotation needed
-    if (maxPage === 0) return;
-
-    var currentPage = 0;
-
-    function showPage(pageNum) {
-      // Fade out current
+      // Find max page index
+      var maxPage = 0;
       cards.forEach(function(c) {
-        if (parseInt(c.dataset.rotatePage) === currentPage) {
-          c.classList.add('fade-out');
-        }
+        var p = parseInt(c.dataset.rotatePage) || 0;
+        if (p > maxPage) maxPage = p;
       });
 
-      setTimeout(function() {
-        // Hide old, show new
-        cards.forEach(function(c) {
-          var p = parseInt(c.dataset.rotatePage);
-          if (p === currentPage) {
-            c.style.display = 'none';
-            c.classList.remove('fade-out');
-          }
-          if (p === pageNum) {
-            c.style.display = '';
-            c.classList.add('fade-out');
-            // Force reflow then fade in
-            c.offsetHeight;
-            c.classList.remove('fade-out');
+      if (maxPage === 0) return;
+
+      var currentPage = 0;
+      var isAnimating = false;
+
+      function getPageCards(pageNum) {
+        return Array.from(cards).filter(function(c) {
+          return parseInt(c.dataset.rotatePage) === pageNum;
+        });
+      }
+
+      function showPage(pageNum) {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        var oldCards = getPageCards(currentPage);
+        var newCards = getPageCards(pageNum);
+
+        // Premium exit: stagger scale down + fade + slide up
+        gsap.to(oldCards, {
+          opacity: 0,
+          y: -40,
+          scale: 0.92,
+          duration: 0.5,
+          stagger: 0.04,
+          ease: 'power2.inOut',
+          onComplete: function() {
+            oldCards.forEach(function(c) { c.style.display = 'none'; });
+
+            // Prepare new cards offscreen
+            newCards.forEach(function(c) {
+              c.style.display = '';
+            });
+            gsap.set(newCards, { opacity: 0, y: 50, scale: 0.95 });
+
+            // Premium enter: stagger slide up + scale + fade in
+            gsap.to(newCards, {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.65,
+              stagger: 0.06,
+              ease: 'power3.out',
+              clearProps: 'transform',
+              onComplete: function() {
+                currentPage = pageNum;
+                isAnimating = false;
+              }
+            });
           }
         });
-        currentPage = pageNum;
-      }, 500);
+      }
+
+      setInterval(function() {
+        var next = (currentPage + 1) > maxPage ? 0 : currentPage + 1;
+        showPage(next);
+      }, intervalMs);
     }
 
-    setInterval(function() {
-      var next = (currentPage + 1) > maxPage ? 0 : currentPage + 1;
-      showPage(next);
-    }, interval);
+    initRotator();
   });
 </script>
 
