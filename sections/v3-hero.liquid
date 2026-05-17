@@ -45,36 +45,49 @@
       </div>
       <div class="hand-hero-stage hand-hero-stage--carousel">
         <div class="hand-hero-glow"></div>
-        <!-- Auto-scrolling product carousel -->
+        <!-- Auto-scrolling product carousel — pulls from all brand collections -->
         <div class="hero-carousel" aria-label="Product showcase">
           <div class="hero-carousel__track" id="hero-carousel-track">
-            {%- for product in collections.all.products limit: 20 -%}
-              {%- if product.featured_image -%}
-              <a href="{{ product.url }}" class="hero-carousel__item">
-                <img src="{{ product.featured_image | image_url: width: 480 }}"
-                     alt="{{ product.featured_image.alt | default: product.title }}"
-                     loading="lazy" width="480" height="480" />
-                <div class="hero-carousel__info">
-                  <span class="hero-carousel__vendor">{{ product.vendor }}</span>
-                  <span class="hero-carousel__title">{{ product.title }}</span>
-                  <span class="hero-carousel__price">{{ product.price | money }}</span>
-                </div>
-              </a>
+            {%- comment -%}Pull products from each brand collection for variety{%- endcomment -%}
+            {%- assign carousel_collections = 'have-a-nice-day,t-shirts,hoodies,sweatshirts,btka,vortex,funky-dog,dready-original,dont-do-the-dodo,handspun-records,accessories' | split: ',' -%}
+            {%- assign hero_products = '' -%}
+            {%- for col_handle in carousel_collections -%}
+              {%- assign col = collections[col_handle] -%}
+              {%- if col -%}
+                {%- for product in col.products limit: 3 -%}
+                  {%- if product.featured_image -%}
+                  <a href="{{ product.url }}" class="hero-carousel__item">
+                    <img src="{{ product.featured_image | image_url: width: 480 }}"
+                         alt="{{ product.featured_image.alt | default: product.title }}"
+                         loading="lazy" width="480" height="480" />
+                    <div class="hero-carousel__info">
+                      <span class="hero-carousel__vendor">{{ product.vendor }}</span>
+                      <span class="hero-carousel__title">{{ product.title }}</span>
+                      <span class="hero-carousel__price">{{ product.price | money }}</span>
+                    </div>
+                  </a>
+                  {%- endif -%}
+                {%- endfor -%}
               {%- endif -%}
             {%- endfor -%}
-            <!-- Duplicate for seamless loop -->
-            {%- for product in collections.all.products limit: 20 -%}
-              {%- if product.featured_image -%}
-              <a href="{{ product.url }}" class="hero-carousel__item" aria-hidden="true">
-                <img src="{{ product.featured_image | image_url: width: 480 }}"
-                     alt="{{ product.featured_image.alt | default: product.title }}"
-                     loading="lazy" width="480" height="480" />
-                <div class="hero-carousel__info">
-                  <span class="hero-carousel__vendor">{{ product.vendor }}</span>
-                  <span class="hero-carousel__title">{{ product.title }}</span>
-                  <span class="hero-carousel__price">{{ product.price | money }}</span>
-                </div>
-              </a>
+            <!-- Duplicate set for seamless infinite loop -->
+            {%- for col_handle in carousel_collections -%}
+              {%- assign col = collections[col_handle] -%}
+              {%- if col -%}
+                {%- for product in col.products limit: 3 -%}
+                  {%- if product.featured_image -%}
+                  <a href="{{ product.url }}" class="hero-carousel__item" aria-hidden="true">
+                    <img src="{{ product.featured_image | image_url: width: 480 }}"
+                         alt="{{ product.featured_image.alt | default: product.title }}"
+                         loading="lazy" width="480" height="480" />
+                    <div class="hero-carousel__info">
+                      <span class="hero-carousel__vendor">{{ product.vendor }}</span>
+                      <span class="hero-carousel__title">{{ product.title }}</span>
+                      <span class="hero-carousel__price">{{ product.price | money }}</span>
+                    </div>
+                  </a>
+                  {%- endif -%}
+                {%- endfor -%}
               {%- endif -%}
             {%- endfor -%}
           </div>
