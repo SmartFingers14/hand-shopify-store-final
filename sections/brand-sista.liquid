@@ -1,140 +1,120 @@
 {% comment %}
-  Brand Page: Sista — Script · Silhouette · Slip Mats
-  ★ WOW-FACTOR REDESIGN: Immersive, cinematic, full creative expression
+  Brand Page: Sista — Colorful Retro 90s Women's Graphic Tees
+  PERSONA: Bold, vibrant, fun feminine energy. 90s rave-era colour pop.
+  Camden-born women's streetwear with hand-drawn graphic prints.
 {% endcomment %}
 
 {%- assign sista_col = collections['sista'] -%}
 
 <!-- ============================================================
-     HERO — Cinematic full-bleed with morphing blobs + magnetic text
+     HERO — Vibrant 90s colour-pop with geometric shapes
      ============================================================ -->
 <section class="si-hero" id="si-top">
-  <canvas class="si-hero-canvas" id="siCanvas"></canvas>
+  <!-- Animated colour shapes -->
+  <div class="si-shape si-sh1" aria-hidden="true"></div>
+  <div class="si-shape si-sh2" aria-hidden="true"></div>
+  <div class="si-shape si-sh3" aria-hidden="true"></div>
+  <div class="si-shape si-sh4" aria-hidden="true"></div>
+  <div class="si-shape si-sh5" aria-hidden="true"></div>
 
-  <!-- Morphing gradient blobs -->
-  <div class="si-blob si-blob-1"></div>
-  <div class="si-blob si-blob-2"></div>
-  <div class="si-blob si-blob-3"></div>
+  <!-- Confetti dots -->
+  <div class="si-confetti" aria-hidden="true">
+    <span class="si-dot si-d1"></span><span class="si-dot si-d2"></span>
+    <span class="si-dot si-d3"></span><span class="si-dot si-d4"></span>
+    <span class="si-dot si-d5"></span><span class="si-dot si-d6"></span>
+    <span class="si-dot si-d7"></span><span class="si-dot si-d8"></span>
+    <span class="si-dot si-d9"></span><span class="si-dot si-d10"></span>
+    <span class="si-dot si-d11"></span><span class="si-dot si-d12"></span>
+  </div>
 
-  <!-- Spinning vinyl in corner -->
-  <div class="si-vinyl-hero" aria-hidden="true">
-    <div class="si-vinyl-disc">
-      <div class="si-vinyl-groove si-vg1"></div>
-      <div class="si-vinyl-groove si-vg2"></div>
-      <div class="si-vinyl-groove si-vg3"></div>
-      <div class="si-vinyl-groove si-vg4"></div>
-      <div class="si-vinyl-label">
-        <span>SISTA</span>
+  <!-- Squiggle SVGs -->
+  <svg class="si-squiggle si-sq1" viewBox="0 0 120 20" aria-hidden="true"><path d="M0 10 Q15 0 30 10 Q45 20 60 10 Q75 0 90 10 Q105 20 120 10" stroke="rgba(255,200,50,.25)" fill="none" stroke-width="2"/></svg>
+  <svg class="si-squiggle si-sq2" viewBox="0 0 120 20" aria-hidden="true"><path d="M0 10 Q15 0 30 10 Q45 20 60 10 Q75 0 90 10 Q105 20 120 10" stroke="rgba(245,157,186,.2)" fill="none" stroke-width="2"/></svg>
+
+  <div class="si-hero-inner">
+    <div class="si-hero-meta">
+      <span class="si-badge-90s">90s</span>
+      <span class="si-meta-text">09 / Women's Graphic Tees</span>
+    </div>
+
+    <h1 class="si-hero-title">
+      <span class="si-title-row si-tr1">SISTA</span>
+      <span class="si-title-row si-tr2">From <em>Another</em></span>
+      <span class="si-title-row si-tr3">Mister.</span>
+    </h1>
+
+    <p class="si-hero-desc">Colourful retro graphic tees made for women who own the room. Hand-drawn 90s prints on heavyweight organic cotton. Camden born, UK printed.</p>
+
+    <div class="si-hero-cta-row">
+      <a class="si-cta-main" href="#si-shop">
+        Shop Sista
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="si-hero-stats">
+        <div class="si-hs"><span class="si-hs-n">100%</span><span class="si-hs-l">Organic</span></div>
+        <div class="si-hs-div"></div>
+        <div class="si-hs"><span class="si-hs-n">UK</span><span class="si-hs-l">Printed</span></div>
+        <div class="si-hs-div"></div>
+        <div class="si-hs"><span class="si-hs-n">220g</span><span class="si-hs-l">Cotton</span></div>
       </div>
     </div>
   </div>
 
-  <div class="si-hero-inner">
-    <div class="si-hero-meta">
-      <span class="si-meta-line"></span>
-      <span class="si-meta-text">09 / Script · Silhouette · Slip Mats</span>
-    </div>
-
-    <h1 class="si-hero-title">
-      <span class="si-title-row si-tr1" data-text="SISTER">SISTER</span>
-      <span class="si-title-row si-tr2">FROM <em>ANOTHER</em></span>
-      <span class="si-title-row si-tr3" data-text="MISTER.">MISTER.</span>
-    </h1>
-
-    <div class="si-hero-bottom">
-      <p class="si-hero-desc">Feminine energy on heavyweight cotton. Script lettering, bold silhouettes, and a sound that moves through you. Born on the dancefloor. Camden, 1990.</p>
-      <a class="si-hero-cta" href="#si-shop">
-        <span class="si-cta-text">Explore Sista</span>
-        <span class="si-cta-arrow">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-      </a>
-    </div>
-  </div>
-
-  <!-- Scroll cue -->
   <div class="si-scroll-cue">
-    <div class="si-scroll-line"></div>
+    <div class="si-scroll-bar"></div>
     <span>Scroll</span>
   </div>
 </section>
 
 <!-- ============================================================
-     MARQUEE — Oversized flowing text
+     MARQUEE — Bold colourful ticker
      ============================================================ -->
 <div class="si-marquee">
-  <div class="si-marquee-track">
-    <span class="si-mq-item">SISTA <em>♦</em></span>
-    <span class="si-mq-item">SCRIPT <em>♦</em></span>
-    <span class="si-mq-item">SILHOUETTE <em>♦</em></span>
-    <span class="si-mq-item">SLIP MATS <em>♦</em></span>
-    <span class="si-mq-item">VINYL <em>♦</em></span>
-    <span class="si-mq-item">RHYTHM <em>♦</em></span>
-    <span class="si-mq-item">SISTA <em>♦</em></span>
-    <span class="si-mq-item">SCRIPT <em>♦</em></span>
-    <span class="si-mq-item">SILHOUETTE <em>♦</em></span>
-    <span class="si-mq-item">SLIP MATS <em>♦</em></span>
-    <span class="si-mq-item">VINYL <em>♦</em></span>
-    <span class="si-mq-item">RHYTHM <em>♦</em></span>
+  <div class="si-mq-track">
+    {%- for i in (1..2) -%}
+    <span class="si-mq-w">SISTA</span><span class="si-mq-star">★</span>
+    <span class="si-mq-w si-mq-outline">RETRO</span><span class="si-mq-star">★</span>
+    <span class="si-mq-w">GRAPHIC TEES</span><span class="si-mq-star">★</span>
+    <span class="si-mq-w si-mq-outline">90s VIBES</span><span class="si-mq-star">★</span>
+    <span class="si-mq-w">FOR HER</span><span class="si-mq-star">★</span>
+    <span class="si-mq-w si-mq-outline">CAMDEN</span><span class="si-mq-star">★</span>
+    {%- endfor -%}
   </div>
 </div>
 
 <!-- ============================================================
-     STORY — Split screen editorial with parallax
+     STORY — Bold editorial, retro energy
      ============================================================ -->
 <section class="si-story">
-  <div class="si-story-visual">
-    <div class="si-story-vinyl-wrap">
-      <div class="si-story-vinyl">
-        <div class="si-sv-ring si-sv1"></div>
-        <div class="si-sv-ring si-sv2"></div>
-        <div class="si-sv-ring si-sv3"></div>
-        <div class="si-sv-center">
-          <span class="si-sv-label">Sista</span>
-          <span class="si-sv-sub">45 RPM</span>
-        </div>
+  <div class="si-story-lhs">
+    <div class="si-story-badge-wrap">
+      <div class="si-story-badge">
+        <span class="si-sb-text">S</span>
       </div>
+      <div class="si-retro-ring si-rr1"></div>
+      <div class="si-retro-ring si-rr2"></div>
     </div>
-    <div class="si-story-floater si-sf1">Script</div>
-    <div class="si-story-floater si-sf2">Vinyl</div>
-    <div class="si-story-floater si-sf3">Rhythm</div>
+    <div class="si-story-floats">
+      <span class="si-float-word si-fw1">Bold</span>
+      <span class="si-float-word si-fw2">Colour</span>
+      <span class="si-float-word si-fw3">Retro</span>
+    </div>
   </div>
 
-  <div class="si-story-content">
-    <div class="si-story-eyebrow">
-      <span class="si-se-dot"></span>
-      The Vibe
-    </div>
+  <div class="si-story-rhs">
+    <div class="si-eyebrow"><span class="si-eye-dot"></span>The Vibe</div>
     <h2 class="si-story-h2">
-      <span class="si-sh-line">Sound</span>
-      <span class="si-sh-line">meets</span>
-      <span class="si-sh-line si-sh-accent">silhouette.</span>
+      <span>Colour is</span>
+      <span class="si-h2-pop">her weapon.</span>
     </h2>
-    <p class="si-story-body">Sista was born from the dancefloor — where music, movement, and identity collide. Script lettering that flows like a bassline, silhouettes that capture the energy of the night, and slip mats that bridge fashion and vinyl culture.</p>
-    <p class="si-story-body">This is the feminine side of the Have A Nice Day family — bold, unapologetic, and always in rhythm.</p>
-
-    <div class="si-story-pills">
-      <span class="si-pill">Script Lettering</span>
-      <span class="si-pill">Vinyl Culture</span>
-      <span class="si-pill">220gsm Organic</span>
+    <p class="si-story-p">Sista is the women's arm of the Have A Nice Day family — born from the same Camden energy, the same hand-drawn graphics, the same rave-era spirit. But with her own rules.</p>
+    <p class="si-story-p">Bold retro prints. Colourful 90s graphics. Heavyweight organic cotton that feels as good as it looks. Made for women who don't blend in — they stand out.</p>
+    <div class="si-pills">
+      <span class="si-pill">Retro Graphics</span>
+      <span class="si-pill">Women's Fit</span>
+      <span class="si-pill">Organic Cotton</span>
       <span class="si-pill">UK Printed</span>
-    </div>
-
-    <div class="si-story-stats">
-      <div class="si-ss">
-        <span class="si-ss-num">09</span>
-        <span class="si-ss-label">Sub-Brand</span>
-      </div>
-      <div class="si-ss-divider"></div>
-      <div class="si-ss">
-        <span class="si-ss-num">100%</span>
-        <span class="si-ss-label">Organic</span>
-      </div>
-      <div class="si-ss-divider"></div>
-      <div class="si-ss">
-        <span class="si-ss-num">UK</span>
-        <span class="si-ss-label">Printed</span>
-      </div>
+      <span class="si-pill">Camden Born</span>
     </div>
   </div>
 </section>
@@ -144,18 +124,15 @@
      ============================================================ -->
 <section class="si-shop hand-sec" id="si-shop">
   <div class="hand-container">
-    <div class="si-shop-header">
-      <div class="si-shop-eyebrow">
-        <span class="si-se-dot"></span>
-        The Collection
+    <div class="si-shop-head">
+      <div>
+        <div class="si-eyebrow"><span class="si-eye-dot"></span>The Collection</div>
+        <h2 class="si-shop-h2">All Products.</h2>
       </div>
-      <h2 class="si-shop-h2">
-        <span class="si-shop-h2-line">All</span>
-        <span class="si-shop-h2-line si-shop-h2-accent">Products.</span>
-      </h2>
+      <p class="si-shop-sub">Every piece from Sista — colourful retro graphic tees on 220gsm organic cotton, UK printed.</p>
     </div>
 
-    <div class="hand-grid si-product-grid" id="si-product-grid">
+    <div class="hand-grid si-grid" id="si-product-grid">
       {%- for product in sista_col.products -%}
         <a class="hand-card si-card" href="{{ product.url }}">
           <div class="imgwrap">
@@ -165,7 +142,7 @@
             {%- else -%}
               <div class="si-no-img">SISTA</div>
             {%- endif -%}
-            <span class="quick">Quick Add &#8594;</span>
+            <span class="quick">Quick Add →</span>
           </div>
           <div class="body">
             <div class="vendor">Sista</div>
@@ -173,25 +150,18 @@
             <div class="row2">
               <div class="price">{{ product.price | money }}</div>
               {%- if product.compare_at_price > product.price -%}
-                <span class="si-sale-badge">SALE</span>
+                <span class="si-sale">SALE</span>
               {%- endif -%}
             </div>
           </div>
         </a>
       {%- else -%}
-        <div class="si-coming-soon-wrap">
-          <div class="si-coming-soon">
-            <div class="si-cs-vinyl-icon">
-              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                <circle cx="32" cy="32" r="30" stroke="#F59DBA" stroke-width="1.5" opacity=".5"/>
-                <circle cx="32" cy="32" r="20" stroke="#F59DBA" stroke-width="1" opacity=".3"/>
-                <circle cx="32" cy="32" r="10" stroke="#F59DBA" stroke-width="1" opacity=".2"/>
-                <circle cx="32" cy="32" r="4" fill="#F59DBA"/>
-              </svg>
-            </div>
-            <h3 class="si-cs-h3">Dropping Soon</h3>
-            <p class="si-cs-p">Sista pieces are being prepared. Script tees, silhouette graphics, and slip mats — all on heavyweight organic cotton, UK printed.</p>
-            <a href="/collections/all" class="si-cs-link">Browse All Products →</a>
+        <div class="si-soon-wrap">
+          <div class="si-soon">
+            <span class="si-soon-star">★</span>
+            <h3 class="si-soon-h3">Dropping Soon</h3>
+            <p class="si-soon-p">Colourful retro graphic tees are being prepared for the next drop. Heavyweight organic cotton, UK printed, made for women.</p>
+            <a href="/collections/all" class="si-soon-link">Browse All Products →</a>
           </div>
         </div>
       {%- endfor -%}
@@ -200,23 +170,21 @@
 </section>
 
 <!-- ============================================================
-     CLOSING CTA — Cinematic full-bleed
+     CLOSING CTA
      ============================================================ -->
 <section class="si-closer">
-  <div class="si-closer-bg"></div>
+  <div class="si-closer-shapes" aria-hidden="true">
+    <div class="si-cs si-cs1"></div>
+    <div class="si-cs si-cs2"></div>
+    <div class="si-cs si-cs3"></div>
+  </div>
   <div class="si-closer-inner">
-    <div class="si-closer-eyebrow">
-      <span class="si-se-dot"></span>
-      Camden Born · UK Made
-    </div>
-    <h2 class="si-closer-h2">
-      <span class="si-ch-line">Feel the</span>
-      <span class="si-ch-line si-ch-accent">rhythm.</span>
-    </h2>
-    <p class="si-closer-p">Sista. Script · Silhouette · Slip Mats. The feminine side of Have A Nice Day.</p>
-    <a class="si-closer-cta" href="#si-shop">
-      <span>Shop Sista</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="si-eyebrow" style="justify-content:center"><span class="si-eye-dot"></span>Camden Born · UK Made</div>
+    <h2 class="si-closer-h2">Own the<br><em>room.</em></h2>
+    <p class="si-closer-p">Sista. Colourful retro 90s graphic tees, made for women. Heavyweight organic cotton, UK printed, Camden born.</p>
+    <a class="si-cta-main" href="#si-shop" style="margin:0 auto">
+      Shop Sista
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
 </section>
@@ -225,229 +193,208 @@
      STYLES
      ============================================================ -->
 <style>
-/* ═══════ TOKENS ═══════ */
 :root{
-  --si:#F59DBA;--si2:#e87da5;--si3:#d4608a;
-  --si-g1:rgba(245,157,186,.12);--si-g2:rgba(245,157,186,.06);
-  --si-dark:#060608;--si-card:#0c0c10;
+  --si-pink:#F59DBA;--si-hot:#e84393;--si-purple:#a855f7;
+  --si-orange:#ff6b35;--si-yellow:#ffc832;--si-mint:#00d2d3;
+  --si-dark:#0a0a0a;--si-cream:#fdf6f0;
 }
 
 /* ═══════ HERO ═══════ */
-.si-hero{position:relative;min-height:100vh;background:var(--si-dark);display:flex;align-items:center;overflow:hidden;padding:0 clamp(24px,5vw,80px)}
-.si-hero-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.06;pointer-events:none}
+.si-hero{position:relative;min-height:100vh;background:linear-gradient(135deg,#1a0a1a 0%,#0f0515 40%,#0a0a14 100%);display:flex;align-items:center;overflow:hidden;padding:0 clamp(24px,5vw,80px)}
 
-/* Morphing blobs */
-.si-blob{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;mix-blend-mode:screen}
-.si-blob-1{width:55vw;height:55vw;max-width:700px;max-height:700px;background:radial-gradient(circle,rgba(245,157,186,.18),transparent 70%);top:-15%;right:-10%;animation:si-bmorph 18s ease-in-out infinite}
-.si-blob-2{width:35vw;height:35vw;max-width:450px;max-height:450px;background:radial-gradient(circle,rgba(200,100,160,.12),transparent 70%);bottom:5%;left:5%;animation:si-bmorph 22s ease-in-out infinite reverse}
-.si-blob-3{width:25vw;height:25vw;max-width:320px;max-height:320px;background:radial-gradient(circle,rgba(255,180,210,.1),transparent 70%);top:35%;right:25%;animation:si-bmorph 15s ease-in-out infinite;animation-delay:-6s}
-@keyframes si-bmorph{
-  0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;transform:translate(0,0) scale(1)}
-  25%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%;transform:translate(30px,-40px) scale(1.05)}
-  50%{border-radius:50% 60% 30% 50%/40% 50% 60% 50%;transform:translate(-20px,20px) scale(.95)}
-  75%{border-radius:40% 50% 60% 40%/60% 40% 50% 60%;transform:translate(15px,25px) scale(1.02)}
+/* Geometric shapes */
+.si-shape{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px);mix-blend-mode:screen}
+.si-sh1{width:400px;height:400px;background:radial-gradient(circle,rgba(232,67,147,.15),transparent 70%);top:-10%;right:10%;animation:si-float 16s ease-in-out infinite}
+.si-sh2{width:300px;height:300px;background:radial-gradient(circle,rgba(168,85,247,.12),transparent 70%);bottom:10%;left:-5%;animation:si-float 20s ease-in-out infinite reverse}
+.si-sh3{width:250px;height:250px;background:radial-gradient(circle,rgba(255,107,53,.1),transparent 70%);top:40%;right:-5%;animation:si-float 14s ease-in-out infinite;animation-delay:-4s}
+.si-sh4{width:200px;height:200px;background:radial-gradient(circle,rgba(255,200,50,.08),transparent 70%);bottom:30%;left:30%;animation:si-float 18s ease-in-out infinite;animation-delay:-8s;border-radius:30%}
+.si-sh5{width:150px;height:150px;background:radial-gradient(circle,rgba(0,210,211,.08),transparent 70%);top:20%;left:15%;animation:si-float 12s ease-in-out infinite;animation-delay:-2s}
+@keyframes si-float{
+  0%,100%{transform:translate(0,0) scale(1) rotate(0deg)}
+  33%{transform:translate(30px,-25px) scale(1.1) rotate(5deg)}
+  66%{transform:translate(-20px,20px) scale(.92) rotate(-3deg)}
 }
 
-/* Vinyl in hero */
-.si-vinyl-hero{position:absolute;right:-6vw;top:50%;transform:translateY(-50%);width:clamp(300px,42vw,640px);height:clamp(300px,42vw,640px);opacity:.15;animation:si-vspin 25s linear infinite}
-@keyframes si-vspin{to{transform:translateY(-50%) rotate(360deg)}}
-.si-vinyl-disc{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 50% 50%,#1a1a20 0%,#0d0d12 40%,#1a1a20 41%,#0d0d12 60%,#1a1a20 61%,#0d0d12 80%,#1a1a20 81%,#0d0d12 100%);position:relative}
-.si-vinyl-groove{position:absolute;border-radius:50%;border:1px solid rgba(245,157,186,.08);left:50%;top:50%;transform:translate(-50%,-50%)}
-.si-vg1{width:90%;height:90%}.si-vg2{width:70%;height:70%}.si-vg3{width:50%;height:50%}.si-vg4{width:30%;height:30%}
-.si-vinyl-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:22%;height:22%;border-radius:50%;background:var(--si);display:flex;flex-direction:column;align-items:center;justify-content:center}
-.si-vinyl-label span{font-family:var(--display);font-size:clamp(10px,1.2vw,18px);font-weight:900;letter-spacing:.1em;color:#fff;text-transform:uppercase}
-@media(max-width:1024px){.si-vinyl-hero{display:none}}
+/* Confetti dots */
+.si-confetti{position:absolute;inset:0;pointer-events:none}
+.si-dot{position:absolute;border-radius:50%;animation:si-drift 8s ease-in-out infinite}
+.si-d1{width:8px;height:8px;background:var(--si-pink);top:15%;left:20%;animation-delay:0s}
+.si-d2{width:6px;height:6px;background:var(--si-yellow);top:25%;right:25%;animation-delay:1s;border-radius:2px}
+.si-d3{width:10px;height:10px;background:var(--si-purple);top:60%;left:10%;animation-delay:2s}
+.si-d4{width:5px;height:5px;background:var(--si-orange);top:70%;right:15%;animation-delay:.5s;border-radius:0}
+.si-d5{width:7px;height:7px;background:var(--si-mint);top:35%;left:45%;animation-delay:1.5s}
+.si-d6{width:6px;height:6px;background:var(--si-hot);bottom:20%;left:35%;animation-delay:3s;border-radius:2px}
+.si-d7{width:9px;height:9px;background:var(--si-yellow);top:10%;left:60%;animation-delay:2.5s}
+.si-d8{width:5px;height:5px;background:var(--si-pink);bottom:35%;right:30%;animation-delay:4s;border-radius:0}
+.si-d9{width:7px;height:7px;background:var(--si-purple);top:80%;left:55%;animation-delay:1.2s}
+.si-d10{width:6px;height:6px;background:var(--si-orange);top:45%;right:8%;animation-delay:3.5s;border-radius:2px}
+.si-d11{width:8px;height:8px;background:var(--si-mint);bottom:15%;right:45%;animation-delay:.8s}
+.si-d12{width:4px;height:4px;background:var(--si-hot);top:50%;left:70%;animation-delay:2.8s}
+@keyframes si-drift{
+  0%,100%{transform:translateY(0) rotate(0deg);opacity:.6}
+  50%{transform:translateY(-30px) rotate(180deg);opacity:1}
+}
+
+/* Squiggles */
+.si-squiggle{position:absolute;width:clamp(100px,12vw,180px);pointer-events:none;opacity:.4}
+.si-sq1{top:18%;right:12%;transform:rotate(-15deg)}
+.si-sq2{bottom:22%;left:8%;transform:rotate(10deg)}
 
 /* Hero content */
-.si-hero-inner{position:relative;z-index:2;max-width:900px;width:100%}
-.si-hero-meta{display:flex;align-items:center;gap:16px;margin-bottom:48px}
-.si-meta-line{width:48px;height:1px;background:var(--si);display:block}
-.si-meta-text{font-family:var(--mono);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,157,186,.7)}
+.si-hero-inner{position:relative;z-index:2;max-width:860px;width:100%}
+.si-hero-meta{display:flex;align-items:center;gap:14px;margin-bottom:40px}
+.si-badge-90s{background:linear-gradient(135deg,var(--si-hot),var(--si-purple));color:#fff;font-family:var(--display);font-size:14px;font-weight:900;padding:6px 12px;letter-spacing:.05em;border-radius:4px}
+.si-meta-text{font-family:var(--mono);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,157,186,.6)}
 
-.si-hero-title{margin:0 0 48px}
-.si-title-row{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.04em;position:relative}
-.si-tr1{font-size:clamp(64px,13vw,180px);color:transparent;-webkit-text-stroke:2px #fff}
-.si-tr2{font-size:clamp(28px,4.5vw,64px);color:rgba(255,255,255,.6);letter-spacing:.02em;margin:8px 0}
-.si-tr2 em{font-style:italic;color:var(--si);-webkit-text-stroke:0}
-.si-tr3{font-size:clamp(64px,13vw,180px);color:var(--si);text-shadow:0 0 80px rgba(245,157,186,.3)}
+.si-hero-title{margin:0 0 32px}
+.si-title-row{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.88}
+.si-tr1{font-size:clamp(72px,14vw,200px);letter-spacing:-.04em;background:linear-gradient(135deg,var(--si-pink),var(--si-hot),var(--si-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.si-tr2{font-size:clamp(28px,4.5vw,60px);color:rgba(255,255,255,.5);letter-spacing:.02em;margin:8px 0}
+.si-tr2 em{font-style:italic;background:linear-gradient(90deg,var(--si-orange),var(--si-yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.si-tr3{font-size:clamp(56px,11vw,150px);letter-spacing:-.03em;color:#fff}
 
-.si-hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
-.si-hero-desc{font-size:16px;line-height:1.7;color:rgba(255,255,255,.5);max-width:420px;margin:0}
-.si-hero-cta{display:inline-flex;align-items:center;gap:12px;background:var(--si);color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:18px 28px;font-weight:700;overflow:hidden;position:relative;transition:transform .3s,box-shadow .3s}
-.si-hero-cta:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(245,157,186,.35)}
-.si-cta-arrow{display:flex;transition:transform .3s}.si-hero-cta:hover .si-cta-arrow{transform:translateX(4px)}
+.si-hero-desc{font-size:17px;line-height:1.7;color:rgba(255,255,255,.55);max-width:480px;margin:0 0 40px}
 
-/* Scroll cue */
-.si-scroll-cue{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px}
+.si-hero-cta-row{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+.si-cta-main{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--si-hot),var(--si-purple));color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:18px 32px;font-weight:700;transition:transform .3s,box-shadow .3s;border-radius:4px}
+.si-cta-main:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(232,67,147,.35)}
+.si-cta-main svg{transition:transform .3s}.si-cta-main:hover svg{transform:translateX(4px)}
+
+.si-hero-stats{display:flex;align-items:center;gap:20px}
+.si-hs{display:flex;flex-direction:column;gap:2px}
+.si-hs-n{font-family:var(--display);font-size:26px;font-weight:900;color:#fff;line-height:1}
+.si-hs-l{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.si-hs-div{width:1px;height:32px;background:rgba(255,255,255,.08)}
+
+.si-scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px}
 .si-scroll-cue span{font-family:var(--mono);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.2)}
-.si-scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--si),transparent);animation:si-scroll-pulse 2s ease-in-out infinite}
-@keyframes si-scroll-pulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+.si-scroll-bar{width:1px;height:40px;background:linear-gradient(to bottom,var(--si-pink),transparent);animation:si-sb 2s ease infinite}
+@keyframes si-sb{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
 
 /* ═══════ MARQUEE ═══════ */
-.si-marquee{background:var(--si);padding:20px 0;overflow:hidden;position:relative}
-.si-marquee-track{display:flex;gap:0;animation:si-mq 20s linear infinite;width:max-content}
-.si-mq-item{font-family:var(--display);font-size:clamp(14px,2vw,22px);font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:#fff;padding:0 24px;white-space:nowrap}
-.si-mq-item em{font-style:normal;color:rgba(0,0,0,.25);font-size:.7em;vertical-align:middle}
+.si-marquee{background:linear-gradient(90deg,var(--si-hot),var(--si-purple),var(--si-orange));padding:18px 0;overflow:hidden}
+.si-mq-track{display:flex;gap:0;animation:si-mq 22s linear infinite;width:max-content}
+.si-mq-w{font-family:var(--display);font-size:clamp(16px,2.2vw,24px);font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:0 20px;white-space:nowrap}
+.si-mq-outline{-webkit-text-stroke:1.5px #fff;color:transparent;-webkit-text-fill-color:transparent}
+.si-mq-star{color:rgba(255,255,255,.4);font-size:12px;padding:0 8px}
 @keyframes si-mq{to{transform:translateX(-50%)}}
 
 /* ═══════ STORY ═══════ */
-.si-story{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;background:var(--si-dark)}
+.si-story{display:grid;grid-template-columns:1fr 1.3fr;min-height:600px;background:var(--si-dark)}
 @media(max-width:900px){.si-story{grid-template-columns:1fr;min-height:auto}}
 
-.si-story-visual{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#08080c;padding:80px 40px}
-.si-story-vinyl-wrap{width:clamp(200px,22vw,360px);height:clamp(200px,22vw,360px);position:relative}
-.si-story-vinyl{width:100%;height:100%;border-radius:50%;background:conic-gradient(from 0deg,#1a1a22,#0d0d14,#1a1a22,#0d0d14,#1a1a22,#0d0d14,#1a1a22);position:relative;animation:si-vspin2 12s linear infinite;box-shadow:0 0 60px rgba(245,157,186,.1)}
-@keyframes si-vspin2{to{transform:rotate(360deg)}}
-.si-sv-ring{position:absolute;border-radius:50%;border:1px solid rgba(245,157,186,.1);left:50%;top:50%;transform:translate(-50%,-50%)}
-.si-sv1{width:85%;height:85%}.si-sv2{width:60%;height:60%}.si-sv3{width:35%;height:35%}
-.si-sv-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:28%;height:28%;border-radius:50%;background:var(--si);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
-.si-sv-label{font-family:var(--display);font-size:clamp(12px,1.5vw,20px);font-weight:900;color:#fff;letter-spacing:.08em}
-.si-sv-sub{font-family:var(--mono);font-size:7px;letter-spacing:.2em;color:rgba(255,255,255,.6);text-transform:uppercase}
+.si-story-lhs{background:linear-gradient(135deg,#120818,#0a0510);display:flex;align-items:center;justify-content:center;padding:80px 40px;position:relative;overflow:hidden;border-right:1px solid rgba(232,67,147,.1)}
+.si-story-badge-wrap{position:relative;width:180px;height:180px;display:flex;align-items:center;justify-content:center}
+.si-story-badge{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--si-hot),var(--si-purple));display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.si-sb-text{font-family:var(--display);font-size:64px;font-weight:900;color:#fff}
+.si-retro-ring{position:absolute;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);border:2px dashed}
+.si-rr1{width:160px;height:160px;border-color:rgba(245,157,186,.15);animation:si-rspin 20s linear infinite}
+.si-rr2{width:200px;height:200px;border-color:rgba(168,85,247,.1);animation:si-rspin 30s linear infinite reverse}
+@keyframes si-rspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 
-/* Floating words */
-.si-story-floater{position:absolute;font-family:var(--display);font-weight:900;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(245,157,186,.08);pointer-events:none;user-select:none}
-.si-sf1{font-size:clamp(60px,8vw,120px);top:10%;left:-10%;transform:rotate(-12deg)}
-.si-sf2{font-size:clamp(40px,5vw,80px);bottom:15%;right:-5%;transform:rotate(8deg)}
-.si-sf3{font-size:clamp(50px,6vw,90px);top:55%;left:60%;transform:rotate(-5deg)}
+.si-story-floats{position:absolute;inset:0;pointer-events:none}
+.si-float-word{position:absolute;font-family:var(--display);font-weight:900;text-transform:uppercase;opacity:.06;user-select:none}
+.si-fw1{font-size:clamp(48px,7vw,90px);top:8%;left:-5%;color:var(--si-orange);transform:rotate(-10deg)}
+.si-fw2{font-size:clamp(36px,5vw,70px);bottom:12%;right:-5%;color:var(--si-yellow);transform:rotate(8deg)}
+.si-fw3{font-size:clamp(40px,6vw,80px);top:55%;left:55%;color:var(--si-pink);transform:rotate(-5deg)}
 
-.si-story-content{padding:clamp(48px,8vw,100px) clamp(32px,5vw,80px);display:flex;flex-direction:column;justify-content:center;gap:32px}
-.si-story-eyebrow,.si-shop-eyebrow,.si-closer-eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--si)}
-.si-se-dot{width:6px;height:6px;border-radius:50%;background:var(--si);animation:si-dot-pulse 2s ease infinite}
-@keyframes si-dot-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.si-story-rhs{padding:clamp(48px,8vw,100px) clamp(32px,5vw,80px);display:flex;flex-direction:column;justify-content:center;gap:28px}
+.si-eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--si-pink)}
+.si-eye-dot{width:6px;height:6px;border-radius:50%;background:var(--si-hot);animation:si-pulse 2s ease infinite}
+@keyframes si-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
 
-.si-story-h2{margin:0}
-.si-sh-line{display:block;font-family:var(--display);font-size:clamp(36px,5.5vw,72px);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.95;color:#fff}
-.si-sh-accent{color:var(--si);font-style:italic}
+.si-story-h2{font-family:var(--display);font-size:clamp(36px,5.5vw,72px);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.95;color:#fff;margin:0}
+.si-story-h2 span{display:block}
+.si-h2-pop{background:linear-gradient(90deg,var(--si-hot),var(--si-orange),var(--si-yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-.si-story-body{font-size:16px;line-height:1.8;color:rgba(255,255,255,.45);margin:0;max-width:480px}
+.si-story-p{font-size:16px;line-height:1.8;color:rgba(255,255,255,.45);margin:0;max-width:500px}
 
-.si-story-pills{display:flex;flex-wrap:wrap;gap:8px}
-.si-pill{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(245,157,186,.15);color:rgba(245,157,186,.65);backdrop-filter:blur(4px);transition:all .3s}
-.si-pill:hover{border-color:var(--si);color:var(--si);background:rgba(245,157,186,.05)}
-
-.si-story-stats{display:flex;align-items:center;gap:24px;padding-top:12px}
-.si-ss{display:flex;flex-direction:column;gap:3px}
-.si-ss-num{font-family:var(--display);font-size:28px;font-weight:900;color:#fff;line-height:1}
-.si-ss-label{font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.25)}
-.si-ss-divider{width:1px;height:36px;background:rgba(255,255,255,.08)}
+.si-pills{display:flex;flex-wrap:wrap;gap:8px}
+.si-pill{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(232,67,147,.15);color:rgba(245,157,186,.6);transition:all .3s;border-radius:20px}
+.si-pill:hover{border-color:var(--si-hot);color:var(--si-hot);background:rgba(232,67,147,.05)}
 
 /* ═══════ SHOP ═══════ */
 .si-shop{background:var(--paper)}
-.si-shop-header{margin-bottom:48px}
-.si-shop-h2{margin:12px 0 0}
-.si-shop-h2-line{display:block;font-family:var(--display);font-size:clamp(40px,7vw,80px);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.92}
-.si-shop-h2-accent{color:var(--si);font-style:italic}
+.si-shop-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:48px}
+@media(max-width:768px){.si-shop-head{grid-template-columns:1fr}}
+.si-shop-h2{font-family:var(--display);font-size:clamp(40px,7vw,80px);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.92;margin:12px 0 0}
+.si-shop-sub{font-size:15px;line-height:1.7;color:rgba(255,255,255,.4)}
 
-.si-no-img{width:100%;height:340px;background:#111;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:36px;font-weight:900;font-style:italic;-webkit-text-stroke:1px var(--si);color:transparent}
-.si-sale-badge{font-family:var(--mono);font-size:9px;letter-spacing:.15em;background:var(--si);color:#fff;padding:3px 8px;font-weight:700}
+.si-no-img{width:100%;height:340px;background:linear-gradient(135deg,#1a0a1a,#0f0515);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:36px;font-weight:900;background:linear-gradient(135deg,var(--si-hot),var(--si-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.si-sale{font-family:var(--mono);font-size:9px;letter-spacing:.15em;background:linear-gradient(135deg,var(--si-hot),var(--si-purple));color:#fff;padding:3px 8px;font-weight:700;border-radius:2px}
 .si-card{transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s}
-.si-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 24px 60px rgba(245,157,186,.12)}
+.si-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 24px 60px rgba(232,67,147,.12)}
 
 /* Coming soon */
-.si-coming-soon-wrap{grid-column:1/-1;display:flex;justify-content:center;padding:80px 0}
-.si-coming-soon{text-align:center;max-width:520px;padding:64px 48px;background:rgba(245,157,186,.02);border:1px solid rgba(245,157,186,.1);backdrop-filter:blur(10px);position:relative}
-.si-coming-soon::before{content:'';position:absolute;inset:-1px;border:1px solid transparent;background:linear-gradient(135deg,rgba(245,157,186,.2),transparent,rgba(245,157,186,.1)) border-box;-webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;border-radius:0;pointer-events:none}
-.si-cs-vinyl-icon{margin-bottom:24px;animation:si-vspin2 8s linear infinite;display:inline-block}
-.si-cs-h3{font-family:var(--display);font-size:32px;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;color:var(--si);margin:0 0 16px}
-.si-cs-p{font-size:15px;line-height:1.7;color:rgba(240,240,240,.4);margin:0 0 32px}
-.si-cs-link{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--si);text-decoration:none;border-bottom:1px solid rgba(245,157,186,.2);padding-bottom:4px;transition:border-color .2s}
-.si-cs-link:hover{border-color:var(--si)}
+.si-soon-wrap{grid-column:1/-1;display:flex;justify-content:center;padding:80px 0}
+.si-soon{text-align:center;max-width:520px;padding:64px 48px;background:rgba(232,67,147,.03);border:1px solid rgba(232,67,147,.12);border-radius:8px;position:relative}
+.si-soon-star{font-size:48px;display:block;margin-bottom:20px;background:linear-gradient(135deg,var(--si-hot),var(--si-yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:si-rspin 10s linear infinite;display:inline-block}
+.si-soon-h3{font-family:var(--display);font-size:32px;font-weight:900;text-transform:uppercase;background:linear-gradient(135deg,var(--si-hot),var(--si-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:0 0 16px}
+.si-soon-p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.4);margin:0 0 32px}
+.si-soon-link{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--si-hot);text-decoration:none;border-bottom:1px solid rgba(232,67,147,.2);padding-bottom:4px;transition:border-color .2s}
+.si-soon-link:hover{border-color:var(--si-hot)}
 
-/* ═══════ CLOSER CTA ═══════ */
-.si-closer{position:relative;padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);background:var(--si-dark);overflow:hidden;text-align:center}
-.si-closer-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(245,157,186,.08),transparent 60%);pointer-events:none}
-.si-closer-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
-.si-closer-eyebrow{justify-content:center;margin-bottom:32px}
-.si-closer-h2{margin:0 0 24px}
-.si-ch-line{display:block;font-family:var(--display);font-size:clamp(48px,9vw,120px);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.88;color:#fff}
-.si-ch-accent{color:var(--si);font-style:italic;text-shadow:0 0 80px rgba(245,157,186,.25)}
+/* ═══════ CLOSER ═══════ */
+.si-closer{position:relative;padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);background:linear-gradient(135deg,#1a0a1a,#0f0515,#0a0a14);overflow:hidden;text-align:center}
+.si-closer-shapes{position:absolute;inset:0;pointer-events:none}
+.si-cs{position:absolute;border-radius:50%;filter:blur(80px);mix-blend-mode:screen}
+.si-cs1{width:300px;height:300px;background:radial-gradient(circle,rgba(232,67,147,.1),transparent 70%);top:10%;left:20%}
+.si-cs2{width:250px;height:250px;background:radial-gradient(circle,rgba(168,85,247,.08),transparent 70%);bottom:10%;right:15%}
+.si-cs3{width:200px;height:200px;background:radial-gradient(circle,rgba(255,200,50,.06),transparent 70%);top:50%;left:60%}
+
+.si-closer-inner{position:relative;z-index:1;max-width:650px;margin:0 auto}
+.si-closer-h2{font-family:var(--display);font-size:clamp(48px,9vw,120px);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.88;color:#fff;margin:24px 0}
+.si-closer-h2 em{font-style:italic;background:linear-gradient(135deg,var(--si-hot),var(--si-orange),var(--si-yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .si-closer-p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.4);margin:0 0 40px}
-.si-closer-cta{display:inline-flex;align-items:center;gap:12px;background:var(--si);color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:20px 36px;font-weight:700;transition:transform .3s,box-shadow .3s}
-.si-closer-cta:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(245,157,186,.3)}
-.si-closer-cta svg{transition:transform .3s}.si-closer-cta:hover svg{transform:translateX(4px)}
 
 /* ═══════ RESPONSIVE ═══════ */
 @media(max-width:640px){
-  .si-hero-bottom{flex-direction:column;align-items:flex-start}
-  .si-story-visual{padding:48px 24px;min-height:300px}
-  .si-story-stats{flex-wrap:wrap;gap:16px}
+  .si-hero-cta-row{flex-direction:column;align-items:flex-start;gap:24px}
+  .si-story-lhs{padding:48px 24px;min-height:280px}
 }
 </style>
 
 <!-- ============================================================
-     SCRIPTS — Motion.dev cinematics
+     MOTION.DEV ANIMATIONS
      ============================================================ -->
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  /* ——— Particle canvas ——— */
-  (function(){
-    var c=document.getElementById('siCanvas');if(!c)return;
-    var ctx=c.getContext('2d'),w,h,particles=[];
-    function resize(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight}
-    resize();window.addEventListener('resize',resize);
-    for(var i=0;i<60;i++){
-      particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+.5,dx:(Math.random()-.5)*.4,dy:(Math.random()-.5)*.4,o:Math.random()*.5+.2});
-    }
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      particles.forEach(function(p){
-        p.x+=p.dx;p.y+=p.dy;
-        if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;
-        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle='rgba(245,157,186,'+p.o+')';ctx.fill();
-      });
-      // Draw connecting lines
-      for(var i=0;i<particles.length;i++){
-        for(var j=i+1;j<particles.length;j++){
-          var dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
-          if(d<120){
-            ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);
-            ctx.strokeStyle='rgba(245,157,186,'+(0.08*(1-d/120))+')';ctx.lineWidth=.5;ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(draw);
-    }
-    draw();
-  })();
-
-  /* ——— Motion.dev animations ——— */
   if(!window.Motion)return;
   var M=window.Motion,animate=M.animate,stagger=M.stagger,inView=M.inView;
 
-  // Hero — cinematic entrance
-  animate('.si-meta-line',{scaleX:[0,1]},{duration:.6,delay:.2,easing:[.22,1,.36,1]});
-  animate('.si-meta-text',{opacity:[0,1],x:[-20,0]},{duration:.6,delay:.4});
+  // Hero entrance — cinematic staggered reveal
+  animate('.si-badge-90s',{opacity:[0,1],scale:[.5,1],rotate:[-10,0]},{duration:.6,delay:.2,easing:[.22,1,.36,1]});
+  animate('.si-meta-text',{opacity:[0,1],x:[-20,0]},{duration:.5,delay:.3});
 
-  animate('.si-tr1',{opacity:[0,1],y:[120,0],skewY:[8,0]},{duration:1.2,delay:.5,easing:[.22,1,.36,1]});
-  animate('.si-tr2',{opacity:[0,1],y:[60,0]},{duration:.9,delay:.8,easing:[.22,1,.36,1]});
-  animate('.si-tr3',{opacity:[0,1],y:[120,0],skewY:[-6,0]},{duration:1.2,delay:1,easing:[.22,1,.36,1]});
+  animate('.si-tr1',{opacity:[0,1],y:[100,0],skewY:[6,0]},{duration:1.1,delay:.4,easing:[.22,1,.36,1]});
+  animate('.si-tr2',{opacity:[0,1],y:[60,0]},{duration:.8,delay:.7,easing:[.22,1,.36,1]});
+  animate('.si-tr3',{opacity:[0,1],y:[100,0],skewY:[-5,0]},{duration:1.1,delay:.9,easing:[.22,1,.36,1]});
 
-  animate('.si-hero-desc',{opacity:[0,1],y:[30,0]},{duration:.8,delay:1.4});
-  animate('.si-hero-cta',{opacity:[0,1],y:[20,0]},{duration:.7,delay:1.6});
-  animate('.si-scroll-cue',{opacity:[0,1]},{duration:.6,delay:2});
+  animate('.si-hero-desc',{opacity:[0,1],y:[30,0]},{duration:.7,delay:1.2});
+  animate('.si-cta-main',{opacity:[0,1],y:[20,0],scale:[.9,1]},{duration:.6,delay:1.4,easing:[.22,1,.36,1]});
+  animate('.si-hero-stats',{opacity:[0,1],x:[30,0]},{duration:.6,delay:1.5});
+  animate('.si-scroll-cue',{opacity:[0,1]},{duration:.5,delay:1.8});
 
-  // Blobs entrance
-  animate('.si-blob',{opacity:[0,1],scale:[.5,1]},{delay:stagger(.2,{start:.3}),duration:1.5,easing:'ease-out'});
+  // Shapes entrance
+  animate('.si-shape',{opacity:[0,1],scale:[.3,1]},{delay:stagger(.15,{start:.3}),duration:1.5,easing:'ease-out'});
+
+  // Confetti entrance
+  animate('.si-dot',{opacity:[0,.6],scale:[0,1]},{delay:stagger(.08,{start:.6}),duration:.8,easing:[.22,1,.36,1]});
 
   // Story section
-  inView('.si-story-vinyl-wrap',function(info){
-    animate(info.target,{opacity:[0,1],scale:[.6,1],rotate:[-45,0]},{duration:1.2,easing:[.22,1,.36,1]});
+  inView('.si-story-badge-wrap',function(info){
+    animate(info.target.querySelector('.si-story-badge'),{opacity:[0,1],scale:[.4,1],rotate:[-20,0]},{duration:1,easing:[.22,1,.36,1]});
+    animate(info.target.querySelectorAll('.si-retro-ring'),{opacity:[0,1],scale:[.5,1]},{delay:stagger(.15,{start:.3}),duration:.8});
   },{margin:'-15% 0px'});
 
-  inView('.si-story-content',function(info){
-    var els=info.target.querySelectorAll('.si-story-eyebrow,.si-sh-line,.si-story-body,.si-story-pills,.si-story-stats');
+  inView('.si-story-rhs',function(info){
+    var els=info.target.querySelectorAll('.si-eyebrow,.si-story-h2 span,.si-story-p,.si-pills');
     animate(els,{opacity:[0,1],y:[40,0]},{delay:stagger(.08),duration:.7,easing:[.22,1,.36,1]});
   },{margin:'-10% 0px'});
 
-  // Floating words parallax
-  document.querySelectorAll('.si-story-floater').forEach(function(el,i){
-    animate(el,{opacity:[0,.15],x:[i%2===0?-60:60,0]},{duration:1.5,delay:.3+i*.2,easing:'ease-out'});
-  });
-
   // Pills stagger
-  inView('.si-story-pills',function(info){
-    animate(info.target.querySelectorAll('.si-pill'),{opacity:[0,1],y:[20,0],scale:[.9,1]},{delay:stagger(.06),duration:.5,easing:[.22,1,.36,1]});
+  inView('.si-pills',function(info){
+    animate(info.target.querySelectorAll('.si-pill'),{opacity:[0,1],y:[15,0],scale:[.9,1]},{delay:stagger(.05),duration:.5,easing:[.22,1,.36,1]});
   },{margin:'-5% 0px'});
 
   // Product cards
@@ -456,27 +403,22 @@ document.addEventListener('DOMContentLoaded',function(){
   },{margin:'-5% 0px'});
 
   // Coming soon
-  inView('.si-coming-soon',function(info){
-    animate(info.target,{opacity:[0,1],y:[40,0],scale:[.95,1]},{duration:1,easing:[.22,1,.36,1]});
+  inView('.si-soon',function(info){
+    animate(info.target,{opacity:[0,1],y:[40,0],scale:[.95,1]},{duration:.9,easing:[.22,1,.36,1]});
   },{margin:'-10% 0px'});
 
   // Shop header
-  inView('.si-shop-header',function(info){
-    animate(info.target.querySelectorAll('.si-shop-eyebrow,.si-shop-h2-line'),{opacity:[0,1],y:[60,0]},{delay:stagger(.1),duration:.8,easing:[.22,1,.36,1]});
+  inView('.si-shop-head',function(info){
+    animate(info.target.querySelectorAll('.si-eyebrow,.si-shop-h2,.si-shop-sub'),{opacity:[0,1],y:[50,0]},{delay:stagger(.1),duration:.8,easing:[.22,1,.36,1]});
   },{margin:'-10% 0px'});
 
-  // Closer — dramatic reveal
+  // Closer
   inView('.si-closer-inner',function(info){
-    animate(info.target.querySelector('.si-closer-eyebrow'),{opacity:[0,1]},{duration:.6});
-    animate(info.target.querySelectorAll('.si-ch-line'),{opacity:[0,1],y:[80,0],skewY:[4,0]},{delay:stagger(.12,{start:.2}),duration:1,easing:[.22,1,.36,1]});
-    animate(info.target.querySelector('.si-closer-p'),{opacity:[0,1],y:[30,0]},{duration:.7,delay:.6});
-    animate(info.target.querySelector('.si-closer-cta'),{opacity:[0,1],y:[20,0]},{duration:.6,delay:.8});
+    animate(info.target.querySelector('.si-eyebrow'),{opacity:[0,1]},{duration:.5});
+    animate(info.target.querySelector('.si-closer-h2'),{opacity:[0,1],y:[80,0],skewY:[3,0]},{duration:1,delay:.2,easing:[.22,1,.36,1]});
+    animate(info.target.querySelector('.si-closer-p'),{opacity:[0,1],y:[30,0]},{duration:.7,delay:.5});
+    animate(info.target.querySelector('.si-cta-main'),{opacity:[0,1],y:[20,0]},{duration:.6,delay:.7});
   },{margin:'-15% 0px'});
-
-  // Marquee — entrance
-  inView('.si-marquee',function(info){
-    animate(info.target,{opacity:[0,1],y:[20,0]},{duration:.5});
-  });
 });
 </script>
 
@@ -484,7 +426,7 @@ document.addEventListener('DOMContentLoaded',function(){
 {
   "name": "Brand: Sista",
   "settings": [
-    { "type": "textarea", "id": "story_text", "label": "Brand story text", "default": "Sista was born from the dancefloor — where music, movement, and identity collide." }
+    { "type": "textarea", "id": "story_text", "label": "Brand story text", "default": "Colourful retro 90s graphic tees, made for women. Camden born, UK printed." }
   ],
   "presets": [{ "name": "Brand: Sista" }]
 }
