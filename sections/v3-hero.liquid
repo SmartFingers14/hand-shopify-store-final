@@ -43,14 +43,41 @@
         <span class="live">{{ section.settings.topbar_left }}</span>
         <span>{{ section.settings.topbar_right }}</span>
       </div>
-      <div class="hand-hero-stage">
+      <div class="hand-hero-stage hand-hero-stage--carousel">
         <div class="hand-hero-glow"></div>
-        <div class="hand-hero-logo-wrap">
-          {% if section.settings.hero_image %}
-          <img src="{{ section.settings.hero_image | image_url: width: 1100 }}" alt="{{ section.settings.hero_image_alt | default: 'Have A Nice Day London' }}" />
-          {% else %}
-            <img src="https://www.haveanicedaylondonstore.com/cdn/shop/files/IMG_2861.jpg?v=1696499421&width=1100" alt="Have A Nice Day London" />
-          {% endif %}
+        <!-- Auto-scrolling product carousel -->
+        <div class="hero-carousel" aria-label="Product showcase">
+          <div class="hero-carousel__track" id="hero-carousel-track">
+            {%- for product in collections.all.products limit: 20 -%}
+              {%- if product.featured_image -%}
+              <a href="{{ product.url }}" class="hero-carousel__item">
+                <img src="{{ product.featured_image | image_url: width: 480 }}"
+                     alt="{{ product.featured_image.alt | default: product.title }}"
+                     loading="lazy" width="480" height="480" />
+                <div class="hero-carousel__info">
+                  <span class="hero-carousel__vendor">{{ product.vendor }}</span>
+                  <span class="hero-carousel__title">{{ product.title }}</span>
+                  <span class="hero-carousel__price">{{ product.price | money }}</span>
+                </div>
+              </a>
+              {%- endif -%}
+            {%- endfor -%}
+            <!-- Duplicate for seamless loop -->
+            {%- for product in collections.all.products limit: 20 -%}
+              {%- if product.featured_image -%}
+              <a href="{{ product.url }}" class="hero-carousel__item" aria-hidden="true">
+                <img src="{{ product.featured_image | image_url: width: 480 }}"
+                     alt="{{ product.featured_image.alt | default: product.title }}"
+                     loading="lazy" width="480" height="480" />
+                <div class="hero-carousel__info">
+                  <span class="hero-carousel__vendor">{{ product.vendor }}</span>
+                  <span class="hero-carousel__title">{{ product.title }}</span>
+                  <span class="hero-carousel__price">{{ product.price | money }}</span>
+                </div>
+              </a>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
         </div>
         <div class="hand-hero-rotate">
           {{ section.settings.stamp_left_label }}
