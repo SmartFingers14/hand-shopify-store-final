@@ -10,6 +10,8 @@
 
 <!-- BRAND HERO -->
 <section class="hand-brand-hero">
+  <!-- Brand Page Floating Logo -->
+  <img class="brand-page-logo" src="{{ 'logo-sam-the-man.png' | asset_url }}" alt="Brand logo" aria-hidden="true" loading="eager" />
   <div class="hand-brand-hero-bg">
     <div class="hand-brand-hero-noise"></div>
   </div>
@@ -206,6 +208,32 @@
 </section>
 
 <style>
+  /* Brand page floating logo */
+  .hand-brand-hero { position: relative; }
+  .brand-page-logo {
+    position: absolute;
+    top: 50%; right: 5vw;
+    transform: translateY(-50%);
+    width: clamp(180px, 22vw, 320px);
+    height: auto;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 1;
+    filter: brightness(2) grayscale(100%);
+    mix-blend-mode: screen;
+    animation: brand-logo-float 8s ease-in-out infinite;
+  }
+  @keyframes brand-logo-float {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-52%) translateX(-6px); }
+  }
+  @media (max-width: 768px) {
+    .brand-page-logo {
+      right: 3vw;
+      width: clamp(120px, 30vw, 200px);
+      opacity: 0.04;
+    }
+  }
 /* ============ BRAND HERO ============ */
 .hand-brand-hero {
   position: relative;

@@ -9,6 +9,8 @@
      HERO — Full viewport, split layout, animated
      ============================================================ -->
 <section class="dr-hero">
+  <!-- Brand Page Floating Logo -->
+  <img class="brand-page-logo" src="{{ 'logo-dready.png' | asset_url }}" alt="Brand logo" aria-hidden="true" loading="eager" />
   <!-- Animated vinyl record -->
   <div class="dr-vinyl-wrap" aria-hidden="true">
     <div class="dr-vinyl">
@@ -200,6 +202,32 @@
      STYLES
      ============================================================ -->
 <style>
+  /* Brand page floating logo */
+  .dr-hero { position: relative; }
+  .brand-page-logo {
+    position: absolute;
+    top: 50%; right: 5vw;
+    transform: translateY(-50%);
+    width: clamp(180px, 22vw, 320px);
+    height: auto;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 1;
+    filter: brightness(2) grayscale(100%);
+    mix-blend-mode: screen;
+    animation: brand-logo-float 8s ease-in-out infinite;
+  }
+  @keyframes brand-logo-float {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-52%) translateX(-6px); }
+  }
+  @media (max-width: 768px) {
+    .brand-page-logo {
+      right: 3vw;
+      width: clamp(120px, 30vw, 200px);
+      opacity: 0.04;
+    }
+  }
 /* ---- TOKENS ---- */
 :root {
   --dr-dark: #080f08;
