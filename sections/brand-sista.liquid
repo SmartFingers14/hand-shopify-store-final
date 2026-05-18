@@ -10,8 +10,6 @@
      HERO — Vibrant 90s colour-pop with geometric shapes
      ============================================================ -->
 <section class="si-hero" id="si-top">
-  <!-- Brand Page Floating Logo -->
-  <img class="brand-page-logo" src="{{ 'logo-sista.png' | asset_url }}" alt="Brand logo" aria-hidden="true" loading="eager" />
   <!-- Animated colour shapes -->
   <div class="si-shape si-sh1" aria-hidden="true"></div>
   <div class="si-shape si-sh2" aria-hidden="true"></div>
@@ -195,32 +193,6 @@
      STYLES
      ============================================================ -->
 <style>
-  /* Brand page floating logo */
-  .si-hero { position: relative; }
-  .brand-page-logo {
-    position: absolute;
-    top: 50%; right: 5vw;
-    transform: translateY(-50%);
-    width: clamp(180px, 22vw, 320px);
-    height: auto;
-    opacity: 0.06;
-    pointer-events: none;
-    z-index: 1;
-    filter: brightness(2) grayscale(100%);
-    mix-blend-mode: screen;
-    animation: brand-logo-float 8s ease-in-out infinite;
-  }
-  @keyframes brand-logo-float {
-    0%, 100% { transform: translateY(-50%) translateX(0); }
-    50% { transform: translateY(-52%) translateX(-6px); }
-  }
-  @media (max-width: 768px) {
-    .brand-page-logo {
-      right: 3vw;
-      width: clamp(120px, 30vw, 200px);
-      opacity: 0.04;
-    }
-  }
 :root{
   --si-pink:#F59DBA;--si-hot:#e84393;--si-purple:#a855f7;
   --si-orange:#ff6b35;--si-yellow:#ffc832;--si-mint:#00d2d3;
