@@ -349,45 +349,56 @@
 .dr-speaker {
   width: 100%; height: 100%;
   border-radius: 50%;
-  background: radial-gradient(circle at 50%, #222 0%, #111 50%, #0a0a0a 100%);
+  background: radial-gradient(circle at 50%, #1e1e1e 0%, #151515 40%, #0d0d0d 100%);
   position: relative;
-  box-shadow: 0 0 0 4px #222, 0 0 0 8px #1a1a1a, 0 0 80px rgba(200,230,60,.1);
+  box-shadow: 0 0 0 6px #2a2a2a, 0 0 0 10px #1a1a1a, 0 0 0 14px #111, 0 0 80px rgba(200,230,60,.12);
 }
+/* Rubber surround */
 .dr-speaker-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(200,230,60,.08);
 }
-.dr-speaker-ring-1 { inset: 5%; }
-.dr-speaker-ring-2 { inset: 18%; border-color: rgba(200,230,60,.12); }
-.dr-speaker-ring-3 { inset: 30%; border-color: rgba(200,230,60,.06); }
+.dr-speaker-ring-1 {
+  inset: 3%;
+  border: 3px solid #2a2a2a;
+  background: radial-gradient(circle, transparent 85%, rgba(40,40,40,.6) 100%);
+}
+.dr-speaker-ring-2 {
+  inset: 7%;
+  border: 1px solid #333;
+  background: repeating-radial-gradient(circle at 50%, transparent 0px, transparent 6px, rgba(255,255,255,.015) 6px, rgba(255,255,255,.015) 7px);
+}
+/* Cone */
+.dr-speaker-ring-3 { display: none; }
 .dr-speaker-cone {
   position: absolute;
-  inset: 20%;
+  inset: 12%;
   border-radius: 50%;
-  background: radial-gradient(circle at 45% 45%, #333 0%, #1a1a1a 50%, #111 100%);
-  box-shadow: inset 0 0 30px rgba(0,0,0,.5);
+  background: radial-gradient(circle at 42% 42%, #383838 0%, #252525 30%, #1a1a1a 60%, #111 100%);
+  box-shadow: inset 0 2px 20px rgba(0,0,0,.6), inset 0 -2px 10px rgba(255,255,255,.03);
 }
+/* Dust cap — large with visible logo */
 .dr-speaker-dust-cap {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 26%;
-  height: 26%;
+  width: 44%;
+  height: 44%;
   border-radius: 50%;
   background: var(--dr-lime);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 12%;
+  padding: 4%;
   animation: dr-pulse 2s ease-in-out infinite;
-  box-shadow: 0 0 30px rgba(200,230,60,.3);
+  box-shadow: 0 0 50px rgba(200,230,60,.45), inset 0 -3px 8px rgba(0,0,0,.12);
 }
 .dr-speaker-logo {
-  width: 100%;
-  height: 100%;
+  width: 92%;
+  height: 92%;
   object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
 }
 @keyframes dr-pulse {
   0%, 100% { transform: translate(-50%,-50%) scale(1); box-shadow: 0 0 30px rgba(200,230,60,.3); }
@@ -594,19 +605,19 @@
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%,-50%);
-  width: 36%;
-  height: 36%;
+  width: 50%;
+  height: 50%;
   border-radius: 50%;
   background: var(--dr-lime);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 14%;
+  padding: 6%;
   animation: dr-ss-bump 1.2s ease-in-out infinite;
-  box-shadow: 0 0 20px rgba(200,230,60,.3);
+  box-shadow: 0 0 25px rgba(200,230,60,.4);
 }
-.dr-ss-logo { width: 100%; height: 100%; object-fit: contain; }
+.dr-ss-logo { width: 92%; height: 92%; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,.2)); }
 @keyframes dr-ss-bump {
   0%, 100% { transform: translate(-50%,-50%) scale(1); }
   50%      { transform: translate(-50%,-50%) scale(1.08); }
