@@ -3,7 +3,22 @@
   Vinyl · Sound · Wax — Analogue music culture on cotton
 {% endcomment %}
 
-{%- assign brand_col = collections['handspun-records'] -%}
+{%- comment -%}
+  Use the collection picker from section settings first,
+  then fall back to known collection handles.
+  Vendor filter in the loop ensures ONLY Handspun Records products show.
+{%- endcomment -%}
+{%- if section.settings.brand_collection != blank -%}
+  {%- assign brand_col = section.settings.brand_collection -%}
+{%- else -%}
+  {%- assign brand_col = collections['handspun-records'] -%}
+  {%- if brand_col == blank or brand_col.products_count == 0 -%}
+    {%- assign brand_col = collections['handspun'] -%}
+  {%- endif -%}
+  {%- if brand_col == blank or brand_col.products_count == 0 -%}
+    {%- assign brand_col = collections['handspun-records-1'] -%}
+  {%- endif -%}
+{%- endif -%}
 
 <!-- ============================================================
      HERO — Full viewport turntable with logo vinyl
@@ -163,7 +178,16 @@
     </div>
 
     <div class="hs-grid" id="hs-product-grid">
-      {%- for product in brand_col.products -%}
+      {%- assign hs_count = 0 -%}
+      {%- for product in brand_col.products limit: 500 -%}
+        {%- assign vd = product.vendor | downcase -%}
+        {%- unless vd contains 'handspun' -%}
+          {%- continue -%}
+        {%- endunless -%}
+        {%- unless product.available -%}
+          {%- continue -%}
+        {%- endunless -%}
+        {%- assign hs_count = hs_count | plus: 1 -%}
         {%- assign filter_tag = 'acc' -%}
         {%- assign tl = product.title | downcase -%}
         {%- if tl contains 'hoodie' or tl contains 'hood' or tl contains 'sweatshirt' or tl contains 'zip' -%}
@@ -192,9 +216,10 @@
             <div class="hs-prod-price">{{ product.price | money }}</div>
           </div>
         </a>
-      {%- else -%}
-        <div class="hs-empty">No products found. Check back soon.</div>
       {%- endfor -%}
+      {%- if hs_count == 0 -%}
+        <div class="hs-empty">No Handspun Records products found. Check back soon.</div>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -961,6 +986,7 @@ document.addEventListener('DOMContentLoaded', function() {
 {
   "name": "Brand: Handspun Records",
   "settings": [
+    { "type": "collection", "id": "brand_collection", "label": "Handspun Records Collection", "info": "Select the collection containing ONLY Handspun Records products. If not set, falls back to handle 'handspun-records'." },
     { "type": "textarea", "id": "tagline", "label": "Hero tagline", "default": "A vinyl and music culture brand celebrating sound, analogue music, DJs, records and underground creativity. Authentic, timeless and rooted in music heritage." },
     { "type": "textarea", "id": "story_text", "label": "Brand story text", "default": "Handspun Records celebrates the culture of vinyl — the sound, the analogue warmth, the DJs who keep it alive and the underground creativity that connects it all. Every piece we make carries that heritage. Authentic, timeless and made for those who still believe the record matters more than the algorithm." }
   ],
