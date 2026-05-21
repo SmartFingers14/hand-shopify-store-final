@@ -1490,7 +1490,7 @@
     }
 
     .hand-hero-h1 {
-        font-size: 64px;
+        font-size: 52px;
     }
 
     .hand-hero-cta {
@@ -1501,4 +1501,134 @@
         border-left: 1px solid var(--ink);
         border-top: 0;
     }
+}
+
+/* ============================================================
+   COMPREHENSIVE MOBILE OPTIMIZATIONS
+   ============================================================ */
+
+/* --- 768px: Tablet & small screens --- */
+@media (max-width:768px) {
+    /* Global spacing */
+    .hand-container { padding-left: 16px !important; padding-right: 16px !important; }
+    section { overflow-x: hidden; }
+
+    /* Announce bar */
+    .hand-announce .row { font-size: 9px; padding: 0 12px; gap: 8px; }
+    .hand-announce .links { display: none; }
+
+    /* Header */
+    .hand-header { padding: 0 16px; }
+    .hand-header .nav-links { display: none; }
+
+    /* Hero */
+    .hand-hero-left { padding: 40px 16px 36px; border-right: 0; gap: 30px; }
+    .hand-hero-right { min-height: 260px; }
+    .hand-hero-meta { flex-wrap: wrap; gap: 12px; }
+    .hand-hero-meta .loc { display: none; }
+    .hand-hero-sub p { font-size: 14px; max-width: 100%; }
+    .hand-btn-primary, .hand-btn-ghost { padding: 14px 20px; font-size: 11px; }
+
+    /* Trust strip */
+    .hand-trust { padding: 20px 16px; gap: 0; }
+    .hand-trust div { padding: 16px 12px; font-size: 11px; }
+    .hand-trust .val { font-size: 20px; }
+
+    /* Section headings */
+    .hand-sec-head .tag { font-size: 9px; }
+    .hand-sec-head h2 { font-size: clamp(32px, 7vw, 50px); }
+    .hand-sec-head p { font-size: 13px; }
+
+    /* Product cards */
+    .hand-prod .name { font-size: 13px; }
+    .hand-prod .price { font-size: 12px; }
+    .hand-prod .type { font-size: 9px; }
+
+    /* Brands/roster */
+    .hand-roster .name { font-size: 28px; }
+    .hand-roster .row { padding: 20px 0; gap: 12px; flex-wrap: wrap; }
+    .hand-roster .count { font-size: 10px; }
+
+    /* Categories */
+    .hand-cats a { padding: 20px 16px; }
+    .hand-cats .cat-name { font-size: 16px; }
+
+    /* Story section */
+    .hand-story .hand-container { padding-top: 60px; padding-bottom: 60px; }
+    .hand-story-grid .col h3 { font-size: 22px; }
+    .hand-story-grid .col p { font-size: 13px; }
+
+    /* Gallery */
+    .hand-gallery { grid-auto-rows: 120px; gap: 4px; }
+
+    /* Newsletter */
+    .hand-news .hand-container { padding: 60px 16px; }
+    .hand-news h2 { font-size: clamp(28px, 6vw, 40px); }
+    .hand-news input[type="email"] { font-size: 14px; padding: 12px 16px; }
+    .hand-news button[type="submit"] { padding: 12px 20px; font-size: 11px; }
+
+    /* Ticker */
+    .hand-ticker { padding: 12px 0; }
+    .hand-ticker .track { font-size: 14px; gap: 20px; }
+
+    /* Footer */
+    .hand-footer .foot-grid { grid-template-columns: 1fr !important; gap: 32px; padding: 40px 16px; }
+    .hand-footer .foot-bottom { flex-direction: column; gap: 16px; text-align: center; padding: 20px 16px; }
+    .hand-footer .foot-bottom .links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+    /* Feature strip */
+    .hand-feature-strip { grid-template-columns: 1fr !important; }
+    .hand-feature-strip div { border-right: 0 !important; border-bottom: 1px solid rgba(0,0,0,.12); padding: 20px 16px; }
+    .hand-feature-strip .h { font-size: 20px; }
+
+    /* Prevent horizontal overflow */
+    body, html { overflow-x: hidden; }
+    img, video, iframe { max-width: 100%; height: auto; }
+
+    /* Text overflow prevention */
+    h1, h2, h3, h4 { word-break: break-word; overflow-wrap: break-word; }
+}
+
+/* --- 480px: Small phones --- */
+@media (max-width:480px) {
+    .hand-hero-h1 { font-size: 44px; }
+    .hand-hero-meta .est { font-size: 9px; }
+    .hand-hero-sub p { font-size: 13px; line-height: 1.5; }
+
+    .hand-trust { grid-template-columns: 1fr 1fr; }
+    .hand-trust div:nth-child(odd) { border-right: 1px solid rgba(0,0,0,.12); }
+    .hand-trust .val { font-size: 18px; }
+    .hand-trust .lbl { font-size: 8px; }
+
+    .hand-sec { padding: 50px 0; }
+    .hand-sec-head h2 { font-size: 28px; }
+
+    .hand-gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 100px; }
+
+    .hand-prod .img { aspect-ratio: 1; }
+    .hand-prod .name { font-size: 12px; }
+
+    .hand-roster .name { font-size: 22px; }
+
+    .hand-news h2 { font-size: 24px; }
+
+    .hand-ticker .track { font-size: 12px; }
+
+    .hand-btn-primary, .hand-btn-ghost { padding: 12px 16px; font-size: 10px; width: 100%; justify-content: center; }
+}
+
+/* --- 360px: Extra small phones --- */
+@media (max-width:360px) {
+    .hand-hero-h1 { font-size: 36px; }
+    .hand-hero-left { padding: 30px 12px 28px; gap: 20px; }
+
+    .hand-sec-head h2 { font-size: 24px; }
+
+    .hand-gallery { grid-auto-rows: 80px; }
+}
+
+/* --- Touch device improvements --- */
+@media (hover:none) {
+    .hand-prod:hover .overlay { opacity: 0; }
+    .hand-btn-primary:hover, .hand-btn-ghost:hover { transform: none; }
 }
