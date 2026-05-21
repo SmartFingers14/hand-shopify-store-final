@@ -84,23 +84,27 @@
      WAVEFORM TICKER — Animated marquee
      ============================================================ -->
 <div class="dr-ticker">
-  <div class="dr-ticker-inner">
-    <span>ROOTS</span><span class="dr-ticker-dot">◆</span>
-    <span>REGGAE</span><span class="dr-ticker-dot">◆</span>
-    <span>CAMDEN 1990</span><span class="dr-ticker-dot">◆</span>
-    <span>CULTURE</span><span class="dr-ticker-dot">◆</span>
-    <span>DJ DREADY</span><span class="dr-ticker-dot">◆</span>
-    <span>PEACE</span><span class="dr-ticker-dot">◆</span>
-    <span>HEAVYWEIGHT COTTON</span><span class="dr-ticker-dot">◆</span>
-    <span>UK PRINTED</span><span class="dr-ticker-dot">◆</span>
-    <span>ROOTS</span><span class="dr-ticker-dot">◆</span>
-    <span>REGGAE</span><span class="dr-ticker-dot">◆</span>
-    <span>CAMDEN 1990</span><span class="dr-ticker-dot">◆</span>
-    <span>CULTURE</span><span class="dr-ticker-dot">◆</span>
-    <span>DJ DREADY</span><span class="dr-ticker-dot">◆</span>
-    <span>PEACE</span><span class="dr-ticker-dot">◆</span>
-    <span>HEAVYWEIGHT COTTON</span><span class="dr-ticker-dot">◆</span>
-    <span>UK PRINTED</span><span class="dr-ticker-dot">◆</span>
+  <div class="dr-ticker-track">
+    <div class="dr-ticker-inner">
+      <span>ROOTS</span><span class="dr-ticker-dot">◆</span>
+      <span>REGGAE</span><span class="dr-ticker-dot">◆</span>
+      <span>CAMDEN 1990</span><span class="dr-ticker-dot">◆</span>
+      <span>CULTURE</span><span class="dr-ticker-dot">◆</span>
+      <span>DJ DREADY</span><span class="dr-ticker-dot">◆</span>
+      <span>PEACE</span><span class="dr-ticker-dot">◆</span>
+      <span>HEAVYWEIGHT COTTON</span><span class="dr-ticker-dot">◆</span>
+      <span>UK PRINTED</span><span class="dr-ticker-dot">◆</span>
+    </div>
+    <div class="dr-ticker-inner" aria-hidden="true">
+      <span>ROOTS</span><span class="dr-ticker-dot">◆</span>
+      <span>REGGAE</span><span class="dr-ticker-dot">◆</span>
+      <span>CAMDEN 1990</span><span class="dr-ticker-dot">◆</span>
+      <span>CULTURE</span><span class="dr-ticker-dot">◆</span>
+      <span>DJ DREADY</span><span class="dr-ticker-dot">◆</span>
+      <span>PEACE</span><span class="dr-ticker-dot">◆</span>
+      <span>HEAVYWEIGHT COTTON</span><span class="dr-ticker-dot">◆</span>
+      <span>UK PRINTED</span><span class="dr-ticker-dot">◆</span>
+    </div>
   </div>
 </div>
 
@@ -515,10 +519,17 @@
   overflow: hidden;
   white-space: nowrap;
 }
+.dr-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: dr-tick 20s linear infinite;
+}
 .dr-ticker-inner {
-  display: inline-flex;
+  display: flex;
+  align-items: center;
   gap: 20px;
-  animation: dr-tick 25s linear infinite;
+  padding-right: 20px;
+  flex-shrink: 0;
   font-family: var(--dr-font);
   font-size: 13px;
   letter-spacing: .14em;
@@ -526,7 +537,7 @@
   color: var(--dr-dark);
 }
 .dr-ticker-dot { color: var(--dr-red); font-size: 8px; }
-@keyframes dr-tick { to { transform: translateX(-50%); } }
+@keyframes dr-tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* ---- STORY ---- */
 .dr-story {
