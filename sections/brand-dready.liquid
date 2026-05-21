@@ -106,22 +106,44 @@
 </div>
 
 <!-- ============================================================
-     STORY — Split layout with vinyl + narrative
+     STORY — Split layout with sound system + narrative
      ============================================================ -->
 <section class="dr-story">
-  <div class="dr-story-vinyl-side">
-    <div class="dr-vinyl-display">
-      <div class="dr-vinyl">
-        <div class="dr-vinyl-grooves"></div>
-        <div class="dr-vinyl-label">
-          <img src="{{ 'logo-dready-vinyl.png' | asset_url }}" alt="Dready OG" class="dr-vinyl-logo" />
+  <div class="dr-story-visual-side">
+    <!-- Rasta sound system stack -->
+    <div class="dr-soundsys">
+      <div class="dr-ss-stripe dr-ss-red"></div>
+      <div class="dr-ss-stripe dr-ss-gold"></div>
+      <div class="dr-ss-stripe dr-ss-green"></div>
+      <div class="dr-ss-cab dr-ss-cab-1">
+        <div class="dr-ss-grille">
+          <div class="dr-ss-speaker-unit">
+            <div class="dr-ss-cone"></div>
+            <div class="dr-ss-dust">
+              <img src="{{ 'logo-dready-vinyl.png' | asset_url }}" alt="Dready OG" class="dr-ss-logo" />
+            </div>
+          </div>
         </div>
       </div>
-      <div class="dr-vinyl-arm">
-        <div class="dr-arm-pivot"></div>
-        <div class="dr-arm-bar"></div>
-        <div class="dr-arm-head"></div>
+      <div class="dr-ss-cab dr-ss-cab-2">
+        <div class="dr-ss-grille">
+          <div class="dr-ss-mid"></div>
+          <div class="dr-ss-mid"></div>
+        </div>
       </div>
+      <div class="dr-ss-cab dr-ss-cab-3">
+        <div class="dr-ss-grille">
+          <div class="dr-ss-tweet"></div>
+          <div class="dr-ss-tweet"></div>
+          <div class="dr-ss-tweet"></div>
+          <div class="dr-ss-tweet"></div>
+        </div>
+      </div>
+      <!-- Bass pulse rings -->
+      <div class="dr-ss-pulse dr-ss-p1"></div>
+      <div class="dr-ss-pulse dr-ss-p2"></div>
+      <!-- Year stamp -->
+      <div class="dr-ss-year">EST. 1990</div>
     </div>
   </div>
   <div class="dr-story-text-side">
@@ -502,7 +524,8 @@
 }
 @media(max-width:900px){.dr-story{grid-template-columns:1fr;}}
 
-.dr-story-vinyl-side {
+/* Story visual side — Sound System Stack */
+.dr-story-visual-side {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -511,42 +534,153 @@
   background: var(--dr-green);
   border-right: 1px solid rgba(200,230,60,.1);
 }
-@media(max-width:900px){.dr-story-vinyl-side{padding:48px 24px;min-height:400px;border-right:none;border-bottom:1px solid rgba(200,230,60,.1);}}
+@media(max-width:900px){.dr-story-visual-side{padding:48px 24px;min-height:420px;border-right:none;border-bottom:1px solid rgba(200,230,60,.1);}}
 
-.dr-vinyl-display { position: relative; width: 320px; height: 320px; }
-@media(max-width:500px){.dr-vinyl-display{width:240px;height:240px;}}
-
-.dr-vinyl {
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50%, #1a1a1a 0%, #0a0a0a 100%);
+.dr-soundsys {
   position: relative;
-  animation: dr-spin 20s linear infinite;
-  box-shadow: 0 0 60px rgba(200,230,60,.08);
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
-@keyframes dr-spin { to { transform: rotate(360deg); } }
-.dr-vinyl-grooves {
-  position: absolute; inset: 8%; border-radius: 50%;
-  background: repeating-radial-gradient(circle at 50%, transparent 0px, transparent 3px, rgba(255,255,255,.03) 3px, rgba(255,255,255,.03) 4px);
-}
-.dr-vinyl-label {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  width: 32%; height: 32%; border-radius: 50%; background: var(--dr-lime);
-  display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 8%;
-}
-.dr-vinyl-logo { width: 100%; height: 100%; object-fit: contain; }
+@media(max-width:500px){.dr-soundsys{width:220px;}}
 
-/* Tonearm */
-.dr-vinyl-arm {
-  position: absolute;
-  top: -10px; right: -20px;
-  width: 140px; height: 200px;
-  transform-origin: top right;
-  transform: rotate(-20deg);
+/* Rasta stripes at top */
+.dr-ss-stripe { height: 4px; border-radius: 2px; }
+.dr-ss-red   { background: #c62828; }
+.dr-ss-gold  { background: #e6b422; }
+.dr-ss-green { background: #2e7d32; }
+
+/* Speaker cabinets */
+.dr-ss-cab {
+  background: #1a1a1a;
+  border: 2px solid #2a2a2a;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.04);
 }
-.dr-arm-pivot { position: absolute; top: 0; right: 0; width: 16px; height: 16px; border-radius: 50%; background: #444; border: 2px solid #555; }
-.dr-arm-bar { position: absolute; top: 8px; right: 7px; width: 3px; height: 160px; background: linear-gradient(to bottom, #555, #333); transform: rotate(10deg); transform-origin: top; border-radius: 2px; }
-.dr-arm-head { position: absolute; bottom: 20px; right: -12px; width: 14px; height: 20px; background: #444; border-radius: 2px; transform: rotate(10deg); }
+.dr-ss-cab-1 { padding: 24px; }
+.dr-ss-cab-2 { padding: 16px; }
+.dr-ss-cab-3 { padding: 12px; }
+
+.dr-ss-grille {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255,255,255,.02) 2px, rgba(255,255,255,.02) 3px);
+  border-radius: 4px;
+  padding: 12px;
+}
+
+/* Main subwoofer */
+.dr-ss-speaker-unit {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 45%, #333 0%, #1a1a1a 50%, #111 100%);
+  position: relative;
+  box-shadow: 0 0 0 3px #222, 0 0 0 6px #1a1a1a, inset 0 0 20px rgba(0,0,0,.5);
+}
+@media(max-width:500px){.dr-ss-speaker-unit{width:120px;height:120px;}}
+.dr-ss-cone {
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 45%, #2a2a2a 0%, #181818 60%, #111 100%);
+  box-shadow: inset 0 0 15px rgba(0,0,0,.6);
+}
+.dr-ss-dust {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 36%;
+  height: 36%;
+  border-radius: 50%;
+  background: var(--dr-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 14%;
+  animation: dr-ss-bump 1.2s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(200,230,60,.3);
+}
+.dr-ss-logo { width: 100%; height: 100%; object-fit: contain; }
+@keyframes dr-ss-bump {
+  0%, 100% { transform: translate(-50%,-50%) scale(1); }
+  50%      { transform: translate(-50%,-50%) scale(1.08); }
+}
+
+/* Mid-range speakers */
+.dr-ss-mid {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 45%, #2a2a2a 0%, #151515 100%);
+  box-shadow: 0 0 0 2px #222, inset 0 0 10px rgba(0,0,0,.5);
+  position: relative;
+}
+.dr-ss-mid::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background: #333;
+}
+
+/* Tweeters */
+.dr-ss-tweet {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #333 0%, #1a1a1a 100%);
+  box-shadow: 0 0 0 1px #222, inset 0 0 6px rgba(0,0,0,.5);
+  position: relative;
+}
+.dr-ss-tweet::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dr-gold);
+}
+
+/* Bass pulse rings */
+.dr-ss-pulse {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid var(--dr-lime);
+  border-radius: 50%;
+  opacity: 0;
+  animation: dr-ss-wave 2.4s ease-out infinite;
+  pointer-events: none;
+}
+.dr-ss-p1 { width: 320px; height: 320px; animation-delay: 0s; }
+.dr-ss-p2 { width: 400px; height: 400px; animation-delay: 1.2s; }
+@keyframes dr-ss-wave {
+  0%   { opacity: .35; transform: translate(-50%,-50%) scale(.8); }
+  100% { opacity: 0;   transform: translate(-50%,-50%) scale(1.4); }
+}
+
+/* Year stamp */
+.dr-ss-year {
+  text-align: center;
+  font-family: var(--dr-mono);
+  font-size: 9px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(200,230,60,.35);
+  margin-top: 12px;
+}
 
 .dr-story-text-side {
   padding: 80px 60px;
@@ -719,7 +853,7 @@
 
 /* ---- REDUCED MOTION ---- */
 @media(prefers-reduced-motion:reduce){
-  .dr-vinyl,.dr-eq-bar,.dr-ceq,.dr-sound-wave,.dr-scroll-thumb,.dr-ticker-inner,.dr-speaker-dust-cap{animation:none!important;}
+  .dr-ss-bump,.dr-ss-wave,.dr-eq-bar,.dr-ceq,.dr-sound-wave,.dr-scroll-thumb,.dr-ticker-inner,.dr-speaker-dust-cap{animation:none!important;}
   .dr-card:hover{transform:none;}
 }
 </style>
@@ -753,9 +887,12 @@ document.addEventListener('DOMContentLoaded', function() {
     M.animate('.dr-hero-cta-row', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: 1.1 });
     M.animate('.dr-speaker-wrap', { opacity: [0,1], scale: [.7,1] }, { duration: 1, delay: .4, easing: [.22,1,.36,1] });
 
-    /* Story section */
-    M.inView('.dr-story-vinyl-side', function(info) {
-      M.animate('.dr-vinyl-display', { opacity: [0,1], scale: [.8,1], rotate: [-30,0] }, { duration: .8, easing: [.22,1,.36,1] });
+    /* Story section — sound system */
+    M.inView('.dr-story-visual-side', function(info) {
+      M.animate('.dr-ss-stripe', { opacity: [0,1], scaleX: [0,1] },
+        { delay: M.stagger(.08), duration: .4, easing: [.22,1,.36,1] });
+      M.animate('.dr-ss-cab', { opacity: [0,1], y: [40,0] },
+        { delay: M.stagger(.12, { start: .3 }), duration: .6, easing: [.22,1,.36,1] });
     }, { margin: '-10% 0px' });
 
     M.inView('.dr-story-text-side', function(info) {
