@@ -1,5 +1,5 @@
 {% comment %}
-  Brand Page: Dready Original — Redesigned
+  Brand Page: Dready OG — Redesigned
   Full-bleed immersive experience with vinyl record motif, reggae culture vibes
 {% endcomment %}
 
@@ -109,7 +109,7 @@
   <div class="dr-story-rhs">
     <div class="dr-story-eyebrow">The Origin</div>
     <h2 class="dr-story-h2">Where the<br><em>music</em> meets<br>the cotton.</h2>
-    <p class="dr-story-p">{{ section.settings.story_text | default: "Dready Original didn't start in a boardroom. It started on a market stall in Camden, 1990 — where DJ Dready was spinning records and the culture was alive. The prints came from the music: roots reggae, Rastafarian philosophy, the underground sound of London. Every tee, every hoodie, every longsleeve is a piece of that world. Small UK batches. Heavy cotton. No compromises." }}</p>
+    <p class="dr-story-p">{{ section.settings.story_text | default: "Dready OG didn't start in a boardroom. It started on a market stall in Camden, 1990 — where DJ Dready was spinning records and the culture was alive. The prints came from the music: roots reggae, Rastafarian philosophy, the underground sound of London. Every tee, every hoodie, every longsleeve is a piece of that world. Small UK batches. Heavy cotton. No compromises." }}</p>
     <div class="dr-story-tags">
       <span class="dr-tag">Roots Reggae</span>
       <span class="dr-tag">Camden Market</span>
@@ -130,7 +130,7 @@
         <h2 class="dr-shop-h2">All Products.</h2>
       </div>
       <div class="dr-shop-head-rhs">
-        <p>Every piece from Dready Original — classic 90s prints to the latest drops. All small-batch UK production.</p>
+        <p>Every piece from Dready OG — classic 90s prints to the latest drops. All small-batch UK production.</p>
         <div class="dr-filters">
           <button class="dr-filter active" data-filter="all">All</button>
           <button class="dr-filter" data-filter="tee">T-Shirts &amp; Longsleeves</button>
@@ -154,7 +154,7 @@
         {%- endif -%}
         <a class="hand-card dr-card" href="{{ product.url }}" data-filter="{{ filter_tag }}">
           <div class="imgwrap">
-            <span class="tag">{{ product.type | default: 'Dready Original' }}</span>
+            <span class="tag">{{ product.type | default: 'Dready OG' }}</span>
             {%- if product.featured_image -%}
               <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" width="600" height="600" />
             {%- else -%}
@@ -163,7 +163,7 @@
             <span class="quick">Quick Add &#8594;</span>
           </div>
           <div class="body">
-            <div class="vendor">Dready Original</div>
+            <div class="vendor">Dready OG</div>
             <div class="name">{{ product.title }}</div>
             <div class="row2">
               <div class="price">{{ product.price | money }}</div>
@@ -191,7 +191,7 @@
     <div class="dr-cta-text">
       <h2 class="dr-cta-h2">The music never stops.<br>Neither do we.</h2>
       <p>30+ years of underground culture, printed on cotton. New drops, same roots.</p>
-      <a class="dr-cta-primary" href="#dr-shop">Shop Dready Original &#8594;</a>
+      <a class="dr-cta-primary" href="#dr-shop">Shop Dready OG &#8594;</a>
     </div>
   </div>
 </section>
@@ -795,12 +795,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 {% schema %}
 {
-  "name": "Brand: Dready Original",
+  "name": "Brand: Dready OG",
   "settings": [
-    { "type": "textarea", "id": "story_text", "label": "Brand story text", "default": "Dready Original didn't start in a boardroom. It started on a market stall in Camden, 1990 — where DJ Dready was spinning records and the culture was alive. The prints came from the music: roots reggae, Rastafarian philosophy, the underground sound of London. Every tee, every hoodie, every longsleeve is a piece of that world. Small UK batches. Heavy cotton. No compromises." }
+    { "type": "textarea", "id": "story_text", "label": "Brand story text", "default": "Dready OG didn't start in a boardroom. It started on a market stall in Camden, 1990 — where DJ Dready was spinning records and the culture was alive. The prints came from the music: roots reggae, Rastafarian philosophy, the underground sound of London. Every tee, every hoodie, every longsleeve is a piece of that world. Small UK batches. Heavy cotton. No compromises." }
   ],
   "presets": [
-    { "name": "Brand: Dready Original" }
+    { "name": "Brand: Dready OG" }
   ]
 }
 {% endschema %}
