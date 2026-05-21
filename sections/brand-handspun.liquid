@@ -50,9 +50,7 @@
     </div>
 
     <h1 class="hs-hero-h1">
-      <span class="hs-h1-line">HAND</span>
-      <span class="hs-h1-line hs-h1-gold">SPUN</span>
-      <span class="hs-h1-line hs-h1-dim">RECORDS<span class="hs-reg">®</span></span>
+      <span class="hs-h1-word">HAND</span><span class="hs-h1-word hs-h1-gold">SPUN</span> <span class="hs-h1-word hs-h1-rec">RECORDS<span class="hs-reg">®</span></span>
     </h1>
 
     <p class="hs-hero-sub">{{ section.settings.tagline | default: 'Where the needle drops and the culture lives. Handspun Records — the sound of Camden on cotton and wax since 1990.' }}</p>
@@ -469,17 +467,18 @@
 
 .hs-hero-h1 {
   font-family: var(--hs-display);
-  font-size: clamp(48px, 8vw, 100px);
+  font-size: clamp(36px, 5.5vw, 72px);
   font-weight: 400;
-  line-height: .92;
+  line-height: 1;
   letter-spacing: -.02em;
   text-transform: uppercase;
   color: var(--hs-white);
   margin: 0 0 28px;
+  white-space: nowrap;
 }
-.hs-h1-line { display: block; overflow: hidden; }
+.hs-h1-word { display: inline; }
 .hs-h1-gold { color: var(--hs-gold); text-shadow: 0 0 40px rgba(232,197,71,.2); }
-.hs-h1-dim { font-size: .55em; color: rgba(245,245,240,.35); letter-spacing: .02em; }
+.hs-h1-rec { color: rgba(245,245,240,.7); }
 .hs-reg { font-size: .35em; vertical-align: super; color: var(--hs-gold); opacity: .6; }
 
 .hs-hero-sub {
@@ -990,8 +989,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* Hero entrance */
     M.animate('.hs-hero-tag', { opacity: [0,1], x: [-20,0] }, { duration: .7, delay: .3 });
-    M.animate('.hs-h1-line', { opacity: [0,1], y: [80,0], skewY: [3,0] },
-      { delay: M.stagger(.12, { start: .5 }), duration: .9, easing: [.22,1,.36,1] });
+    M.animate('.hs-hero-h1', { opacity: [0,1], y: [30,0] },
+      { duration: .8, delay: .5, easing: [.22,1,.36,1] });
     M.animate('.hs-hero-sub', { opacity: [0,1], y: [20,0] }, { duration: .7, delay: .9 });
     M.animate('.hs-hero-actions', { opacity: [0,1], y: [20,0] }, { duration: .7, delay: 1.1 });
     M.animate('.hs-turntable', { opacity: [0,1], scale: [.8,1] },
