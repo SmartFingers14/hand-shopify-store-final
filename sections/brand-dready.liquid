@@ -14,8 +14,7 @@
     <div class="dr-vinyl">
       <div class="dr-vinyl-grooves"></div>
       <div class="dr-vinyl-label">
-        <span class="dr-vinyl-label-text">DREADY</span>
-        <span class="dr-vinyl-label-sub">OG</span>
+        <img src="{{ 'logo-dready-vinyl.png' | asset_url }}" alt="Dready OG" class="dr-vinyl-logo" />
       </div>
     </div>
     <div class="dr-vinyl-shadow"></div>
@@ -268,22 +267,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  overflow: hidden;
+  padding: 6%;
 }
-.dr-vinyl-label-text {
-  font-family: var(--display);
-  font-size: clamp(10px, 1.5vw, 18px);
-  font-weight: 900;
-  color: var(--dr-dark);
-  letter-spacing: .1em;
-  line-height: 1;
-}
-.dr-vinyl-label-sub {
-  font-family: var(--mono);
-  font-size: clamp(6px, .8vw, 9px);
-  letter-spacing: .2em;
-  color: rgba(8,15,8,.6);
-  text-transform: uppercase;
+.dr-vinyl-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 .dr-vinyl-shadow {
   position: absolute;
