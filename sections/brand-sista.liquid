@@ -3,9 +3,19 @@
   Rebuilt to match reference design: split hero with character, values strip, ticker
 {% endcomment %}
 
-{%- assign sista_col = collections['sista'] -%}
+{%- comment -%}Try configured collection first, then common handles{%- endcomment -%}
+{%- assign sista_col = section.settings.brand_collection -%}
+{%- if sista_col == blank or sista_col.products_count == 0 -%}
+  {%- assign sista_col = collections['sista'] -%}
+{%- endif -%}
 {%- if sista_col == blank or sista_col.products_count == 0 -%}
   {%- assign sista_col = collections['sista-1'] -%}
+{%- endif -%}
+{%- if sista_col == blank or sista_col.products_count == 0 -%}
+  {%- assign sista_col = collections['sista-collection'] -%}
+{%- endif -%}
+{%- if sista_col == blank or sista_col.products_count == 0 -%}
+  {%- assign sista_col = collections['all'] -%}
 {%- endif -%}
 
 <!-- ============================================================
@@ -1156,8 +1166,6 @@
     <div class="si-grid">
       {%- assign si_count = 0 -%}
       {%- for product in sista_col.products limit: 500 -%}
-        {%- assign vd = product.vendor | downcase -%}
-        {%- unless vd contains 'sista' -%}{%- continue -%}{%- endunless -%}
         {%- assign si_count = si_count | plus: 1 -%}
         {%- assign filter_tag = 'acc' -%}
         {%- assign tl = product.title | downcase -%}
