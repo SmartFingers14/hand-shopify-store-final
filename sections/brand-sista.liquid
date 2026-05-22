@@ -284,6 +284,11 @@
   font-size: 16px;
 }
 
+/* Mobile-only hero character — hidden on desktop */
+.si-hero-character-mob {
+  display: none;
+}
+
 @keyframes si-spin-slow { to { transform: rotate(360deg); } }
 
 /* ================================================================
@@ -769,15 +774,40 @@
     min-height: auto;
     position: relative;
   }
-  /* Hide character in hero — it will appear in story section instead */
+  /* Hide desktop character column */
   .si-hero-visual { display: none; }
   .si-power-badge { display: none; }
+
+  /* Show mobile hero character below text */
+  .si-hero-character-mob {
+    display: block;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    background: var(--si-bg);
+    margin-top: -20px;
+  }
+  .si-hero-character-mob img {
+    width: 100%;
+    height: auto;
+    display: block;
+    mix-blend-mode: lighten;
+    filter: brightness(1.1) contrast(1.15);
+  }
+  .si-hero-character-mob::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 30%;
+    background: linear-gradient(to top, var(--si-bg), transparent);
+    pointer-events: none;
+  }
 
   /* Text takes full width */
   .si-hero-text {
     position: relative;
     z-index: 3;
-    padding: 100px 24px 60px;
+    padding: 100px 24px 40px;
     order: unset;
     align-self: auto;
   }
@@ -945,7 +975,18 @@
     </div>
   </div>
 
-  <!-- Right: Character Image -->
+  <!-- Mobile-only: Character image below text (inside hero) -->
+  <div class="si-hero-character-mob">
+    <img
+      src="{{ 'sista-hero-character.png' | asset_url }}"
+      alt="SISTA — Sisterhood is power"
+      loading="eager"
+      width="800"
+      height="1000"
+    />
+  </div>
+
+  <!-- Right: Character Image (desktop) -->
   <div class="si-hero-visual">
     <img
       src="{{ 'sista-hero-character.png' | asset_url }}"
