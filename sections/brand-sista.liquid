@@ -685,57 +685,155 @@
 }
 
 /* ================================================================
-   RESPONSIVE
+   RESPONSIVE — Mobile-first optimised (UI/UX Pro Max)
    ================================================================ */
+
+/* ---- Tablet: 1024px ---- */
+@media (max-width: 1024px) {
+  .si-hero { grid-template-columns: 45% 55%; }
+  .si-hero-text { padding: 100px 0 60px 40px; }
+  .si-hero-h1 .si-w1,
+  .si-hero-h1 .si-w2 { font-size: clamp(44px, 6vw, 80px); }
+  .si-hero-desc { font-size: 14px; max-width: 340px; }
+  .si-shop { padding: 60px 32px; }
+  .si-story-text { padding: 60px 40px; }
+}
+
+/* ---- Mobile: 900px — hero stacks, image becomes background overlay ---- */
 @media (max-width: 900px) {
   .si-hero {
     grid-template-columns: 1fr;
-    min-height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    position: relative;
   }
-  .si-hero-text {
-    padding: 120px 24px 40px;
-    order: 1;
-  }
+  /* Image becomes full-bleed background */
   .si-hero-visual {
-    order: 0;
-    min-height: 400px;
-    justify-content: center;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
   }
   .si-hero-character {
-    max-width: 85%;
+    height: 85vh;
+    max-height: 100%;
+    width: auto;
+    max-width: none;
+    opacity: .35;
+    object-position: bottom right;
+  }
+  /* Text overlays on top of image */
+  .si-hero-text {
+    position: relative;
+    z-index: 3;
+    padding: 120px 24px 48px;
+    order: unset;
+    align-self: flex-end;
   }
   .si-hero-h1 .si-w1,
   .si-hero-h1 .si-w2 {
-    font-size: clamp(56px, 14vw, 100px);
+    font-size: clamp(48px, 13vw, 88px);
   }
-  .si-values {
-    grid-template-columns: repeat(2, 1fr);
+  .si-hero-desc { font-size: 14px; max-width: 340px; }
+  .si-power-badge {
+    width: 90px; height: 90px;
+    bottom: 40px; right: 16px;
   }
+
+  /* Values strip: 2×2 grid */
+  .si-values { grid-template-columns: repeat(2, 1fr); }
   .si-value:nth-child(2) { border-right: none; }
   .si-value:nth-child(1),
   .si-value:nth-child(2) { border-bottom: 1px solid rgba(212,54,140,.12); }
+  .si-value { padding: 28px 16px; }
+
+  /* Story */
   .si-story { grid-template-columns: 1fr; }
-  .si-story-visual { min-height: 320px; border-right: none; border-bottom: 1px solid rgba(212,54,140,.1); }
+  .si-story-visual {
+    min-height: 280px;
+    border-right: none;
+    border-bottom: 1px solid rgba(212,54,140,.1);
+  }
   .si-story-text { padding: 48px 24px; }
+
+  /* Shop */
   .si-shop { padding: 48px 20px; }
-  .si-shop-head { grid-template-columns: 1fr; }
+  .si-shop-head { grid-template-columns: 1fr; gap: 20px; }
+  .si-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+  /* Manifesto + Closing */
   .si-manifesto { padding: 60px 20px; }
-  .si-closing { padding: 80px 20px; }
-}
-@media (max-width: 600px) {
-  .si-values { grid-template-columns: 1fr 1fr; }
-  .si-hero-stats { flex-wrap: wrap; gap: 16px; }
-  .si-power-badge { width: 80px; height: 80px; bottom: 20px; right: 10px; }
+  .si-closing { padding: 64px 20px; }
+
+  /* CTA — larger touch targets (min 48px) */
+  .si-btn-cta { padding: 16px 28px; font-size: 12px; min-height: 48px; width: 100%; justify-content: center; }
+  .si-filter { min-height: 44px; padding: 10px 16px; }
 }
 
-/* Reduced motion */
+/* ---- Small phones: 520px ---- */
+@media (max-width: 520px) {
+  .si-hero-text { padding: 100px 18px 40px; }
+  .si-hero-h1 .si-w1,
+  .si-hero-h1 .si-w2 { font-size: clamp(40px, 14vw, 72px); }
+  .si-hero-tagline { font-size: 11px; letter-spacing: .18em; }
+  .si-hero-rainbow-line { width: 200px; }
+  .si-hero-desc { font-size: 13px; line-height: 1.65; margin-bottom: 28px; }
+  .si-hero-stats { flex-wrap: wrap; gap: 12px; }
+  .si-stat { padding: 0 18px; }
+  .si-stat-n { font-size: 18px; }
+  .si-power-badge { width: 70px; height: 70px; bottom: 24px; right: 12px; }
+  .si-hero-character { opacity: .25; }
+
+  /* Products single column on very small */
+  .si-grid { grid-template-columns: 1fr; gap: 16px; }
+  .si-prod-img { aspect-ratio: 4/5; }
+
+  /* Ticker smaller */
+  .si-ticker-set { font-size: 13px; gap: 16px; padding-right: 16px; }
+
+  /* Closing */
+  .si-closing-h2 { font-size: clamp(32px, 9vw, 56px); }
+  .si-closing-logo { width: 100px; height: 100px; }
+
+  /* Quote */
+  .si-quote { font-size: clamp(18px, 4.5vw, 28px); }
+}
+
+/* ---- Tiny phones: 375px ---- */
+@media (max-width: 375px) {
+  .si-hero-h1 .si-w1,
+  .si-hero-h1 .si-w2 { font-size: 38px; }
+  .si-hero-text { padding: 90px 14px 32px; }
+  .si-btn-cta { padding: 14px 20px; font-size: 11px; }
+  .si-value { padding: 22px 12px; }
+  .si-value-title { font-size: 10px; }
+  .si-value-desc { font-size: 12px; }
+  .si-stat { padding: 0 14px; }
+}
+
+/* ---- Wide desktop: 1440px+ ---- */
+@media (min-width: 1440px) {
+  .si-hero { grid-template-columns: 40% 60%; }
+  .si-hero-text { padding: 140px 0 100px 80px; }
+  .si-hero-h1 .si-w1,
+  .si-hero-h1 .si-w2 { font-size: 96px; }
+  .si-hero-character { height: 95vh; }
+  .si-shop-inner { max-width: 1400px; }
+}
+
+/* ---- Reduced motion (a11y) ---- */
 @media (prefers-reduced-motion: reduce) {
   .si-power-badge,
   .si-story-ring,
   .si-cl-ring,
   .si-ms1,
+  .si-ms2,
   .si-ticker-track { animation: none !important; }
   .si-prod:hover { transform: none; }
+  .si-btn-cta:hover { transform: none; }
+  * { transition-duration: 0.01ms !important; }
 }
 </style>
 
