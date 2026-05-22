@@ -1,433 +1,605 @@
 {% comment %}
-  Brand Page: Sista — Colorful Retro 90s Women's Graphic Tees
-  PERSONA: Bold, vibrant, fun feminine energy. 90s rave-era colour pop.
-  Camden-born women's streetwear with hand-drawn graphic prints.
+  Brand Page: SISTA — Peace · Love · Unity
+  Soulful womenswear brand. Birmingham 1983.
+  Spiritual, inclusive, feminine — not novelty or retro merch.
 {% endcomment %}
 
 {%- assign sista_col = collections['sista'] -%}
+{%- if sista_col == blank or sista_col.products_count == 0 -%}
+  {%- assign sista_col = collections['sista-1'] -%}
+{%- endif -%}
 
 <!-- ============================================================
-     HERO — Vibrant 90s colour-pop with geometric shapes
+     HERO — Ethereal flowing gradient with logo reveal
      ============================================================ -->
 <section class="si-hero" id="si-top">
-  <!-- Animated colour shapes -->
-  <div class="si-shape si-sh1" aria-hidden="true"></div>
-  <div class="si-shape si-sh2" aria-hidden="true"></div>
-  <div class="si-shape si-sh3" aria-hidden="true"></div>
-  <div class="si-shape si-sh4" aria-hidden="true"></div>
-  <div class="si-shape si-sh5" aria-hidden="true"></div>
-
-  <!-- Confetti dots -->
-  <div class="si-confetti" aria-hidden="true">
-    <span class="si-dot si-d1"></span><span class="si-dot si-d2"></span>
-    <span class="si-dot si-d3"></span><span class="si-dot si-d4"></span>
-    <span class="si-dot si-d5"></span><span class="si-dot si-d6"></span>
-    <span class="si-dot si-d7"></span><span class="si-dot si-d8"></span>
-    <span class="si-dot si-d9"></span><span class="si-dot si-d10"></span>
-    <span class="si-dot si-d11"></span><span class="si-dot si-d12"></span>
+  <!-- Flowing aurora gradient -->
+  <div class="si-aurora" aria-hidden="true">
+    <div class="si-aurora-1"></div>
+    <div class="si-aurora-2"></div>
+    <div class="si-aurora-3"></div>
   </div>
 
-  <!-- Squiggle SVGs -->
-  <svg class="si-squiggle si-sq1" viewBox="0 0 120 20" aria-hidden="true"><path d="M0 10 Q15 0 30 10 Q45 20 60 10 Q75 0 90 10 Q105 20 120 10" stroke="rgba(255,200,50,.25)" fill="none" stroke-width="2"/></svg>
-  <svg class="si-squiggle si-sq2" viewBox="0 0 120 20" aria-hidden="true"><path d="M0 10 Q15 0 30 10 Q45 20 60 10 Q75 0 90 10 Q105 20 120 10" stroke="rgba(245,157,186,.2)" fill="none" stroke-width="2"/></svg>
+  <!-- Soft floating petals -->
+  <div class="si-petals" aria-hidden="true">
+    <div class="si-petal" style="--p:0"></div>
+    <div class="si-petal" style="--p:1"></div>
+    <div class="si-petal" style="--p:2"></div>
+    <div class="si-petal" style="--p:3"></div>
+    <div class="si-petal" style="--p:4"></div>
+    <div class="si-petal" style="--p:5"></div>
+    <div class="si-petal" style="--p:6"></div>
+    <div class="si-petal" style="--p:7"></div>
+  </div>
 
-  <div class="si-hero-inner">
-    <div class="si-hero-meta">
-      <span class="si-badge-90s">90s</span>
-      <span class="si-meta-text">09 / Women's Graphic Tees</span>
+  <div class="si-hero-content">
+    <div class="si-hero-tag">
+      <span class="si-tag-line"></span>
+      <span>Peace · Love · Unity</span>
     </div>
 
-    <h1 class="si-hero-title">
-      <span class="si-title-row si-tr1">SISTA</span>
-      <span class="si-title-row si-tr2">From <em>Another</em></span>
-      <span class="si-title-row si-tr3">Mister.</span>
+    <!-- Main Logo -->
+    <div class="si-hero-logo">
+      <img src="{{ 'logo-sista-main.jpeg' | asset_url }}" alt="SISTA" class="si-logo-img" />
+    </div>
+
+    <h1 class="si-hero-h1">
+      <span class="si-h1-word">S</span><span class="si-h1-word si-h1-accent">I</span><span class="si-h1-word">S</span><span class="si-h1-word si-h1-accent">T</span><span class="si-h1-word">A</span>
     </h1>
 
-    <p class="si-hero-desc">Colourful retro graphic tees made for women who own the room. Hand-drawn 90s prints on heavyweight organic cotton. Camden born, UK printed.</p>
+    <p class="si-hero-sub">{{ section.settings.tagline | default: 'A universal womenswear brand built on sisterhood, connection and self-expression. Created for women of every colour, every shape and every walk of life.' }}</p>
 
-    <div class="si-hero-cta-row">
-      <a class="si-cta-main" href="#si-shop">
-        Shop Sista
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="si-hero-actions">
+      <a class="si-btn" href="#si-shop">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Shop The Collection
       </a>
-      <div class="si-hero-stats">
-        <div class="si-hs"><span class="si-hs-n">100%</span><span class="si-hs-l">Organic</span></div>
-        <div class="si-hs-div"></div>
-        <div class="si-hs"><span class="si-hs-n">UK</span><span class="si-hs-l">Printed</span></div>
-        <div class="si-hs-div"></div>
-        <div class="si-hs"><span class="si-hs-n">220g</span><span class="si-hs-l">Cotton</span></div>
+      <div class="si-stats">
+        <div class="si-stat"><span class="si-stat-val">1983</span><span class="si-stat-lbl">Birmingham</span></div>
+        <div class="si-stat-sep"></div>
+        <div class="si-stat"><span class="si-stat-val">Unity</span><span class="si-stat-lbl">Sisterhood</span></div>
+        <div class="si-stat-sep"></div>
+        <div class="si-stat"><span class="si-stat-val">Soul</span><span class="si-stat-lbl">Spirit</span></div>
       </div>
     </div>
   </div>
 
-  <div class="si-scroll-cue">
-    <div class="si-scroll-bar"></div>
-    <span>Scroll</span>
+  <!-- Scroll cue -->
+  <div class="si-scroll" aria-hidden="true">
+    <div class="si-scroll-bar"><div class="si-scroll-fill"></div></div>
+    <span>Explore</span>
   </div>
 </section>
 
 <!-- ============================================================
-     MARQUEE — Bold colourful ticker
+     TICKER — Gentle flowing mantra
      ============================================================ -->
-<div class="si-marquee">
-  <div class="si-mq-track">
+<div class="si-ticker">
+  <div class="si-ticker-track">
     {%- for i in (1..2) -%}
-    <span class="si-mq-w">SISTA</span><span class="si-mq-star">★</span>
-    <span class="si-mq-w si-mq-outline">RETRO</span><span class="si-mq-star">★</span>
-    <span class="si-mq-w">GRAPHIC TEES</span><span class="si-mq-star">★</span>
-    <span class="si-mq-w si-mq-outline">90s VIBES</span><span class="si-mq-star">★</span>
-    <span class="si-mq-w">FOR HER</span><span class="si-mq-star">★</span>
-    <span class="si-mq-w si-mq-outline">CAMDEN</span><span class="si-mq-star">★</span>
+    <div class="si-ticker-set">
+      <span>PEACE</span><span class="si-tdot">♡</span>
+      <span>LOVE</span><span class="si-tdot">♡</span>
+      <span>UNITY</span><span class="si-tdot">♡</span>
+      <span>SISTA</span><span class="si-tdot">♡</span>
+      <span>SISTERHOOD</span><span class="si-tdot">♡</span>
+      <span>CONNECTION</span><span class="si-tdot">♡</span>
+      <span>SPIRIT</span><span class="si-tdot">♡</span>
+      <span>SELF-EXPRESSION</span><span class="si-tdot">♡</span>
+    </div>
     {%- endfor -%}
   </div>
 </div>
 
 <!-- ============================================================
-     STORY — Bold editorial, retro energy
+     STORY — Sisterhood split with second logo
      ============================================================ -->
 <section class="si-story">
-  <div class="si-story-lhs">
-    <div class="si-story-badge-wrap">
-      <div class="si-story-badge">
-        <span class="si-sb-text">S</span>
-      </div>
-      <div class="si-retro-ring si-rr1"></div>
-      <div class="si-retro-ring si-rr2"></div>
+  <div class="si-story-visual">
+    <div class="si-story-glow" aria-hidden="true"></div>
+    <div class="si-story-logo-wrap">
+      <img src="{{ 'logo-sista-text.jpeg' | asset_url }}" alt="SISTA" class="si-story-logo" />
     </div>
-    <div class="si-story-floats">
-      <span class="si-float-word si-fw1">Bold</span>
-      <span class="si-float-word si-fw2">Colour</span>
-      <span class="si-float-word si-fw3">Retro</span>
+    <div class="si-story-badge">
+      <span>Est.</span>
+      <strong>1983</strong>
     </div>
   </div>
-
-  <div class="si-story-rhs">
-    <div class="si-eyebrow"><span class="si-eye-dot"></span>The Vibe</div>
-    <h2 class="si-story-h2">
-      <span>Colour is</span>
-      <span class="si-h2-pop">her weapon.</span>
-    </h2>
-    <p class="si-story-p">Sista is the women's arm of the Have A Nice Day family — born from the same Camden energy, the same hand-drawn graphics, the same rave-era spirit. But with her own rules.</p>
-    <p class="si-story-p">Bold retro prints. Colourful 90s graphics. Heavyweight organic cotton that feels as good as it looks. Made for women who don't blend in — they stand out.</p>
-    <div class="si-pills">
-      <span class="si-pill">Retro Graphics</span>
-      <span class="si-pill">Women's Fit</span>
-      <span class="si-pill">Organic Cotton</span>
-      <span class="si-pill">UK Printed</span>
-      <span class="si-pill">Camden Born</span>
+  <div class="si-story-text">
+    <div class="si-eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      The Story
+    </div>
+    <h2 class="si-story-h2">Built on<br><em>sisterhood.</em></h2>
+    <p class="si-story-p">{{ section.settings.story_text | default: "Born in Birmingham in 1983, SISTA is a universal womenswear brand built on peace, love and unity. Created for women of every colour, every shape and every walk of life — SISTA represents sisterhood. A shared energy that brings women together across cultures, generations and communities." }}</p>
+    <div class="si-values">
+      <span class="si-value">Peace</span>
+      <span class="si-value">Love</span>
+      <span class="si-value">Unity</span>
+      <span class="si-value">Spirit</span>
+      <span class="si-value">Connection</span>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     PRODUCTS
+     MANIFESTO — Full-width emotional statement
      ============================================================ -->
-<section class="si-shop hand-sec" id="si-shop">
-  <div class="hand-container">
+<section class="si-manifesto">
+  <div class="si-manifesto-inner">
+    <blockquote class="si-quote">
+      "More than clothing — SISTA represents <em>sisterhood.</em> A shared energy that brings women together across cultures, generations and communities."
+    </blockquote>
+    <div class="si-manifesto-line"></div>
+    <p class="si-manifesto-attr">Peace · Love · Unity — Since 1983</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRODUCTS — Elegant grid
+     ============================================================ -->
+<section class="si-shop" id="si-shop">
+  <div class="si-shop-inner">
     <div class="si-shop-head">
       <div>
-        <div class="si-eyebrow"><span class="si-eye-dot"></span>The Collection</div>
-        <h2 class="si-shop-h2">All Products.</h2>
+        <div class="si-eyebrow-sm">The Collection</div>
+        <h2 class="si-shop-h2">For Every Woman.</h2>
       </div>
-      <p class="si-shop-sub">Every piece from Sista — colourful retro graphic tees on 220gsm organic cotton, UK printed.</p>
+      <div>
+        <p class="si-shop-desc">Soulful womenswear rooted in connection, spirit and self-expression. Every colour, every shape, every walk of life.</p>
+        <div class="si-filters">
+          <button class="si-filter active" data-filter="all">All</button>
+          <button class="si-filter" data-filter="tee">T-Shirts</button>
+          <button class="si-filter" data-filter="hood">Hoodies</button>
+          <button class="si-filter" data-filter="acc">Accessories</button>
+        </div>
+      </div>
     </div>
 
-    <div class="hand-grid si-grid" id="si-product-grid">
-      {%- for product in sista_col.products -%}
-        <a class="hand-card si-card" href="{{ product.url }}">
-          <div class="imgwrap">
-            <span class="tag">{{ product.type | default: 'Sista' }}</span>
+    <div class="si-grid" id="si-product-grid">
+      {%- assign si_count = 0 -%}
+      {%- for product in sista_col.products limit: 500 -%}
+        {%- assign vd = product.vendor | downcase -%}
+        {%- unless vd contains 'sista' -%}{%- continue -%}{%- endunless -%}
+        {%- assign si_count = si_count | plus: 1 -%}
+        {%- assign filter_tag = 'acc' -%}
+        {%- assign tl = product.title | downcase -%}
+        {%- if tl contains 'hoodie' or tl contains 'hood' or tl contains 'sweatshirt' or tl contains 'zip' -%}
+          {%- assign filter_tag = 'hood' -%}
+        {%- elsif tl contains 't-shirt' or tl contains 'tee' or tl contains 'long-sleeve' or tl contains 'longsleeve' -%}
+          {%- assign filter_tag = 'tee' -%}
+        {%- endif -%}
+        <a class="si-prod" href="{{ product.url }}" data-filter="{{ filter_tag }}">
+          <div class="si-prod-img">
             {%- if product.featured_image -%}
-              <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" width="600" height="600" />
+              <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" width="600" height="600" />
             {%- else -%}
               <div class="si-no-img">SISTA</div>
             {%- endif -%}
-            <span class="quick">Quick Add →</span>
-          </div>
-          <div class="body">
-            <div class="vendor">Sista</div>
-            <div class="name">{{ product.title }}</div>
-            <div class="row2">
-              <div class="price">{{ product.price | money }}</div>
-              {%- if product.compare_at_price > product.price -%}
-                <span class="si-sale">SALE</span>
-              {%- endif -%}
+            {%- if product.compare_at_price > product.price -%}
+              <span class="si-badge">SALE</span>
+            {%- endif -%}
+            <div class="si-prod-hover">
+              <span>View</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </div>
           </div>
-        </a>
-      {%- else -%}
-        <div class="si-soon-wrap">
-          <div class="si-soon">
-            <span class="si-soon-star">★</span>
-            <h3 class="si-soon-h3">Dropping Soon</h3>
-            <p class="si-soon-p">Colourful retro graphic tees are being prepared for the next drop. Heavyweight organic cotton, UK printed, made for women.</p>
-            <a href="/collections/all" class="si-soon-link">Browse All Products →</a>
+          <div class="si-prod-info">
+            <span class="si-prod-type">{{ product.type | default: 'SISTA' }}</span>
+            <div class="si-prod-name">{{ product.title }}</div>
+            <div class="si-prod-price">{{ product.price | money }}</div>
           </div>
-        </div>
+        </a>
       {%- endfor -%}
+      {%- if si_count == 0 -%}
+        <div class="si-empty">No SISTA products found. Check back soon.</div>
+      {%- endif -%}
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     CLOSING CTA
+     CLOSING — Emotional CTA
      ============================================================ -->
-<section class="si-closer">
-  <div class="si-closer-shapes" aria-hidden="true">
-    <div class="si-cs si-cs1"></div>
-    <div class="si-cs si-cs2"></div>
-    <div class="si-cs si-cs3"></div>
+<section class="si-closing">
+  <div class="si-closing-aurora" aria-hidden="true">
+    <div class="si-ca-1"></div>
+    <div class="si-ca-2"></div>
   </div>
-  <div class="si-closer-inner">
-    <div class="si-eyebrow" style="justify-content:center"><span class="si-eye-dot"></span>Camden Born · UK Made</div>
-    <h2 class="si-closer-h2">Own the<br><em>room.</em></h2>
-    <p class="si-closer-p">Sista. Colourful retro 90s graphic tees, made for women. Heavyweight organic cotton, UK printed, Camden born.</p>
-    <a class="si-cta-main" href="#si-shop" style="margin:0 auto">
-      Shop Sista
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="si-closing-inner">
+    <div class="si-closing-logo">
+      <img src="{{ 'logo-sista-main.jpeg' | asset_url }}" alt="SISTA" />
+    </div>
+    <h2 class="si-closing-h2">Peace. Love.<br><em>Unity.</em></h2>
+    <p>For women of every colour, every shape and every walk of life. Sisterhood — always.</p>
+    <a class="si-btn" href="#si-shop">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Shop SISTA
     </a>
   </div>
 </section>
 
 <!-- ============================================================
-     STYLES
+     STYLES — Soulful, feminine, flowing
      ============================================================ -->
 <style>
-:root{
-  --si-pink:#F59DBA;--si-hot:#e84393;--si-purple:#a855f7;
-  --si-orange:#ff6b35;--si-yellow:#ffc832;--si-mint:#00d2d3;
-  --si-dark:#0a0a0a;--si-cream:#fdf6f0;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&display=swap');
+
+:root {
+  --si-rose: #DB2777;
+  --si-pink: #F472B6;
+  --si-blush: #FDF2F8;
+  --si-gold: #CA8A04;
+  --si-gold-dim: rgba(202,138,4,.12);
+  --si-plum: #831843;
+  --si-deep: #1a0812;
+  --si-warm: #fef7f0;
+  --si-white: #fefcfb;
+  --si-grey: rgba(131,24,67,.5);
+  --si-serif: 'Cormorant Infant', Georgia, serif;
+  --si-script: 'Great Vibes', cursive;
+  --si-body: 'Poppins', var(--body), sans-serif;
+  --si-mono: var(--mono), monospace;
 }
 
-/* ═══════ HERO ═══════ */
-.si-hero{position:relative;min-height:100vh;background:linear-gradient(135deg,#1a0a1a 0%,#0f0515 40%,#0a0a14 100%);display:flex;align-items:center;overflow:hidden;padding:0 clamp(24px,5vw,80px)}
+/* ---- HERO ---- */
+.si-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: linear-gradient(160deg, #1a0812 0%, #2d0a1e 30%, #1a0812 60%, #0f0a18 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 120px 40px 80px;
+  text-align: center;
+}
+@media(max-width:768px){.si-hero{padding:100px 20px 60px;}}
 
-/* Geometric shapes */
-.si-shape{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px);mix-blend-mode:screen}
-.si-sh1{width:400px;height:400px;background:radial-gradient(circle,rgba(232,67,147,.15),transparent 70%);top:-10%;right:10%;animation:si-float 16s ease-in-out infinite}
-.si-sh2{width:300px;height:300px;background:radial-gradient(circle,rgba(168,85,247,.12),transparent 70%);bottom:10%;left:-5%;animation:si-float 20s ease-in-out infinite reverse}
-.si-sh3{width:250px;height:250px;background:radial-gradient(circle,rgba(255,107,53,.1),transparent 70%);top:40%;right:-5%;animation:si-float 14s ease-in-out infinite;animation-delay:-4s}
-.si-sh4{width:200px;height:200px;background:radial-gradient(circle,rgba(255,200,50,.08),transparent 70%);bottom:30%;left:30%;animation:si-float 18s ease-in-out infinite;animation-delay:-8s;border-radius:30%}
-.si-sh5{width:150px;height:150px;background:radial-gradient(circle,rgba(0,210,211,.08),transparent 70%);top:20%;left:15%;animation:si-float 12s ease-in-out infinite;animation-delay:-2s}
-@keyframes si-float{
-  0%,100%{transform:translate(0,0) scale(1) rotate(0deg)}
-  33%{transform:translate(30px,-25px) scale(1.1) rotate(5deg)}
-  66%{transform:translate(-20px,20px) scale(.92) rotate(-3deg)}
+/* Aurora gradients */
+.si-aurora { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.si-aurora-1 {
+  position: absolute; width: 120%; height: 120%; top: -30%; left: -10%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(219,39,119,.15) 0%, transparent 60%);
+  animation: si-aurora-drift 12s ease-in-out infinite alternate;
+}
+.si-aurora-2 {
+  position: absolute; width: 100%; height: 100%; top: 10%; right: -20%;
+  background: radial-gradient(ellipse at 70% 40%, rgba(244,114,182,.1) 0%, transparent 55%);
+  animation: si-aurora-drift 15s ease-in-out infinite alternate-reverse;
+}
+.si-aurora-3 {
+  position: absolute; width: 80%; height: 80%; bottom: -10%; left: 20%;
+  background: radial-gradient(ellipse at 50% 80%, rgba(202,138,4,.06) 0%, transparent 50%);
+  animation: si-aurora-drift 18s ease-in-out infinite alternate;
+}
+@keyframes si-aurora-drift {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(30px,-20px) scale(1.1); }
 }
 
-/* Confetti dots */
-.si-confetti{position:absolute;inset:0;pointer-events:none}
-.si-dot{position:absolute;border-radius:50%;animation:si-drift 8s ease-in-out infinite}
-.si-d1{width:8px;height:8px;background:var(--si-pink);top:15%;left:20%;animation-delay:0s}
-.si-d2{width:6px;height:6px;background:var(--si-yellow);top:25%;right:25%;animation-delay:1s;border-radius:2px}
-.si-d3{width:10px;height:10px;background:var(--si-purple);top:60%;left:10%;animation-delay:2s}
-.si-d4{width:5px;height:5px;background:var(--si-orange);top:70%;right:15%;animation-delay:.5s;border-radius:0}
-.si-d5{width:7px;height:7px;background:var(--si-mint);top:35%;left:45%;animation-delay:1.5s}
-.si-d6{width:6px;height:6px;background:var(--si-hot);bottom:20%;left:35%;animation-delay:3s;border-radius:2px}
-.si-d7{width:9px;height:9px;background:var(--si-yellow);top:10%;left:60%;animation-delay:2.5s}
-.si-d8{width:5px;height:5px;background:var(--si-pink);bottom:35%;right:30%;animation-delay:4s;border-radius:0}
-.si-d9{width:7px;height:7px;background:var(--si-purple);top:80%;left:55%;animation-delay:1.2s}
-.si-d10{width:6px;height:6px;background:var(--si-orange);top:45%;right:8%;animation-delay:3.5s;border-radius:2px}
-.si-d11{width:8px;height:8px;background:var(--si-mint);bottom:15%;right:45%;animation-delay:.8s}
-.si-d12{width:4px;height:4px;background:var(--si-hot);top:50%;left:70%;animation-delay:2.8s}
-@keyframes si-drift{
-  0%,100%{transform:translateY(0) rotate(0deg);opacity:.6}
-  50%{transform:translateY(-30px) rotate(180deg);opacity:1}
+/* Floating petals */
+.si-petals { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.si-petal {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50% 0 50% 0;
+  background: rgba(244,114,182,.15);
+  animation: si-float 14s ease-in-out infinite;
+  animation-delay: calc(var(--p) * -1.8s);
+  left: calc(var(--p) * 12%);
+  top: calc(var(--p) * 8% + 10%);
 }
-
-/* Squiggles */
-.si-squiggle{position:absolute;width:clamp(100px,12vw,180px);pointer-events:none;opacity:.4}
-.si-sq1{top:18%;right:12%;transform:rotate(-15deg)}
-.si-sq2{bottom:22%;left:8%;transform:rotate(10deg)}
+.si-petal:nth-child(odd) { background: rgba(219,39,119,.12); width: 8px; height: 8px; }
+.si-petal:nth-child(3n) { background: rgba(202,138,4,.1); border-radius: 50%; }
+@keyframes si-float {
+  0%,100% { transform: translateY(0) rotate(0deg); opacity: .3; }
+  25% { transform: translateY(-60px) rotate(45deg); opacity: .6; }
+  50% { transform: translateY(-120px) rotate(90deg); opacity: .3; }
+  75% { transform: translateY(-60px) rotate(135deg); opacity: .5; }
+}
 
 /* Hero content */
-.si-hero-inner{position:relative;z-index:2;max-width:860px;width:100%}
-.si-hero-meta{display:flex;align-items:center;gap:14px;margin-bottom:40px}
-.si-badge-90s{background:linear-gradient(135deg,var(--si-hot),var(--si-purple));color:#fff;font-family:var(--display);font-size:14px;font-weight:900;padding:6px 12px;letter-spacing:.05em;border-radius:4px}
-.si-meta-text{font-family:var(--mono);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,157,186,.6)}
+.si-hero-content { position: relative; z-index: 2; max-width: 720px; }
+.si-hero-tag {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: var(--si-mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--si-pink); margin-bottom: 32px;
+}
+.si-tag-line { display: block; width: 32px; height: 1px; background: var(--si-pink); }
 
-.si-hero-title{margin:0 0 32px}
-.si-title-row{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.88}
-.si-tr1{font-size:clamp(72px,14vw,200px);letter-spacing:-.04em;background:linear-gradient(135deg,var(--si-pink),var(--si-hot),var(--si-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.si-tr2{font-size:clamp(28px,4.5vw,60px);color:rgba(255,255,255,.5);letter-spacing:.02em;margin:8px 0}
-.si-tr2 em{font-style:italic;background:linear-gradient(90deg,var(--si-orange),var(--si-yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.si-tr3{font-size:clamp(56px,11vw,150px);letter-spacing:-.03em;color:#fff}
+.si-hero-logo { margin-bottom: 24px; }
+.si-hero-logo .si-logo-img {
+  width: clamp(120px, 22vw, 200px); height: auto;
+  border-radius: 50%; object-fit: cover;
+  box-shadow: 0 0 60px rgba(219,39,119,.25), 0 0 120px rgba(219,39,119,.1);
+  animation: si-logo-glow 4s ease-in-out infinite alternate;
+}
+@keyframes si-logo-glow {
+  0% { box-shadow: 0 0 40px rgba(219,39,119,.2), 0 0 80px rgba(219,39,119,.05); }
+  100% { box-shadow: 0 0 60px rgba(219,39,119,.35), 0 0 120px rgba(219,39,119,.12); }
+}
 
-.si-hero-desc{font-size:17px;line-height:1.7;color:rgba(255,255,255,.55);max-width:480px;margin:0 0 40px}
+.si-hero-h1 {
+  font-family: var(--si-serif); font-size: clamp(48px, 8vw, 96px); font-weight: 300;
+  letter-spacing: .15em; text-transform: uppercase; color: var(--si-white);
+  margin: 0 0 24px; line-height: 1;
+}
+.si-h1-accent { color: var(--si-pink); text-shadow: 0 0 40px rgba(219,39,119,.3); }
 
-.si-hero-cta-row{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
-.si-cta-main{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--si-hot),var(--si-purple));color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:18px 32px;font-weight:700;transition:transform .3s,box-shadow .3s;border-radius:4px}
-.si-cta-main:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(232,67,147,.35)}
-.si-cta-main svg{transition:transform .3s}.si-cta-main:hover svg{transform:translateX(4px)}
+.si-hero-sub {
+  font-family: var(--si-serif); font-size: 17px; font-weight: 300; font-style: italic;
+  line-height: 1.8; color: rgba(254,252,251,.55); margin: 0 0 40px; max-width: 520px;
+  margin-left: auto; margin-right: auto;
+}
 
-.si-hero-stats{display:flex;align-items:center;gap:20px}
-.si-hs{display:flex;flex-direction:column;gap:2px}
-.si-hs-n{font-family:var(--display);font-size:26px;font-weight:900;color:#fff;line-height:1}
-.si-hs-l{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25)}
-.si-hs-div{width:1px;height:32px;background:rgba(255,255,255,.08)}
+.si-hero-actions { display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
 
-.si-scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px}
-.si-scroll-cue span{font-family:var(--mono);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.2)}
-.si-scroll-bar{width:1px;height:40px;background:linear-gradient(to bottom,var(--si-pink),transparent);animation:si-sb 2s ease infinite}
-@keyframes si-sb{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+.si-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, var(--si-rose) 0%, var(--si-pink) 100%);
+  color: #fff; font-family: var(--si-mono); font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; text-decoration: none; padding: 16px 30px; font-weight: 600;
+  cursor: pointer; transition: all .3s; border-radius: 2px;
+}
+.si-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(219,39,119,.35); }
 
-/* ═══════ MARQUEE ═══════ */
-.si-marquee{background:linear-gradient(90deg,var(--si-hot),var(--si-purple),var(--si-orange));padding:18px 0;overflow:hidden}
-.si-mq-track{display:flex;gap:0;animation:si-mq 22s linear infinite;width:max-content}
-.si-mq-w{font-family:var(--display);font-size:clamp(16px,2.2vw,24px);font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:0 20px;white-space:nowrap}
-.si-mq-outline{-webkit-text-stroke:1.5px #fff;color:transparent;-webkit-text-fill-color:transparent}
-.si-mq-star{color:rgba(255,255,255,.4);font-size:12px;padding:0 8px}
-@keyframes si-mq{to{transform:translateX(-50%)}}
+.si-stats { display: flex; align-items: center; gap: 20px; }
+.si-stat { display: flex; flex-direction: column; gap: 2px; }
+.si-stat-val { font-family: var(--si-serif); font-size: 22px; font-weight: 600; color: var(--si-white); line-height: 1; }
+.si-stat-lbl { font-family: var(--si-mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(254,252,251,.3); }
+.si-stat-sep { width: 1px; height: 32px; background: rgba(254,252,251,.1); }
 
-/* ═══════ STORY ═══════ */
-.si-story{display:grid;grid-template-columns:1fr 1.3fr;min-height:600px;background:var(--si-dark)}
-@media(max-width:900px){.si-story{grid-template-columns:1fr;min-height:auto}}
+/* Scroll */
+.si-scroll {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--si-mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(254,252,251,.2);
+}
+.si-scroll-bar { width: 40px; height: 1px; background: rgba(254,252,251,.1); position: relative; overflow: hidden; }
+.si-scroll-fill { position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--si-pink); animation: si-scr 2s ease infinite; }
+@keyframes si-scr { to { left: 100%; } }
 
-.si-story-lhs{background:linear-gradient(135deg,#120818,#0a0510);display:flex;align-items:center;justify-content:center;padding:80px 40px;position:relative;overflow:hidden;border-right:1px solid rgba(232,67,147,.1)}
-.si-story-badge-wrap{position:relative;width:180px;height:180px;display:flex;align-items:center;justify-content:center}
-.si-story-badge{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--si-hot),var(--si-purple));display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
-.si-sb-text{font-family:var(--display);font-size:64px;font-weight:900;color:#fff}
-.si-retro-ring{position:absolute;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);border:2px dashed}
-.si-rr1{width:160px;height:160px;border-color:rgba(245,157,186,.15);animation:si-rspin 20s linear infinite}
-.si-rr2{width:200px;height:200px;border-color:rgba(168,85,247,.1);animation:si-rspin 30s linear infinite reverse}
-@keyframes si-rspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+/* ---- TICKER ---- */
+.si-ticker {
+  background: linear-gradient(135deg, var(--si-rose) 0%, var(--si-pink) 100%);
+  padding: 14px 0; overflow: hidden; white-space: nowrap;
+}
+.si-ticker-track { display: flex; width: max-content; animation: si-tick 28s linear infinite; }
+.si-ticker-set {
+  display: flex; align-items: center; gap: 24px; padding-right: 24px; flex-shrink: 0;
+  font-family: var(--si-serif); font-size: 14px; font-weight: 600; letter-spacing: .15em;
+  text-transform: uppercase; color: #fff;
+}
+.si-tdot { opacity: .5; font-size: 12px; }
+@keyframes si-tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-.si-story-floats{position:absolute;inset:0;pointer-events:none}
-.si-float-word{position:absolute;font-family:var(--display);font-weight:900;text-transform:uppercase;opacity:.06;user-select:none}
-.si-fw1{font-size:clamp(48px,7vw,90px);top:8%;left:-5%;color:var(--si-orange);transform:rotate(-10deg)}
-.si-fw2{font-size:clamp(36px,5vw,70px);bottom:12%;right:-5%;color:var(--si-yellow);transform:rotate(8deg)}
-.si-fw3{font-size:clamp(40px,6vw,80px);top:55%;left:55%;color:var(--si-pink);transform:rotate(-5deg)}
+/* ---- STORY ---- */
+.si-story {
+  display: grid; grid-template-columns: 1fr 1.4fr; min-height: 560px;
+  background: var(--si-blush);
+}
+@media(max-width:900px){.si-story{grid-template-columns:1fr;}}
 
-.si-story-rhs{padding:clamp(48px,8vw,100px) clamp(32px,5vw,80px);display:flex;flex-direction:column;justify-content:center;gap:28px}
-.si-eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--si-pink)}
-.si-eye-dot{width:6px;height:6px;border-radius:50%;background:var(--si-hot);animation:si-pulse 2s ease infinite}
-@keyframes si-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.si-story-visual {
+  background: linear-gradient(160deg, #fce7f3 0%, #fdf2f8 100%);
+  display: flex; align-items: center; justify-content: center; padding: 60px 40px;
+  position: relative; border-right: 1px solid rgba(219,39,119,.08);
+}
+@media(max-width:900px){.si-story-visual{min-height:340px;border-right:none;border-bottom:1px solid rgba(219,39,119,.08);}}
 
-.si-story-h2{font-family:var(--display);font-size:clamp(36px,5.5vw,72px);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.95;color:#fff;margin:0}
-.si-story-h2 span{display:block}
-.si-h2-pop{background:linear-gradient(90deg,var(--si-hot),var(--si-orange),var(--si-yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.si-story-glow {
+  position: absolute; width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(219,39,119,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.si-story-logo-wrap { position: relative; z-index: 2; }
+.si-story-logo {
+  width: clamp(180px, 30vw, 280px); height: auto; object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(131,24,67,.15));
+}
+.si-story-badge {
+  position: absolute; bottom: 20px; right: 20px;
+  font-family: var(--si-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--si-rose); display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.si-story-badge strong { font-family: var(--si-serif); font-size: 22px; font-weight: 600; }
 
-.si-story-p{font-size:16px;line-height:1.8;color:rgba(255,255,255,.45);margin:0;max-width:500px}
+.si-story-text { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+@media(max-width:768px){.si-story-text{padding:48px 24px;}}
 
-.si-pills{display:flex;flex-wrap:wrap;gap:8px}
-.si-pill{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(232,67,147,.15);color:rgba(245,157,186,.6);transition:all .3s;border-radius:20px}
-.si-pill:hover{border-color:var(--si-hot);color:var(--si-hot);background:rgba(232,67,147,.05)}
+.si-eyebrow {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--si-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--si-rose);
+}
+.si-story-h2 {
+  font-family: var(--si-serif); font-size: clamp(32px, 4.5vw, 52px); font-weight: 300;
+  text-transform: uppercase; letter-spacing: .05em; line-height: 1.1; color: var(--si-plum); margin: 0;
+}
+.si-story-h2 em { font-style: italic; color: var(--si-rose); }
+.si-story-p {
+  font-family: var(--si-serif); font-size: 15px; font-weight: 400; line-height: 1.85;
+  color: rgba(131,24,67,.6); max-width: 480px; margin: 0;
+}
+.si-values { display: flex; gap: 8px; flex-wrap: wrap; }
+.si-value {
+  font-family: var(--si-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  padding: 6px 14px; border: 1px solid rgba(219,39,119,.15); color: var(--si-rose);
+  transition: all .25s; cursor: default; border-radius: 2px;
+}
+.si-value:hover { background: var(--si-rose); color: #fff; border-color: var(--si-rose); }
 
-/* ═══════ SHOP ═══════ */
-.si-shop{background:var(--paper)}
-.si-shop-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:48px}
-@media(max-width:768px){.si-shop-head{grid-template-columns:1fr}}
-.si-shop-h2{font-family:var(--display);font-size:clamp(40px,7vw,80px);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.92;margin:12px 0 0}
-.si-shop-sub{font-size:15px;line-height:1.7;color:rgba(255,255,255,.4)}
+/* ---- MANIFESTO ---- */
+.si-manifesto {
+  background: var(--si-deep); padding: 100px 40px; text-align: center; position: relative; overflow: hidden;
+}
+@media(max-width:768px){.si-manifesto{padding:60px 20px;}}
+.si-manifesto-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+.si-quote {
+  font-family: var(--si-serif); font-size: clamp(22px, 3.5vw, 36px); font-weight: 300;
+  font-style: italic; line-height: 1.6; color: rgba(254,252,251,.85); margin: 0;
+}
+.si-quote em { font-style: normal; color: var(--si-pink); }
+.si-manifesto-line { width: 60px; height: 1px; background: var(--si-rose); margin: 32px auto; opacity: .5; }
+.si-manifesto-attr {
+  font-family: var(--si-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(244,114,182,.4);
+}
 
-.si-no-img{width:100%;height:340px;background:linear-gradient(135deg,#1a0a1a,#0f0515);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:36px;font-weight:900;background:linear-gradient(135deg,var(--si-hot),var(--si-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.si-sale{font-family:var(--mono);font-size:9px;letter-spacing:.15em;background:linear-gradient(135deg,var(--si-hot),var(--si-purple));color:#fff;padding:3px 8px;font-weight:700;border-radius:2px}
-.si-card{transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s}
-.si-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 24px 60px rgba(232,67,147,.12)}
+/* ---- SHOP ---- */
+.si-shop { background: var(--si-blush); padding: 80px 60px; }
+@media(max-width:768px){.si-shop{padding:48px 20px;}}
+.si-shop-inner { max-width: 1200px; margin: 0 auto; }
+.si-shop-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 48px; }
+@media(max-width:768px){.si-shop-head{grid-template-columns:1fr;}}
+.si-eyebrow-sm { font-family: var(--si-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--si-rose); }
+.si-shop-h2 {
+  font-family: var(--si-serif); font-size: clamp(36px, 5vw, 56px); font-weight: 300;
+  text-transform: uppercase; letter-spacing: .05em; line-height: 1; margin: 8px 0 0; color: var(--si-plum);
+}
+.si-shop-desc { font-family: var(--si-serif); font-size: 14px; font-weight: 400; line-height: 1.75; color: rgba(131,24,67,.45); font-style: italic; }
+.si-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.si-filter {
+  font-family: var(--si-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+  padding: 9px 18px; border: 1px solid rgba(219,39,119,.2); background: transparent;
+  color: var(--si-plum); cursor: pointer; transition: all .25s; border-radius: 2px;
+}
+.si-filter:hover, .si-filter.active { background: var(--si-rose); color: #fff; border-color: var(--si-rose); }
 
-/* Coming soon */
-.si-soon-wrap{grid-column:1/-1;display:flex;justify-content:center;padding:80px 0}
-.si-soon{text-align:center;max-width:520px;padding:64px 48px;background:rgba(232,67,147,.03);border:1px solid rgba(232,67,147,.12);border-radius:8px;position:relative}
-.si-soon-star{font-size:48px;display:block;margin-bottom:20px;background:linear-gradient(135deg,var(--si-hot),var(--si-yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:si-rspin 10s linear infinite;display:inline-block}
-.si-soon-h3{font-family:var(--display);font-size:32px;font-weight:900;text-transform:uppercase;background:linear-gradient(135deg,var(--si-hot),var(--si-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:0 0 16px}
-.si-soon-p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.4);margin:0 0 32px}
-.si-soon-link{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--si-hot);text-decoration:none;border-bottom:1px solid rgba(232,67,147,.2);padding-bottom:4px;transition:border-color .2s}
-.si-soon-link:hover{border-color:var(--si-hot)}
+.si-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+.si-prod { text-decoration: none; color: inherit; cursor: pointer; transition: transform .3s; }
+.si-prod:hover { transform: translateY(-6px); }
+.si-prod-img { position: relative; overflow: hidden; background: #fce7f3; aspect-ratio: 1; border-radius: 4px; }
+.si-prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.si-prod:hover .si-prod-img img { transform: scale(1.06); }
+.si-prod-hover {
+  position: absolute; inset: 0; background: rgba(26,8,18,.65);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--si-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--si-pink); opacity: 0; transition: opacity .3s; border-radius: 4px;
+}
+.si-prod:hover .si-prod-hover { opacity: 1; }
+.si-no-img {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  font-family: var(--si-script); font-size: 28px; color: rgba(219,39,119,.2);
+}
+.si-badge {
+  position: absolute; top: 12px; right: 12px;
+  font-family: var(--si-mono); font-size: 9px; letter-spacing: .1em;
+  background: var(--si-rose); color: #fff; padding: 4px 10px; font-weight: 700; border-radius: 2px;
+}
+.si-prod-info { padding: 16px 0; }
+.si-prod-type { font-family: var(--si-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--si-rose); }
+.si-prod-name { font-family: var(--si-serif); font-size: 15px; font-weight: 500; color: var(--si-plum); margin: 6px 0 4px; }
+.si-prod-price { font-family: var(--si-mono); font-size: 13px; color: var(--si-grey); }
+.si-empty { grid-column: 1/-1; padding: 80px; text-align: center; font-family: var(--si-mono); font-size: 11px; letter-spacing: .12em; color: rgba(219,39,119,.3); text-transform: uppercase; }
 
-/* ═══════ CLOSER ═══════ */
-.si-closer{position:relative;padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);background:linear-gradient(135deg,#1a0a1a,#0f0515,#0a0a14);overflow:hidden;text-align:center}
-.si-closer-shapes{position:absolute;inset:0;pointer-events:none}
-.si-cs{position:absolute;border-radius:50%;filter:blur(80px);mix-blend-mode:screen}
-.si-cs1{width:300px;height:300px;background:radial-gradient(circle,rgba(232,67,147,.1),transparent 70%);top:10%;left:20%}
-.si-cs2{width:250px;height:250px;background:radial-gradient(circle,rgba(168,85,247,.08),transparent 70%);bottom:10%;right:15%}
-.si-cs3{width:200px;height:200px;background:radial-gradient(circle,rgba(255,200,50,.06),transparent 70%);top:50%;left:60%}
+/* ---- CLOSING ---- */
+.si-closing {
+  background: var(--si-deep); padding: 100px 40px; text-align: center; position: relative; overflow: hidden;
+}
+@media(max-width:768px){.si-closing{padding:60px 20px;}}
+.si-closing-aurora { position: absolute; inset: 0; pointer-events: none; }
+.si-ca-1 {
+  position: absolute; width: 100%; height: 100%;
+  background: radial-gradient(ellipse at 30% 60%, rgba(219,39,119,.1) 0%, transparent 50%);
+  animation: si-aurora-drift 14s ease-in-out infinite alternate;
+}
+.si-ca-2 {
+  position: absolute; width: 100%; height: 100%;
+  background: radial-gradient(ellipse at 70% 30%, rgba(244,114,182,.06) 0%, transparent 50%);
+  animation: si-aurora-drift 18s ease-in-out infinite alternate-reverse;
+}
+.si-closing-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 2; }
+.si-closing-logo img {
+  width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 32px;
+  box-shadow: 0 0 40px rgba(219,39,119,.2);
+}
+.si-closing-h2 {
+  font-family: var(--si-serif); font-size: clamp(32px, 5vw, 56px); font-weight: 300;
+  text-transform: uppercase; letter-spacing: .05em; line-height: 1.1; color: var(--si-white); margin: 0 0 20px;
+}
+.si-closing-h2 em { font-style: italic; color: var(--si-pink); }
+.si-closing-inner p {
+  font-family: var(--si-serif); font-size: 15px; font-weight: 300; font-style: italic;
+  line-height: 1.75; color: rgba(254,252,251,.5); margin: 0 0 32px;
+}
 
-.si-closer-inner{position:relative;z-index:1;max-width:650px;margin:0 auto}
-.si-closer-h2{font-family:var(--display);font-size:clamp(48px,9vw,120px);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.88;color:#fff;margin:24px 0}
-.si-closer-h2 em{font-style:italic;background:linear-gradient(135deg,var(--si-hot),var(--si-orange),var(--si-yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.si-closer-p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.4);margin:0 0 40px}
-
-/* ═══════ RESPONSIVE ═══════ */
-@media(max-width:640px){
-  .si-hero-cta-row{flex-direction:column;align-items:flex-start;gap:24px}
-  .si-story-lhs{padding:48px 24px;min-height:280px}
+/* ---- REDUCED MOTION ---- */
+@media(prefers-reduced-motion:reduce){
+  .si-aurora-1,.si-aurora-2,.si-aurora-3,.si-petal,.si-scroll-fill,.si-ticker-track,.si-ca-1,.si-ca-2,.si-logo-img{animation:none!important;}
+  .si-prod:hover{transform:none;}
 }
 </style>
 
 <!-- ============================================================
-     MOTION.DEV ANIMATIONS
+     SCRIPTS — Motion.dev animations
      ============================================================ -->
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-  if(!window.Motion)return;
-  var M=window.Motion,animate=M.animate,stagger=M.stagger,inView=M.inView;
+document.addEventListener('DOMContentLoaded', function() {
+  /* Filters */
+  var fBtns = document.querySelectorAll('.si-filter');
+  var cards = document.querySelectorAll('.si-prod');
+  fBtns.forEach(function(b) {
+    b.addEventListener('click', function() {
+      var f = this.dataset.filter;
+      fBtns.forEach(function(x) { x.classList.remove('active'); });
+      this.classList.add('active');
+      cards.forEach(function(c) { c.style.display = (f === 'all' || c.dataset.filter === f) ? '' : 'none'; });
+    });
+  });
 
-  // Hero entrance — cinematic staggered reveal
-  animate('.si-badge-90s',{opacity:[0,1],scale:[.5,1],rotate:[-10,0]},{duration:.6,delay:.2,easing:[.22,1,.36,1]});
-  animate('.si-meta-text',{opacity:[0,1],x:[-20,0]},{duration:.5,delay:.3});
+  /* Motion.dev */
+  if (window.Motion) {
+    var M = window.Motion;
+    M.animate('.si-hero-tag', { opacity: [0,1], y: [-10,0] }, { duration: .6, delay: .3 });
+    M.animate('.si-hero-logo', { opacity: [0,1], scale: [.8,1] }, { duration: 1, delay: .5, easing: [.22,1,.36,1] });
+    M.animate('.si-hero-h1', { opacity: [0,1], y: [30,0] }, { duration: .8, delay: .8, easing: [.22,1,.36,1] });
+    M.animate('.si-hero-sub', { opacity: [0,1], y: [20,0] }, { duration: .7, delay: 1.1 });
+    M.animate('.si-hero-actions', { opacity: [0,1], y: [20,0] }, { duration: .7, delay: 1.3 });
 
-  animate('.si-tr1',{opacity:[0,1],y:[100,0],skewY:[6,0]},{duration:1.1,delay:.4,easing:[.22,1,.36,1]});
-  animate('.si-tr2',{opacity:[0,1],y:[60,0]},{duration:.8,delay:.7,easing:[.22,1,.36,1]});
-  animate('.si-tr3',{opacity:[0,1],y:[100,0],skewY:[-5,0]},{duration:1.1,delay:.9,easing:[.22,1,.36,1]});
+    M.inView('.si-story-visual', function() {
+      M.animate('.si-story-logo-wrap', { opacity: [0,1], scale: [.85,1] }, { duration: .8, easing: [.22,1,.36,1] });
+    }, { margin: '-10% 0px' });
 
-  animate('.si-hero-desc',{opacity:[0,1],y:[30,0]},{duration:.7,delay:1.2});
-  animate('.si-cta-main',{opacity:[0,1],y:[20,0],scale:[.9,1]},{duration:.6,delay:1.4,easing:[.22,1,.36,1]});
-  animate('.si-hero-stats',{opacity:[0,1],x:[30,0]},{duration:.6,delay:1.5});
-  animate('.si-scroll-cue',{opacity:[0,1]},{duration:.5,delay:1.8});
+    M.inView('.si-story-text', function() {
+      M.animate('.si-story-text > *', { opacity: [0,1], x: [30,0] }, { delay: M.stagger(.1), duration: .6, easing: [.22,1,.36,1] });
+    }, { margin: '-10% 0px' });
 
-  // Shapes entrance
-  animate('.si-shape',{opacity:[0,1],scale:[.3,1]},{delay:stagger(.15,{start:.3}),duration:1.5,easing:'ease-out'});
+    M.inView('.si-manifesto-inner', function() {
+      M.animate('.si-quote', { opacity: [0,1], y: [30,0] }, { duration: .8, easing: [.22,1,.36,1] });
+      M.animate('.si-manifesto-line', { scaleX: [0,1] }, { duration: .6, delay: .3 });
+      M.animate('.si-manifesto-attr', { opacity: [0,1] }, { duration: .5, delay: .5 });
+    }, { margin: '-10% 0px' });
 
-  // Confetti entrance
-  animate('.si-dot',{opacity:[0,.6],scale:[0,1]},{delay:stagger(.08,{start:.6}),duration:.8,easing:[.22,1,.36,1]});
+    document.querySelectorAll('.si-prod').forEach(function(c) {
+      M.inView(c, function() {
+        M.animate(c, { opacity: [0,1], y: [25,0] }, { duration: .5, easing: [.22,1,.36,1] });
+      }, { margin: '-5% 0px' });
+    });
 
-  // Story section
-  inView('.si-story-badge-wrap',function(info){
-    animate(info.target.querySelector('.si-story-badge'),{opacity:[0,1],scale:[.4,1],rotate:[-20,0]},{duration:1,easing:[.22,1,.36,1]});
-    animate(info.target.querySelectorAll('.si-retro-ring'),{opacity:[0,1],scale:[.5,1]},{delay:stagger(.15,{start:.3}),duration:.8});
-  },{margin:'-15% 0px'});
-
-  inView('.si-story-rhs',function(info){
-    var els=info.target.querySelectorAll('.si-eyebrow,.si-story-h2 span,.si-story-p,.si-pills');
-    animate(els,{opacity:[0,1],y:[40,0]},{delay:stagger(.08),duration:.7,easing:[.22,1,.36,1]});
-  },{margin:'-10% 0px'});
-
-  // Pills stagger
-  inView('.si-pills',function(info){
-    animate(info.target.querySelectorAll('.si-pill'),{opacity:[0,1],y:[15,0],scale:[.9,1]},{delay:stagger(.05),duration:.5,easing:[.22,1,.36,1]});
-  },{margin:'-5% 0px'});
-
-  // Product cards
-  inView('.si-card',function(info){
-    animate(info.target,{opacity:[0,1],y:[50,0]},{duration:.7,easing:[.22,1,.36,1]});
-  },{margin:'-5% 0px'});
-
-  // Coming soon
-  inView('.si-soon',function(info){
-    animate(info.target,{opacity:[0,1],y:[40,0],scale:[.95,1]},{duration:.9,easing:[.22,1,.36,1]});
-  },{margin:'-10% 0px'});
-
-  // Shop header
-  inView('.si-shop-head',function(info){
-    animate(info.target.querySelectorAll('.si-eyebrow,.si-shop-h2,.si-shop-sub'),{opacity:[0,1],y:[50,0]},{delay:stagger(.1),duration:.8,easing:[.22,1,.36,1]});
-  },{margin:'-10% 0px'});
-
-  // Closer
-  inView('.si-closer-inner',function(info){
-    animate(info.target.querySelector('.si-eyebrow'),{opacity:[0,1]},{duration:.5});
-    animate(info.target.querySelector('.si-closer-h2'),{opacity:[0,1],y:[80,0],skewY:[3,0]},{duration:1,delay:.2,easing:[.22,1,.36,1]});
-    animate(info.target.querySelector('.si-closer-p'),{opacity:[0,1],y:[30,0]},{duration:.7,delay:.5});
-    animate(info.target.querySelector('.si-cta-main'),{opacity:[0,1],y:[20,0]},{duration:.6,delay:.7});
-  },{margin:'-15% 0px'});
+    M.inView('.si-closing-inner', function() {
+      M.animate('.si-closing-logo', { opacity: [0,1], scale: [.7,1] }, { duration: .8, easing: [.22,1,.36,1] });
+      M.animate('.si-closing-h2', { opacity: [0,1], y: [30,0] }, { duration: .7, delay: .2, easing: [.22,1,.36,1] });
+      M.animate('.si-closing-inner p', { opacity: [0,1], y: [15,0] }, { duration: .6, delay: .4 });
+      M.animate('.si-closing-inner .si-btn', { opacity: [0,1], y: [15,0] }, { duration: .6, delay: .5 });
+    }, { margin: '-10% 0px' });
+  }
 });
 </script>
 
 {% schema %}
 {
-  "name": "Brand: Sista",
+  "name": "Brand: SISTA",
   "settings": [
-    { "type": "textarea", "id": "story_text", "label": "Brand story text", "default": "Colourful retro 90s graphic tees, made for women. Camden born, UK printed." }
+    { "type": "collection", "id": "brand_collection", "label": "SISTA Collection", "info": "Select the collection for SISTA products." },
+    { "type": "textarea", "id": "tagline", "label": "Hero tagline", "default": "A universal womenswear brand built on sisterhood, connection and self-expression. Created for women of every colour, every shape and every walk of life." },
+    { "type": "textarea", "id": "story_text", "label": "Brand story text", "default": "Born in Birmingham in 1983, SISTA is a universal womenswear brand built on peace, love and unity. Created for women of every colour, every shape and every walk of life — SISTA represents sisterhood. A shared energy that brings women together across cultures, generations and communities." }
   ],
-  "presets": [{ "name": "Brand: Sista" }]
+  "presets": [
+    { "name": "Brand: SISTA" }
+  ]
 }
 {% endschema %}
