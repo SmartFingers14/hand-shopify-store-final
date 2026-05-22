@@ -295,7 +295,7 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  width: 820px;
+  width: 960px;
   background: var(--hd-white);
   box-shadow: 0 20px 60px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.04);
   opacity: 0;
@@ -317,7 +317,7 @@
 /* Brands mega grid */
 .hd-mega-brands {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
 }
 .hd-brand-card {
@@ -349,6 +349,11 @@
 .hd-brand-card[data-brand="sista"]::before { background: linear-gradient(135deg, #D4368C, #FFCE5C); }
 .hd-brand-card[data-brand="handspun"]::before { background: linear-gradient(135deg, #0e0e24, #e8c547); }
 .hd-brand-card[data-brand="funky-dog"]::before { background: linear-gradient(135deg, #ff6b00, #ffd000, #a3e635); }
+.hd-brand-card[data-brand="btka"]::before { background: linear-gradient(135deg, #dc2626, #0a0a0a, #dc2626); }
+.hd-brand-card[data-brand="vortex"]::before { background: linear-gradient(135deg, #1a0030, #7c3aed, #06b6d4); }
+.hd-brand-card[data-brand="dodo"]::before { background: linear-gradient(135deg, #065f46, #34d399, #fbbf24); }
+.hd-brand-card[data-brand="hand"]::before { background: linear-gradient(135deg, #F59DBA, #E91E8C, #ffd000); }
+.hd-brand-card[data-brand="incubator"]::before { background: linear-gradient(135deg, #050505, #00FF88, #050505); }
 
 .hd-brand-card:hover::before { opacity: 1; }
 .hd-brand-card:hover { transform: scale(1); }
@@ -834,9 +839,34 @@
               <div class="hd-brand-name">Funky Dog</div>
               <div class="hd-brand-tagline">Rhythm · Vinyl · Funk</div>
             </a>
+            <a class="hd-brand-card" href="/pages/btka" data-brand="btka">
+              <img class="hd-brand-logo" src="{{ 'logo-btka.png' | asset_url }}" alt="BTKA" loading="lazy" width="72" height="72">
+              <div class="hd-brand-name">BTKA</div>
+              <div class="hd-brand-tagline">Punk · Sleazy Rider</div>
+            </a>
+            <a class="hd-brand-card" href="/pages/vortex" data-brand="vortex">
+              <img class="hd-brand-logo" src="{{ 'logo-vortex.png' | asset_url }}" alt="Vortex" loading="lazy" width="72" height="72">
+              <div class="hd-brand-name">Vortex</div>
+              <div class="hd-brand-tagline">Cosmic · Psychedelic</div>
+            </a>
+            <a class="hd-brand-card" href="/pages/dodo" data-brand="dodo">
+              <img class="hd-brand-logo" src="{{ 'logo-dodo.png' | asset_url }}" alt="Don't Do The Dodo" loading="lazy" width="72" height="72">
+              <div class="hd-brand-name">Dodo</div>
+              <div class="hd-brand-tagline">Don't Do The Dodo</div>
+            </a>
+            <a class="hd-brand-card" href="/pages/have-a-nice-day" data-brand="hand">
+              <img class="hd-brand-logo" src="{{ 'logo-hand-colour.webp' | asset_url }}" alt="Have A Nice Day" loading="lazy" width="72" height="72">
+              <div class="hd-brand-name">HAND</div>
+              <div class="hd-brand-tagline">Have A Nice Day</div>
+            </a>
+            <a class="hd-brand-card" href="/pages/incubator" data-brand="incubator">
+              <img class="hd-brand-logo" src="{{ 'logo-incubator.png' | asset_url }}" alt="Incubator" loading="lazy" width="72" height="72">
+              <div class="hd-brand-name">Incubator</div>
+              <div class="hd-brand-tagline">Experimental · Lab</div>
+            </a>
           </div>
           <div class="hd-mega-foot">
-            <span class="hd-mega-foot-text">4 brands · 1 family · Since 1990</span>
+            <span class="hd-mega-foot-text">9 brands · 1 family · Since 1990</span>
             <a class="hd-mega-foot-link" href="/pages/brands">View All Brands <span>&#8594;</span></a>
           </div>
         </div>
@@ -979,6 +1009,26 @@
       <a class="hd-mob-brand" href="/pages/funky-dog">
         <img src="{{ 'logo-funky-dog.jpeg' | asset_url }}" alt="Funky Dog" loading="lazy" width="36" height="36">
         <span class="hd-mob-brand-name">Funky Dog</span>
+      </a>
+      <a class="hd-mob-brand" href="/pages/btka">
+        <img src="{{ 'logo-btka.png' | asset_url }}" alt="BTKA" loading="lazy" width="36" height="36">
+        <span class="hd-mob-brand-name">BTKA</span>
+      </a>
+      <a class="hd-mob-brand" href="/pages/vortex">
+        <img src="{{ 'logo-vortex.png' | asset_url }}" alt="Vortex" loading="lazy" width="36" height="36">
+        <span class="hd-mob-brand-name">Vortex</span>
+      </a>
+      <a class="hd-mob-brand" href="/pages/dodo">
+        <img src="{{ 'logo-dodo.png' | asset_url }}" alt="Dodo" loading="lazy" width="36" height="36">
+        <span class="hd-mob-brand-name">Dodo</span>
+      </a>
+      <a class="hd-mob-brand" href="/pages/have-a-nice-day">
+        <img src="{{ 'logo-hand-colour.webp' | asset_url }}" alt="HAND" loading="lazy" width="36" height="36">
+        <span class="hd-mob-brand-name">HAND</span>
+      </a>
+      <a class="hd-mob-brand" href="/pages/incubator">
+        <img src="{{ 'logo-incubator.png' | asset_url }}" alt="Incubator" loading="lazy" width="36" height="36">
+        <span class="hd-mob-brand-name">Incubator</span>
       </a>
     </div>
   </div>
