@@ -43,10 +43,28 @@
       <span>Rhythm · Vinyl · Character</span>
     </div>
 
+    <!-- Logo with neon glow -->
+    <div class="fd-hero-logo">
+      <div class="fd-logo-neon"></div>
+      <img src="{{ 'logo-funky-dog.jpeg' | asset_url }}" alt="Funky Dog" class="fd-logo-img" />
+    </div>
+
     <h1 class="fd-hero-h1">
       <span class="fd-h1-line fd-h1-l1">FUNKY</span>
       <span class="fd-h1-line fd-h1-l2">DOG</span>
     </h1>
+
+    <!-- Audio equalizer bars -->
+    <div class="fd-eq" aria-hidden="true">
+      <div class="fd-eq-bar" style="--eqd:0s;--eqh:60%"></div>
+      <div class="fd-eq-bar" style="--eqd:.1s;--eqh:85%"></div>
+      <div class="fd-eq-bar" style="--eqd:.2s;--eqh:45%"></div>
+      <div class="fd-eq-bar" style="--eqd:.3s;--eqh:100%"></div>
+      <div class="fd-eq-bar" style="--eqd:.15s;--eqh:70%"></div>
+      <div class="fd-eq-bar" style="--eqd:.25s;--eqh:55%"></div>
+      <div class="fd-eq-bar" style="--eqd:.35s;--eqh:90%"></div>
+      <div class="fd-eq-bar" style="--eqd:.05s;--eqh:40%"></div>
+    </div>
 
     <p class="fd-hero-sub">A playful music and lifestyle brand inspired by rhythm, vinyl culture, individuality and character. Expressive, funky, collectible.</p>
 
@@ -100,10 +118,8 @@
   <div class="fd-story-visual">
     <div class="fd-story-pattern" aria-hidden="true"></div>
     <div class="fd-big-text" aria-hidden="true">FUNK</div>
-    <div class="fd-story-vinyl-mini">
-      <div class="fd-svm-disc">
-        <div class="fd-svm-hole"></div>
-      </div>
+    <div class="fd-story-logo-wrap">
+      <img src="{{ 'logo-funky-dog.jpeg' | asset_url }}" alt="Funky Dog" class="fd-story-logo-img" />
     </div>
   </div>
   <div class="fd-story-text">
@@ -205,7 +221,9 @@
     <div class="fd-groove fd-g3"></div>
   </div>
   <div class="fd-closing-inner">
-    <div class="fd-closing-note">&#9835;</div>
+    <div class="fd-closing-logo">
+      <img src="{{ 'logo-funky-dog.jpeg' | asset_url }}" alt="Funky Dog" />
+    </div>
     <h2 class="fd-closing-h2">Feel The<br><em>Funk.</em></h2>
     <p>Expressive. Funky. Collectible. Creative.</p>
     <a class="fd-btn-funk" href="#fd-shop">
@@ -289,6 +307,44 @@
   padding: 8px 20px; border: 2px solid rgba(255,107,0,.3); border-radius: 50px;
 }
 .fd-badge-icon { font-size: 14px; animation: fd-note-float 2s ease-in-out infinite; }
+
+/* Hero Logo with neon glow */
+.fd-hero-logo {
+  position: relative; width: clamp(130px, 22vw, 200px); height: clamp(130px, 22vw, 200px);
+  margin: 0 auto 28px; display: flex; align-items: center; justify-content: center;
+}
+.fd-logo-neon {
+  position: absolute; inset: -12px; border-radius: 50%;
+  border: 3px solid var(--fd-orange);
+  box-shadow: 0 0 15px var(--fd-orange), 0 0 30px rgba(255,107,0,.3), inset 0 0 15px rgba(255,107,0,.1);
+  animation: fd-neon-flicker 3s ease-in-out infinite;
+}
+@keyframes fd-neon-flicker {
+  0%,100% { box-shadow: 0 0 15px var(--fd-orange), 0 0 30px rgba(255,107,0,.3); opacity: 1; }
+  50% { box-shadow: 0 0 25px var(--fd-orange), 0 0 50px rgba(255,107,0,.4), 0 0 80px rgba(255,208,0,.15); opacity: .95; }
+}
+.fd-logo-img {
+  width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 20px rgba(255,107,0,.25);
+}
+
+/* Audio Equalizer */
+.fd-eq {
+  display: flex; align-items: flex-end; justify-content: center; gap: 4px;
+  height: 28px; margin: 0 0 24px;
+}
+.fd-eq-bar {
+  width: 5px; border-radius: 2px;
+  background: linear-gradient(to top, var(--fd-orange), var(--fd-yellow));
+  animation: fd-eq-bounce .8s ease-in-out infinite alternate;
+  animation-delay: var(--eqd);
+  height: 20%;
+}
+@keyframes fd-eq-bounce {
+  0% { height: 20%; }
+  100% { height: var(--eqh); }
+}
 
 .fd-hero-h1 { margin: 0 0 20px; }
 .fd-h1-line {
@@ -482,7 +538,21 @@
 @media(max-width:768px){.fd-closing{padding:80px 20px;}}
 .fd-closing-grooves { position: absolute; inset: 0; pointer-events: none; }
 .fd-closing-inner { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-.fd-closing-note { font-size: 36px; color: var(--fd-orange); margin-bottom: 24px; animation: fd-bounce 2s ease infinite; }
+/* Story Logo */
+.fd-story-logo-wrap { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; }
+.fd-story-logo-img {
+  width: clamp(150px, 26vw, 240px); height: auto; object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 20px rgba(255,107,0,.3));
+}
+/* Closing Logo */
+.fd-closing-logo { margin-bottom: 24px; }
+.fd-closing-logo img {
+  width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 20px rgba(255,107,0,.3), 0 0 40px rgba(255,208,0,.15);
+  border: 3px solid var(--fd-orange);
+}
 .fd-closing-h2 {
   font-family: var(--fd-funk); font-size: clamp(40px, 7vw, 80px); font-weight: 700;
   text-transform: uppercase; line-height: .95; color: var(--fd-white); margin: 0 0 16px;
@@ -517,12 +587,14 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.Motion) {
     var M = window.Motion;
     M.animate('.fd-hero-badge', { opacity: [0,1], y: [-15,0] }, { duration: .5, delay: .2 });
-    M.animate('.fd-h1-l1', { opacity: [0,1], x: [-60,0] }, { duration: .7, delay: .4, easing: [.22,1,.36,1] });
-    M.animate('.fd-h1-l2', { opacity: [0,1], x: [60,0] }, { duration: .7, delay: .6, easing: [.22,1,.36,1] });
-    M.animate('.fd-hero-sub', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: .9 });
-    M.animate('.fd-hero-actions', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: 1.1 });
+    M.animate('.fd-hero-logo', { opacity: [0,1], scale: [.5,1], rotate: ['-90deg','0deg'] }, { duration: .8, delay: .3, easing: [.22,1,.36,1] });
+    M.animate('.fd-h1-l1', { opacity: [0,1], x: [-60,0] }, { duration: .7, delay: .5, easing: [.22,1,.36,1] });
+    M.animate('.fd-h1-l2', { opacity: [0,1], x: [60,0] }, { duration: .7, delay: .7, easing: [.22,1,.36,1] });
+    M.animate('.fd-eq', { opacity: [0,1], y: [10,0] }, { duration: .5, delay: .9 });
+    M.animate('.fd-hero-sub', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: 1.1 });
+    M.animate('.fd-hero-actions', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: 1.3 });
     M.inView('.fd-story-visual', function() {
-      M.animate('.fd-story-vinyl-mini', { opacity: [0,1], scale: [.5,1], rotate: ['-180deg','0deg'] }, { duration: 1, easing: [.22,1,.36,1] });
+      M.animate('.fd-story-logo-wrap', { opacity: [0,1], scale: [.5,1], rotate: ['-180deg','0deg'] }, { duration: 1, easing: [.22,1,.36,1] });
     }, { margin: '-10% 0px' });
     M.inView('.fd-story-text', function() {
       M.animate('.fd-story-text > *', { opacity: [0,1], x: [30,0] }, { delay: M.stagger(.1), duration: .5, easing: [.22,1,.36,1] });
