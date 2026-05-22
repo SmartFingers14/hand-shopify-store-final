@@ -343,10 +343,10 @@
   .hand-pdp-related-head a:hover { color: var(--pink); }
   .hand-pdp-related-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--ink);
-    border: 1px solid var(--ink);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    background: transparent;
+    border: none;
   }
 
   @media (max-width: 1100px) {
@@ -777,7 +777,7 @@
           <a href="{{ related_coll.url }}">View All →</a>
         </div>
         <div class="hand-pdp-related-grid">
-          {%- for p in related_coll.products limit: 4 -%}
+          {%- for p in related_coll.products limit: 5 -%}
             {%- unless p.id == product.id -%}
               <article class="hand-coll-card">
                 <div class="hand-coll-card-media">
