@@ -1,7 +1,7 @@
 {% comment %}
   Brand Page: SISTA — Peace · Love · Unity
-  Soulful womenswear. Birmingham 1983.
-  ✦ BLINGY · SHIMMER · WOW ✦
+  Memphis Pink Pop — Bold · Geometric · Flashy · Chatak Matak
+  UI/UX Pro Max: Memphis Design + Syne/Manrope + #FF71CE/#FFCE5C/#86CCCA
 {% endcomment %}
 
 {%- assign sista_col = collections['sista'] -%}
@@ -9,130 +9,109 @@
   {%- assign sista_col = collections['sista-1'] -%}
 {%- endif -%}
 
+<div class="si-page">
+
 <!-- ============================================================
-     HERO — Cinematic shimmer with sparkle particles
+     HERO — Memphis Pink Pop with geometric shapes
      ============================================================ -->
 <section class="si-hero" id="si-top">
-  <!-- Shimmer overlay -->
-  <div class="si-shimmer" aria-hidden="true"></div>
-
-  <!-- Sparkle particles -->
-  <div class="si-sparkles" aria-hidden="true">
-    <div class="si-spark" style="--sx:15%;--sy:20%;--sd:0s"></div>
-    <div class="si-spark" style="--sx:85%;--sy:30%;--sd:.4s"></div>
-    <div class="si-spark" style="--sx:25%;--sy:70%;--sd:.8s"></div>
-    <div class="si-spark" style="--sx:70%;--sy:15%;--sd:1.2s"></div>
-    <div class="si-spark" style="--sx:50%;--sy:80%;--sd:1.6s"></div>
-    <div class="si-spark" style="--sx:90%;--sy:65%;--sd:2s"></div>
-    <div class="si-spark" style="--sx:10%;--sy:50%;--sd:2.4s"></div>
-    <div class="si-spark" style="--sx:60%;--sy:45%;--sd:2.8s"></div>
-    <div class="si-spark" style="--sx:35%;--sy:90%;--sd:3.2s"></div>
-    <div class="si-spark" style="--sx:78%;--sy:85%;--sd:3.6s"></div>
-    <div class="si-spark" style="--sx:42%;--sy:12%;--sd:4s"></div>
-    <div class="si-spark" style="--sx:5%;--sy:88%;--sd:4.4s"></div>
+  <!-- Memphis decorations -->
+  <div class="si-deco" aria-hidden="true">
+    <div class="si-dots"></div>
+    <div class="si-shape si-tri1"></div>
+    <div class="si-shape si-tri2"></div>
+    <div class="si-shape si-circ1"></div>
+    <div class="si-shape si-circ2"></div>
+    <div class="si-shape si-sq1"></div>
+    <div class="si-shape si-sq2"></div>
+    <div class="si-zig"></div>
+    <div class="si-zig2"></div>
+    <div class="si-shape si-circ3"></div>
+    <div class="si-squig"></div>
   </div>
 
-  <!-- Radial glows -->
-  <div class="si-glow si-glow-1" aria-hidden="true"></div>
-  <div class="si-glow si-glow-2" aria-hidden="true"></div>
-  <div class="si-glow si-glow-3" aria-hidden="true"></div>
-
   <div class="si-hero-content">
-    <div class="si-hero-tag">
-      <span class="si-diamond">✦</span>
-      <span>Peace · Love · Unity</span>
-      <span class="si-diamond">✦</span>
-    </div>
+    <div class="si-hero-badge">Peace · Love · Unity</div>
 
-    <!-- Main Logo — centered, bg removed -->
+    <!-- Logo with dashed spinning ring -->
     <div class="si-hero-logo">
       <div class="si-logo-ring"></div>
-      <img src="{{ 'logo-sista-main.jpeg' | asset_url }}" alt="SISTA" class="si-logo-img" />
+      <div class="si-logo-ring2"></div>
+      <img src="{{ 'logo-sista.jpeg' | asset_url }}" alt="SISTA" class="si-logo-img" />
     </div>
 
-    <h1 class="si-hero-h1">
-      <span class="si-letter">S</span><span class="si-letter si-gold">I</span><span class="si-letter">S</span><span class="si-letter si-gold">T</span><span class="si-letter">A</span>
-    </h1>
+    <h1 class="si-hero-h1">SISTA</h1>
 
     <p class="si-hero-sub">{{ section.settings.tagline | default: 'A universal womenswear brand built on sisterhood, connection and self-expression. Created for women of every colour, every shape and every walk of life.' }}</p>
 
     <div class="si-hero-actions">
-      <a class="si-btn-gold" href="#si-shop">
-        <span class="si-btn-shine"></span>
-        ✦ Shop The Collection
-      </a>
+      <a class="si-btn-mem" href="#si-shop">Shop The Collection</a>
       <div class="si-stats">
-        <div class="si-stat"><span class="si-stat-val">1983</span><span class="si-stat-lbl">Est.</span></div>
+        <div class="si-stat"><span class="si-stat-n">1983</span><span class="si-stat-l">Est.</span></div>
         <div class="si-stat-sep"></div>
-        <div class="si-stat"><span class="si-stat-val">B'ham</span><span class="si-stat-lbl">Born</span></div>
+        <div class="si-stat"><span class="si-stat-n">B'ham</span><span class="si-stat-l">Born</span></div>
         <div class="si-stat-sep"></div>
-        <div class="si-stat"><span class="si-stat-val">Unity</span><span class="si-stat-lbl">Spirit</span></div>
+        <div class="si-stat"><span class="si-stat-n">Unity</span><span class="si-stat-l">Spirit</span></div>
       </div>
     </div>
-  </div>
-
-  <div class="si-scroll" aria-hidden="true">
-    <div class="si-scroll-line"></div>
-    <span>Scroll</span>
   </div>
 </section>
 
 <!-- ============================================================
-     TICKER — Gold shimmer
+     TICKER — Memphis bold strip
      ============================================================ -->
 <div class="si-ticker">
   <div class="si-ticker-track">
     {%- for i in (1..2) -%}
     <div class="si-ticker-set">
-      <span>PEACE</span><span class="si-tdot">✦</span>
-      <span>LOVE</span><span class="si-tdot">✦</span>
-      <span>UNITY</span><span class="si-tdot">✦</span>
-      <span>SISTA</span><span class="si-tdot">✦</span>
-      <span>SISTERHOOD</span><span class="si-tdot">✦</span>
-      <span>SPIRIT</span><span class="si-tdot">✦</span>
-      <span>CONNECTION</span><span class="si-tdot">✦</span>
-      <span>SELF-EXPRESSION</span><span class="si-tdot">✦</span>
+      <span>PEACE</span><span class="si-tsep">&#9670;</span>
+      <span>LOVE</span><span class="si-tsep">&#9670;</span>
+      <span>UNITY</span><span class="si-tsep">&#9670;</span>
+      <span>SISTA</span><span class="si-tsep">&#9670;</span>
+      <span>SISTERHOOD</span><span class="si-tsep">&#9670;</span>
+      <span>SPIRIT</span><span class="si-tsep">&#9670;</span>
+      <span>CONNECTION</span><span class="si-tsep">&#9670;</span>
+      <span>SELF-EXPRESSION</span><span class="si-tsep">&#9670;</span>
     </div>
     {%- endfor -%}
   </div>
 </div>
 
 <!-- ============================================================
-     STORY — Luxe split with second logo
+     STORY — Bold split with logo
      ============================================================ -->
 <section class="si-story">
   <div class="si-story-visual">
-    <div class="si-story-shimmer" aria-hidden="true"></div>
+    <div class="si-story-dots" aria-hidden="true"></div>
+    <div class="si-big-text" aria-hidden="true">SISTA</div>
     <div class="si-story-logo-wrap">
-      <img src="{{ 'logo-sista-text.jpeg' | asset_url }}" alt="SISTA" class="si-story-logo" />
+      <div class="si-story-ring"></div>
+      <img src="{{ 'logo-sista.jpeg' | asset_url }}" alt="SISTA" class="si-story-logo" />
     </div>
   </div>
   <div class="si-story-text">
-    <div class="si-eyebrow">✦ The Story</div>
+    <div class="si-eyebrow">&#9670; The Story</div>
     <h2 class="si-story-h2">Built on<br><em>sisterhood.</em></h2>
     <p class="si-story-p">{{ section.settings.story_text | default: "Born in Birmingham in 1983, SISTA is a universal womenswear brand built on peace, love and unity. Created for women of every colour, every shape and every walk of life — SISTA represents sisterhood. A shared energy that brings women together across cultures, generations and communities." }}</p>
-    <div class="si-values">
-      <span class="si-value">✦ Peace</span>
-      <span class="si-value">✦ Love</span>
-      <span class="si-value">✦ Unity</span>
-      <span class="si-value">✦ Spirit</span>
+    <div class="si-tags">
+      <span class="si-tag">&#9670; Peace</span>
+      <span class="si-tag">&#9670; Love</span>
+      <span class="si-tag">&#9670; Unity</span>
+      <span class="si-tag">&#9670; Spirit</span>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     MANIFESTO — Cinematic quote
+     MANIFESTO — Bold Memphis statement
      ============================================================ -->
 <section class="si-manifesto">
-  <div class="si-mani-sparkles" aria-hidden="true">
-    <div class="si-spark" style="--sx:20%;--sy:30%;--sd:0s"></div>
-    <div class="si-spark" style="--sx:80%;--sy:50%;--sd:1s"></div>
-    <div class="si-spark" style="--sx:50%;--sy:20%;--sd:2s"></div>
-    <div class="si-spark" style="--sx:30%;--sy:70%;--sd:3s"></div>
-    <div class="si-spark" style="--sx:70%;--sy:80%;--sd:4s"></div>
+  <div class="si-mani-shapes" aria-hidden="true">
+    <div class="si-shape si-ms1"></div>
+    <div class="si-shape si-ms2"></div>
   </div>
-  <div class="si-manifesto-inner">
-    <div class="si-mani-diamond">✦</div>
+  <div class="si-mani-inner">
+    <div class="si-mani-diamond">&#9670;</div>
     <blockquote class="si-quote">
       More than clothing — SISTA represents <em>sisterhood.</em> A shared energy that brings women together across cultures, generations and communities.
     </blockquote>
@@ -142,13 +121,13 @@
 </section>
 
 <!-- ============================================================
-     PRODUCTS — Blingy grid
+     PRODUCTS — Memphis grid
      ============================================================ -->
 <section class="si-shop" id="si-shop">
   <div class="si-shop-inner">
     <div class="si-shop-head">
       <div>
-        <div class="si-eyebrow-sm">✦ The Collection</div>
+        <div class="si-eyebrow-sm">&#9670; The Collection</div>
         <h2 class="si-shop-h2">For Every Woman.</h2>
       </div>
       <div>
@@ -162,7 +141,7 @@
       </div>
     </div>
 
-    <div class="si-grid" id="si-product-grid">
+    <div class="si-grid">
       {%- assign si_count = 0 -%}
       {%- for product in sista_col.products limit: 500 -%}
         {%- assign vd = product.vendor | downcase -%}
@@ -183,10 +162,10 @@
               <div class="si-no-img">SISTA</div>
             {%- endif -%}
             {%- if product.compare_at_price > product.price -%}
-              <span class="si-sale-badge">SALE</span>
+              <span class="si-sale">SALE</span>
             {%- endif -%}
-            <div class="si-prod-overlay">
-              <span>View ✦</span>
+            <div class="si-prod-hover">
+              <span>View &#9670;</span>
             </div>
           </div>
           <div class="si-prod-info">
@@ -197,337 +176,319 @@
         </a>
       {%- endfor -%}
       {%- if si_count == 0 -%}
-        <div class="si-empty">✦ No SISTA products found. Check back soon. ✦</div>
+        <div class="si-empty">&#9670; No SISTA products found. Check back soon. &#9670;</div>
       {%- endif -%}
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     CLOSING — Grand finale
+     CLOSING — Memphis finale with logo
      ============================================================ -->
 <section class="si-closing">
-  <div class="si-closing-sparkles" aria-hidden="true">
-    <div class="si-spark" style="--sx:15%;--sy:25%;--sd:0s"></div>
-    <div class="si-spark" style="--sx:85%;--sy:40%;--sd:1s"></div>
-    <div class="si-spark" style="--sx:50%;--sy:75%;--sd:2s"></div>
-    <div class="si-spark" style="--sx:25%;--sy:60%;--sd:3s"></div>
-    <div class="si-spark" style="--sx:75%;--sy:20%;--sd:4s"></div>
+  <div class="si-closing-deco" aria-hidden="true">
+    <div class="si-dots"></div>
+    <div class="si-shape si-ct1"></div>
+    <div class="si-shape si-ct2"></div>
   </div>
   <div class="si-closing-inner">
     <div class="si-closing-logo">
       <div class="si-cl-ring"></div>
-      <img src="{{ 'logo-sista-main.jpeg' | asset_url }}" alt="SISTA" />
+      <img src="{{ 'logo-sista.jpeg' | asset_url }}" alt="SISTA" />
     </div>
     <h2 class="si-closing-h2">Peace. Love.<br><em>Unity.</em></h2>
-    <p>For women of every colour, every shape and every walk of life.<br>Sisterhood — always.</p>
-    <a class="si-btn-gold" href="#si-shop">
-      <span class="si-btn-shine"></span>
-      ✦ Shop SISTA
-    </a>
+    <p>For women of every colour, every shape and every walk of life.</p>
+    <a class="si-btn-mem" href="#si-shop">Shop SISTA</a>
   </div>
 </section>
 
+</div>
+
 <!-- ============================================================
-     STYLES — BLINGY · SHIMMER · WOW
+     STYLES — MEMPHIS PINK POP
      ============================================================ -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
-:root {
-  --si-black: #0a0508;
-  --si-deep: #140a10;
-  --si-plum: #2a0f20;
-  --si-rose: #e8357a;
-  --si-pink: #f472b6;
-  --si-hot: #ff2d78;
-  --si-gold: #d4a853;
-  --si-gold-bright: #f0c96e;
-  --si-champagne: #f5e6c8;
+.si-page {
+  --si-bg: #1a0a1e;
+  --si-deep: #120812;
+  --si-pink: #FF71CE;
+  --si-yellow: #FFCE5C;
+  --si-teal: #86CCCA;
+  --si-purple: #6A7BB4;
+  --si-hot: #FF1493;
   --si-white: #fff;
-  --si-serif: 'Cormorant Infant', Georgia, serif;
+  --si-cream: #FFF5F9;
+  --si-head: 'Syne', 'Arial Black', sans-serif;
+  --si-body: 'Manrope', system-ui, sans-serif;
   --si-mono: var(--mono, 'JetBrains Mono'), monospace;
+  background: var(--si-bg); color: var(--si-white); overflow-x: hidden;
 }
 
 /* ---- HERO ---- */
 .si-hero {
   position: relative; min-height: 100vh; min-height: 100dvh;
-  background: radial-gradient(ellipse at 50% 40%, var(--si-plum) 0%, var(--si-deep) 50%, var(--si-black) 100%);
-  display: flex; align-items: center; justify-content: center;
+  background: var(--si-bg); display: flex; align-items: center; justify-content: center;
   overflow: hidden; padding: 100px 24px 80px; text-align: center;
 }
 
-/* Shimmer sweep */
-.si-shimmer {
-  position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(105deg, transparent 40%, rgba(212,168,83,.04) 45%, rgba(212,168,83,.08) 50%, rgba(212,168,83,.04) 55%, transparent 60%);
-  background-size: 300% 100%;
-  animation: si-shimmer-sweep 6s ease-in-out infinite;
+/* Memphis decorations */
+.si-deco { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.si-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(var(--si-pink) 1.5px, transparent 1.5px);
+  background-size: 40px 40px; opacity: .04;
 }
-@keyframes si-shimmer-sweep { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.si-shape { position: absolute; }
+.si-tri1 { width: 0; height: 0; border-left: 55px solid transparent; border-right: 55px solid transparent; border-bottom: 95px solid var(--si-pink); top: 8%; left: 6%; animation: si-spin 20s linear infinite; opacity: .35; }
+.si-tri2 { width: 0; height: 0; border-left: 35px solid transparent; border-right: 35px solid transparent; border-bottom: 60px solid var(--si-yellow); bottom: 12%; right: 8%; animation: si-spin 16s linear infinite reverse; opacity: .3; }
+.si-circ1 { width: 110px; height: 110px; border-radius: 50%; border: 5px solid var(--si-teal); top: 22%; right: 8%; animation: si-float 7s ease-in-out infinite; opacity: .3; }
+.si-circ2 { width: 70px; height: 70px; border-radius: 50%; background: var(--si-purple); bottom: 22%; left: 10%; animation: si-float 9s ease-in-out infinite; opacity: .15; }
+.si-circ3 { width: 45px; height: 45px; border-radius: 50%; border: 4px dashed var(--si-yellow); top: 70%; right: 15%; animation: si-spin 12s linear infinite; opacity: .2; }
+.si-sq1 { width: 80px; height: 80px; background: var(--si-yellow); top: 55%; left: 4%; transform: rotate(25deg); opacity: .1; }
+.si-sq2 { width: 50px; height: 50px; border: 4px solid var(--si-pink); bottom: 35%; right: 5%; transform: rotate(45deg); animation: si-spin 14s linear infinite; opacity: .25; }
+.si-zig { width: 140px; height: 6px; position: absolute; top: 15%; right: 22%; background: repeating-linear-gradient(90deg, var(--si-teal) 0 10px, transparent 10px 20px); transform: rotate(-12deg); opacity: .25; }
+.si-zig2 { width: 100px; height: 6px; position: absolute; bottom: 18%; left: 22%; background: repeating-linear-gradient(90deg, var(--si-yellow) 0 8px, transparent 8px 16px); transform: rotate(8deg); opacity: .2; }
+.si-squig { width: 90px; height: 45px; border: 5px solid var(--si-pink); border-bottom: none; border-radius: 45px 45px 0 0; position: absolute; top: 12%; right: 35%; animation: si-bounce 3s ease-in-out infinite; opacity: .2; }
 
-/* Sparkle particles */
-.si-sparkles, .si-mani-sparkles, .si-closing-sparkles { position: absolute; inset: 0; pointer-events: none; }
-.si-spark {
-  position: absolute; left: var(--sx); top: var(--sy);
-  width: 3px; height: 3px; border-radius: 50%;
-  background: var(--si-gold-bright);
-  box-shadow: 0 0 6px var(--si-gold), 0 0 12px rgba(212,168,83,.3);
-  animation: si-twinkle 3s ease-in-out infinite;
-  animation-delay: var(--sd);
-}
-@keyframes si-twinkle {
-  0%,100% { opacity: 0; transform: scale(0); }
-  50% { opacity: 1; transform: scale(1); }
-}
-
-/* Glows */
-.si-glow { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(80px); }
-.si-glow-1 { width: 500px; height: 500px; top: 10%; left: 15%; background: rgba(232,53,122,.08); animation: si-glow-pulse 8s ease-in-out infinite alternate; }
-.si-glow-2 { width: 400px; height: 400px; bottom: 15%; right: 10%; background: rgba(212,168,83,.06); animation: si-glow-pulse 10s ease-in-out infinite alternate-reverse; }
-.si-glow-3 { width: 300px; height: 300px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(244,114,182,.05); animation: si-glow-pulse 12s ease-in-out infinite alternate; }
-@keyframes si-glow-pulse { 0%{opacity:.5;transform:scale(1)} 100%{opacity:1;transform:scale(1.2)} }
+@keyframes si-spin { to { transform: rotate(360deg); } }
+@keyframes si-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-22px); } }
+@keyframes si-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
 
 /* Hero content */
-.si-hero-content { position: relative; z-index: 2; max-width: 700px; width: 100%; display: flex; flex-direction: column; align-items: center; }
+.si-hero-content { position: relative; z-index: 2; max-width: 650px; display: flex; flex-direction: column; align-items: center; }
 
-.si-hero-tag {
-  display: inline-flex; align-items: center; gap: 14px;
-  font-family: var(--si-mono); font-size: 11px; letter-spacing: .25em; text-transform: uppercase;
-  color: var(--si-gold); margin-bottom: 40px;
+.si-hero-badge {
+  font-family: var(--si-body); font-size: 11px; font-weight: 700; letter-spacing: .25em;
+  text-transform: uppercase; color: var(--si-yellow); margin-bottom: 32px;
+  padding: 8px 24px; border: 2px solid rgba(255,206,92,.3); display: inline-block;
 }
-.si-diamond { color: var(--si-gold-bright); font-size: 8px; animation: si-twinkle 2s ease-in-out infinite; }
 
-/* Logo — centered, bg removed */
+/* Logo with dashed ring */
 .si-hero-logo {
-  position: relative; width: clamp(140px, 24vw, 220px); height: clamp(140px, 24vw, 220px);
-  margin: 0 auto 32px; display: flex; align-items: center; justify-content: center;
+  position: relative; width: clamp(150px, 26vw, 220px); height: clamp(150px, 26vw, 220px);
+  margin: 0 auto 28px; display: flex; align-items: center; justify-content: center;
 }
 .si-logo-ring {
-  position: absolute; inset: -8px; border-radius: 50%;
-  border: 1px solid rgba(212,168,83,.3);
-  animation: si-ring-rotate 20s linear infinite;
-  background: conic-gradient(from 0deg, transparent 0%, rgba(212,168,83,.15) 25%, transparent 50%, rgba(232,53,122,.1) 75%, transparent 100%);
+  position: absolute; inset: -16px; border-radius: 50%;
+  border: 5px dashed var(--si-pink); animation: si-spin 25s linear infinite;
 }
-@keyframes si-ring-rotate { to { transform: rotate(360deg); } }
-
+.si-logo-ring2 {
+  position: absolute; inset: -6px; border-radius: 50%;
+  border: 3px solid var(--si-yellow); opacity: .5;
+}
 .si-logo-img {
   width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-  mix-blend-mode: screen;
-  box-shadow: 0 0 40px rgba(232,53,122,.3), 0 0 80px rgba(212,168,83,.15), inset 0 0 30px rgba(0,0,0,.3);
-  animation: si-logo-breathe 4s ease-in-out infinite alternate;
-}
-@keyframes si-logo-breathe {
-  0% { box-shadow: 0 0 30px rgba(232,53,122,.2), 0 0 60px rgba(212,168,83,.1); }
-  100% { box-shadow: 0 0 50px rgba(232,53,122,.4), 0 0 100px rgba(212,168,83,.2); }
+  border: 4px solid var(--si-yellow);
+  box-shadow: 0 0 30px rgba(255,113,206,.3), 6px 6px 0 var(--si-pink);
 }
 
 .si-hero-h1 {
-  font-family: var(--si-serif); font-size: clamp(56px, 10vw, 120px); font-weight: 300;
-  letter-spacing: .2em; text-transform: uppercase; margin: 0 0 20px; line-height: 1;
-}
-.si-letter {
-  display: inline-block; color: var(--si-white);
-  text-shadow: 0 0 20px rgba(255,255,255,.1);
-}
-.si-gold {
-  background: linear-gradient(180deg, var(--si-gold-bright) 0%, var(--si-gold) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  filter: drop-shadow(0 0 8px rgba(212,168,83,.4));
+  font-family: var(--si-head); font-size: clamp(64px, 14vw, 130px); font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase; line-height: .88; margin: 0 0 20px;
+  color: var(--si-white);
+  text-shadow: 4px 4px 0 var(--si-pink), 8px 8px 0 var(--si-yellow);
 }
 
 .si-hero-sub {
-  font-family: var(--si-serif); font-size: 16px; font-weight: 300; font-style: italic;
-  line-height: 1.85; color: rgba(255,255,255,.45); margin: 0 auto 44px; max-width: 500px;
+  font-family: var(--si-body); font-size: 15px; font-weight: 400;
+  line-height: 1.8; color: rgba(255,255,255,.4); margin: 0 0 36px; max-width: 440px;
 }
 
-.si-hero-actions { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.si-hero-actions { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
 
-/* Gold shimmer button */
-.si-btn-gold {
-  position: relative; display: inline-flex; align-items: center; gap: 10px; overflow: hidden;
-  background: linear-gradient(135deg, var(--si-gold) 0%, var(--si-gold-bright) 50%, var(--si-gold) 100%);
-  color: var(--si-black); font-family: var(--si-mono); font-size: 11px; letter-spacing: .16em;
-  text-transform: uppercase; text-decoration: none; padding: 16px 32px; font-weight: 700;
-  cursor: pointer; transition: all .3s;
+/* Memphis button */
+.si-btn-mem {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--si-pink); color: var(--si-bg); font-family: var(--si-head); font-size: 14px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em; text-decoration: none;
+  padding: 16px 34px; border: 3px solid var(--si-yellow); cursor: pointer;
+  box-shadow: 5px 5px 0 var(--si-yellow); transition: all .15s;
 }
-.si-btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,168,83,.4); }
-.si-btn-shine {
-  position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
-  animation: si-btn-flash 3s ease-in-out infinite;
-}
-@keyframes si-btn-flash { 0%{left:-100%} 50%{left:150%} 100%{left:150%} }
+.si-btn-mem:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 var(--si-yellow); background: var(--si-yellow); color: var(--si-bg); }
 
 .si-stats { display: flex; align-items: center; gap: 18px; }
 .si-stat { display: flex; flex-direction: column; gap: 2px; align-items: center; }
-.si-stat-val { font-family: var(--si-serif); font-size: 20px; font-weight: 600; color: var(--si-champagne); }
-.si-stat-lbl { font-family: var(--si-mono); font-size: 8px; letter-spacing: .18em; text-transform: uppercase; color: rgba(212,168,83,.4); }
-.si-stat-sep { width: 1px; height: 28px; background: rgba(212,168,83,.15); }
-
-.si-scroll {
-  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  font-family: var(--si-mono); font-size: 8px; letter-spacing: .2em; text-transform: uppercase; color: rgba(212,168,83,.3);
-}
-.si-scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(212,168,83,.3), transparent); animation: si-scroll-pulse 2s ease infinite; }
-@keyframes si-scroll-pulse { 0%,100%{opacity:.3} 50%{opacity:.8} }
+.si-stat-n { font-family: var(--si-head); font-size: 20px; font-weight: 800; color: var(--si-yellow); }
+.si-stat-l { font-family: var(--si-mono); font-size: 8px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,206,92,.35); }
+.si-stat-sep { width: 2px; height: 24px; background: rgba(255,113,206,.2); }
 
 /* ---- TICKER ---- */
 .si-ticker {
-  background: linear-gradient(90deg, var(--si-black), var(--si-deep), var(--si-black));
-  border-top: 1px solid rgba(212,168,83,.15); border-bottom: 1px solid rgba(212,168,83,.15);
-  padding: 16px 0; overflow: hidden; white-space: nowrap;
+  background: var(--si-pink); padding: 14px 0; overflow: hidden; white-space: nowrap;
+  border-top: 3px solid var(--si-yellow); border-bottom: 3px solid var(--si-yellow);
 }
-.si-ticker-track { display: flex; width: max-content; animation: si-tick 30s linear infinite; }
+.si-ticker-track { display: flex; width: max-content; animation: si-tick 28s linear infinite; }
 .si-ticker-set {
-  display: flex; align-items: center; gap: 28px; padding-right: 28px; flex-shrink: 0;
-  font-family: var(--si-serif); font-size: 15px; font-weight: 600; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--si-champagne);
+  display: flex; align-items: center; gap: 24px; padding-right: 24px; flex-shrink: 0;
+  font-family: var(--si-head); font-size: 16px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--si-bg);
 }
-.si-tdot { color: var(--si-gold); font-size: 9px; }
+.si-tsep { font-size: 10px; color: var(--si-yellow); }
 @keyframes si-tick { to { transform: translateX(-50%); } }
 
 /* ---- STORY ---- */
-.si-story { display: grid; grid-template-columns: 1fr 1.4fr; min-height: 540px; background: var(--si-black); }
-@media(max-width:900px){.si-story{grid-template-columns:1fr;}}
+.si-story { display: grid; grid-template-columns: 1fr 1.4fr; min-height: 520px; background: var(--si-deep); }
+@media(max-width:900px) { .si-story { grid-template-columns: 1fr; } }
 
 .si-story-visual {
-  background: var(--si-deep); display: flex; align-items: center; justify-content: center;
-  padding: 60px 40px; position: relative; border-right: 1px solid rgba(212,168,83,.08);
-  overflow: hidden;
+  position: relative; display: flex; align-items: center; justify-content: center;
+  padding: 60px; overflow: hidden; border-right: 3px solid rgba(255,113,206,.15);
 }
-@media(max-width:900px){.si-story-visual{min-height:320px;border-right:none;border-bottom:1px solid rgba(212,168,83,.08);}}
-
-.si-story-shimmer {
+@media(max-width:900px) { .si-story-visual { min-height: 320px; border-right: none; border-bottom: 3px solid rgba(255,113,206,.15); } }
+.si-story-dots {
   position: absolute; inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(212,168,83,.03) 50%, transparent 60%);
-  background-size: 300% 100%; animation: si-shimmer-sweep 8s ease-in-out infinite;
+  background-image: radial-gradient(var(--si-pink) 1.5px, transparent 1.5px);
+  background-size: 28px 28px; opacity: .04;
 }
-.si-story-logo-wrap { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; }
+.si-big-text {
+  position: absolute; font-family: var(--si-head); font-size: clamp(100px, 18vw, 200px);
+  font-weight: 800; text-transform: uppercase; color: rgba(255,113,206,.04); letter-spacing: -.02em;
+  pointer-events: none;
+}
+.si-story-logo-wrap {
+  position: relative; z-index: 2; display: flex; align-items: center; justify-content: center;
+}
+.si-story-ring {
+  position: absolute; inset: -12px; border-radius: 50%;
+  border: 4px dashed var(--si-pink); animation: si-spin 20s linear infinite reverse;
+  opacity: .5;
+}
 .si-story-logo {
-  width: clamp(160px, 28vw, 260px); height: auto; object-fit: contain;
-  mix-blend-mode: screen;
-  filter: drop-shadow(0 0 20px rgba(232,53,122,.2)) drop-shadow(0 0 40px rgba(212,168,83,.1));
+  width: clamp(140px, 24vw, 200px); height: clamp(140px, 24vw, 200px); border-radius: 50%;
+  object-fit: cover; border: 3px solid var(--si-yellow);
+  box-shadow: 0 0 25px rgba(255,113,206,.25), 4px 4px 0 var(--si-pink);
 }
 
-.si-story-text { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
-@media(max-width:768px){.si-story-text{padding:48px 24px;}}
+.si-story-text { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
+@media(max-width:768px) { .si-story-text { padding: 48px 24px; } }
 
-.si-eyebrow {
-  font-family: var(--si-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--si-gold);
-}
+.si-eyebrow { font-family: var(--si-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--si-yellow); }
 .si-story-h2 {
-  font-family: var(--si-serif); font-size: clamp(34px, 5vw, 56px); font-weight: 300;
-  text-transform: uppercase; letter-spacing: .06em; line-height: 1.1; color: var(--si-champagne); margin: 0;
+  font-family: var(--si-head); font-size: clamp(36px, 5.5vw, 60px); font-weight: 800;
+  text-transform: uppercase; line-height: 1; margin: 0; color: var(--si-white);
 }
-.si-story-h2 em { font-style: italic; color: var(--si-rose); }
-.si-story-p {
-  font-family: var(--si-serif); font-size: 15px; font-weight: 300; line-height: 1.9; font-style: italic;
-  color: rgba(245,230,200,.45); max-width: 480px; margin: 0;
+.si-story-h2 em { font-style: normal; color: var(--si-pink); }
+.si-story-p { font-family: var(--si-body); font-size: 15px; line-height: 1.85; color: rgba(255,255,255,.4); max-width: 460px; }
+.si-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.si-tag {
+  font-family: var(--si-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+  padding: 8px 16px; border: 2px solid rgba(255,113,206,.25); color: var(--si-pink);
+  transition: all .2s; cursor: default;
 }
-.si-values { display: flex; gap: 8px; flex-wrap: wrap; }
-.si-value {
-  font-family: var(--si-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
-  padding: 7px 16px; border: 1px solid rgba(212,168,83,.2); color: var(--si-gold);
-  transition: all .25s; cursor: default;
-}
-.si-value:hover { background: var(--si-gold); color: var(--si-black); border-color: var(--si-gold); }
+.si-tag:hover { background: var(--si-pink); color: var(--si-bg); border-color: var(--si-pink); box-shadow: 3px 3px 0 var(--si-yellow); }
 
 /* ---- MANIFESTO ---- */
 .si-manifesto {
-  background: linear-gradient(180deg, var(--si-deep) 0%, var(--si-plum) 50%, var(--si-deep) 100%);
-  padding: 120px 40px; text-align: center; position: relative; overflow: hidden;
+  background: var(--si-pink); padding: 100px 40px; text-align: center; position: relative; overflow: hidden;
 }
-@media(max-width:768px){.si-manifesto{padding:80px 20px;}}
-.si-manifesto-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
-.si-mani-diamond { font-size: 18px; color: var(--si-gold); margin-bottom: 28px; animation: si-twinkle 3s ease-in-out infinite; }
+@media(max-width:768px) { .si-manifesto { padding: 60px 20px; } }
+.si-mani-shapes { position: absolute; inset: 0; pointer-events: none; }
+.si-ms1 { width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 70px solid var(--si-yellow); top: 10%; left: 5%; opacity: .2; animation: si-spin 18s linear infinite; }
+.si-ms2 { width: 60px; height: 60px; border-radius: 50%; border: 4px solid var(--si-bg); bottom: 15%; right: 8%; opacity: .15; animation: si-float 6s ease-in-out infinite; }
+.si-mani-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 2; }
+.si-mani-diamond { font-size: 20px; color: var(--si-bg); margin-bottom: 24px; }
 .si-quote {
-  font-family: var(--si-serif); font-size: clamp(24px, 3.8vw, 40px); font-weight: 300;
-  font-style: italic; line-height: 1.65; color: rgba(255,255,255,.8); margin: 0;
+  font-family: var(--si-head); font-size: clamp(22px, 3.5vw, 34px); font-weight: 600;
+  line-height: 1.55; color: var(--si-bg); margin: 0;
 }
-.si-quote em { font-style: normal; color: var(--si-rose); text-shadow: 0 0 20px rgba(232,53,122,.3); }
-.si-mani-line { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--si-gold), transparent); margin: 36px auto; }
-.si-mani-attr { font-family: var(--si-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: rgba(212,168,83,.35); }
+.si-quote em { font-style: normal; color: var(--si-white); text-shadow: 2px 2px 0 rgba(0,0,0,.1); }
+.si-mani-line { width: 80px; height: 3px; background: var(--si-bg); margin: 28px auto; }
+.si-mani-attr { font-family: var(--si-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(26,10,30,.4); }
 
 /* ---- SHOP ---- */
-.si-shop { background: var(--si-black); padding: 80px 60px; }
-@media(max-width:768px){.si-shop{padding:48px 20px;}}
+.si-shop { background: var(--si-bg); padding: 80px 60px; }
+@media(max-width:768px) { .si-shop { padding: 48px 20px; } }
 .si-shop-inner { max-width: 1200px; margin: 0 auto; }
 .si-shop-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 48px; }
-@media(max-width:768px){.si-shop-head{grid-template-columns:1fr;}}
-.si-eyebrow-sm { font-family: var(--si-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--si-gold); }
+@media(max-width:768px) { .si-shop-head { grid-template-columns: 1fr; } }
+.si-eyebrow-sm { font-family: var(--si-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--si-yellow); }
 .si-shop-h2 {
-  font-family: var(--si-serif); font-size: clamp(36px, 5vw, 56px); font-weight: 300;
-  text-transform: uppercase; letter-spacing: .06em; line-height: 1; margin: 8px 0 0; color: var(--si-champagne);
+  font-family: var(--si-head); font-size: clamp(36px, 5vw, 56px); font-weight: 800;
+  text-transform: uppercase; line-height: 1; margin: 6px 0 0; color: var(--si-white);
 }
-.si-shop-desc { font-family: var(--si-serif); font-size: 14px; font-weight: 300; line-height: 1.75; color: rgba(245,230,200,.35); font-style: italic; }
-.si-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.si-shop-desc { font-family: var(--si-body); font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.35); }
+.si-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
 .si-filter {
-  font-family: var(--si-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
-  padding: 9px 18px; border: 1px solid rgba(212,168,83,.2); background: transparent;
-  color: var(--si-champagne); cursor: pointer; transition: all .25s;
+  font-family: var(--si-head); font-size: 12px; text-transform: uppercase;
+  padding: 8px 18px; border: 2px solid rgba(255,113,206,.3); background: transparent;
+  color: var(--si-white); cursor: pointer; transition: all .2s;
 }
-.si-filter:hover, .si-filter.active { background: var(--si-gold); color: var(--si-black); border-color: var(--si-gold); }
+.si-filter:hover, .si-filter.active {
+  background: var(--si-pink); color: var(--si-bg); border-color: var(--si-pink);
+  box-shadow: 3px 3px 0 var(--si-yellow);
+}
 
 .si-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-.si-prod { text-decoration: none; color: inherit; cursor: pointer; transition: transform .3s; }
-.si-prod:hover { transform: translateY(-6px); }
-.si-prod-img { position: relative; overflow: hidden; background: var(--si-deep); aspect-ratio: 1; }
-.si-prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.si-prod { text-decoration: none; color: inherit; cursor: pointer; transition: transform .2s; }
+.si-prod:hover { transform: translate(-3px,-3px); }
+.si-prod-img {
+  position: relative; overflow: hidden; background: var(--si-deep); aspect-ratio: 1;
+  border: 2px solid rgba(255,113,206,.1);
+}
+.si-prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
 .si-prod:hover .si-prod-img img { transform: scale(1.08); }
-.si-prod-overlay {
-  position: absolute; inset: 0; background: rgba(10,5,8,.7);
+.si-prod-hover {
+  position: absolute; inset: 0; background: rgba(255,113,206,.85);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--si-mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--si-gold); opacity: 0; transition: opacity .3s; backdrop-filter: blur(4px);
+  font-family: var(--si-head); font-size: 14px; text-transform: uppercase; font-weight: 700;
+  color: var(--si-bg); opacity: 0; transition: opacity .2s;
 }
-.si-prod:hover .si-prod-overlay { opacity: 1; }
-.si-no-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--si-serif); font-size: 32px; color: rgba(212,168,83,.1); font-weight: 300; letter-spacing: .2em; }
-.si-sale-badge {
-  position: absolute; top: 12px; right: 12px;
-  font-family: var(--si-mono); font-size: 9px; letter-spacing: .12em;
-  background: var(--si-gold); color: var(--si-black); padding: 4px 12px; font-weight: 700;
+.si-prod:hover .si-prod-hover { opacity: 1; }
+.si-no-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--si-head); font-size: 28px; color: rgba(255,113,206,.1); font-weight: 800; letter-spacing: .15em; }
+.si-sale {
+  position: absolute; top: 10px; right: 10px;
+  font-family: var(--si-head); font-size: 11px; font-weight: 700;
+  background: var(--si-yellow); color: var(--si-bg); padding: 4px 12px;
+  box-shadow: 2px 2px 0 var(--si-pink);
 }
-.si-prod-info { padding: 16px 4px; }
-.si-prod-type { font-family: var(--si-mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--si-gold); }
-.si-prod-name { font-family: var(--si-serif); font-size: 15px; font-weight: 500; color: var(--si-champagne); margin: 6px 0 4px; }
-.si-prod-price { font-family: var(--si-mono); font-size: 13px; color: rgba(212,168,83,.5); }
-.si-empty { grid-column: 1/-1; padding: 80px; text-align: center; font-family: var(--si-mono); font-size: 11px; letter-spacing: .14em; color: rgba(212,168,83,.25); text-transform: uppercase; }
+.si-prod-info { padding: 14px 4px; }
+.si-prod-type { font-family: var(--si-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--si-pink); }
+.si-prod-name { font-family: var(--si-head); font-size: 15px; font-weight: 600; color: var(--si-white); margin: 6px 0 4px; }
+.si-prod-price { font-family: var(--si-mono); font-size: 13px; color: var(--si-yellow); }
+.si-empty { grid-column: 1/-1; padding: 80px; text-align: center; font-family: var(--si-mono); font-size: 12px; letter-spacing: .12em; color: rgba(255,113,206,.25); text-transform: uppercase; }
 
 /* ---- CLOSING ---- */
 .si-closing {
-  background: radial-gradient(ellipse at 50% 50%, var(--si-plum) 0%, var(--si-black) 70%);
-  padding: 120px 40px; text-align: center; position: relative; overflow: hidden;
+  position: relative; background: var(--si-deep); padding: 120px 40px; text-align: center; overflow: hidden;
 }
-@media(max-width:768px){.si-closing{padding:80px 20px;}}
-.si-closing-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+@media(max-width:768px) { .si-closing { padding: 80px 20px; } }
+.si-closing-deco { position: absolute; inset: 0; pointer-events: none; }
+.si-ct1 { width: 0; height: 0; border-left: 45px solid transparent; border-right: 45px solid transparent; border-bottom: 78px solid var(--si-pink); top: 10%; right: 10%; opacity: .1; animation: si-spin 22s linear infinite; }
+.si-ct2 { width: 80px; height: 80px; border-radius: 50%; border: 4px solid var(--si-teal); bottom: 15%; left: 8%; opacity: .1; animation: si-float 8s ease-in-out infinite; }
+.si-closing-inner { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+
 .si-closing-logo {
-  position: relative; width: 120px; height: 120px; margin-bottom: 36px;
+  position: relative; width: 130px; height: 130px; margin-bottom: 28px;
   display: flex; align-items: center; justify-content: center;
 }
 .si-cl-ring {
-  position: absolute; inset: -6px; border-radius: 50%;
-  border: 1px solid rgba(212,168,83,.25);
-  background: conic-gradient(from 0deg, transparent 0%, rgba(212,168,83,.1) 25%, transparent 50%);
-  animation: si-ring-rotate 15s linear infinite;
+  position: absolute; inset: -10px; border-radius: 50%;
+  border: 4px dashed var(--si-pink); animation: si-spin 18s linear infinite;
+  opacity: .6;
 }
 .si-closing-logo img {
   width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-  mix-blend-mode: screen;
-  box-shadow: 0 0 40px rgba(232,53,122,.25), 0 0 80px rgba(212,168,83,.1);
+  border: 3px solid var(--si-yellow);
+  box-shadow: 0 0 25px rgba(255,113,206,.3), 4px 4px 0 var(--si-pink);
 }
 .si-closing-h2 {
-  font-family: var(--si-serif); font-size: clamp(36px, 6vw, 64px); font-weight: 300;
-  text-transform: uppercase; letter-spacing: .06em; line-height: 1.1; color: var(--si-white); margin: 0 0 20px;
+  font-family: var(--si-head); font-size: clamp(40px, 7vw, 72px); font-weight: 800;
+  text-transform: uppercase; line-height: .95; color: var(--si-white); margin: 0 0 16px;
+  text-shadow: 3px 3px 0 var(--si-pink);
 }
-.si-closing-h2 em { font-style: italic; background: linear-gradient(180deg, var(--si-gold-bright), var(--si-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.si-closing-inner p { font-family: var(--si-serif); font-size: 15px; font-weight: 300; font-style: italic; line-height: 1.8; color: rgba(255,255,255,.4); margin: 0 0 36px; }
+.si-closing-h2 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--si-pink), var(--si-yellow), var(--si-teal));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.si-closing-inner p { font-family: var(--si-body); font-size: 15px; color: rgba(255,255,255,.35); margin: 0 0 32px; }
 
 /* ---- REDUCED MOTION ---- */
-@media(prefers-reduced-motion:reduce){
-  .si-shimmer,.si-spark,.si-glow,.si-logo-ring,.si-cl-ring,.si-scroll-line,.si-ticker-track,.si-btn-shine,.si-story-shimmer,.si-logo-img{animation:none!important;}
-  .si-prod:hover{transform:none;}
+@media(prefers-reduced-motion:reduce) {
+  .si-shape,.si-squig,.si-logo-ring,.si-cl-ring,.si-story-ring,.si-ticker-track { animation: none !important; }
+  .si-prod:hover { transform: none; }
 }
 </style>
 
@@ -546,31 +507,28 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   if (window.Motion) {
     var M = window.Motion;
-    M.animate('.si-hero-tag', { opacity: [0,1], y: [-15,0] }, { duration: .6, delay: .2 });
-    M.animate('.si-hero-logo', { opacity: [0,1], scale: [.6,1] }, { duration: 1.2, delay: .4, easing: [.22,1,.36,1] });
-    M.animate('.si-hero-h1 .si-letter', { opacity: [0,1], y: [40,0] }, { delay: M.stagger(.08, {start:.8}), duration: .6, easing: [.22,1,.36,1] });
-    M.animate('.si-hero-sub', { opacity: [0,1], y: [20,0] }, { duration: .7, delay: 1.4 });
-    M.animate('.si-hero-actions', { opacity: [0,1], y: [20,0] }, { duration: .7, delay: 1.6 });
+    M.animate('.si-hero-badge', { opacity: [0,1], y: [-15,0] }, { duration: .5, delay: .2 });
+    M.animate('.si-hero-logo', { opacity: [0,1], scale: [.4,1], rotate: ['-120deg','0deg'] }, { duration: 1, delay: .4, easing: [.22,1,.36,1] });
+    M.animate('.si-hero-h1', { opacity: [0,1], x: [-60,0] }, { duration: .7, delay: .7, easing: [.22,1,.36,1] });
+    M.animate('.si-hero-sub', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: 1 });
+    M.animate('.si-hero-actions', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: 1.2 });
     M.inView('.si-story-visual', function() {
-      M.animate('.si-story-logo-wrap', { opacity: [0,1], scale: [.8,1] }, { duration: .9, easing: [.22,1,.36,1] });
+      M.animate('.si-story-logo-wrap', { opacity: [0,1], scale: [.5,1], rotate: ['-180deg','0deg'] }, { duration: 1, easing: [.22,1,.36,1] });
     }, { margin: '-10% 0px' });
     M.inView('.si-story-text', function() {
-      M.animate('.si-story-text > *', { opacity: [0,1], x: [30,0] }, { delay: M.stagger(.12), duration: .6, easing: [.22,1,.36,1] });
+      M.animate('.si-story-text > *', { opacity: [0,1], x: [30,0] }, { delay: M.stagger(.1), duration: .5, easing: [.22,1,.36,1] });
     }, { margin: '-10% 0px' });
-    M.inView('.si-manifesto-inner', function() {
-      M.animate('.si-mani-diamond', { opacity: [0,1], scale: [0,1] }, { duration: .5 });
-      M.animate('.si-quote', { opacity: [0,1], y: [30,0] }, { duration: .9, delay: .2, easing: [.22,1,.36,1] });
-      M.animate('.si-mani-line', { scaleX: [0,1] }, { duration: .6, delay: .5 });
-      M.animate('.si-mani-attr', { opacity: [0,1] }, { duration: .5, delay: .7 });
+    M.inView('.si-mani-inner', function() {
+      M.animate('.si-mani-diamond', { opacity: [0,1], scale: [0,1] }, { duration: .4 });
+      M.animate('.si-quote', { opacity: [0,1], y: [25,0] }, { duration: .7, delay: .2, easing: [.22,1,.36,1] });
     }, { margin: '-10% 0px' });
     document.querySelectorAll('.si-prod').forEach(function(c) {
-      M.inView(c, function() { M.animate(c, { opacity: [0,1], y: [25,0] }, { duration: .5, easing: [.22,1,.36,1] }); }, { margin: '-5% 0px' });
+      M.inView(c, function() { M.animate(c, { opacity: [0,1], y: [20,0] }, { duration: .4, easing: [.22,1,.36,1] }); }, { margin: '-5% 0px' });
     });
     M.inView('.si-closing-inner', function() {
-      M.animate('.si-closing-logo', { opacity: [0,1], scale: [.5,1] }, { duration: 1, easing: [.22,1,.36,1] });
-      M.animate('.si-closing-h2', { opacity: [0,1], y: [30,0] }, { duration: .8, delay: .3, easing: [.22,1,.36,1] });
-      M.animate('.si-closing-inner p', { opacity: [0,1] }, { duration: .6, delay: .5 });
-      M.animate('.si-closing-inner .si-btn-gold', { opacity: [0,1], y: [15,0] }, { duration: .6, delay: .7 });
+      M.animate('.si-closing-logo', { opacity: [0,1], scale: [.4,1], rotate: ['-90deg','0deg'] }, { duration: .8, easing: [.22,1,.36,1] });
+      M.animate('.si-closing-h2', { opacity: [0,1], y: [30,0] }, { duration: .7, delay: .2, easing: [.22,1,.36,1] });
+      M.animate('.si-closing-inner .si-btn-mem', { opacity: [0,1], y: [15,0] }, { duration: .5, delay: .5 });
     }, { margin: '-10% 0px' });
   }
 });
