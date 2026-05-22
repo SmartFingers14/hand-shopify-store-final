@@ -4,6 +4,15 @@
 {% endcomment %}
 
 {%- assign brand_col = collections['dready'] -%}
+{%- if brand_col == blank or brand_col.products_count == 0 -%}
+  {%- assign brand_col = collections['dready-1'] -%}
+{%- endif -%}
+{%- if brand_col == blank or brand_col.products_count == 0 -%}
+  {%- assign brand_col = collections['dready-og'] -%}
+{%- endif -%}
+{%- if brand_col == blank or brand_col.products_count == 0 -%}
+  {%- assign brand_col = collections['all'] -%}
+{%- endif -%}
 
 <!-- ============================================================
      HERO — Full-bleed immersive with speaker cone + equalizer

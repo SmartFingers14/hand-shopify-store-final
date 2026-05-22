@@ -8,6 +8,12 @@
 {%- if fd_col == blank or fd_col.products_count == 0 -%}
   {%- assign fd_col = collections['funky-dog-1'] -%}
 {%- endif -%}
+{%- if fd_col == blank or fd_col.products_count == 0 -%}
+  {%- assign fd_col = collections['funky-dog-collection'] -%}
+{%- endif -%}
+{%- if fd_col == blank or fd_col.products_count == 0 -%}
+  {%- assign fd_col = collections['all'] -%}
+{%- endif -%}
 
 <div class="fd-page">
 
@@ -173,8 +179,6 @@
     <div class="fd-grid">
       {%- assign fd_count = 0 -%}
       {%- for product in fd_col.products limit: 500 -%}
-        {%- assign vd = product.vendor | downcase -%}
-        {%- unless vd contains 'funky' -%}{%- continue -%}{%- endunless -%}
         {%- assign fd_count = fd_count | plus: 1 -%}
         {%- assign filter_tag = 'acc' -%}
         {%- assign tl = product.title | downcase -%}

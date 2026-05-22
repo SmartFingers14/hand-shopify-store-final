@@ -180,13 +180,6 @@
     <div class="hs-grid" id="hs-product-grid">
       {%- assign hs_count = 0 -%}
       {%- for product in brand_col.products limit: 500 -%}
-        {%- assign vd = product.vendor | downcase -%}
-        {%- unless vd contains 'handspun' -%}
-          {%- continue -%}
-        {%- endunless -%}
-        {%- unless product.available -%}
-          {%- continue -%}
-        {%- endunless -%}
         {%- assign hs_count = hs_count | plus: 1 -%}
         {%- assign filter_tag = 'acc' -%}
         {%- assign tl = product.title | downcase -%}
