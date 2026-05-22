@@ -1,619 +1,1066 @@
-<!-- HAVE A NICE DAY — Header matching reference design -->
+<!-- HAVE A NICE DAY LONDON — Immersive Mega-Menu Header -->
 <style>
-  /* ===== TOP BAR ===== */
-  .hand-topbar {
-    background: var(--ink, #1a1a1a);
-    color: #fff;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 80;
-  }
-  .hand-topbar-inner {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    width: 100%;
-    max-width: var(--maxw, 1400px);
-    margin: 0 auto;
-    padding: 0 28px;
-  }
-  .hand-topbar-left {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-family: var(--mono, 'Courier New', monospace);
-    font-size: 10px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: #fff;
-  }
-  .hand-topbar-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #F59DBA;
-    flex-shrink: 0;
-    box-shadow: 0 0 6px 2px rgba(233, 30, 140, 0.8), 0 0 12px 4px rgba(233, 30, 140, 0.4);
-    animation: hand-dot-pulse 2s ease-in-out infinite;
-  }
-  @keyframes hand-dot-pulse {
-    0%, 100% { box-shadow: 0 0 6px 2px rgba(233, 30, 140, 0.8), 0 0 12px 4px rgba(233, 30, 140, 0.4); }
-    50% { box-shadow: 0 0 10px 4px rgba(233, 30, 140, 1), 0 0 20px 8px rgba(233, 30, 140, 0.6); }
-  }
-  .hand-topbar-center {
-    font-family: var(--mono, 'Courier New', monospace);
-    font-size: 10px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-  }
-  .hand-topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    justify-content: flex-end;
-    font-family: var(--mono, 'Courier New', monospace);
-    font-size: 10px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: #fff;
-  }
-  .hand-topbar-right a {
-    color: #fff;
-    text-decoration: none;
-    transition: color .2s;
-  }
-  .hand-topbar-right a:hover { color: #F59DBA; }
-  .hand-topbar-sep {
-    opacity: .35;
-  }
+/* ================================================================
+   DESIGN TOKENS
+   ================================================================ */
+:root {
+  --hd-ink: #0a0a0a;
+  --hd-cream: #f4f1ea;
+  --hd-pink: #F59DBA;
+  --hd-hot: #E91E8C;
+  --hd-gold: #e6b422;
+  --hd-white: #fff;
+  --hd-glass: rgba(244,241,234,.92);
+  --hd-glass-blur: 20px;
+  --hd-mono: 'JetBrains Mono', 'SF Mono', 'Courier New', monospace;
+  --hd-display: 'Anton', 'Impact', sans-serif;
+  --hd-body: 'Poppins', system-ui, sans-serif;
+  --hd-ease: cubic-bezier(.22,1,.36,1);
+  --hd-topbar-h: 36px;
+  --hd-nav-h: 72px;
+}
 
-  /* ===== MAIN NAV ===== */
-  .hand-nav {
-    position: sticky;
-    top: 0;
-    z-index: 70;
-    background: #f4f1ea;
-    border-bottom: 1px solid rgba(0,0,0,.1);
-    transition: box-shadow .3s ease;
-  }
-  .hand-nav.scrolled {
-    box-shadow: 0 2px 20px rgba(0,0,0,.08);
-  }
-  .hand-nav-inner {
-    display: grid;
-    grid-template-columns: 260px 1fr 260px;
-    align-items: center;
-    height: 80px;
-    max-width: var(--maxw, 1400px);
-    margin: 0 auto;
-    padding: 0 32px;
-    gap: 24px;
-  }
+/* ================================================================
+   TOP ANNOUNCEMENT BAR
+   ================================================================ */
+.hd-topbar {
+  background: var(--hd-ink);
+  color: var(--hd-white);
+  height: var(--hd-topbar-h);
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+}
+.hd-topbar-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.hd-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--hd-mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+.hd-pulse-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--hd-pink);
+  box-shadow: 0 0 8px var(--hd-hot), 0 0 16px rgba(233,30,140,.3);
+  animation: hd-pulse 2s ease-in-out infinite;
+}
+@keyframes hd-pulse {
+  0%,100% { box-shadow: 0 0 6px var(--hd-hot), 0 0 12px rgba(233,30,140,.3); }
+  50% { box-shadow: 0 0 12px var(--hd-hot), 0 0 24px rgba(233,30,140,.5); }
+}
+.hd-topbar-center {
+  font-family: var(--hd-mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--hd-white);
+  text-align: center;
+  white-space: nowrap;
+}
+.hd-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: flex-end;
+  font-family: var(--hd-mono);
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+}
+.hd-topbar-right a {
+  color: rgba(255,255,255,.6);
+  text-decoration: none;
+  transition: color .2s;
+}
+.hd-topbar-right a:hover { color: var(--hd-pink); }
 
-  /* Logo */
-  .hand-logo {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: var(--ink, #1a1a1a);
-    line-height: 1;
-    flex-shrink: 0;
-  }
-  .hand-logo .l1 {
-    font-family: 'Anton', Impact, sans-serif;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: .01em;
-    font-weight: 900;
-  }
-  .hand-logo .l2 {
-    font-family: var(--mono, 'Courier New', monospace);
-    font-size: 9px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: #888;
-    margin-top: 3px;
-  }
+/* ================================================================
+   MAIN NAVIGATION — Glassmorphic sticky
+   ================================================================ */
+.hd-nav {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: var(--hd-glass);
+  backdrop-filter: blur(var(--hd-glass-blur));
+  -webkit-backdrop-filter: blur(var(--hd-glass-blur));
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  transition: background .3s, box-shadow .3s, border-color .3s;
+}
+.hd-nav.scrolled {
+  background: rgba(244,241,234,.97);
+  box-shadow: 0 4px 30px rgba(0,0,0,.08);
+  border-color: rgba(0,0,0,.08);
+}
+.hd-nav-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: var(--hd-nav-h);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+  gap: 32px;
+}
 
-  /* Center nav links */
-  .hand-nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-  }
-  .hand-nav-link {
-    font-family: var(--mono, 'Courier New', monospace);
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: .16em;
-    font-weight: 600;
-    color: var(--ink, #1a1a1a);
-    padding: 8px 18px;
-    text-decoration: none;
-    position: relative;
-    transition: color .2s;
-    white-space: nowrap;
-  }
-  .hand-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: 18px;
-    right: 18px;
-    height: 1.5px;
-    background: var(--ink, #1a1a1a);
-    transform: scaleX(0);
-    transition: transform .2s;
-  }
-  .hand-nav-link:hover::after { transform: scaleX(1); }
-  .hand-nav-link:hover { color: var(--ink, #1a1a1a); }
+/* ---- Logo ---- */
+.hd-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--hd-ink);
+  flex-shrink: 0;
+  transition: transform .2s var(--hd-ease);
+}
+.hd-logo:hover { transform: scale(1.02); }
+.hd-logo img {
+  display: block;
+  width: auto;
+  height: 52px;
+  max-height: 52px;
+  object-fit: contain;
+}
 
-  /* Right: search, account, bag */
-  .hand-nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
-    justify-content: flex-end;
-  }
-  .hand-action-btn {
-    font-family: var(--mono, 'Courier New', monospace);
-    font-size: 11px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: var(--ink, #1a1a1a);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px 12px;
-    text-decoration: none;
-    transition: color .2s;
-    white-space: nowrap;
-  }
-  .hand-action-btn:hover { color: #F59DBA; }
+/* ---- Center Nav Links ---- */
+.hd-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.hd-link-wrap {
+  position: relative;
+}
+.hd-link {
+  font-family: var(--hd-mono);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: .18em;
+  font-weight: 600;
+  color: var(--hd-ink);
+  padding: 26px 18px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color .2s;
+  cursor: pointer;
+  position: relative;
+}
+.hd-link::before {
+  content: '';
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: var(--hd-hot);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .25s var(--hd-ease);
+}
+.hd-link:hover::before,
+.hd-link-wrap:hover > .hd-link::before,
+.hd-link.active::before { transform: scaleX(1); }
+.hd-link:hover { color: var(--hd-hot); }
+.hd-link-wrap:hover > .hd-link { color: var(--hd-hot); }
 
-  /* Bag button — dark pill */
-  .hand-bag-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    background: var(--ink, #1a1a1a);
-    color: #fff;
-    font-family: var(--mono, 'Courier New', monospace);
-    font-size: 11px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: background .2s;
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
-    margin-left: 8px;
-  }
-  .hand-bag-btn:hover { background: #F59DBA; }
-  .hand-bag-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #F59DBA;
-    flex-shrink: 0;
-  }
-  .hand-bag-btn:hover .hand-bag-dot { background: #fff; }
+/* Dropdown chevron */
+.hd-chev {
+  width: 10px; height: 10px;
+  transition: transform .3s var(--hd-ease);
+}
+.hd-link-wrap:hover .hd-chev { transform: rotate(180deg); }
 
-  /* Mobile burger */
-  .hand-burger {
-    display: none;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(0,0,0,.2);
-    background: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    padding: 10px;
-    flex-shrink: 0;
-  }
-  .hand-burger span {
-    display: block;
-    width: 18px;
-    height: 1.5px;
-    background: var(--ink, #1a1a1a);
-  }
+/* ---- Right Actions ---- */
+.hd-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.hd-act-btn {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; background: none;
+  color: var(--hd-ink);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background .2s, color .2s, transform .2s;
+  position: relative;
+}
+.hd-act-btn:hover {
+  background: rgba(0,0,0,.05);
+  color: var(--hd-hot);
+  transform: scale(1.08);
+}
+.hd-act-btn svg { width: 20px; height: 20px; }
 
-  /* ===== MOBILE MENU ===== */
-  .hand-mob-menu {
-    position: fixed;
-    top: 0; right: 0; bottom: 0;
-    width: min(340px, 88vw);
-    background: var(--ink, #1a1a1a);
-    color: #fff;
-    z-index: 500;
-    transform: translateX(100%);
-    transition: transform .4s cubic-bezier(.22,1,.36,1);
-    display: flex;
-    flex-direction: column;
-  }
-  .hand-mob-menu.open { transform: translateX(0); }
-  .hand-mob-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 22px 24px;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-  }
-  .hand-mob-logo {
-    font-family: 'Anton', Impact, sans-serif;
-    font-size: 17px;
-    text-transform: uppercase;
-    color: #fff;
-  }
-  .hand-mob-close {
-    width: 38px; height: 38px;
-    display: flex; align-items: center; justify-content: center;
-    border: 1px solid rgba(255,255,255,.15);
-    background: none; color: #fff; font-size: 16px; cursor: pointer;
-    transition: background .2s;
-  }
-  .hand-mob-close:hover { background: #F59DBA; border-color: #F59DBA; }
-  .hand-mob-body {
-    flex: 1; padding: 28px 24px;
-    display: flex; flex-direction: column; overflow-y: auto;
-  }
-  .hand-mob-link {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 0;
-    font-family: var(--body, sans-serif);
-    font-size: 18px; font-weight: 500; color: #fff;
-    border-bottom: 1px solid rgba(255,255,255,.07);
-    text-decoration: none;
-    transition: color .2s, padding-left .2s;
-  }
-  .hand-mob-link:hover { color: #F59DBA; padding-left: 6px; }
-  .hand-mob-link .arr { opacity: .4; font-size: 14px; }
-  .hand-mob-foot {
-    padding: 20px 24px;
-    border-top: 1px solid rgba(255,255,255,.08);
-    display: flex; gap: 10px;
-  }
-  .hand-mob-foot a {
-    flex: 1; padding: 13px; text-align: center;
-    font-family: var(--mono, monospace); font-size: 10px;
-    letter-spacing: .18em; text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,.15); color: #fff;
-    text-decoration: none; transition: background .2s;
-  }
-  .hand-mob-foot a:hover { background: #F59DBA; border-color: #F59DBA; }
+/* Cart button — special */
+.hd-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--hd-ink);
+  color: var(--hd-white);
+  font-family: var(--hd-mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
+  transition: all .25s var(--hd-ease);
+  margin-left: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.hd-cart-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--hd-hot), var(--hd-pink));
+  transform: translateX(-100%);
+  transition: transform .35s var(--hd-ease);
+}
+.hd-cart-btn:hover::before { transform: translateX(0); }
+.hd-cart-btn span { position: relative; z-index: 1; }
+.hd-cart-count {
+  background: var(--hd-hot);
+  color: var(--hd-white);
+  font-size: 9px;
+  font-weight: 800;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; z-index: 1;
+  transition: transform .3s var(--hd-ease);
+}
+.hd-cart-btn:hover .hd-cart-count { transform: scale(1.15); background: var(--hd-white); color: var(--hd-hot); }
 
-  /* ===== SEARCH OVERLAY ===== */
-  .hand-search-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 600;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 120px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-  }
-  .hand-search-overlay.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-  .hand-search-box {
-    background: #fff;
-    width: 100%;
-    max-width: 680px;
-    margin: 0 20px;
-    padding: 0;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    transform: translateY(-20px);
-    transition: transform 0.25s ease;
-  }
-  .hand-search-overlay.open .hand-search-box {
-    transform: translateY(0);
-  }
-  .hand-search-form {
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid var(--ink, #1a1a1a);
-  }
-  .hand-search-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 20px 24px;
-    font-family: var(--mono, 'Courier New', monospace);
-    font-size: 16px;
-    letter-spacing: 0.05em;
-    background: transparent;
-    color: var(--ink, #1a1a1a);
-  }
-  .hand-search-input::placeholder {
-    color: #aaa;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 0.15em;
-  }
-  .hand-search-submit {
-    padding: 20px 24px;
-    background: var(--ink, #1a1a1a);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-family: var(--mono, 'Courier New', monospace);
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
-  .hand-search-submit:hover { background: #F59DBA; }
-  .hand-search-close {
-    position: absolute;
-    top: 80px;
-    right: calc(50% - 340px - 20px);
-    width: 44px;
-    height: 44px;
-    background: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink, #1a1a1a);
-    transition: background 0.2s, color 0.2s;
-  }
-  .hand-search-close:hover { background: #F59DBA; color: #fff; }
-  .hand-search-hint {
-    padding: 12px 24px;
-    font-family: var(--mono, 'Courier New', monospace);
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #999;
-  }
-  @media (max-width: 720px) {
-    .hand-search-close { right: 8px; top: 70px; }
-  }
+/* ---- Animated Hamburger ---- */
+.hd-burger {
+  display: none;
+  width: 44px; height: 44px;
+  align-items: center; justify-content: center;
+  border: none; background: none;
+  cursor: pointer; flex-shrink: 0;
+  position: relative;
+}
+.hd-burger-lines {
+  width: 22px; height: 16px;
+  position: relative;
+}
+.hd-burger-lines span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--hd-ink);
+  border-radius: 1px;
+  transition: all .3s var(--hd-ease);
+}
+.hd-burger-lines span:nth-child(1) { top: 0; }
+.hd-burger-lines span:nth-child(2) { top: 7px; width: 70%; }
+.hd-burger-lines span:nth-child(3) { top: 14px; }
+.hd-burger.open .hd-burger-lines span:nth-child(1) { top: 7px; transform: rotate(45deg); }
+.hd-burger.open .hd-burger-lines span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+.hd-burger.open .hd-burger-lines span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
 
-  /* Responsive */
-  @media (max-width: 900px) {
-    .hand-nav-inner { grid-template-columns: auto 1fr; gap: 16px; padding: 0 20px; }
-    .hand-nav-links { display: none; }
-    .hand-nav-actions .hand-action-btn { display: none; }
-    .hand-burger { display: flex; }
-    .hand-bag-btn { margin-left: 0; }
-  }
-  @media (max-width: 600px) {
-    .hand-topbar-left { display: none; }
-    .hand-topbar-right { display: none; }
-    .hand-topbar-inner { grid-template-columns: 1fr; }
-    .hand-topbar-center { font-size: 9px; }
-    .hand-logo .l2 { display: none; }
-  }
+/* ================================================================
+   MEGA DROPDOWN — Brands
+   ================================================================ */
+.hd-mega {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 820px;
+  background: var(--hd-white);
+  box-shadow: 0 20px 60px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.04);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(8px);
+  transition: opacity .25s var(--hd-ease), visibility .25s, transform .25s var(--hd-ease);
+  pointer-events: none;
+  z-index: 200;
+  padding: 0;
+  overflow: hidden;
+}
+.hd-link-wrap:hover .hd-mega {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* Brands mega grid */
+.hd-mega-brands {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.hd-brand-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 20px 28px;
+  text-decoration: none;
+  color: var(--hd-ink);
+  position: relative;
+  overflow: hidden;
+  transition: all .3s var(--hd-ease);
+  cursor: pointer;
+  border-right: 1px solid rgba(0,0,0,.04);
+}
+.hd-brand-card:last-child { border-right: none; }
+
+/* Brand card colored overlay on hover */
+.hd-brand-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .3s var(--hd-ease);
+  z-index: 0;
+}
+.hd-brand-card[data-brand="dready"]::before { background: linear-gradient(135deg, #c62828, #e6b422, #2e7d32); }
+.hd-brand-card[data-brand="sista"]::before { background: linear-gradient(135deg, #D4368C, #FFCE5C); }
+.hd-brand-card[data-brand="handspun"]::before { background: linear-gradient(135deg, #0e0e24, #e8c547); }
+.hd-brand-card[data-brand="funky-dog"]::before { background: linear-gradient(135deg, #ff6b00, #ffd000, #a3e635); }
+
+.hd-brand-card:hover::before { opacity: 1; }
+.hd-brand-card:hover { transform: scale(1); }
+.hd-brand-card:hover * { position: relative; z-index: 1; }
+
+/* Brand logo circle */
+.hd-brand-logo {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(0,0,0,.08);
+  transition: all .3s var(--hd-ease);
+  margin-bottom: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+.hd-brand-card:hover .hd-brand-logo {
+  border-color: var(--hd-white);
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+}
+
+.hd-brand-name {
+  font-family: var(--hd-display);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: 4px;
+  transition: color .2s;
+}
+.hd-brand-card:hover .hd-brand-name { color: var(--hd-white); }
+
+.hd-brand-tagline {
+  font-family: var(--hd-mono);
+  font-size: 8px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.35);
+  transition: color .2s;
+  text-align: center;
+}
+.hd-brand-card:hover .hd-brand-tagline { color: rgba(255,255,255,.7); }
+
+/* Mega footer strip */
+.hd-mega-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(0,0,0,.02);
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+.hd-mega-foot-text {
+  font-family: var(--hd-mono);
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.3);
+}
+.hd-mega-foot-link {
+  font-family: var(--hd-mono);
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--hd-hot);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap .2s var(--hd-ease);
+}
+.hd-mega-foot-link:hover { gap: 10px; }
+
+/* ================================================================
+   MEGA DROPDOWN — Shop
+   ================================================================ */
+.hd-mega-shop {
+  width: 560px;
+  padding: 28px;
+}
+.hd-mega-shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.hd-shop-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 16px;
+  text-decoration: none;
+  color: var(--hd-ink);
+  border: 1px solid rgba(0,0,0,.06);
+  transition: all .25s var(--hd-ease);
+  cursor: pointer;
+}
+.hd-shop-card:hover {
+  border-color: var(--hd-hot);
+  box-shadow: 0 8px 24px rgba(233,30,140,.1);
+  transform: translateY(-3px);
+}
+.hd-shop-card svg {
+  width: 28px; height: 28px;
+  color: rgba(0,0,0,.3);
+  transition: color .2s;
+}
+.hd-shop-card:hover svg { color: var(--hd-hot); }
+.hd-shop-card-label {
+  font-family: var(--hd-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.hd-shop-card-count {
+  font-family: var(--hd-mono);
+  font-size: 8px;
+  letter-spacing: .1em;
+  color: rgba(0,0,0,.3);
+}
+
+/* ================================================================
+   SEARCH OVERLAY — Full-screen immersive
+   ================================================================ */
+.hd-search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,10,.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 15vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s var(--hd-ease);
+}
+.hd-search-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.hd-search-inner {
+  width: 100%;
+  max-width: 640px;
+  padding: 0 24px;
+  transform: translateY(20px);
+  transition: transform .35s var(--hd-ease);
+}
+.hd-search-overlay.open .hd-search-inner { transform: translateY(0); }
+
+.hd-search-label {
+  font-family: var(--hd-mono);
+  font-size: 10px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-bottom: 16px;
+}
+.hd-search-form {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgba(255,255,255,.15);
+  padding-bottom: 8px;
+  transition: border-color .2s;
+}
+.hd-search-form:focus-within { border-color: var(--hd-pink); }
+.hd-search-input {
+  flex: 1;
+  border: none; outline: none;
+  background: transparent;
+  color: var(--hd-white);
+  font-family: var(--hd-display);
+  font-size: clamp(28px, 5vw, 48px);
+  letter-spacing: .02em;
+  padding: 8px 0;
+}
+.hd-search-input::placeholder {
+  color: rgba(255,255,255,.15);
+}
+.hd-search-submit {
+  background: none; border: none;
+  color: rgba(255,255,255,.3);
+  cursor: pointer;
+  padding: 8px;
+  transition: color .2s, transform .2s;
+}
+.hd-search-submit:hover { color: var(--hd-pink); transform: scale(1.1); }
+.hd-search-submit svg { width: 28px; height: 28px; }
+
+.hd-search-hint {
+  margin-top: 20px;
+  font-family: var(--hd-mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.2);
+}
+.hd-search-hint a {
+  color: var(--hd-pink);
+  text-decoration: none;
+  transition: color .2s;
+}
+.hd-search-hint a:hover { color: var(--hd-white); }
+
+.hd-search-close {
+  position: absolute;
+  top: 32px; right: 32px;
+  width: 48px; height: 48px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 50%;
+  background: none;
+  color: rgba(255,255,255,.4);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .25s var(--hd-ease);
+}
+.hd-search-close:hover {
+  background: var(--hd-pink);
+  border-color: var(--hd-pink);
+  color: var(--hd-white);
+  transform: rotate(90deg);
+}
+
+/* ================================================================
+   MOBILE MENU — Full-screen immersive
+   ================================================================ */
+.hd-mob-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 499;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+.hd-mob-overlay.open { opacity: 1; pointer-events: all; }
+
+.hd-mob {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(380px, 90vw);
+  background: var(--hd-ink);
+  z-index: 500;
+  transform: translateX(100%);
+  transition: transform .45s var(--hd-ease);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.hd-mob.open { transform: translateX(0); }
+
+/* Mobile menu header */
+.hd-mob-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.hd-mob-logo {
+  font-family: var(--hd-display);
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--hd-white);
+  letter-spacing: .04em;
+}
+.hd-mob-close {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 50%;
+  background: none; color: var(--hd-white);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.hd-mob-close:hover { background: var(--hd-pink); border-color: var(--hd-pink); }
+
+/* Mobile nav links */
+.hd-mob-body {
+  flex: 1; overflow-y: auto;
+  padding: 16px 0;
+}
+.hd-mob-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  font-family: var(--hd-display);
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--hd-white);
+  text-decoration: none;
+  transition: all .2s var(--hd-ease);
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  position: relative;
+  overflow: hidden;
+}
+.hd-mob-link::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--hd-pink);
+  transform: scaleY(0);
+  transition: transform .2s var(--hd-ease);
+}
+.hd-mob-link:hover::before { transform: scaleY(1); }
+.hd-mob-link:hover {
+  padding-left: 32px;
+  color: var(--hd-pink);
+  background: rgba(255,255,255,.02);
+}
+.hd-mob-arr {
+  font-size: 16px;
+  opacity: .3;
+  transition: opacity .2s, transform .2s;
+}
+.hd-mob-link:hover .hd-mob-arr { opacity: 1; transform: translateX(4px); }
+
+/* Mobile brands section */
+.hd-mob-section-title {
+  padding: 24px 24px 10px;
+  font-family: var(--hd-mono);
+  font-size: 9px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.2);
+}
+.hd-mob-brands {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 24px 20px;
+}
+.hd-mob-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,.06);
+  text-decoration: none;
+  color: var(--hd-white);
+  transition: all .2s var(--hd-ease);
+  cursor: pointer;
+}
+.hd-mob-brand:hover {
+  border-color: var(--hd-pink);
+  background: rgba(255,255,255,.04);
+}
+.hd-mob-brand img {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.1);
+}
+.hd-mob-brand-name {
+  font-family: var(--hd-display);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* Mobile footer actions */
+.hd-mob-foot {
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  display: flex;
+  gap: 10px;
+}
+.hd-mob-foot-btn {
+  flex: 1;
+  padding: 14px;
+  text-align: center;
+  font-family: var(--hd-mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,.1);
+  color: var(--hd-white);
+  text-decoration: none;
+  transition: all .2s;
+  cursor: pointer;
+  background: none;
+}
+.hd-mob-foot-btn:hover { background: var(--hd-pink); border-color: var(--hd-pink); }
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 960px) {
+  .hd-links { display: none; }
+  .hd-act-btn.hd-desk-only { display: none; }
+  .hd-burger { display: flex; }
+  .hd-nav-inner { grid-template-columns: auto 1fr auto; }
+  .hd-cart-btn { margin-left: 0; }
+}
+@media (max-width: 600px) {
+  .hd-topbar-left { display: none; }
+  .hd-topbar-right { display: none; }
+  .hd-topbar-inner { grid-template-columns: 1fr; }
+  .hd-logo img { height: 44px; max-height: 44px; }
+  .hd-cart-btn { padding: 8px 14px; font-size: 9px; }
+}
+
+/* ================================================================
+   REDUCED MOTION
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .hd-pulse-dot { animation: none; }
+  .hd-mega, .hd-mob, .hd-search-overlay,
+  .hd-search-inner, .hd-brand-card,
+  .hd-burger-lines span { transition-duration: 0.01ms !important; }
+}
 </style>
 
-<!-- TOP BAR -->
-<div class="hand-topbar">
-  <div class="hand-topbar-inner">
-    <div class="hand-topbar-left">
-      <span class="hand-topbar-dot"></span>
+<!-- ======================== TOP BAR ======================== -->
+<div class="hd-topbar">
+  <div class="hd-topbar-inner">
+    <div class="hd-topbar-left">
+      <span class="hd-pulse-dot"></span>
       {{ section.settings.topbar_left | default: 'EST. CAMDEN 1990' }}
     </div>
-    <div class="hand-topbar-center">
+    <div class="hd-topbar-center">
       {%- if section.settings.announce_text != blank -%}
         {{ section.settings.announce_text }}
       {%- else -%}
         FREE UK SHIPPING OVER &pound;75 &mdash; ORGANIC COTTON &mdash; UK PRINTED
       {%- endif -%}
     </div>
-    <div class="hand-topbar-right">
+    <div class="hd-topbar-right">
       <span>{{ section.settings.topbar_right | default: 'EN / £ GBP' }}</span>
-      <span class="hand-topbar-sep">|</span>
       <a href="{{ section.settings.help_link | default: '/pages/help' }}">{{ section.settings.help_label | default: 'HELP' }}</a>
     </div>
   </div>
 </div>
 
-<!-- MAIN NAV -->
-<nav class="hand-nav" id="handNav" role="navigation" aria-label="Main navigation">
-  <div class="hand-nav-inner">
+<!-- ======================== MAIN NAV ======================== -->
+<nav class="hd-nav" id="hdNav" role="navigation" aria-label="Main navigation">
+  <div class="hd-nav-inner">
 
-    <!-- Logo (left) -->
-    <a class="hand-logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+    <!-- Logo -->
+    <a class="hd-logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
       {%- if section.settings.logo != blank -%}
-        <img src="{{ section.settings.logo | image_url: width: 300 }}" alt="{{ shop.name | escape }}" loading="eager" style="display:block;width:auto;height:60px;max-height:60px;object-fit:contain;padding:0;">
+        <img src="{{ section.settings.logo | image_url: width: 300 }}" alt="{{ shop.name | escape }}" loading="eager">
       {%- else -%}
-        <img src="https://cdn.shopify.com/s/files/1/0737/7397/3795/t/16/assets/logo-hand2.webp?v=1777399896" alt="{{ shop.name | escape }}" loading="eager" style="display:block;width:auto;height:60px;max-height:60px;object-fit:contain;padding:0;">
+        <img src="https://cdn.shopify.com/s/files/1/0737/7397/3795/t/16/assets/logo-hand2.webp?v=1777399896" alt="{{ shop.name | escape }}" loading="eager">
       {%- endif -%}
     </a>
 
-    <!-- Nav links (center) -->
-    <div class="hand-nav-links">
-      {%- if section.settings.nav1_label != blank -%}
-        <a class="hand-nav-link" href="{{ section.settings.nav1_link | default: '/collections/all' }}">{{ section.settings.nav1_label }}</a>
-      {%- endif -%}
+    <!-- Center Nav -->
+    <div class="hd-links">
+      <!-- BRANDS dropdown -->
+      <div class="hd-link-wrap">
+        <a class="hd-link" href="/pages/brands">
+          BRANDS
+          <svg class="hd-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5L5 6.5L8 3.5"/></svg>
+        </a>
+        <div class="hd-mega">
+          <div class="hd-mega-brands">
+            <a class="hd-brand-card" href="/pages/dready" data-brand="dready">
+              <img class="hd-brand-logo" src="{{ 'logo-dready-vinyl.png' | asset_url }}" alt="Dready OG" loading="lazy" width="72" height="72">
+              <div class="hd-brand-name">Dready OG</div>
+              <div class="hd-brand-tagline">Roots · Reggae · Camden</div>
+            </a>
+            <a class="hd-brand-card" href="/pages/sista" data-brand="sista">
+              <img class="hd-brand-logo" src="{{ 'logo-sista.jpeg' | asset_url }}" alt="SISTA" loading="lazy" width="72" height="72">
+              <div class="hd-brand-name">Sista</div>
+              <div class="hd-brand-tagline">Peace · Love · Unity</div>
+            </a>
+            <a class="hd-brand-card" href="/pages/handspun-records" data-brand="handspun">
+              <img class="hd-brand-logo" src="{{ 'logo-handspun-records.jpeg' | asset_url }}" alt="Handspun Records" loading="lazy" width="72" height="72">
+              <div class="hd-brand-name">Handspun</div>
+              <div class="hd-brand-tagline">Vinyl · Sound · Wax</div>
+            </a>
+            <a class="hd-brand-card" href="/pages/funky-dog" data-brand="funky-dog">
+              <img class="hd-brand-logo" src="{{ 'logo-funky-dog.jpeg' | asset_url }}" alt="Funky Dog" loading="lazy" width="72" height="72">
+              <div class="hd-brand-name">Funky Dog</div>
+              <div class="hd-brand-tagline">Rhythm · Vinyl · Funk</div>
+            </a>
+          </div>
+          <div class="hd-mega-foot">
+            <span class="hd-mega-foot-text">4 brands · 1 family · Since 1990</span>
+            <a class="hd-mega-foot-link" href="/pages/brands">View All Brands <span>&#8594;</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHOP dropdown -->
+      <div class="hd-link-wrap">
+        <a class="hd-link" href="/collections/all">
+          SHOP
+          <svg class="hd-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5L5 6.5L8 3.5"/></svg>
+        </a>
+        <div class="hd-mega hd-mega-shop">
+          <div class="hd-mega-shop-grid">
+            <a class="hd-shop-card" href="/collections/all">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              <span class="hd-shop-card-label">All Products</span>
+              <span class="hd-shop-card-count">Browse everything</span>
+            </a>
+            <a class="hd-shop-card" href="/collections/all?filter.p.product_type=T-Shirt">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8 5-8-5"/><path d="M4 7v7a2 2 0 002 2h12a2 2 0 002-2V7"/><path d="M4 7l4-4h8l4 4"/></svg>
+              <span class="hd-shop-card-label">T-Shirts</span>
+              <span class="hd-shop-card-count">Tees &amp; Longsleeves</span>
+            </a>
+            <a class="hd-shop-card" href="/collections/all?filter.p.product_type=Hoodie">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 4 4 4 8v12h16V8c0-4-4-6-8-6z"/><path d="M8 22v-4a4 4 0 018 0v4"/><circle cx="12" cy="10" r="2"/></svg>
+              <span class="hd-shop-card-label">Hoodies</span>
+              <span class="hd-shop-card-count">Sweats &amp; Zips</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Regular links -->
       {%- if section.settings.nav2_label != blank -%}
-        <a class="hand-nav-link" href="{{ section.settings.nav2_link | default: '/pages/about-us' }}">{{ section.settings.nav2_label }}</a>
+        <a class="hd-link" href="{{ section.settings.nav2_link | default: '/pages/about-us' }}">{{ section.settings.nav2_label }}</a>
       {%- endif -%}
       {%- if section.settings.nav3_label != blank -%}
-        <a class="hand-nav-link" href="{{ section.settings.nav3_link | default: '/pages/contact' }}">{{ section.settings.nav3_label }}</a>
+        <a class="hd-link" href="{{ section.settings.nav3_link | default: '/pages/contact' }}">{{ section.settings.nav3_label }}</a>
       {%- endif -%}
       {%- if section.settings.nav4_label != blank -%}
-        <a class="hand-nav-link" href="{{ section.settings.nav4_link }}">{{ section.settings.nav4_label }}</a>
+        <a class="hd-link" href="{{ section.settings.nav4_link }}">{{ section.settings.nav4_label }}</a>
       {%- endif -%}
       {%- if section.settings.nav5_label != blank -%}
-        <a class="hand-nav-link" href="{{ section.settings.nav5_link }}">{{ section.settings.nav5_label }}</a>
+        <a class="hd-link" href="{{ section.settings.nav5_link }}">{{ section.settings.nav5_label }}</a>
       {%- endif -%}
     </div>
 
-    <!-- Actions (right) -->
-    <div class="hand-nav-actions">
-      <button class="hand-action-btn" data-open-search aria-label="Search">SEARCH</button>
-      <a class="hand-action-btn" href="{{ routes.account_url }}">ACCOUNT</a>
-      <button class="hand-bag-btn" data-open-cart aria-label="Open bag ({{ cart.item_count }} items)">
-        BAG
-        <span class="hand-bag-dot"></span>
-        <span id="handCartCount">{{ cart.item_count }}</span>
+    <!-- Right Actions -->
+    <div class="hd-actions">
+      <!-- Search -->
+      <button class="hd-act-btn hd-desk-only" data-open-search aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </button>
-      <button class="hand-burger" id="handBurger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+
+      <!-- Account -->
+      <a class="hd-act-btn hd-desk-only" href="{{ routes.account_url }}" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+
+      <!-- Cart -->
+      <a class="hd-cart-btn" href="{{ routes.cart_url }}" aria-label="Cart ({{ cart.item_count }} items)">
+        <span>BAG</span>
+        <span class="hd-cart-count" id="hdCartCount">{{ cart.item_count }}</span>
+      </a>
+
+      <!-- Burger (mobile) -->
+      <button class="hd-burger" id="hdBurger" aria-label="Open menu" aria-expanded="false">
+        <div class="hd-burger-lines">
+          <span></span><span></span><span></span>
+        </div>
       </button>
     </div>
-
   </div>
 </nav>
 
-<!-- Search Overlay -->
-<div class="hand-search-overlay" id="handSearchOverlay" role="dialog" aria-label="Search" aria-hidden="true">
-  <button class="hand-search-close" id="handSearchClose" aria-label="Close search">&#x2715;</button>
-  <div class="hand-search-box">
-    <form class="hand-search-form" action="{{ routes.search_url }}" method="get" role="search">
+<!-- ======================== SEARCH OVERLAY ======================== -->
+<div class="hd-search-overlay" id="hdSearchOverlay" role="dialog" aria-label="Search" aria-hidden="true">
+  <button class="hd-search-close" id="hdSearchClose" aria-label="Close search">&#x2715;</button>
+  <div class="hd-search-inner">
+    <div class="hd-search-label">Search Products</div>
+    <form class="hd-search-form" action="{{ routes.search_url }}" method="get" role="search">
       <input type="hidden" name="type" value="product">
       <input
-        class="hand-search-input"
-        type="search"
-        name="q"
-        id="handSearchInput"
-        placeholder="Search products..."
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="off"
-        spellcheck="false"
+        class="hd-search-input"
+        type="search" name="q" id="hdSearchInput"
+        placeholder="Type here..."
+        autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
         aria-label="Search"
       >
-      <button class="hand-search-submit" type="submit">Search &rarr;</button>
+      <button class="hd-search-submit" type="submit" aria-label="Submit search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
     </form>
-    <p class="hand-search-hint">Try: hoodies, tees, dready, vortex, funky dog&hellip;</p>
+    <div class="hd-search-hint">
+      Try: <a href="/search?type=product&q=hoodie">hoodies</a> &middot;
+      <a href="/search?type=product&q=tee">tees</a> &middot;
+      <a href="/search?type=product&q=dready">dready</a> &middot;
+      <a href="/search?type=product&q=sista">sista</a> &middot;
+      <a href="/search?type=product&q=funky+dog">funky dog</a>
+    </div>
   </div>
 </div>
 
-<!-- Mobile Menu -->
-<div class="hand-mob-menu" id="handMobMenu" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
-  <div class="hand-mob-head">
-    <div class="hand-mob-logo">{{ shop.name }}</div>
-    <button class="hand-mob-close" id="handMobClose" aria-label="Close menu">&#x2715;</button>
+<!-- ======================== MOBILE MENU ======================== -->
+<div class="hd-mob-overlay" id="hdMobOverlay"></div>
+<div class="hd-mob" id="hdMob" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+  <div class="hd-mob-head">
+    <div class="hd-mob-logo">{{ shop.name }}</div>
+    <button class="hd-mob-close" id="hdMobClose" aria-label="Close menu">&#x2715;</button>
   </div>
-  <div class="hand-mob-body">
-    {%- if section.settings.nav1_label != blank -%}
-      <a class="hand-mob-link" href="{{ section.settings.nav1_link | default: '/collections/all' }}">{{ section.settings.nav1_label }} <span class="arr">&#x2192;</span></a>
-    {%- endif -%}
+  <div class="hd-mob-body">
+    <a class="hd-mob-link" href="/collections/all">Shop All <span class="hd-mob-arr">&#8594;</span></a>
     {%- if section.settings.nav2_label != blank -%}
-      <a class="hand-mob-link" href="{{ section.settings.nav2_link | default: '/pages/about-us' }}">{{ section.settings.nav2_label }} <span class="arr">&#x2192;</span></a>
+      <a class="hd-mob-link" href="{{ section.settings.nav2_link | default: '/pages/about-us' }}">{{ section.settings.nav2_label }} <span class="hd-mob-arr">&#8594;</span></a>
     {%- endif -%}
     {%- if section.settings.nav3_label != blank -%}
-      <a class="hand-mob-link" href="{{ section.settings.nav3_link | default: '/pages/contact' }}">{{ section.settings.nav3_label }} <span class="arr">&#x2192;</span></a>
+      <a class="hd-mob-link" href="{{ section.settings.nav3_link | default: '/pages/contact' }}">{{ section.settings.nav3_label }} <span class="hd-mob-arr">&#8594;</span></a>
     {%- endif -%}
     {%- if section.settings.nav4_label != blank -%}
-      <a class="hand-mob-link" href="{{ section.settings.nav4_link }}">{{ section.settings.nav4_label }} <span class="arr">&#x2192;</span></a>
+      <a class="hd-mob-link" href="{{ section.settings.nav4_link }}">{{ section.settings.nav4_label }} <span class="hd-mob-arr">&#8594;</span></a>
     {%- endif -%}
     {%- if section.settings.nav5_label != blank -%}
-      <a class="hand-mob-link" href="{{ section.settings.nav5_link }}">{{ section.settings.nav5_label }} <span class="arr">&#x2192;</span></a>
+      <a class="hd-mob-link" href="{{ section.settings.nav5_link }}">{{ section.settings.nav5_label }} <span class="hd-mob-arr">&#8594;</span></a>
     {%- endif -%}
+
+    <div class="hd-mob-section-title">Our Brands</div>
+    <div class="hd-mob-brands">
+      <a class="hd-mob-brand" href="/pages/dready">
+        <img src="{{ 'logo-dready-vinyl.png' | asset_url }}" alt="Dready OG" loading="lazy" width="36" height="36">
+        <span class="hd-mob-brand-name">Dready OG</span>
+      </a>
+      <a class="hd-mob-brand" href="/pages/sista">
+        <img src="{{ 'logo-sista.jpeg' | asset_url }}" alt="SISTA" loading="lazy" width="36" height="36">
+        <span class="hd-mob-brand-name">Sista</span>
+      </a>
+      <a class="hd-mob-brand" href="/pages/handspun-records">
+        <img src="{{ 'logo-handspun-records.jpeg' | asset_url }}" alt="Handspun" loading="lazy" width="36" height="36">
+        <span class="hd-mob-brand-name">Handspun</span>
+      </a>
+      <a class="hd-mob-brand" href="/pages/funky-dog">
+        <img src="{{ 'logo-funky-dog.jpeg' | asset_url }}" alt="Funky Dog" loading="lazy" width="36" height="36">
+        <span class="hd-mob-brand-name">Funky Dog</span>
+      </a>
+    </div>
   </div>
-  <div class="hand-mob-foot">
-    <a href="#" data-open-search>Search</a>
-    <a href="{{ routes.cart_url }}">Bag ({{ cart.item_count }})</a>
+  <div class="hd-mob-foot">
+    <button class="hd-mob-foot-btn" data-open-search>Search</button>
+    <a class="hd-mob-foot-btn" href="{{ routes.account_url }}">Account</a>
+    <a class="hd-mob-foot-btn" href="{{ routes.cart_url }}">Bag ({{ cart.item_count }})</a>
   </div>
 </div>
 
+<!-- ======================== SCRIPTS ======================== -->
 <script>
 (function() {
-  var nav = document.getElementById('handNav');
-  var burger = document.getElementById('handBurger');
-  var mobMenu = document.getElementById('handMobMenu');
-  var mobClose = document.getElementById('handMobClose');
-  var searchOverlay = document.getElementById('handSearchOverlay');
-  var searchClose = document.getElementById('handSearchClose');
-  var searchInput = document.getElementById('handSearchInput');
+  var nav = document.getElementById('hdNav');
+  var burger = document.getElementById('hdBurger');
+  var mob = document.getElementById('hdMob');
+  var mobOverlay = document.getElementById('hdMobOverlay');
+  var mobClose = document.getElementById('hdMobClose');
+  var searchOverlay = document.getElementById('hdSearchOverlay');
+  var searchClose = document.getElementById('hdSearchClose');
+  var searchInput = document.getElementById('hdSearchInput');
 
-  // ===== SCROLL =====
+  /* Scroll — add shadow */
   window.addEventListener('scroll', function() {
     if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
-  // ===== MOBILE MENU =====
-  if (burger && mobMenu) {
-    burger.addEventListener('click', function() {
-      mobMenu.classList.add('open');
-      mobMenu.setAttribute('aria-hidden', 'false');
-      burger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    });
+  /* Mobile menu */
+  function openMob() {
+    if (!mob) return;
+    mob.classList.add('open');
+    mobOverlay.classList.add('open');
+    mob.setAttribute('aria-hidden', 'false');
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
   }
-
   function closeMob() {
-    if (mobMenu) { mobMenu.classList.remove('open'); mobMenu.setAttribute('aria-hidden', 'true'); }
-    if (burger) burger.setAttribute('aria-expanded', 'false');
+    if (!mob) return;
+    mob.classList.remove('open');
+    mobOverlay.classList.remove('open');
+    mob.setAttribute('aria-hidden', 'true');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
-
+  if (burger) burger.addEventListener('click', function() {
+    mob.classList.contains('open') ? closeMob() : openMob();
+  });
   if (mobClose) mobClose.addEventListener('click', closeMob);
-  document.querySelectorAll('.hand-mob-link').forEach(function(a) {
+  if (mobOverlay) mobOverlay.addEventListener('click', closeMob);
+  document.querySelectorAll('.hd-mob-link, .hd-mob-brand').forEach(function(a) {
     a.addEventListener('click', closeMob);
   });
 
-  // ===== SEARCH =====
+  /* Search overlay */
   function openSearch() {
     if (!searchOverlay) return;
+    closeMob();
     searchOverlay.classList.add('open');
     searchOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    // Focus input after transition
-    setTimeout(function() {
-      if (searchInput) searchInput.focus();
-    }, 100);
+    setTimeout(function() { if (searchInput) searchInput.focus(); }, 150);
   }
-
   function closeSearch() {
     if (!searchOverlay) return;
     searchOverlay.classList.remove('open');
     searchOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
-
-  // Open search on all [data-open-search] buttons/links
   document.querySelectorAll('[data-open-search]').forEach(function(el) {
-    el.addEventListener('click', function(e) {
-      e.preventDefault();
-      closeMob(); // close mobile menu if open
-      openSearch();
-    });
+    el.addEventListener('click', function(e) { e.preventDefault(); openSearch(); });
   });
-
-  // Close search button
   if (searchClose) searchClose.addEventListener('click', closeSearch);
-
-  // Close on backdrop click (clicking outside the search box)
-  if (searchOverlay) {
-    searchOverlay.addEventListener('click', function(e) {
-      if (e.target === searchOverlay) closeSearch();
-    });
-  }
-
-  // Escape key closes both search and mobile menu
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeSearch();
-      closeMob();
-    }
+  if (searchOverlay) searchOverlay.addEventListener('click', function(e) {
+    if (e.target === searchOverlay) closeSearch();
   });
 
+  /* Escape key */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeSearch(); closeMob(); }
+  });
 })();
 </script>
 
