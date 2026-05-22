@@ -1,7 +1,6 @@
 {% comment %}
   Brand Page: SISTA — Peace · Love · Unity
-  Memphis Pink Pop — Bold · Geometric · Flashy · Chatak Matak
-  UI/UX Pro Max: Memphis Design + Syne/Manrope + #FF71CE/#FFCE5C/#86CCCA
+  Rebuilt to match reference design: split hero with character, values strip, ticker
 {% endcomment %}
 
 {%- assign sista_col = collections['sista'] -%}
@@ -9,80 +8,860 @@
   {%- assign sista_col = collections['sista-1'] -%}
 {%- endif -%}
 
+<!-- ============================================================
+     STYLES
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+.si-page {
+  --si-bg: #0D0514;
+  --si-deep: #120812;
+  --si-pink: #D4368C;
+  --si-hot: #E91E8C;
+  --si-yellow: #FFCE5C;
+  --si-gold: #C8A84E;
+  --si-teal: #86CCCA;
+  --si-purple: #6A3B8A;
+  --si-white: #fff;
+  --si-head: 'Syne', 'Arial Black', sans-serif;
+  --si-body: 'Manrope', system-ui, sans-serif;
+  --si-mono: var(--mono, 'JetBrains Mono', monospace);
+  background: var(--si-bg);
+  color: var(--si-white);
+  overflow-x: hidden;
+}
+
+/* ================================================================
+   HERO — Split layout: text left, character image right
+   ================================================================ */
+.si-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--si-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  overflow: hidden;
+}
+
+/* Subtle dot pattern overlay */
+.si-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(212,54,140,.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Left text column */
+.si-hero-text {
+  position: relative;
+  z-index: 3;
+  padding: 120px 0 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-self: stretch;
+}
+
+/* Rainbow tagline */
+.si-hero-tagline {
+  font-family: var(--si-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #FF0000, #FF8800, #FFDD00, #22CC44, #0088FF, #AA00FF, #FF0088);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+/* Rainbow line */
+.si-hero-rainbow-line {
+  width: 280px;
+  height: 4px;
+  background: linear-gradient(90deg, #FF0000, #FF8800, #FFDD00, #22CC44, #0088FF, #AA00FF, #FF0088);
+  margin-bottom: 24px;
+  position: relative;
+}
+.si-hero-rainbow-line::after {
+  content: '♥';
+  position: absolute;
+  right: -20px;
+  top: -8px;
+  color: var(--si-pink);
+  font-size: 14px;
+}
+
+/* Main heading */
+.si-hero-h1 {
+  font-family: var(--si-head);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: .88;
+  margin: 0 0 24px;
+}
+.si-hero-h1 .si-w1 {
+  display: block;
+  font-size: clamp(72px, 12vw, 140px);
+  color: var(--si-white);
+}
+.si-hero-h1 .si-w2 {
+  display: block;
+  font-size: clamp(72px, 12vw, 140px);
+  color: var(--si-pink);
+}
+
+/* Description */
+.si-hero-desc {
+  font-family: var(--si-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255,255,255,.5);
+  max-width: 380px;
+  margin-bottom: 36px;
+}
+
+/* CTA Button — pink with yellow border */
+.si-btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--si-pink);
+  color: var(--si-bg);
+  font-family: var(--si-head);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  text-decoration: none;
+  padding: 18px 36px;
+  border: 3px solid var(--si-yellow);
+  cursor: pointer;
+  transition: all .2s;
+  margin-bottom: 48px;
+  align-self: flex-start;
+}
+.si-btn-cta:hover {
+  background: var(--si-yellow);
+  color: var(--si-bg);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--si-pink);
+}
+.si-btn-cta .arr {
+  font-size: 18px;
+  transition: transform .2s;
+}
+.si-btn-cta:hover .arr {
+  transform: translateX(4px);
+}
+
+/* Stats row */
+.si-hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.si-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 28px;
+}
+.si-stat:first-child { padding-left: 0; }
+.si-stat-n {
+  font-family: var(--si-head);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--si-yellow);
+  text-transform: uppercase;
+}
+.si-stat-l {
+  font-family: var(--si-mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,206,92,.4);
+}
+.si-stat-sep {
+  width: 1.5px;
+  height: 36px;
+  background: rgba(255,206,92,.2);
+}
+
+/* Right image column */
+.si-hero-visual {
+  position: relative;
+  z-index: 2;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.si-hero-character {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  mix-blend-mode: lighten;
+  filter: brightness(1.05) contrast(1.1);
+}
+
+/* Sisterhood is Power badge */
+.si-power-badge {
+  position: absolute;
+  bottom: 60px;
+  right: 30px;
+  z-index: 4;
+  width: 120px;
+  height: 120px;
+  animation: si-spin-slow 20s linear infinite;
+}
+.si-power-badge svg {
+  width: 100%;
+  height: 100%;
+}
+.si-power-badge text {
+  fill: var(--si-pink);
+  font-family: var(--si-head);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.si-power-heart {
+  fill: var(--si-pink);
+  font-size: 16px;
+}
+
+@keyframes si-spin-slow { to { transform: rotate(360deg); } }
+
+/* ================================================================
+   VALUES STRIP — 4 pillars
+   ================================================================ */
+.si-values {
+  background: #1A0F22;
+  border-top: 1px solid rgba(212,54,140,.15);
+  border-bottom: 1px solid rgba(212,54,140,.15);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.si-value {
+  text-align: center;
+  padding: 36px 20px;
+  border-right: 1px solid rgba(212,54,140,.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.si-value:last-child { border-right: none; }
+
+.si-value-icon {
+  color: var(--si-pink);
+  opacity: .8;
+}
+
+.si-value-title {
+  font-family: var(--si-head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--si-pink);
+}
+
+.si-value-desc {
+  font-family: var(--si-body);
+  font-size: 13px;
+  color: rgba(255,255,255,.35);
+  line-height: 1.5;
+}
+
+/* ================================================================
+   TICKER
+   ================================================================ */
+.si-ticker {
+  background: linear-gradient(90deg, var(--si-pink), var(--si-hot), var(--si-pink));
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.si-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: si-tick 22s linear infinite;
+}
+.si-ticker-set {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+  flex-shrink: 0;
+  font-family: var(--si-head);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--si-bg);
+}
+.si-tsep { font-size: 10px; color: var(--si-yellow); }
+@keyframes si-tick { to { transform: translateX(-50%); } }
+
+/* ================================================================
+   FOOTER LINE
+   ================================================================ */
+.si-footer-line {
+  background: var(--si-bg);
+  padding: 28px 24px;
+  text-align: center;
+  font-family: var(--si-mono);
+  font-size: 10px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.si-footer-line::before,
+.si-footer-line::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: rgba(212,54,140,.2);
+}
+
+/* ================================================================
+   STORY SECTION
+   ================================================================ */
+.si-story {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  min-height: 520px;
+  background: var(--si-deep);
+}
+
+.si-story-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  overflow: hidden;
+  border-right: 1px solid rgba(212,54,140,.1);
+}
+.si-story-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--si-pink) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  opacity: .03;
+}
+.si-big-text {
+  position: absolute;
+  font-family: var(--si-head);
+  font-size: clamp(100px, 18vw, 200px);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(212,54,140,.04);
+  letter-spacing: -.02em;
+  pointer-events: none;
+}
+.si-story-logo-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.si-story-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 4px dashed var(--si-pink);
+  animation: si-spin-slow 20s linear infinite reverse;
+  opacity: .5;
+}
+.si-story-logo {
+  width: clamp(140px, 24vw, 200px);
+  height: clamp(140px, 24vw, 200px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--si-yellow);
+  box-shadow: 0 0 25px rgba(212,54,140,.25), 4px 4px 0 var(--si-pink);
+}
+
+.si-story-text {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+}
+
+.si-eyebrow {
+  font-family: var(--si-mono);
+  font-size: 10px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--si-yellow);
+}
+.si-story-h2 {
+  font-family: var(--si-head);
+  font-size: clamp(36px, 5.5vw, 60px);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+  color: var(--si-white);
+}
+.si-story-h2 em { font-style: normal; color: var(--si-pink); }
+.si-story-p {
+  font-family: var(--si-body);
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(255,255,255,.4);
+  max-width: 460px;
+}
+.si-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.si-tag {
+  font-family: var(--si-mono);
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 2px solid rgba(212,54,140,.25);
+  color: var(--si-pink);
+  transition: all .2s;
+  cursor: default;
+}
+.si-tag:hover {
+  background: var(--si-pink);
+  color: var(--si-bg);
+  border-color: var(--si-pink);
+  box-shadow: 3px 3px 0 var(--si-yellow);
+}
+
+/* ================================================================
+   MANIFESTO
+   ================================================================ */
+.si-manifesto {
+  background: var(--si-pink);
+  padding: 100px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.si-mani-shapes { position: absolute; inset: 0; pointer-events: none; }
+.si-ms1 {
+  position: absolute;
+  width: 0; height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid var(--si-yellow);
+  top: 10%; left: 5%; opacity: .2;
+  animation: si-spin-slow 18s linear infinite;
+}
+.si-ms2 {
+  position: absolute;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  border: 4px solid var(--si-bg);
+  bottom: 15%; right: 8%; opacity: .15;
+  animation: si-float 6s ease-in-out infinite;
+}
+@keyframes si-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-22px); } }
+
+.si-mani-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.si-mani-diamond { font-size: 20px; color: var(--si-bg); margin-bottom: 24px; }
+.si-quote {
+  font-family: var(--si-head);
+  font-size: clamp(22px, 3.5vw, 34px);
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--si-bg);
+  margin: 0;
+}
+.si-quote em { font-style: normal; color: var(--si-white); text-shadow: 2px 2px 0 rgba(0,0,0,.1); }
+.si-mani-line { width: 80px; height: 3px; background: var(--si-bg); margin: 28px auto; }
+.si-mani-attr { font-family: var(--si-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(13,5,20,.4); }
+
+/* ================================================================
+   SHOP / PRODUCTS
+   ================================================================ */
+.si-shop { background: var(--si-bg); padding: 80px 60px; }
+.si-shop-inner { max-width: 1200px; margin: 0 auto; }
+.si-shop-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+.si-eyebrow-sm {
+  font-family: var(--si-mono);
+  font-size: 10px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--si-yellow);
+}
+.si-shop-h2 {
+  font-family: var(--si-head);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 6px 0 0;
+  color: var(--si-white);
+}
+.si-shop-desc {
+  font-family: var(--si-body);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.35);
+}
+.si-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.si-filter {
+  font-family: var(--si-head);
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border: 2px solid rgba(212,54,140,.3);
+  background: transparent;
+  color: var(--si-white);
+  cursor: pointer;
+  transition: all .2s;
+}
+.si-filter:hover, .si-filter.active {
+  background: var(--si-pink);
+  color: var(--si-bg);
+  border-color: var(--si-pink);
+  box-shadow: 3px 3px 0 var(--si-yellow);
+}
+
+.si-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.si-prod {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform .2s;
+}
+.si-prod:hover { transform: translate(-3px,-3px); }
+.si-prod-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--si-deep);
+  aspect-ratio: 1;
+  border: 2px solid rgba(212,54,140,.1);
+}
+.si-prod-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+}
+.si-prod:hover .si-prod-img img { transform: scale(1.08); }
+.si-prod-hover {
+  position: absolute;
+  inset: 0;
+  background: rgba(212,54,140,.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--si-head);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--si-bg);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.si-prod:hover .si-prod-hover { opacity: 1; }
+.si-no-img {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--si-head); font-size: 28px; color: rgba(212,54,140,.1);
+  font-weight: 800; letter-spacing: .15em;
+}
+.si-sale {
+  position: absolute; top: 10px; right: 10px;
+  font-family: var(--si-head); font-size: 11px; font-weight: 700;
+  background: var(--si-yellow); color: var(--si-bg); padding: 4px 12px;
+  box-shadow: 2px 2px 0 var(--si-pink);
+}
+.si-prod-info { padding: 14px 4px; }
+.si-prod-type { font-family: var(--si-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--si-pink); }
+.si-prod-name { font-family: var(--si-head); font-size: 15px; font-weight: 600; color: var(--si-white); margin: 6px 0 4px; }
+.si-prod-price { font-family: var(--si-mono); font-size: 13px; color: var(--si-yellow); }
+.si-empty { grid-column: 1/-1; padding: 80px; text-align: center; font-family: var(--si-mono); font-size: 12px; letter-spacing: .12em; color: rgba(212,54,140,.25); text-transform: uppercase; }
+
+/* ================================================================
+   CLOSING
+   ================================================================ */
+.si-closing {
+  position: relative;
+  background: var(--si-deep);
+  padding: 120px 40px;
+  text-align: center;
+  overflow: hidden;
+}
+.si-closing-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.si-closing-logo {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.si-cl-ring {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 4px dashed var(--si-pink);
+  animation: si-spin-slow 18s linear infinite;
+  opacity: .6;
+}
+.si-closing-logo img {
+  width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--si-yellow);
+  box-shadow: 0 0 25px rgba(212,54,140,.3), 4px 4px 0 var(--si-pink);
+}
+.si-closing-h2 {
+  font-family: var(--si-head);
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: .95;
+  color: var(--si-white);
+  margin: 0 0 16px;
+  text-shadow: 3px 3px 0 var(--si-pink);
+}
+.si-closing-h2 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--si-pink), var(--si-yellow), var(--si-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.si-closing-inner p {
+  font-family: var(--si-body);
+  font-size: 15px;
+  color: rgba(255,255,255,.35);
+  margin: 0 0 32px;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 900px) {
+  .si-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .si-hero-text {
+    padding: 120px 24px 40px;
+    order: 1;
+  }
+  .si-hero-visual {
+    order: 0;
+    min-height: 400px;
+    justify-content: center;
+  }
+  .si-hero-character {
+    max-width: 85%;
+  }
+  .si-hero-h1 .si-w1,
+  .si-hero-h1 .si-w2 {
+    font-size: clamp(56px, 14vw, 100px);
+  }
+  .si-values {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .si-value:nth-child(2) { border-right: none; }
+  .si-value:nth-child(1),
+  .si-value:nth-child(2) { border-bottom: 1px solid rgba(212,54,140,.12); }
+  .si-story { grid-template-columns: 1fr; }
+  .si-story-visual { min-height: 320px; border-right: none; border-bottom: 1px solid rgba(212,54,140,.1); }
+  .si-story-text { padding: 48px 24px; }
+  .si-shop { padding: 48px 20px; }
+  .si-shop-head { grid-template-columns: 1fr; }
+  .si-manifesto { padding: 60px 20px; }
+  .si-closing { padding: 80px 20px; }
+}
+@media (max-width: 600px) {
+  .si-values { grid-template-columns: 1fr 1fr; }
+  .si-hero-stats { flex-wrap: wrap; gap: 16px; }
+  .si-power-badge { width: 80px; height: 80px; bottom: 20px; right: 10px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .si-power-badge,
+  .si-story-ring,
+  .si-cl-ring,
+  .si-ms1,
+  .si-ticker-track { animation: none !important; }
+  .si-prod:hover { transform: none; }
+}
+</style>
+
 <div class="si-page">
 
 <!-- ============================================================
-     HERO — Memphis Pink Pop with geometric shapes
+     HERO — Split: text left, character right
      ============================================================ -->
 <section class="si-hero" id="si-top">
-  <!-- Memphis decorations -->
-  <div class="si-deco" aria-hidden="true">
-    <div class="si-dots"></div>
-    <div class="si-shape si-tri1"></div>
-    <div class="si-shape si-tri2"></div>
-    <div class="si-shape si-circ1"></div>
-    <div class="si-shape si-circ2"></div>
-    <div class="si-shape si-sq1"></div>
-    <div class="si-shape si-sq2"></div>
-    <div class="si-zig"></div>
-    <div class="si-zig2"></div>
-    <div class="si-shape si-circ3"></div>
-    <div class="si-squig"></div>
+  <!-- Left: Text -->
+  <div class="si-hero-text">
+    <div class="si-hero-tagline">Peace. Love. Unity.</div>
+    <div class="si-hero-rainbow-line"></div>
+
+    <h1 class="si-hero-h1">
+      <span class="si-w1">Sista</span>
+      <span class="si-w2">Energy.</span>
+    </h1>
+
+    <p class="si-hero-desc">{{ section.settings.tagline | default: 'A universal womenswear brand built on sisterhood, connection and self-expression. Created for women of every colour, every shape and every walk of life.' }}</p>
+
+    <a class="si-btn-cta" href="#si-shop">
+      Shop The Collection <span class="arr">→</span>
+    </a>
+
+    <div class="si-hero-stats">
+      <div class="si-stat">
+        <span class="si-stat-n">1983</span>
+        <span class="si-stat-l">Est.</span>
+      </div>
+      <div class="si-stat-sep"></div>
+      <div class="si-stat">
+        <span class="si-stat-n">B'ham</span>
+        <span class="si-stat-l">Born</span>
+      </div>
+      <div class="si-stat-sep"></div>
+      <div class="si-stat">
+        <span class="si-stat-n">Unity</span>
+        <span class="si-stat-l">Strong</span>
+      </div>
+    </div>
   </div>
 
-  <div class="si-hero-content">
-    <div class="si-hero-badge">Peace · Love · Unity</div>
+  <!-- Right: Character Image -->
+  <div class="si-hero-visual">
+    <img
+      src="{{ 'sista-hero-character.png' | asset_url }}"
+      alt="SISTA — Sisterhood is power"
+      class="si-hero-character"
+      loading="eager"
+      width="800"
+      height="1000"
+    />
 
-    <!-- Logo with dashed spinning ring -->
-    <div class="si-hero-logo">
-      <div class="si-logo-ring"></div>
-      <div class="si-logo-ring2"></div>
-      <img src="{{ 'logo-sista.jpeg' | asset_url }}" alt="SISTA" class="si-logo-img" />
-    </div>
-
-    <h1 class="si-hero-h1">SISTA</h1>
-
-    <p class="si-hero-sub">{{ section.settings.tagline | default: 'A universal womenswear brand built on sisterhood, connection and self-expression. Created for women of every colour, every shape and every walk of life.' }}</p>
-
-    <div class="si-hero-actions">
-      <a class="si-btn-mem" href="#si-shop">Shop The Collection</a>
-      <div class="si-stats">
-        <div class="si-stat"><span class="si-stat-n">1983</span><span class="si-stat-l">Est.</span></div>
-        <div class="si-stat-sep"></div>
-        <div class="si-stat"><span class="si-stat-n">B'ham</span><span class="si-stat-l">Born</span></div>
-        <div class="si-stat-sep"></div>
-        <div class="si-stat"><span class="si-stat-n">Unity</span><span class="si-stat-l">Spirit</span></div>
-      </div>
+    <!-- Sisterhood is Power rotating badge -->
+    <div class="si-power-badge">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="circle-path" d="M 60,60 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0" />
+        </defs>
+        <text>
+          <textPath href="#circle-path" startOffset="0%">· SISTERHOOD IS POWER · SISTERHOOD IS POWER </textPath>
+        </text>
+        <text x="60" y="66" text-anchor="middle" class="si-power-heart" font-size="18">♥</text>
+      </svg>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     TICKER — Memphis bold strip
+     VALUES STRIP — 4 pillars
+     ============================================================ -->
+<div class="si-values">
+  <div class="si-value">
+    <svg class="si-value-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+    </svg>
+    <div class="si-value-title">Sisterhood</div>
+    <div class="si-value-desc">Stronger together.<br>Always.</div>
+  </div>
+  <div class="si-value">
+    <svg class="si-value-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+    <div class="si-value-title">Unity</div>
+    <div class="si-value-desc">Different stories,<br>one spirit.</div>
+  </div>
+  <div class="si-value">
+    <svg class="si-value-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </svg>
+    <div class="si-value-title">Self-Expression</div>
+    <div class="si-value-desc">Wear what<br>moves your soul.</div>
+  </div>
+  <div class="si-value">
+    <svg class="si-value-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M2 20h20M5 20V10l7-7 7 7v10M8 14h2v3H8zM14 14h2v3h-2z"/>
+      <path d="M3 7l3-3h12l3 3"/>
+    </svg>
+    <div class="si-value-title">Empowerment</div>
+    <div class="si-value-desc">Made for women<br>who lead.</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TICKER
      ============================================================ -->
 <div class="si-ticker">
   <div class="si-ticker-track">
-    {%- for i in (1..2) -%}
+    {%- for i in (1..3) -%}
     <div class="si-ticker-set">
       <span>PEACE</span><span class="si-tsep">&#9670;</span>
       <span>LOVE</span><span class="si-tsep">&#9670;</span>
       <span>UNITY</span><span class="si-tsep">&#9670;</span>
-      <span>SISTA</span><span class="si-tsep">&#9670;</span>
-      <span>SISTERHOOD</span><span class="si-tsep">&#9670;</span>
-      <span>SPIRIT</span><span class="si-tsep">&#9670;</span>
-      <span>CONNECTION</span><span class="si-tsep">&#9670;</span>
-      <span>SELF-EXPRESSION</span><span class="si-tsep">&#9670;</span>
+      <span>PEACE</span><span class="si-tsep">&#9670;</span>
+      <span>LOVE</span><span class="si-tsep">&#9670;</span>
+      <span>UNITY</span><span class="si-tsep">&#9670;</span>
     </div>
     {%- endfor -%}
   </div>
 </div>
 
 <!-- ============================================================
-     STORY — Bold split with logo
+     STORY
      ============================================================ -->
 <section class="si-story">
   <div class="si-story-visual">
-    <div class="si-story-dots" aria-hidden="true"></div>
     <div class="si-big-text" aria-hidden="true">SISTA</div>
     <div class="si-story-logo-wrap">
       <div class="si-story-ring"></div>
@@ -103,12 +882,12 @@
 </section>
 
 <!-- ============================================================
-     MANIFESTO — Bold Memphis statement
+     MANIFESTO
      ============================================================ -->
 <section class="si-manifesto">
   <div class="si-mani-shapes" aria-hidden="true">
-    <div class="si-shape si-ms1"></div>
-    <div class="si-shape si-ms2"></div>
+    <div class="si-ms1"></div>
+    <div class="si-ms2"></div>
   </div>
   <div class="si-mani-inner">
     <div class="si-mani-diamond">&#9670;</div>
@@ -121,7 +900,7 @@
 </section>
 
 <!-- ============================================================
-     PRODUCTS — Memphis grid
+     PRODUCTS
      ============================================================ -->
 <section class="si-shop" id="si-shop">
   <div class="si-shop-inner">
@@ -140,7 +919,6 @@
         </div>
       </div>
     </div>
-
     <div class="si-grid">
       {%- assign si_count = 0 -%}
       {%- for product in sista_col.products limit: 500 -%}
@@ -164,9 +942,7 @@
             {%- if product.compare_at_price > product.price -%}
               <span class="si-sale">SALE</span>
             {%- endif -%}
-            <div class="si-prod-hover">
-              <span>View &#9670;</span>
-            </div>
+            <div class="si-prod-hover"><span>View &#9670;</span></div>
           </div>
           <div class="si-prod-info">
             <span class="si-prod-type">{{ product.type | default: 'SISTA' }}</span>
@@ -183,14 +959,9 @@
 </section>
 
 <!-- ============================================================
-     CLOSING — Memphis finale with logo
+     CLOSING
      ============================================================ -->
 <section class="si-closing">
-  <div class="si-closing-deco" aria-hidden="true">
-    <div class="si-dots"></div>
-    <div class="si-shape si-ct1"></div>
-    <div class="si-shape si-ct2"></div>
-  </div>
   <div class="si-closing-inner">
     <div class="si-closing-logo">
       <div class="si-cl-ring"></div>
@@ -198,303 +969,25 @@
     </div>
     <h2 class="si-closing-h2">Peace. Love.<br><em>Unity.</em></h2>
     <p>For women of every colour, every shape and every walk of life.</p>
-    <a class="si-btn-mem" href="#si-shop">Shop SISTA</a>
+    <a class="si-btn-cta" href="#si-shop">Shop SISTA <span class="arr">→</span></a>
   </div>
 </section>
+
+<!-- ============================================================
+     FOOTER LINE
+     ============================================================ -->
+<div class="si-footer-line">
+  SISTA &bull; BIRMINGHAM &bull; EST. 1983
+</div>
 
 </div>
 
 <!-- ============================================================
-     STYLES — MEMPHIS PINK POP
+     SCRIPTS
      ============================================================ -->
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap');
-
-.si-page {
-  --si-bg: #1a0a1e;
-  --si-deep: #120812;
-  --si-pink: #FF71CE;
-  --si-yellow: #FFCE5C;
-  --si-teal: #86CCCA;
-  --si-purple: #6A7BB4;
-  --si-hot: #FF1493;
-  --si-white: #fff;
-  --si-cream: #FFF5F9;
-  --si-head: 'Syne', 'Arial Black', sans-serif;
-  --si-body: 'Manrope', system-ui, sans-serif;
-  --si-mono: var(--mono, 'JetBrains Mono'), monospace;
-  background: var(--si-bg); color: var(--si-white); overflow-x: hidden;
-}
-
-/* ---- HERO ---- */
-.si-hero {
-  position: relative; min-height: 100vh; min-height: 100dvh;
-  background: var(--si-bg); display: flex; align-items: center; justify-content: center;
-  overflow: hidden; padding: 100px 24px 80px; text-align: center;
-}
-
-/* Memphis decorations */
-.si-deco { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-.si-dots {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(var(--si-pink) 1.5px, transparent 1.5px);
-  background-size: 40px 40px; opacity: .04;
-}
-.si-shape { position: absolute; }
-.si-tri1 { width: 0; height: 0; border-left: 55px solid transparent; border-right: 55px solid transparent; border-bottom: 95px solid var(--si-pink); top: 8%; left: 6%; animation: si-spin 20s linear infinite; opacity: .35; }
-.si-tri2 { width: 0; height: 0; border-left: 35px solid transparent; border-right: 35px solid transparent; border-bottom: 60px solid var(--si-yellow); bottom: 12%; right: 8%; animation: si-spin 16s linear infinite reverse; opacity: .3; }
-.si-circ1 { width: 110px; height: 110px; border-radius: 50%; border: 5px solid var(--si-teal); top: 22%; right: 8%; animation: si-float 7s ease-in-out infinite; opacity: .3; }
-.si-circ2 { width: 70px; height: 70px; border-radius: 50%; background: var(--si-purple); bottom: 22%; left: 10%; animation: si-float 9s ease-in-out infinite; opacity: .15; }
-.si-circ3 { width: 45px; height: 45px; border-radius: 50%; border: 4px dashed var(--si-yellow); top: 70%; right: 15%; animation: si-spin 12s linear infinite; opacity: .2; }
-.si-sq1 { width: 80px; height: 80px; background: var(--si-yellow); top: 55%; left: 4%; transform: rotate(25deg); opacity: .1; }
-.si-sq2 { width: 50px; height: 50px; border: 4px solid var(--si-pink); bottom: 35%; right: 5%; transform: rotate(45deg); animation: si-spin 14s linear infinite; opacity: .25; }
-.si-zig { width: 140px; height: 6px; position: absolute; top: 15%; right: 22%; background: repeating-linear-gradient(90deg, var(--si-teal) 0 10px, transparent 10px 20px); transform: rotate(-12deg); opacity: .25; }
-.si-zig2 { width: 100px; height: 6px; position: absolute; bottom: 18%; left: 22%; background: repeating-linear-gradient(90deg, var(--si-yellow) 0 8px, transparent 8px 16px); transform: rotate(8deg); opacity: .2; }
-.si-squig { width: 90px; height: 45px; border: 5px solid var(--si-pink); border-bottom: none; border-radius: 45px 45px 0 0; position: absolute; top: 12%; right: 35%; animation: si-bounce 3s ease-in-out infinite; opacity: .2; }
-
-@keyframes si-spin { to { transform: rotate(360deg); } }
-@keyframes si-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-22px); } }
-@keyframes si-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-
-/* Hero content */
-.si-hero-content { position: relative; z-index: 2; max-width: 650px; display: flex; flex-direction: column; align-items: center; }
-
-.si-hero-badge {
-  font-family: var(--si-body); font-size: 11px; font-weight: 700; letter-spacing: .25em;
-  text-transform: uppercase; color: var(--si-yellow); margin-bottom: 32px;
-  padding: 8px 24px; border: 2px solid rgba(255,206,92,.3); display: inline-block;
-}
-
-/* Logo with dashed ring */
-.si-hero-logo {
-  position: relative; width: clamp(150px, 26vw, 220px); height: clamp(150px, 26vw, 220px);
-  margin: 0 auto 28px; display: flex; align-items: center; justify-content: center;
-}
-.si-logo-ring {
-  position: absolute; inset: -16px; border-radius: 50%;
-  border: 5px dashed var(--si-pink); animation: si-spin 25s linear infinite;
-}
-.si-logo-ring2 {
-  position: absolute; inset: -6px; border-radius: 50%;
-  border: 3px solid var(--si-yellow); opacity: .5;
-}
-.si-logo-img {
-  width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-  border: 4px solid var(--si-yellow);
-  box-shadow: 0 0 30px rgba(255,113,206,.3), 6px 6px 0 var(--si-pink);
-}
-
-.si-hero-h1 {
-  font-family: var(--si-head); font-size: clamp(64px, 14vw, 130px); font-weight: 800;
-  letter-spacing: .06em; text-transform: uppercase; line-height: .88; margin: 0 0 20px;
-  color: var(--si-white);
-  text-shadow: 4px 4px 0 var(--si-pink), 8px 8px 0 var(--si-yellow);
-}
-
-.si-hero-sub {
-  font-family: var(--si-body); font-size: 15px; font-weight: 400;
-  line-height: 1.8; color: rgba(255,255,255,.4); margin: 0 0 36px; max-width: 440px;
-}
-
-.si-hero-actions { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
-
-/* Memphis button */
-.si-btn-mem {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--si-pink); color: var(--si-bg); font-family: var(--si-head); font-size: 14px;
-  font-weight: 700; text-transform: uppercase; letter-spacing: .1em; text-decoration: none;
-  padding: 16px 34px; border: 3px solid var(--si-yellow); cursor: pointer;
-  box-shadow: 5px 5px 0 var(--si-yellow); transition: all .15s;
-}
-.si-btn-mem:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 var(--si-yellow); background: var(--si-yellow); color: var(--si-bg); }
-
-.si-stats { display: flex; align-items: center; gap: 18px; }
-.si-stat { display: flex; flex-direction: column; gap: 2px; align-items: center; }
-.si-stat-n { font-family: var(--si-head); font-size: 20px; font-weight: 800; color: var(--si-yellow); }
-.si-stat-l { font-family: var(--si-mono); font-size: 8px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,206,92,.35); }
-.si-stat-sep { width: 2px; height: 24px; background: rgba(255,113,206,.2); }
-
-/* ---- TICKER ---- */
-.si-ticker {
-  background: var(--si-pink); padding: 14px 0; overflow: hidden; white-space: nowrap;
-  border-top: 3px solid var(--si-yellow); border-bottom: 3px solid var(--si-yellow);
-}
-.si-ticker-track { display: flex; width: max-content; animation: si-tick 28s linear infinite; }
-.si-ticker-set {
-  display: flex; align-items: center; gap: 24px; padding-right: 24px; flex-shrink: 0;
-  font-family: var(--si-head); font-size: 16px; font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--si-bg);
-}
-.si-tsep { font-size: 10px; color: var(--si-yellow); }
-@keyframes si-tick { to { transform: translateX(-50%); } }
-
-/* ---- STORY ---- */
-.si-story { display: grid; grid-template-columns: 1fr 1.4fr; min-height: 520px; background: var(--si-deep); }
-@media(max-width:900px) { .si-story { grid-template-columns: 1fr; } }
-
-.si-story-visual {
-  position: relative; display: flex; align-items: center; justify-content: center;
-  padding: 60px; overflow: hidden; border-right: 3px solid rgba(255,113,206,.15);
-}
-@media(max-width:900px) { .si-story-visual { min-height: 320px; border-right: none; border-bottom: 3px solid rgba(255,113,206,.15); } }
-.si-story-dots {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(var(--si-pink) 1.5px, transparent 1.5px);
-  background-size: 28px 28px; opacity: .04;
-}
-.si-big-text {
-  position: absolute; font-family: var(--si-head); font-size: clamp(100px, 18vw, 200px);
-  font-weight: 800; text-transform: uppercase; color: rgba(255,113,206,.04); letter-spacing: -.02em;
-  pointer-events: none;
-}
-.si-story-logo-wrap {
-  position: relative; z-index: 2; display: flex; align-items: center; justify-content: center;
-}
-.si-story-ring {
-  position: absolute; inset: -12px; border-radius: 50%;
-  border: 4px dashed var(--si-pink); animation: si-spin 20s linear infinite reverse;
-  opacity: .5;
-}
-.si-story-logo {
-  width: clamp(140px, 24vw, 200px); height: clamp(140px, 24vw, 200px); border-radius: 50%;
-  object-fit: cover; border: 3px solid var(--si-yellow);
-  box-shadow: 0 0 25px rgba(255,113,206,.25), 4px 4px 0 var(--si-pink);
-}
-
-.si-story-text { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
-@media(max-width:768px) { .si-story-text { padding: 48px 24px; } }
-
-.si-eyebrow { font-family: var(--si-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--si-yellow); }
-.si-story-h2 {
-  font-family: var(--si-head); font-size: clamp(36px, 5.5vw, 60px); font-weight: 800;
-  text-transform: uppercase; line-height: 1; margin: 0; color: var(--si-white);
-}
-.si-story-h2 em { font-style: normal; color: var(--si-pink); }
-.si-story-p { font-family: var(--si-body); font-size: 15px; line-height: 1.85; color: rgba(255,255,255,.4); max-width: 460px; }
-.si-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.si-tag {
-  font-family: var(--si-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
-  padding: 8px 16px; border: 2px solid rgba(255,113,206,.25); color: var(--si-pink);
-  transition: all .2s; cursor: default;
-}
-.si-tag:hover { background: var(--si-pink); color: var(--si-bg); border-color: var(--si-pink); box-shadow: 3px 3px 0 var(--si-yellow); }
-
-/* ---- MANIFESTO ---- */
-.si-manifesto {
-  background: var(--si-pink); padding: 100px 40px; text-align: center; position: relative; overflow: hidden;
-}
-@media(max-width:768px) { .si-manifesto { padding: 60px 20px; } }
-.si-mani-shapes { position: absolute; inset: 0; pointer-events: none; }
-.si-ms1 { width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 70px solid var(--si-yellow); top: 10%; left: 5%; opacity: .2; animation: si-spin 18s linear infinite; }
-.si-ms2 { width: 60px; height: 60px; border-radius: 50%; border: 4px solid var(--si-bg); bottom: 15%; right: 8%; opacity: .15; animation: si-float 6s ease-in-out infinite; }
-.si-mani-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 2; }
-.si-mani-diamond { font-size: 20px; color: var(--si-bg); margin-bottom: 24px; }
-.si-quote {
-  font-family: var(--si-head); font-size: clamp(22px, 3.5vw, 34px); font-weight: 600;
-  line-height: 1.55; color: var(--si-bg); margin: 0;
-}
-.si-quote em { font-style: normal; color: var(--si-white); text-shadow: 2px 2px 0 rgba(0,0,0,.1); }
-.si-mani-line { width: 80px; height: 3px; background: var(--si-bg); margin: 28px auto; }
-.si-mani-attr { font-family: var(--si-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(26,10,30,.4); }
-
-/* ---- SHOP ---- */
-.si-shop { background: var(--si-bg); padding: 80px 60px; }
-@media(max-width:768px) { .si-shop { padding: 48px 20px; } }
-.si-shop-inner { max-width: 1200px; margin: 0 auto; }
-.si-shop-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 48px; }
-@media(max-width:768px) { .si-shop-head { grid-template-columns: 1fr; } }
-.si-eyebrow-sm { font-family: var(--si-mono); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--si-yellow); }
-.si-shop-h2 {
-  font-family: var(--si-head); font-size: clamp(36px, 5vw, 56px); font-weight: 800;
-  text-transform: uppercase; line-height: 1; margin: 6px 0 0; color: var(--si-white);
-}
-.si-shop-desc { font-family: var(--si-body); font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.35); }
-.si-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
-.si-filter {
-  font-family: var(--si-head); font-size: 12px; text-transform: uppercase;
-  padding: 8px 18px; border: 2px solid rgba(255,113,206,.3); background: transparent;
-  color: var(--si-white); cursor: pointer; transition: all .2s;
-}
-.si-filter:hover, .si-filter.active {
-  background: var(--si-pink); color: var(--si-bg); border-color: var(--si-pink);
-  box-shadow: 3px 3px 0 var(--si-yellow);
-}
-
-.si-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-.si-prod { text-decoration: none; color: inherit; cursor: pointer; transition: transform .2s; }
-.si-prod:hover { transform: translate(-3px,-3px); }
-.si-prod-img {
-  position: relative; overflow: hidden; background: var(--si-deep); aspect-ratio: 1;
-  border: 2px solid rgba(255,113,206,.1);
-}
-.si-prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
-.si-prod:hover .si-prod-img img { transform: scale(1.08); }
-.si-prod-hover {
-  position: absolute; inset: 0; background: rgba(255,113,206,.85);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--si-head); font-size: 14px; text-transform: uppercase; font-weight: 700;
-  color: var(--si-bg); opacity: 0; transition: opacity .2s;
-}
-.si-prod:hover .si-prod-hover { opacity: 1; }
-.si-no-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--si-head); font-size: 28px; color: rgba(255,113,206,.1); font-weight: 800; letter-spacing: .15em; }
-.si-sale {
-  position: absolute; top: 10px; right: 10px;
-  font-family: var(--si-head); font-size: 11px; font-weight: 700;
-  background: var(--si-yellow); color: var(--si-bg); padding: 4px 12px;
-  box-shadow: 2px 2px 0 var(--si-pink);
-}
-.si-prod-info { padding: 14px 4px; }
-.si-prod-type { font-family: var(--si-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--si-pink); }
-.si-prod-name { font-family: var(--si-head); font-size: 15px; font-weight: 600; color: var(--si-white); margin: 6px 0 4px; }
-.si-prod-price { font-family: var(--si-mono); font-size: 13px; color: var(--si-yellow); }
-.si-empty { grid-column: 1/-1; padding: 80px; text-align: center; font-family: var(--si-mono); font-size: 12px; letter-spacing: .12em; color: rgba(255,113,206,.25); text-transform: uppercase; }
-
-/* ---- CLOSING ---- */
-.si-closing {
-  position: relative; background: var(--si-deep); padding: 120px 40px; text-align: center; overflow: hidden;
-}
-@media(max-width:768px) { .si-closing { padding: 80px 20px; } }
-.si-closing-deco { position: absolute; inset: 0; pointer-events: none; }
-.si-ct1 { width: 0; height: 0; border-left: 45px solid transparent; border-right: 45px solid transparent; border-bottom: 78px solid var(--si-pink); top: 10%; right: 10%; opacity: .1; animation: si-spin 22s linear infinite; }
-.si-ct2 { width: 80px; height: 80px; border-radius: 50%; border: 4px solid var(--si-teal); bottom: 15%; left: 8%; opacity: .1; animation: si-float 8s ease-in-out infinite; }
-.si-closing-inner { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-
-.si-closing-logo {
-  position: relative; width: 130px; height: 130px; margin-bottom: 28px;
-  display: flex; align-items: center; justify-content: center;
-}
-.si-cl-ring {
-  position: absolute; inset: -10px; border-radius: 50%;
-  border: 4px dashed var(--si-pink); animation: si-spin 18s linear infinite;
-  opacity: .6;
-}
-.si-closing-logo img {
-  width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-  border: 3px solid var(--si-yellow);
-  box-shadow: 0 0 25px rgba(255,113,206,.3), 4px 4px 0 var(--si-pink);
-}
-.si-closing-h2 {
-  font-family: var(--si-head); font-size: clamp(40px, 7vw, 72px); font-weight: 800;
-  text-transform: uppercase; line-height: .95; color: var(--si-white); margin: 0 0 16px;
-  text-shadow: 3px 3px 0 var(--si-pink);
-}
-.si-closing-h2 em {
-  font-style: normal;
-  background: linear-gradient(135deg, var(--si-pink), var(--si-yellow), var(--si-teal));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.si-closing-inner p { font-family: var(--si-body); font-size: 15px; color: rgba(255,255,255,.35); margin: 0 0 32px; }
-
-/* ---- REDUCED MOTION ---- */
-@media(prefers-reduced-motion:reduce) {
-  .si-shape,.si-squig,.si-logo-ring,.si-cl-ring,.si-story-ring,.si-ticker-track { animation: none !important; }
-  .si-prod:hover { transform: none; }
-}
-</style>
-
-<!-- SCRIPTS — Motion.dev -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Filter buttons
   var fBtns = document.querySelectorAll('.si-filter');
   var cards = document.querySelectorAll('.si-prod');
   fBtns.forEach(function(b) {
@@ -502,33 +995,49 @@ document.addEventListener('DOMContentLoaded', function() {
       var f = this.dataset.filter;
       fBtns.forEach(function(x) { x.classList.remove('active'); });
       this.classList.add('active');
-      cards.forEach(function(c) { c.style.display = (f === 'all' || c.dataset.filter === f) ? '' : 'none'; });
+      cards.forEach(function(c) {
+        c.style.display = (f === 'all' || c.dataset.filter === f) ? '' : 'none';
+      });
     });
   });
+
+  // Motion.dev animations
   if (window.Motion) {
     var M = window.Motion;
-    M.animate('.si-hero-badge', { opacity: [0,1], y: [-15,0] }, { duration: .5, delay: .2 });
-    M.animate('.si-hero-logo', { opacity: [0,1], scale: [.4,1], rotate: ['-120deg','0deg'] }, { duration: 1, delay: .4, easing: [.22,1,.36,1] });
-    M.animate('.si-hero-h1', { opacity: [0,1], x: [-60,0] }, { duration: .7, delay: .7, easing: [.22,1,.36,1] });
-    M.animate('.si-hero-sub', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: 1 });
-    M.animate('.si-hero-actions', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: 1.2 });
+    M.animate('.si-hero-tagline', { opacity: [0,1], y: [-15,0] }, { duration: .5, delay: .2 });
+    M.animate('.si-hero-rainbow-line', { opacity: [0,1], scaleX: [0,1] }, { duration: .6, delay: .4 });
+    M.animate('.si-hero-h1 .si-w1', { opacity: [0,1], x: [-60,0] }, { duration: .7, delay: .5, easing: [.22,1,.36,1] });
+    M.animate('.si-hero-h1 .si-w2', { opacity: [0,1], x: [-60,0] }, { duration: .7, delay: .65, easing: [.22,1,.36,1] });
+    M.animate('.si-hero-desc', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: .8 });
+    M.animate('.si-btn-cta', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: 1 });
+    M.animate('.si-hero-stats', { opacity: [0,1], y: [15,0] }, { duration: .5, delay: 1.2 });
+    M.animate('.si-hero-character', { opacity: [0,1], x: [80,0] }, { duration: 1, delay: .3, easing: [.22,1,.36,1] });
+    M.animate('.si-power-badge', { opacity: [0,1], scale: [0,1] }, { duration: .6, delay: 1.4 });
+
+    M.inView('.si-values', function() {
+      M.animate('.si-value', { opacity: [0,1], y: [20,0] }, { delay: M.stagger(.1), duration: .5, easing: [.22,1,.36,1] });
+    }, { margin: '-10% 0px' });
+
     M.inView('.si-story-visual', function() {
       M.animate('.si-story-logo-wrap', { opacity: [0,1], scale: [.5,1], rotate: ['-180deg','0deg'] }, { duration: 1, easing: [.22,1,.36,1] });
     }, { margin: '-10% 0px' });
     M.inView('.si-story-text', function() {
       M.animate('.si-story-text > *', { opacity: [0,1], x: [30,0] }, { delay: M.stagger(.1), duration: .5, easing: [.22,1,.36,1] });
     }, { margin: '-10% 0px' });
+
     M.inView('.si-mani-inner', function() {
       M.animate('.si-mani-diamond', { opacity: [0,1], scale: [0,1] }, { duration: .4 });
       M.animate('.si-quote', { opacity: [0,1], y: [25,0] }, { duration: .7, delay: .2, easing: [.22,1,.36,1] });
     }, { margin: '-10% 0px' });
+
     document.querySelectorAll('.si-prod').forEach(function(c) {
       M.inView(c, function() { M.animate(c, { opacity: [0,1], y: [20,0] }, { duration: .4, easing: [.22,1,.36,1] }); }, { margin: '-5% 0px' });
     });
+
     M.inView('.si-closing-inner', function() {
       M.animate('.si-closing-logo', { opacity: [0,1], scale: [.4,1], rotate: ['-90deg','0deg'] }, { duration: .8, easing: [.22,1,.36,1] });
       M.animate('.si-closing-h2', { opacity: [0,1], y: [30,0] }, { duration: .7, delay: .2, easing: [.22,1,.36,1] });
-      M.animate('.si-closing-inner .si-btn-mem', { opacity: [0,1], y: [15,0] }, { duration: .5, delay: .5 });
+      M.animate('.si-closing-inner .si-btn-cta', { opacity: [0,1], y: [15,0] }, { duration: .5, delay: .5 });
     }, { margin: '-10% 0px' });
   }
 });
