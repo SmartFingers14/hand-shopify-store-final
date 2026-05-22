@@ -1,1005 +1,555 @@
-{% comment %} Funky Dog Brand Page - Retro Funk / Street Pop Art Vibes {% endcomment %}
-
-<style>
-  /* ===== FUNKY DOG BRAND PAGE ===== */
-  .fd-page {
-    background: #0a0a0a;
-    color: #fff;
-    font-family: 'Arial Black', 'Impact', sans-serif;
-    overflow-x: hidden;
-  }
-
-  /* ===== HERO ===== */
-  .fd-hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: #0a0a0a;
-  }
-
-  /* Halftone dot pattern background */
-  .fd-hero-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle, #ff6b00 1.5px, transparent 1.5px),
-      radial-gradient(circle, #ff6b00 1px, transparent 1px);
-    background-size: 40px 40px, 20px 20px;
-    background-position: 0 0, 10px 10px;
-    opacity: 0.08;
-    animation: fd-dots-drift 20s linear infinite;
-  }
-
-  @keyframes fd-dots-drift {
-    0% { background-position: 0 0, 10px 10px; }
-    100% { background-position: 40px 40px, 50px 50px; }
-  }
-
-  /* Diagonal stripe accent */
-  .fd-hero-stripes {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 30px,
-      rgba(255, 107, 0, 0.04) 30px,
-      rgba(255, 107, 0, 0.04) 60px
-    );
-  }
-
-  /* Glowing orbs */
-  .fd-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    animation: fd-orb-pulse 4s ease-in-out infinite alternate;
-  }
-  .fd-orb-1 {
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(255,107,0,0.25), transparent 70%);
-    top: -100px; left: -100px;
-    animation-delay: 0s;
-  }
-  .fd-orb-2 {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(255,220,0,0.2), transparent 70%);
-    bottom: -80px; right: -80px;
-    animation-delay: 2s;
-  }
-  .fd-orb-3 {
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(255,0,100,0.15), transparent 70%);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    animation-delay: 1s;
-  }
-
-  @keyframes fd-orb-pulse {
-    0% { opacity: 0.6; transform: scale(1); }
-    100% { opacity: 1; transform: scale(1.15); }
-  }
-
-  .fd-hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 40px 20px;
-  }
-
-  /* Paw print icon */
-  .fd-paw-icon {
-    font-size: 60px;
-    margin-bottom: 20px;
-    display: block;
-    animation: fd-paw-bounce 2s ease-in-out infinite;
-    filter: drop-shadow(0 0 20px rgba(255,107,0,0.8));
-  }
-
-  @keyframes fd-paw-bounce {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-15px) rotate(5deg); }
-  }
-
-  .fd-hero-eyebrow {
-    font-size: 13px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: #ff6b00;
-    margin-bottom: 16px;
-    font-family: 'Arial', sans-serif;
-    font-weight: 700;
-  }
-
-  .fd-hero-title {
-    font-size: clamp(72px, 14vw, 160px);
-    font-weight: 900;
-    line-height: 0.85;
-    text-transform: uppercase;
-    margin: 0 0 10px;
-    position: relative;
-  }
-
-  .fd-title-funky {
-    display: block;
-    color: #ff6b00;
-    text-shadow:
-      4px 4px 0 #cc4400,
-      8px 8px 0 rgba(255,107,0,0.3);
-    animation: fd-title-shake 6s ease-in-out infinite;
-  }
-
-  .fd-title-dog {
-    display: block;
-    color: #ffd700;
-    text-shadow:
-      4px 4px 0 #cc9900,
-      8px 8px 0 rgba(255,215,0,0.3);
-    animation: fd-title-shake 6s ease-in-out infinite reverse;
-  }
-
-  @keyframes fd-title-shake {
-    0%, 100% { transform: skewX(0deg); }
-    25% { transform: skewX(-1deg); }
-    75% { transform: skewX(1deg); }
-  }
-
-  .fd-hero-tagline {
-    font-size: clamp(14px, 2.5vw, 20px);
-    color: rgba(255,255,255,0.7);
-    font-family: 'Arial', sans-serif;
-    font-weight: 400;
-    font-style: italic;
-    margin: 20px 0 40px;
-    letter-spacing: 2px;
-  }
-
-  .fd-hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #ff6b00;
-    color: #000;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 18px 40px;
-    border: 3px solid #ff6b00;
-    position: relative;
-    transition: all 0.2s;
-    box-shadow: 6px 6px 0 #cc4400;
-  }
-
-  .fd-hero-cta:hover {
-    background: #000;
-    color: #ff6b00;
-    transform: translate(-3px, -3px);
-    box-shadow: 9px 9px 0 #cc4400;
-  }
-
-  /* ===== TICKER ===== */
-  .fd-ticker {
-    background: #ff6b00;
-    padding: 14px 0;
-    overflow: hidden;
-    border-top: 3px solid #ffd700;
-    border-bottom: 3px solid #ffd700;
-  }
-
-  .fd-ticker-track {
-    display: flex;
-    gap: 0;
-    animation: fd-ticker-scroll 25s linear infinite;
-    white-space: nowrap;
-  }
-
-  @keyframes fd-ticker-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  .fd-ticker-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 20px;
-    padding: 0 30px;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #000;
-    font-family: 'Arial Black', sans-serif;
-  }
-
-  .fd-ticker-dot {
-    width: 8px;
-    height: 8px;
-    background: #000;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* ===== STORY SECTION ===== */
-  .fd-story {
-    padding: 100px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  @media (max-width: 768px) {
-    .fd-story { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
-  }
-
-  .fd-story-visual {
-    position: relative;
-  }
-
-  /* Vinyl record graphic */
-  .fd-vinyl {
-    width: 100%;
-    max-width: 380px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: conic-gradient(
-      #1a1a1a 0deg,
-      #2a2a2a 10deg,
-      #1a1a1a 20deg,
-      #2a2a2a 30deg,
-      #1a1a1a 40deg,
-      #2a2a2a 50deg,
-      #1a1a1a 60deg,
-      #2a2a2a 70deg,
-      #1a1a1a 80deg,
-      #2a2a2a 90deg,
-      #1a1a1a 100deg,
-      #2a2a2a 110deg,
-      #1a1a1a 120deg,
-      #2a2a2a 130deg,
-      #1a1a1a 140deg,
-      #2a2a2a 150deg,
-      #1a1a1a 160deg,
-      #2a2a2a 170deg,
-      #1a1a1a 180deg,
-      #2a2a2a 190deg,
-      #1a1a1a 200deg,
-      #2a2a2a 210deg,
-      #1a1a1a 220deg,
-      #2a2a2a 230deg,
-      #1a1a1a 240deg,
-      #2a2a2a 250deg,
-      #1a1a1a 260deg,
-      #2a2a2a 270deg,
-      #1a1a1a 280deg,
-      #2a2a2a 290deg,
-      #1a1a1a 300deg,
-      #2a2a2a 310deg,
-      #1a1a1a 320deg,
-      #2a2a2a 330deg,
-      #1a1a1a 340deg,
-      #2a2a2a 350deg,
-      #1a1a1a 360deg
-    );
-    box-shadow:
-      0 0 0 4px #333,
-      0 0 0 8px #1a1a1a,
-      0 0 60px rgba(255,107,0,0.4),
-      0 0 120px rgba(255,107,0,0.2);
-    animation: fd-vinyl-spin 8s linear infinite;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .fd-vinyl::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 35%;
-    height: 35%;
-    border-radius: 50%;
-    background: radial-gradient(circle, #ff6b00 0%, #cc4400 40%, #1a1a1a 70%);
-    box-shadow: 0 0 20px rgba(255,107,0,0.6);
-  }
-
-  @keyframes fd-vinyl-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  .fd-vinyl-label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    text-align: center;
-    pointer-events: none;
-  }
-
-  .fd-story-text {}
-
-  .fd-story-label {
-    font-size: 11px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: #ff6b00;
-    font-family: 'Arial', sans-serif;
-    font-weight: 700;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .fd-story-label::before {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 2px;
-    background: #ff6b00;
-  }
-
-  .fd-story-heading {
-    font-size: clamp(36px, 5vw, 56px);
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 1;
-    margin: 0 0 24px;
-    color: #fff;
-  }
-
-  .fd-story-heading span {
-    color: #ff6b00;
-  }
-
-  .fd-story-body {
-    font-size: 16px;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.7);
-    font-family: 'Arial', sans-serif;
-    font-weight: 400;
-    margin-bottom: 32px;
-  }
-
-  .fd-story-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 40px;
-    padding-top: 40px;
-    border-top: 1px solid rgba(255,107,0,0.3);
-  }
-
-  .fd-stat {
-    text-align: center;
-  }
-
-  .fd-stat-num {
-    font-size: 36px;
-    font-weight: 900;
-    color: #ff6b00;
-    display: block;
-    line-height: 1;
-  }
-
-  .fd-stat-label {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    font-family: 'Arial', sans-serif;
-    margin-top: 6px;
-    display: block;
-  }
-
-  /* ===== DESIGN SERIES ===== */
-  .fd-series {
-    padding: 80px 40px;
-    background: #111;
-    border-top: 1px solid rgba(255,107,0,0.2);
-    border-bottom: 1px solid rgba(255,107,0,0.2);
-  }
-
-  .fd-section-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .fd-section-label {
-    font-size: 11px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: #ff6b00;
-    font-family: 'Arial', sans-serif;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-
-  .fd-section-title {
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #fff;
-    margin: 0;
-  }
-
-  .fd-section-title span { color: #ff6b00; }
-
-  .fd-series-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .fd-series-card {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
-    cursor: pointer;
-    background: #1a1a1a;
-  }
-
-  .fd-series-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,107,0,0.15) 0%, transparent 60%);
-    z-index: 1;
-    transition: opacity 0.3s;
-  }
-
-  .fd-series-card:hover::before {
-    opacity: 0;
-  }
-
-  .fd-series-card-inner {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    z-index: 2;
-    transition: transform 0.3s;
-  }
-
-  .fd-series-card:hover .fd-series-card-inner {
-    transform: scale(1.05);
-  }
-
-  .fd-series-emoji {
-    font-size: 48px;
-    margin-bottom: 16px;
-    filter: drop-shadow(0 0 10px rgba(255,107,0,0.5));
-  }
-
-  .fd-series-name {
-    font-size: 18px;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-  }
-
-  .fd-series-sub {
-    font-size: 11px;
-    color: #ff6b00;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-family: 'Arial', sans-serif;
-    margin-top: 6px;
-    text-align: center;
-  }
-
-  .fd-series-card-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.5s;
-    filter: brightness(0.4);
-  }
-
-  .fd-series-card:hover .fd-series-card-bg {
-    transform: scale(1.1);
-    filter: brightness(0.3);
-  }
-
-  /* Card color accents */
-  .fd-series-card:nth-child(1) { border-bottom: 3px solid #ff6b00; }
-  .fd-series-card:nth-child(2) { border-bottom: 3px solid #ffd700; }
-  .fd-series-card:nth-child(3) { border-bottom: 3px solid #ff0064; }
-  .fd-series-card:nth-child(4) { border-bottom: 3px solid #00d4ff; }
-  .fd-series-card:nth-child(5) { border-bottom: 3px solid #ff6b00; }
-
-  /* ===== PRODUCTS GRID ===== */
-  .fd-products {
-    padding: 100px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 768px) {
-    .fd-products { padding: 60px 20px; }
-  }
-
-  .fd-products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 24px;
-    margin-top: 60px;
-  }
-
-  .fd-product-card {
-    background: #111;
-    border: 1px solid rgba(255,107,0,0.15);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-
-  .fd-product-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #ff6b00, #ffd700, #ff0064);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-
-  .fd-product-card:hover::before {
-    transform: scaleX(1);
-  }
-
-  .fd-product-card:hover {
-    border-color: rgba(255,107,0,0.5);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(255,107,0,0.15);
-  }
-
-  .fd-product-img-wrap {
-    aspect-ratio: 1;
-    overflow: hidden;
-    background: #1a1a1a;
-    position: relative;
-  }
-
-  .fd-product-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-  }
-
-  .fd-product-card:hover .fd-product-img-wrap img {
-    transform: scale(1.08);
-  }
-
-  .fd-product-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #ff6b00;
-    color: #000;
-    font-size: 9px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    font-family: 'Arial Black', sans-serif;
-  }
-
-  .fd-product-info {
-    padding: 16px 20px 20px;
-  }
-
-  .fd-product-name {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #fff;
-    margin: 0 0 8px;
-    line-height: 1.3;
-    font-family: 'Arial', sans-serif;
-  }
-
-  .fd-product-price {
-    font-size: 16px;
-    font-weight: 900;
-    color: #ff6b00;
-  }
-
-  .fd-product-cta {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    background: transparent;
-    border-top: 1px solid rgba(255,107,0,0.2);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    transition: all 0.2s;
-    font-family: 'Arial', sans-serif;
-  }
-
-  .fd-product-card:hover .fd-product-cta {
-    background: #ff6b00;
-    color: #000;
-    border-color: #ff6b00;
-  }
-
-  /* ===== CLOSING CTA ===== */
-  .fd-closing {
-    padding: 120px 40px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background: #0a0a0a;
-  }
-
-  .fd-closing-bg {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 20px,
-      rgba(255,107,0,0.03) 20px,
-      rgba(255,107,0,0.03) 40px
-    );
-  }
-
-  /* Bouncing paw prints */
-  .fd-paw-float {
-    position: absolute;
-    font-size: 24px;
-    opacity: 0.1;
-    animation: fd-paw-float 6s ease-in-out infinite;
-  }
-  .fd-paw-float:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-  .fd-paw-float:nth-child(2) { top: 20%; right: 8%; animation-delay: 1s; }
-  .fd-paw-float:nth-child(3) { bottom: 15%; left: 10%; animation-delay: 2s; }
-  .fd-paw-float:nth-child(4) { bottom: 25%; right: 5%; animation-delay: 3s; }
-  .fd-paw-float:nth-child(5) { top: 50%; left: 2%; animation-delay: 1.5s; }
-  .fd-paw-float:nth-child(6) { top: 40%; right: 3%; animation-delay: 2.5s; }
-
-  @keyframes fd-paw-float {
-    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
-    50% { transform: translateY(-20px) rotate(15deg); opacity: 0.2; }
-  }
-
-  .fd-closing-content {
-    position: relative;
-    z-index: 2;
-  }
-
-  .fd-closing-title {
-    font-size: clamp(40px, 8vw, 90px);
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 0.9;
-    margin: 0 0 30px;
-  }
-
-  .fd-closing-title .line1 { color: #ff6b00; display: block; }
-  .fd-closing-title .line2 { color: #ffd700; display: block; }
-  .fd-closing-title .line3 { color: #fff; display: block; font-size: 0.5em; letter-spacing: 8px; }
-
-  .fd-closing-sub {
-    font-size: 16px;
-    color: rgba(255,255,255,0.5);
-    font-family: 'Arial', sans-serif;
-    font-weight: 400;
-    margin-bottom: 50px;
-    font-style: italic;
-  }
-
-  .fd-closing-btns {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .fd-btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #ff6b00;
-    color: #000;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 18px 40px;
-    border: 3px solid #ff6b00;
-    box-shadow: 5px 5px 0 #cc4400;
-    transition: all 0.2s;
-    font-family: 'Arial Black', sans-serif;
-  }
-
-  .fd-btn-primary:hover {
-    background: #000;
-    color: #ff6b00;
-    transform: translate(-3px, -3px);
-    box-shadow: 8px 8px 0 #cc4400;
-  }
-
-  .fd-btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: transparent;
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 18px 40px;
-    border: 3px solid rgba(255,255,255,0.3);
-    transition: all 0.2s;
-    font-family: 'Arial Black', sans-serif;
-  }
-
-  .fd-btn-secondary:hover {
-    border-color: #ffd700;
-    color: #ffd700;
-  }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 768px) {
-    .fd-series { padding: 60px 20px; }
-    .fd-series-grid { grid-template-columns: repeat(2, 1fr); }
-    .fd-products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .fd-closing { padding: 80px 20px; }
-    .fd-story-stats { grid-template-columns: repeat(3, 1fr); }
-  }
-
-  @media (max-width: 480px) {
-    .fd-products-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-    .fd-series-grid { grid-template-columns: 1fr 1fr; }
-  }
-</style>
+{% comment %}
+  Brand Page: FUNKY DOG
+  Playful music & lifestyle brand. Rhythm, vinyl culture, individuality.
+  Expressive · Funky · Collectible · Creative
+{% endcomment %}
+
+{%- assign fd_col = collections['funky-dog'] -%}
+{%- if fd_col == blank or fd_col.products_count == 0 -%}
+  {%- assign fd_col = collections['funky-dog-1'] -%}
+{%- endif -%}
 
 <div class="fd-page">
 
-  <!-- ===== HERO ===== -->
-  <section class="fd-hero">
-    <div class="fd-hero-bg"></div>
-    <div class="fd-hero-stripes"></div>
-    <div class="fd-orb fd-orb-1"></div>
-    <div class="fd-orb fd-orb-2"></div>
-    <div class="fd-orb fd-orb-3"></div>
+<!-- ============================================================
+     HERO — Vinyl record meets street funk
+     ============================================================ -->
+<section class="fd-hero" id="fd-top">
+  <!-- Bouncing vinyl grooves -->
+  <div class="fd-grooves" aria-hidden="true">
+    <div class="fd-groove fd-g1"></div>
+    <div class="fd-groove fd-g2"></div>
+    <div class="fd-groove fd-g3"></div>
+    <div class="fd-groove fd-g4"></div>
+    <div class="fd-groove fd-g5"></div>
+  </div>
 
-    <div class="fd-hero-content">
-      <span class="fd-paw-icon">🐾</span>
-      <p class="fd-hero-eyebrow">Est. London &bull; Funk &bull; Street &bull; Soul</p>
-      <h1 class="fd-hero-title">
-        <span class="fd-title-funky">Funky</span>
-        <span class="fd-title-dog">Dog</span>
-      </h1>
-      <p class="fd-hero-tagline">"May The Funk Be With You"</p>
-      <a href="#fd-products" class="fd-hero-cta">
-        Shop The Collection
-        <span>&#8595;</span>
-      </a>
+  <!-- Floating music notes -->
+  <div class="fd-notes" aria-hidden="true">
+    <span class="fd-note" style="--nx:8%;--ny:20%;--nd:0s">&#9835;</span>
+    <span class="fd-note" style="--nx:92%;--ny:35%;--nd:1s">&#9834;</span>
+    <span class="fd-note" style="--nx:15%;--ny:75%;--nd:2s">&#9833;</span>
+    <span class="fd-note" style="--nx:85%;--ny:80%;--nd:3s">&#9835;</span>
+    <span class="fd-note" style="--nx:50%;--ny:10%;--nd:4s">&#9834;</span>
+    <span class="fd-note" style="--nx:70%;--ny:60%;--nd:5s">&#9833;</span>
+  </div>
+
+  <!-- Halftone dots -->
+  <div class="fd-halftone" aria-hidden="true"></div>
+
+  <div class="fd-hero-content">
+    <div class="fd-hero-badge">
+      <span class="fd-badge-icon">&#9836;</span>
+      <span>Rhythm · Vinyl · Character</span>
     </div>
-  </section>
 
-  <!-- ===== TICKER ===== -->
-  <div class="fd-ticker">
-    <div class="fd-ticker-track">
-      {% assign ticker_items = "ATOMIC DOG,DOGGIE STYLE,MAY THE FUNK BE WITH YOU,MONGREL SOUP,BOMBASTIC,DOG STAR,FUNKY DOG LOGO,90'S CLASSIC,BOOMBASTIC,ATOMIC DOG,DOGGIE STYLE,MAY THE FUNK BE WITH YOU,MONGREL SOUP,BOMBASTIC,DOG STAR,FUNKY DOG LOGO,90'S CLASSIC,BOOMBASTIC" | split: "," %}
-      {% for item in ticker_items %}
-        <span class="fd-ticker-item">
-          <span class="fd-ticker-dot"></span>
-          {{ item }}
-        </span>
-      {% endfor %}
+    <h1 class="fd-hero-h1">
+      <span class="fd-h1-line fd-h1-l1">FUNKY</span>
+      <span class="fd-h1-line fd-h1-l2">DOG</span>
+    </h1>
+
+    <p class="fd-hero-sub">A playful music and lifestyle brand inspired by rhythm, vinyl culture, individuality and character. Expressive, funky, collectible.</p>
+
+    <div class="fd-hero-actions">
+      <a class="fd-btn-funk" href="#fd-shop">
+        <span class="fd-btn-bounce">&#9836;</span>
+        Shop The Groove
+      </a>
+      <div class="fd-hero-stats">
+        <div class="fd-hs"><span class="fd-hs-n">100%</span><span class="fd-hs-l">Organic</span></div>
+        <div class="fd-hs-sep"></div>
+        <div class="fd-hs"><span class="fd-hs-n">UK</span><span class="fd-hs-l">Printed</span></div>
+        <div class="fd-hs-sep"></div>
+        <div class="fd-hs"><span class="fd-hs-n">220g</span><span class="fd-hs-l">Heavy</span></div>
+      </div>
     </div>
   </div>
 
-  <!-- ===== STORY ===== -->
-  <section class="fd-story">
-    <div class="fd-story-visual">
-      <div class="fd-vinyl"></div>
+  <!-- Spinning vinyl -->
+  <div class="fd-vinyl" aria-hidden="true">
+    <div class="fd-vinyl-disc">
+      <div class="fd-vinyl-label">FD</div>
     </div>
-    <div class="fd-story-text">
-      <p class="fd-story-label">The Story</p>
-      <h2 class="fd-story-heading">Born From <span>The Groove</span></h2>
-      <p class="fd-story-body">
-        Funky Dog is a London-born streetwear brand that lives at the intersection of funk music, street culture, and bold graphic art. Every piece is a love letter to the golden era of funk — raw, unapologetic, and dripping with soul.
-      </p>
-      <p class="fd-story-body">
-        From the Atomic Dog to Mongrel Soup, each design series channels a different frequency of the funk universe. Wear it loud. Wear it proud. Let the groove move you.
-      </p>
-      <div class="fd-story-stats">
-        <div class="fd-stat">
-          <span class="fd-stat-num">37+</span>
-          <span class="fd-stat-label">Pieces</span>
-        </div>
-        <div class="fd-stat">
-          <span class="fd-stat-num">8</span>
-          <span class="fd-stat-label">Series</span>
-        </div>
-        <div class="fd-stat">
-          <span class="fd-stat-num">100%</span>
-          <span class="fd-stat-label">Funk</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== DESIGN SERIES ===== -->
-  <section class="fd-series">
-    <div class="fd-section-header">
-      <p class="fd-section-label">Design Series</p>
-      <h2 class="fd-section-title">The <span>Funk</span> Universe</h2>
+<!-- ============================================================
+     TICKER — Bouncy funk strip
+     ============================================================ -->
+<div class="fd-ticker">
+  <div class="fd-ticker-track">
+    {%- for i in (1..2) -%}
+    <div class="fd-ticker-set">
+      <span>FUNKY DOG</span><span class="fd-tsep">&#9836;</span>
+      <span>ATOMIC DOG</span><span class="fd-tsep">&#9836;</span>
+      <span>MONGREL SOUP</span><span class="fd-tsep">&#9836;</span>
+      <span>VINYL VIBES</span><span class="fd-tsep">&#9836;</span>
+      <span>RHYTHM</span><span class="fd-tsep">&#9836;</span>
+      <span>FUNK NATION</span><span class="fd-tsep">&#9836;</span>
+      <span>COLLECTIBLE</span><span class="fd-tsep">&#9836;</span>
+      <span>GROOVE</span><span class="fd-tsep">&#9836;</span>
     </div>
-    <div class="fd-series-grid">
-      <div class="fd-series-card">
-        <div class="fd-series-card-bg" style="background-image: url('https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-4_1_5d7f8de0-62e7-46f2-a646-bf43dcd39493.png?v=1761125401');"></div>
-        <div class="fd-series-card-inner">
-          <span class="fd-series-emoji">⚛️</span>
-          <span class="fd-series-name">Atomic Dog</span>
-          <span class="fd-series-sub">Bow Wow Wow</span>
-        </div>
-      </div>
-      <div class="fd-series-card">
-        <div class="fd-series-card-bg" style="background-image: url('https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-2_2.png?v=1756670608');"></div>
-        <div class="fd-series-card-inner">
-          <span class="fd-series-emoji">🎸</span>
-          <span class="fd-series-name">Doggie Style</span>
-          <span class="fd-series-sub">Front & Back</span>
-        </div>
-      </div>
-      <div class="fd-series-card">
-        <div class="fd-series-card-bg" style="background-image: url('https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-8_263f43f1-48af-4fa8-aca3-ee62c319a33d.png?v=1761125411');"></div>
-        <div class="fd-series-card-inner">
-          <span class="fd-series-emoji">✨</span>
-          <span class="fd-series-name">May The Funk</span>
-          <span class="fd-series-sub">Be With You</span>
-        </div>
-      </div>
-      <div class="fd-series-card">
-        <div class="fd-series-card-bg" style="background-image: url('https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-9.png?v=1761125381');"></div>
-        <div class="fd-series-card-inner">
-          <span class="fd-series-emoji">🍲</span>
-          <span class="fd-series-name">Mongrel Soup</span>
-          <span class="fd-series-sub">Raw & Uncut</span>
-        </div>
-      </div>
-      <div class="fd-series-card">
-        <div class="fd-series-card-bg" style="background-image: url('https://cdn.shopify.com/s/files/1/0737/7397/3795/files/AFBCE9E0-61FB-4C16-9B10-9239AFA1ED33.jpg?v=1761125428');"></div>
-        <div class="fd-series-card-inner">
-          <span class="fd-series-emoji">💥</span>
-          <span class="fd-series-name">Bombastic</span>
-          <span class="fd-series-sub">Shaggy Vibes</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    {%- endfor -%}
+  </div>
+</div>
 
-  <!-- ===== PRODUCTS ===== -->
-  <section class="fd-products" id="fd-products">
-    <div class="fd-section-header">
-      <p class="fd-section-label">The Collection</p>
-      <h2 class="fd-section-title">Shop <span>Funky Dog</span></h2>
+<!-- ============================================================
+     STORY — Split with vinyl culture vibe
+     ============================================================ -->
+<section class="fd-story">
+  <div class="fd-story-visual">
+    <div class="fd-story-pattern" aria-hidden="true"></div>
+    <div class="fd-big-text" aria-hidden="true">FUNK</div>
+    <div class="fd-story-vinyl-mini">
+      <div class="fd-svm-disc">
+        <div class="fd-svm-hole"></div>
+      </div>
     </div>
-    <div class="fd-products-grid">
-      {% assign fd_collection = collections['funky-dog'] %}
-      {% if fd_collection %}
-        {% for product in fd_collection.products %}
-          <a href="{{ product.url }}" class="fd-product-card">
-            <div class="fd-product-img-wrap">
-              {% if product.featured_image %}
-                <img
-                  src="{{ product.featured_image | image_url: width: 500 }}"
-                  alt="{{ product.title | escape }}"
-                  loading="lazy"
-                  width="500"
-                  height="500"
-                >
-              {% else %}
-                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px;">🐾</div>
-              {% endif %}
-              <span class="fd-product-badge">Funky Dog</span>
-            </div>
-            <div class="fd-product-info">
-              <p class="fd-product-name">{{ product.title | remove: 'FUNKY DOG  - ' | remove: 'FUNKY DOG - ' | remove: 'Funky Dog ' | remove: 'Funky dog ' }}</p>
-              <p class="fd-product-price">£{{ product.price | money_without_currency }}</p>
-            </div>
-            <span class="fd-product-cta">Shop Now &rarr;</span>
-          </a>
-        {% endfor %}
-      {% else %}
-        <!-- Fallback hardcoded products -->
-        {% assign fd_products = "funky-dog-atomic-dog-front-print-t-shirt,funky-dog-tee,funky-dog-music-tee,funky-dog-soup-tee,funky-dog-bombastic-tee,funky-dog-dog-star-tee,funky-dog-atomic-dog-hoodie,funky-dog-funky-dog-logo-hoodie,funky-dog-may-the-funk-be-with-you-hoodie,funky-dog-mongrel-soup-hoodie,funky-dog-atomic-dog-sweatshirt,funky-dog-funky-dog-logo-sweatshirt" | split: "," %}
-        {% assign fd_imgs = "https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-4_1_5d7f8de0-62e7-46f2-a646-bf43dcd39493.png?v=1761125401,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-3_1.png?v=1761125392,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-2_2.png?v=1756670608,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-9.png?v=1761125381,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/AFBCE9E0-61FB-4C16-9B10-9239AFA1ED33.jpg?v=1761125428,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/BFDA79B9-B7F8-44B1-9DAB-73403F27F32C.jpg?v=1761125420,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-33_1_ddf1f9c1-a7a1-4420-a20b-4ca3c02790f1.png?v=1757241619,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-33_1.png?v=1757241418,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-31_d4bd635a-f85e-4390-ac07-82a487391d5b.png?v=1757241437,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-28.png?v=1756670715,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-19_1_194bddd5-8d34-4982-95f3-8c242551afeb.png?v=1756670755,https://cdn.shopify.com/s/files/1/0737/7397/3795/files/FUNKYDOG-19_1.png?v=1756670724" | split: "," %}
-        {% assign fd_titles = "ATOMIC DOG T-Shirt,FUNKY DOG LOGO T-Shirt,DOGGIE STYLE T-Shirt,MONGREL SOUP T-Shirt,BOMBASTIC Tee,DOG STAR Tee,ATOMIC DOG Hoodie,FUNKY DOG LOGO Hoodie,MAY THE FUNK Hoodie,MONGREL SOUP Hoodie,ATOMIC DOG Sweatshirt,FUNKY DOG LOGO Sweatshirt" | split: "," %}
-        {% assign fd_prices = "29.99,29.99,35.00,29.99,30.00,30.00,69.99,69.99,69.99,69.99,42.00,42.00" | split: "," %}
-        {% for handle in fd_products %}
-          {% assign idx = forloop.index0 %}
-          <a href="/products/{{ handle }}" class="fd-product-card">
-            <div class="fd-product-img-wrap">
-              <img src="{{ fd_imgs[idx] }}" alt="{{ fd_titles[idx] }}" loading="lazy" width="500" height="500">
-              <span class="fd-product-badge">Funky Dog</span>
-            </div>
-            <div class="fd-product-info">
-              <p class="fd-product-name">{{ fd_titles[idx] }}</p>
-              <p class="fd-product-price">£{{ fd_prices[idx] }}</p>
-            </div>
-            <span class="fd-product-cta">Shop Now &rarr;</span>
-          </a>
-        {% endfor %}
-      {% endif %}
+  </div>
+  <div class="fd-story-text">
+    <div class="fd-eyebrow">&#9836; The Vibe</div>
+    <h2 class="fd-story-h2">Feel The<br><em>Groove.</em></h2>
+    <p class="fd-story-p">Funky Dog is a playful music and lifestyle brand inspired by rhythm, vinyl culture, individuality and character. Every piece is expressive, funky, collectible and creative — designed to move with you.</p>
+    <div class="fd-tags">
+      <span class="fd-tag">&#9836; Rhythm</span>
+      <span class="fd-tag">&#9836; Vinyl</span>
+      <span class="fd-tag">&#9836; Character</span>
+      <span class="fd-tag">&#9836; Funk</span>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== CLOSING CTA ===== -->
-  <section class="fd-closing">
-    <div class="fd-closing-bg"></div>
-    <span class="fd-paw-float">🐾</span>
-    <span class="fd-paw-float">🐾</span>
-    <span class="fd-paw-float">🐾</span>
-    <span class="fd-paw-float">🐾</span>
-    <span class="fd-paw-float">🐾</span>
-    <span class="fd-paw-float">🐾</span>
-    <div class="fd-closing-content">
-      <h2 class="fd-closing-title">
-        <span class="line1">Feel</span>
-        <span class="line2">The Funk</span>
-        <span class="line3">Funky Dog London</span>
-      </h2>
-      <p class="fd-closing-sub">Street-ready. Funk-approved. London-born.</p>
-      <div class="fd-closing-btns">
-        <a href="/collections/funky-dog" class="fd-btn-primary">
-          🐾 Full Collection
+<!-- ============================================================
+     MANIFESTO — Big statement
+     ============================================================ -->
+<section class="fd-manifesto">
+  <div class="fd-mani-inner">
+    <div class="fd-mani-note">&#9835;</div>
+    <blockquote class="fd-quote">
+      The tone is expressive, the vibe is funky, the character is <em>collectible.</em> Every print tells a story, every tee has a beat.
+    </blockquote>
+    <div class="fd-mani-line"></div>
+    <p class="fd-mani-attr">Rhythm · Vinyl · Individuality</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRODUCTS — Funky grid
+     ============================================================ -->
+<section class="fd-shop" id="fd-shop">
+  <div class="fd-shop-inner">
+    <div class="fd-shop-head">
+      <div>
+        <div class="fd-eyebrow-sm">&#9836; The Collection</div>
+        <h2 class="fd-shop-h2">Drop The Beat.</h2>
+      </div>
+      <div>
+        <p class="fd-shop-desc">Expressive streetwear rooted in rhythm, vinyl culture and individuality. Every piece is a collectible.</p>
+        <div class="fd-filters">
+          <button class="fd-filter active" data-filter="all">All</button>
+          <button class="fd-filter" data-filter="tee">T-Shirts</button>
+          <button class="fd-filter" data-filter="hood">Hoodies</button>
+          <button class="fd-filter" data-filter="acc">Accessories</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="fd-grid">
+      {%- assign fd_count = 0 -%}
+      {%- for product in fd_col.products limit: 500 -%}
+        {%- assign vd = product.vendor | downcase -%}
+        {%- unless vd contains 'funky' -%}{%- continue -%}{%- endunless -%}
+        {%- assign fd_count = fd_count | plus: 1 -%}
+        {%- assign filter_tag = 'acc' -%}
+        {%- assign tl = product.title | downcase -%}
+        {%- if tl contains 'hoodie' or tl contains 'hood' or tl contains 'sweatshirt' or tl contains 'zip' -%}
+          {%- assign filter_tag = 'hood' -%}
+        {%- elsif tl contains 't-shirt' or tl contains 'tee' or tl contains 'long-sleeve' -%}
+          {%- assign filter_tag = 'tee' -%}
+        {%- endif -%}
+        <a class="fd-prod" href="{{ product.url }}" data-filter="{{ filter_tag }}">
+          <div class="fd-prod-img">
+            {%- if product.featured_image -%}
+              <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | default: product.title }}" loading="lazy" width="600" height="600" />
+            {%- else -%}
+              <div class="fd-no-img">&#9836;</div>
+            {%- endif -%}
+            {%- if product.compare_at_price > product.price -%}
+              <span class="fd-sale">SALE</span>
+            {%- endif -%}
+            <div class="fd-prod-hover">
+              <span>Groove In &#9836;</span>
+            </div>
+          </div>
+          <div class="fd-prod-info">
+            <span class="fd-prod-type">{{ product.type | default: 'FUNKY DOG' }}</span>
+            <div class="fd-prod-name">{{ product.title }}</div>
+            <div class="fd-prod-price">{{ product.price | money }}</div>
+          </div>
         </a>
-        <a href="/collections/all" class="fd-btn-secondary">
-          All Brands &rarr;
-        </a>
-      </div>
+      {%- endfor -%}
+      {%- if fd_count == 0 -%}
+        <div class="fd-empty">&#9836; No Funky Dog products found. The groove is loading... &#9836;</div>
+      {%- endif -%}
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- ============================================================
+     CLOSING — Grand funk finale
+     ============================================================ -->
+<section class="fd-closing">
+  <div class="fd-closing-grooves" aria-hidden="true">
+    <div class="fd-groove fd-g1"></div>
+    <div class="fd-groove fd-g2"></div>
+    <div class="fd-groove fd-g3"></div>
+  </div>
+  <div class="fd-closing-inner">
+    <div class="fd-closing-note">&#9835;</div>
+    <h2 class="fd-closing-h2">Feel The<br><em>Funk.</em></h2>
+    <p>Expressive. Funky. Collectible. Creative.</p>
+    <a class="fd-btn-funk" href="#fd-shop">
+      <span class="fd-btn-bounce">&#9836;</span>
+      Shop Funky Dog
+    </a>
+  </div>
+</section>
 
 </div>
+
+<!-- ============================================================
+     STYLES — FUNKY · BOLD · PLAYFUL
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+.fd-page {
+  --fd-black: #0a0a0a;
+  --fd-dark: #1a1418;
+  --fd-orange: #ff6b00;
+  --fd-yellow: #ffd000;
+  --fd-lime: #a3e635;
+  --fd-cyan: #06b6d4;
+  --fd-pink: #ec4899;
+  --fd-white: #fff;
+  --fd-cream: #fff8ee;
+  --fd-funk: 'Fredoka', 'Arial Black', sans-serif;
+  --fd-body: 'Nunito', system-ui, sans-serif;
+  --fd-mono: var(--mono, 'JetBrains Mono'), monospace;
+  background: var(--fd-black); color: var(--fd-white); overflow-x: hidden;
+}
+
+/* ---- HERO ---- */
+.fd-hero {
+  position: relative; min-height: 100vh; min-height: 100dvh;
+  background: var(--fd-black); display: flex; align-items: center; justify-content: center;
+  overflow: hidden; padding: 100px 24px 80px; text-align: center;
+}
+
+/* Bouncing groove circles */
+.fd-grooves { position: absolute; inset: 0; pointer-events: none; }
+.fd-groove {
+  position: absolute; border-radius: 50%; border: 2px solid;
+  animation: fd-groove-pulse 4s ease-in-out infinite;
+}
+.fd-g1 { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-color: rgba(255,107,0,.08); animation-delay: 0s; }
+.fd-g2 { width: 450px; height: 450px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-color: rgba(236,72,153,.06); animation-delay: .5s; }
+.fd-g3 { width: 300px; height: 300px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-color: rgba(255,208,0,.06); animation-delay: 1s; }
+.fd-g4 { width: 150px; height: 150px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-color: rgba(6,182,212,.05); animation-delay: 1.5s; }
+.fd-g5 { width: 750px; height: 750px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-color: rgba(163,230,53,.04); animation-delay: 2s; }
+@keyframes fd-groove-pulse { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.5} 50%{transform:translate(-50%,-50%) scale(1.08);opacity:1} }
+
+/* Floating music notes */
+.fd-notes { position: absolute; inset: 0; pointer-events: none; }
+.fd-note {
+  position: absolute; left: var(--nx); top: var(--ny);
+  font-size: 28px; color: var(--fd-orange); opacity: .15;
+  animation: fd-note-float 6s ease-in-out infinite;
+  animation-delay: var(--nd);
+}
+@keyframes fd-note-float {
+  0%,100% { transform: translateY(0) rotate(0deg); opacity: .1; }
+  50% { transform: translateY(-30px) rotate(15deg); opacity: .25; }
+}
+
+/* Halftone */
+.fd-halftone {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, var(--fd-orange) 1px, transparent 1px);
+  background-size: 32px 32px; opacity: .04;
+}
+
+/* Hero content */
+.fd-hero-content { position: relative; z-index: 3; max-width: 700px; display: flex; flex-direction: column; align-items: center; }
+
+.fd-hero-badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--fd-mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--fd-orange); margin-bottom: 28px;
+  padding: 8px 20px; border: 2px solid rgba(255,107,0,.3); border-radius: 50px;
+}
+.fd-badge-icon { font-size: 14px; animation: fd-note-float 2s ease-in-out infinite; }
+
+.fd-hero-h1 { margin: 0 0 20px; }
+.fd-h1-line {
+  display: block; font-family: var(--fd-funk); font-weight: 700; text-transform: uppercase; line-height: .88;
+}
+.fd-h1-l1 {
+  font-size: clamp(72px, 14vw, 180px); letter-spacing: -.02em;
+  color: var(--fd-white);
+  text-shadow: 4px 4px 0 var(--fd-orange), 8px 8px 0 rgba(255,107,0,.15);
+}
+.fd-h1-l2 {
+  font-size: clamp(80px, 16vw, 200px); letter-spacing: -.02em;
+  background: linear-gradient(135deg, var(--fd-orange) 0%, var(--fd-yellow) 40%, var(--fd-lime) 70%, var(--fd-cyan) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  filter: drop-shadow(3px 3px 0 rgba(255,107,0,.2));
+}
+
+.fd-hero-sub {
+  font-family: var(--fd-body); font-size: 16px; font-weight: 400;
+  line-height: 1.8; color: rgba(255,255,255,.5); margin: 0 0 40px; max-width: 480px;
+}
+
+.fd-hero-actions { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
+
+/* Funky button */
+.fd-btn-funk {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--fd-orange); color: var(--fd-black); font-family: var(--fd-funk); font-size: 14px;
+  font-weight: 700; text-transform: uppercase; text-decoration: none; padding: 16px 32px;
+  border: 3px solid var(--fd-orange); cursor: pointer; transition: all .2s;
+  box-shadow: 4px 4px 0 var(--fd-yellow);
+}
+.fd-btn-funk:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--fd-yellow); background: var(--fd-yellow); border-color: var(--fd-yellow); }
+.fd-btn-bounce { display: inline-block; animation: fd-bounce 1s ease infinite; }
+@keyframes fd-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+
+.fd-hero-stats { display: flex; align-items: center; gap: 16px; }
+.fd-hs { display: flex; flex-direction: column; gap: 2px; align-items: center; }
+.fd-hs-n { font-family: var(--fd-funk); font-size: 20px; font-weight: 700; color: var(--fd-yellow); }
+.fd-hs-l { font-family: var(--fd-mono); font-size: 8px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.3); }
+.fd-hs-sep { width: 2px; height: 24px; background: rgba(255,107,0,.2); border-radius: 1px; }
+
+/* Spinning vinyl */
+.fd-vinyl {
+  position: absolute; right: -60px; bottom: -60px; z-index: 1; opacity: .12;
+}
+@media(max-width:768px){ .fd-vinyl { display: none; } }
+.fd-vinyl-disc {
+  width: 300px; height: 300px; border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0px, transparent 8px, rgba(255,107,0,.1) 8px, rgba(255,107,0,.1) 10px);
+  border: 3px solid rgba(255,107,0,.15);
+  animation: fd-spin 20s linear infinite;
+  display: flex; align-items: center; justify-content: center;
+}
+.fd-vinyl-label {
+  width: 60px; height: 60px; border-radius: 50%; background: var(--fd-orange);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fd-funk); font-weight: 700; font-size: 18px; color: var(--fd-black);
+}
+@keyframes fd-spin { to { transform: rotate(360deg); } }
+
+/* ---- TICKER ---- */
+.fd-ticker {
+  background: var(--fd-orange); padding: 14px 0; overflow: hidden; white-space: nowrap;
+  border-top: 3px solid var(--fd-yellow); border-bottom: 3px solid var(--fd-yellow);
+}
+.fd-ticker-track { display: flex; width: max-content; animation: fd-tick 25s linear infinite; }
+.fd-ticker-set {
+  display: flex; align-items: center; gap: 24px; padding-right: 24px; flex-shrink: 0;
+  font-family: var(--fd-funk); font-size: 16px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--fd-black);
+}
+.fd-tsep { font-size: 12px; }
+@keyframes fd-tick { to { transform: translateX(-50%); } }
+
+/* ---- STORY ---- */
+.fd-story { display: grid; grid-template-columns: 1fr 1.3fr; min-height: 500px; background: var(--fd-dark); }
+@media(max-width:900px){.fd-story{grid-template-columns:1fr;}}
+
+.fd-story-visual {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  padding: 60px; overflow: hidden; border-right: 3px solid rgba(255,107,0,.15);
+}
+@media(max-width:900px){.fd-story-visual{min-height:300px;border-right:none;border-bottom:3px solid rgba(255,107,0,.15);}}
+.fd-story-pattern {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, var(--fd-orange) 1px, transparent 1px);
+  background-size: 24px 24px; opacity: .04;
+}
+.fd-big-text {
+  position: absolute; font-family: var(--fd-funk); font-size: clamp(120px, 20vw, 240px);
+  font-weight: 700; text-transform: uppercase; color: rgba(255,107,0,.04); letter-spacing: -.02em;
+  pointer-events: none;
+}
+.fd-story-vinyl-mini { position: relative; z-index: 2; }
+.fd-svm-disc {
+  width: 180px; height: 180px; border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0px, transparent 6px, rgba(255,107,0,.12) 6px, rgba(255,107,0,.12) 8px);
+  border: 3px solid rgba(255,107,0,.25); display: flex; align-items: center; justify-content: center;
+  animation: fd-spin 15s linear infinite;
+}
+.fd-svm-hole { width: 20px; height: 20px; border-radius: 50%; background: var(--fd-orange); }
+
+.fd-story-text { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
+@media(max-width:768px){.fd-story-text{padding:48px 24px;}}
+
+.fd-eyebrow { font-family: var(--fd-mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--fd-orange); }
+.fd-story-h2 {
+  font-family: var(--fd-funk); font-size: clamp(36px, 5.5vw, 64px); font-weight: 700;
+  text-transform: uppercase; line-height: 1; margin: 0; color: var(--fd-white);
+}
+.fd-story-h2 em { font-style: normal; color: var(--fd-orange); }
+.fd-story-p { font-family: var(--fd-body); font-size: 15px; line-height: 1.85; color: rgba(255,255,255,.45); max-width: 460px; }
+.fd-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.fd-tag {
+  font-family: var(--fd-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+  padding: 7px 16px; border: 2px solid rgba(255,107,0,.25); color: var(--fd-orange);
+  transition: all .2s; cursor: default;
+}
+.fd-tag:hover { background: var(--fd-orange); color: var(--fd-black); border-color: var(--fd-orange); box-shadow: 3px 3px 0 var(--fd-yellow); }
+
+/* ---- MANIFESTO ---- */
+.fd-manifesto { background: var(--fd-orange); padding: 100px 40px; text-align: center; }
+@media(max-width:768px){.fd-manifesto{padding:60px 20px;}}
+.fd-mani-inner { max-width: 720px; margin: 0 auto; }
+.fd-mani-note { font-size: 28px; color: var(--fd-black); margin-bottom: 24px; animation: fd-bounce 2s ease infinite; }
+.fd-quote {
+  font-family: var(--fd-funk); font-size: clamp(22px, 3.5vw, 36px); font-weight: 600;
+  line-height: 1.5; color: var(--fd-black); margin: 0;
+}
+.fd-quote em { font-style: normal; color: var(--fd-white); text-shadow: 2px 2px 0 rgba(0,0,0,.15); }
+.fd-mani-line { width: 80px; height: 3px; background: var(--fd-black); margin: 28px auto; border-radius: 2px; }
+.fd-mani-attr { font-family: var(--fd-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(0,0,0,.45); }
+
+/* ---- SHOP ---- */
+.fd-shop { background: var(--fd-black); padding: 80px 60px; }
+@media(max-width:768px){.fd-shop{padding:48px 20px;}}
+.fd-shop-inner { max-width: 1200px; margin: 0 auto; }
+.fd-shop-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 48px; }
+@media(max-width:768px){.fd-shop-head{grid-template-columns:1fr;}}
+.fd-eyebrow-sm { font-family: var(--fd-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--fd-orange); }
+.fd-shop-h2 {
+  font-family: var(--fd-funk); font-size: clamp(36px, 5vw, 60px); font-weight: 700;
+  text-transform: uppercase; line-height: 1; margin: 6px 0 0; color: var(--fd-white);
+}
+.fd-shop-desc { font-family: var(--fd-body); font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.35); }
+.fd-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.fd-filter {
+  font-family: var(--fd-funk); font-size: 12px; text-transform: uppercase;
+  padding: 8px 18px; border: 2px solid rgba(255,107,0,.3); background: transparent;
+  color: var(--fd-white); cursor: pointer; transition: all .2s;
+}
+.fd-filter:hover, .fd-filter.active {
+  background: var(--fd-orange); color: var(--fd-black); border-color: var(--fd-orange);
+  box-shadow: 3px 3px 0 var(--fd-yellow);
+}
+
+.fd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.fd-prod { text-decoration: none; color: inherit; cursor: pointer; transition: transform .2s; }
+.fd-prod:hover { transform: translate(-3px,-3px); }
+.fd-prod-img {
+  position: relative; overflow: hidden; background: var(--fd-dark); aspect-ratio: 1;
+  border: 2px solid rgba(255,107,0,.1);
+}
+.fd-prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.fd-prod:hover .fd-prod-img img { transform: scale(1.08); }
+.fd-prod-hover {
+  position: absolute; inset: 0; background: rgba(255,107,0,.85);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fd-funk); font-size: 14px; text-transform: uppercase; font-weight: 700;
+  color: var(--fd-black); opacity: 0; transition: opacity .2s;
+}
+.fd-prod:hover .fd-prod-hover { opacity: 1; }
+.fd-no-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 48px; color: rgba(255,107,0,.1); }
+.fd-sale {
+  position: absolute; top: 10px; right: 10px;
+  font-family: var(--fd-funk); font-size: 11px; font-weight: 700;
+  background: var(--fd-yellow); color: var(--fd-black); padding: 4px 12px;
+  box-shadow: 2px 2px 0 var(--fd-orange);
+}
+.fd-prod-info { padding: 14px 4px; }
+.fd-prod-type { font-family: var(--fd-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--fd-orange); }
+.fd-prod-name { font-family: var(--fd-funk); font-size: 15px; font-weight: 600; color: var(--fd-white); margin: 6px 0 4px; }
+.fd-prod-price { font-family: var(--fd-mono); font-size: 13px; color: var(--fd-yellow); }
+.fd-empty { grid-column: 1/-1; padding: 80px; text-align: center; font-family: var(--fd-mono); font-size: 12px; letter-spacing: .12em; color: rgba(255,107,0,.25); text-transform: uppercase; }
+
+/* ---- CLOSING ---- */
+.fd-closing {
+  position: relative; background: var(--fd-dark); padding: 120px 40px; text-align: center; overflow: hidden;
+}
+@media(max-width:768px){.fd-closing{padding:80px 20px;}}
+.fd-closing-grooves { position: absolute; inset: 0; pointer-events: none; }
+.fd-closing-inner { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+.fd-closing-note { font-size: 36px; color: var(--fd-orange); margin-bottom: 24px; animation: fd-bounce 2s ease infinite; }
+.fd-closing-h2 {
+  font-family: var(--fd-funk); font-size: clamp(40px, 7vw, 80px); font-weight: 700;
+  text-transform: uppercase; line-height: .95; color: var(--fd-white); margin: 0 0 16px;
+}
+.fd-closing-h2 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--fd-orange), var(--fd-yellow), var(--fd-lime));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.fd-closing-inner p { font-family: var(--fd-body); font-size: 15px; color: rgba(255,255,255,.4); margin: 0 0 32px; }
+
+/* ---- REDUCED MOTION ---- */
+@media(prefers-reduced-motion:reduce){
+  .fd-groove,.fd-note,.fd-vinyl-disc,.fd-svm-disc,.fd-btn-bounce,.fd-mani-note,.fd-closing-note,.fd-ticker-track{animation:none!important;}
+  .fd-prod:hover{transform:none;}
+}
+</style>
+
+<!-- SCRIPTS -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var fBtns = document.querySelectorAll('.fd-filter');
+  var cards = document.querySelectorAll('.fd-prod');
+  fBtns.forEach(function(b) {
+    b.addEventListener('click', function() {
+      var f = this.dataset.filter;
+      fBtns.forEach(function(x) { x.classList.remove('active'); });
+      this.classList.add('active');
+      cards.forEach(function(c) { c.style.display = (f === 'all' || c.dataset.filter === f) ? '' : 'none'; });
+    });
+  });
+  if (window.Motion) {
+    var M = window.Motion;
+    M.animate('.fd-hero-badge', { opacity: [0,1], y: [-15,0] }, { duration: .5, delay: .2 });
+    M.animate('.fd-h1-l1', { opacity: [0,1], x: [-60,0] }, { duration: .7, delay: .4, easing: [.22,1,.36,1] });
+    M.animate('.fd-h1-l2', { opacity: [0,1], x: [60,0] }, { duration: .7, delay: .6, easing: [.22,1,.36,1] });
+    M.animate('.fd-hero-sub', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: .9 });
+    M.animate('.fd-hero-actions', { opacity: [0,1], y: [20,0] }, { duration: .6, delay: 1.1 });
+    M.inView('.fd-story-visual', function() {
+      M.animate('.fd-story-vinyl-mini', { opacity: [0,1], scale: [.5,1], rotate: ['-180deg','0deg'] }, { duration: 1, easing: [.22,1,.36,1] });
+    }, { margin: '-10% 0px' });
+    M.inView('.fd-story-text', function() {
+      M.animate('.fd-story-text > *', { opacity: [0,1], x: [30,0] }, { delay: M.stagger(.1), duration: .5, easing: [.22,1,.36,1] });
+    }, { margin: '-10% 0px' });
+    M.inView('.fd-mani-inner', function() {
+      M.animate('.fd-mani-note', { opacity: [0,1], scale: [0,1] }, { duration: .4 });
+      M.animate('.fd-quote', { opacity: [0,1], y: [25,0] }, { duration: .7, delay: .2, easing: [.22,1,.36,1] });
+    }, { margin: '-10% 0px' });
+    document.querySelectorAll('.fd-prod').forEach(function(c) {
+      M.inView(c, function() { M.animate(c, { opacity: [0,1], y: [20,0] }, { duration: .4, easing: [.22,1,.36,1] }); }, { margin: '-5% 0px' });
+    });
+    M.inView('.fd-closing-inner', function() {
+      M.animate('.fd-closing-note', { opacity: [0,1], scale: [0,1.2,1] }, { duration: .6 });
+      M.animate('.fd-closing-h2', { opacity: [0,1], y: [30,0] }, { duration: .7, delay: .2, easing: [.22,1,.36,1] });
+      M.animate('.fd-closing-inner .fd-btn-funk', { opacity: [0,1], y: [15,0] }, { duration: .5, delay: .5 });
+    }, { margin: '-10% 0px' });
+  }
+});
+</script>
 
 {% schema %}
 {
   "name": "Funky Dog Brand Page",
-  "settings": [],
-  "presets": [
-    {
-      "name": "Funky Dog Brand Page"
-    }
-  ]
+  "settings": [
+    { "type": "collection", "id": "brand_collection", "label": "Funky Dog Collection" },
+    { "type": "textarea", "id": "tagline", "label": "Hero tagline", "default": "A playful music and lifestyle brand inspired by rhythm, vinyl culture, individuality and character. Expressive, funky, collectible." }
+  ],
+  "presets": [{ "name": "Funky Dog Brand Page" }]
 }
 {% endschema %}
