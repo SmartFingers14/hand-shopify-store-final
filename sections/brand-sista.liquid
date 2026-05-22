@@ -762,48 +762,30 @@
   .si-story-text { padding: 60px 40px; }
 }
 
-/* ---- Mobile: 900px — hero stacks, image becomes background overlay ---- */
+/* ---- Mobile: 900px — hero stacks, image hidden (shown in story instead) ---- */
 @media (max-width: 900px) {
   .si-hero {
     grid-template-columns: 1fr;
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: auto;
     position: relative;
   }
-  /* Image becomes full-bleed background */
-  .si-hero-visual {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    justify-content: flex-end;
-    align-items: flex-end;
-    overflow: hidden;
-  }
-  .si-hero-character {
-    height: 85vh;
-    max-height: 100%;
-    width: auto;
-    max-width: none;
-    opacity: .35;
-    object-position: bottom right;
-  }
-  /* Text overlays on top of image */
+  /* Hide character in hero — it will appear in story section instead */
+  .si-hero-visual { display: none; }
+  .si-power-badge { display: none; }
+
+  /* Text takes full width */
   .si-hero-text {
     position: relative;
     z-index: 3;
-    padding: 120px 24px 48px;
+    padding: 100px 24px 60px;
     order: unset;
-    align-self: flex-end;
+    align-self: auto;
   }
   .si-hero-h1 .si-w1,
   .si-hero-h1 .si-w2 {
-    font-size: clamp(48px, 13vw, 88px);
+    font-size: clamp(40px, 11vw, 72px);
   }
-  .si-hero-desc { font-size: 14px; max-width: 340px; }
-  .si-power-badge {
-    width: 90px; height: 90px;
-    bottom: 40px; right: 16px;
-  }
+  .si-hero-desc { font-size: 14px; max-width: 100%; }
 
   /* Values strip: 2×2 grid */
   .si-values { grid-template-columns: repeat(2, 1fr); }
