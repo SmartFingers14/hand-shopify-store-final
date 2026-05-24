@@ -714,21 +714,11 @@
    ================================================================ */
 .si-closing {
   position: relative;
-  background: #1a0a14;
+  background: #050005;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 600px;
+  min-height: 85vh;
   overflow: hidden;
-}
-.si-closing::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(212,54,140,.06) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, rgba(212,54,140,.04) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 1;
 }
 
 /* Left: text content */
@@ -738,83 +728,56 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 60px;
-}
-.si-closing-logo {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.si-cl-ring {
-  position: absolute;
-  inset: -12px;
-  border-radius: 50%;
-  border: 3px dashed var(--si-pink);
-  animation: si-spin-slow 24s linear infinite;
-  opacity: .5;
-}
-.si-closing-logo img {
-  width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-  border: 4px solid rgba(255,206,92,.3);
-  box-shadow: 0 0 30px rgba(212,54,140,.25), 0 0 60px rgba(212,54,140,.1);
-}
-.si-closing-eyebrow {
-  font-family: var(--si-mono);
-  font-size: 10px;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  color: var(--si-yellow);
-  margin-bottom: 16px;
+  padding: 100px 48px 100px 60px;
 }
 .si-closing-h2 {
   font-family: var(--si-head);
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(52px, 7vw, 96px);
   font-weight: 900;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: .95;
   color: var(--si-white);
-  margin: 0 0 20px;
-  letter-spacing: -.01em;
+  margin: 0 0 8px;
+  letter-spacing: -.02em;
 }
 .si-closing-h2 em {
   font-style: normal;
   display: block;
-  background: linear-gradient(180deg, #E91E8C 0%, #D4368C 50%, #c72d7d 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--si-pink);
+  -webkit-text-fill-color: var(--si-pink);
+}
+.si-closing-accent-line {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--si-yellow), var(--si-gold));
+  margin: 24px 0 28px;
 }
 .si-closing-text p {
   font-family: var(--si-body);
   font-size: 15px;
   font-style: italic;
-  color: rgba(255,255,255,.4);
-  margin: 0 0 36px;
-  letter-spacing: .02em;
+  color: rgba(255,255,255,.35);
+  margin: 0 0 40px;
+  letter-spacing: .01em;
   line-height: 1.7;
-  max-width: 420px;
+  max-width: 400px;
 }
 .si-closing .si-btn-cta {
   align-self: flex-start;
   background: var(--si-pink);
   color: var(--si-white);
-  border: 2px solid var(--si-yellow);
+  border: 3px solid var(--si-yellow);
   padding: 18px 44px;
   font-size: 13px;
-  letter-spacing: .2em;
+  letter-spacing: .18em;
   margin-bottom: 0;
-  box-shadow: 0 0 30px rgba(212,54,140,.15);
   transition: all .3s ease;
 }
 .si-closing .si-btn-cta:hover {
   background: var(--si-yellow);
   color: var(--si-bg);
   border-color: var(--si-yellow);
-  box-shadow: 0 0 40px rgba(230,180,34,.3);
+  box-shadow: 4px 4px 0 var(--si-pink);
 }
 
 /* Right: image */
@@ -834,7 +797,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #1a0a14 0%, transparent 25%);
+  background: linear-gradient(90deg, #050005 0%, transparent 20%);
   pointer-events: none;
 }
 
@@ -846,27 +809,24 @@
   }
   .si-closing-text {
     padding: 60px 24px;
-    text-align: center;
-    align-items: center;
   }
   .si-closing .si-btn-cta {
-    align-self: center;
     width: 100%;
     justify-content: center;
+    align-self: stretch;
   }
   .si-closing-visual {
-    height: 360px;
+    height: 400px;
     order: -1;
   }
   .si-closing-visual::after {
-    background: linear-gradient(180deg, transparent 40%, #1a0a14 100%);
+    background: linear-gradient(180deg, transparent 50%, #050005 100%);
   }
 }
 @media (max-width: 520px) {
   .si-closing-text { padding: 48px 18px; }
-  .si-closing-h2 { font-size: clamp(32px, 9vw, 48px); }
-  .si-closing-logo { width: 90px; height: 90px; }
-  .si-closing-visual { height: 280px; }
+  .si-closing-h2 { font-size: clamp(42px, 12vw, 64px); }
+  .si-closing-visual { height: 320px; }
 }
 
 /* ================================================================
@@ -1301,12 +1261,8 @@
 <section class="si-closing">
   <!-- Left: Text -->
   <div class="si-closing-text">
-    <div class="si-closing-logo">
-      <div class="si-cl-ring"></div>
-      <img src="{{ 'logo-sista.jpeg' | asset_url }}" alt="SISTA" />
-    </div>
-    <div class="si-closing-eyebrow">&#9670; The SISTA Movement</div>
-    <h2 class="si-closing-h2">Peace. Love.<br><em>Unity.</em></h2>
+    <h2 class="si-closing-h2">Peace.<br>Love.<br><em>Unity.</em></h2>
+    <div class="si-closing-accent-line"></div>
     <p>For women of every colour, every shape and every walk of life.</p>
     <a class="si-btn-cta" href="#si-shop">Shop SISTA <span class="arr">→</span></a>
   </div>
@@ -1378,10 +1334,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     M.inView('.si-closing-text', function() {
-      M.animate('.si-closing-logo', { opacity: [0,1], scale: [.4,1], rotate: ['-90deg','0deg'] }, { duration: .8, easing: [.22,1,.36,1] });
-      M.animate('.si-closing-h2', { opacity: [0,1], y: [30,0] }, { duration: .7, delay: .2, easing: [.22,1,.36,1] });
-      M.animate('.si-closing-text p', { opacity: [0,1], y: [15,0] }, { duration: .5, delay: .4 });
-      M.animate('.si-closing .si-btn-cta', { opacity: [0,1], y: [15,0] }, { duration: .5, delay: .6 });
+      M.animate('.si-closing-h2', { opacity: [0,1], y: [40,0] }, { duration: .7, easing: [.22,1,.36,1] });
+      M.animate('.si-closing-accent-line', { opacity: [0,1], scaleX: [0,1] }, { duration: .5, delay: .3, easing: [.22,1,.36,1] });
+      M.animate('.si-closing-text p', { opacity: [0,1], y: [15,0] }, { duration: .5, delay: .5 });
+      M.animate('.si-closing .si-btn-cta', { opacity: [0,1], y: [15,0] }, { duration: .5, delay: .7 });
     }, { margin: '-10% 0px' });
     M.inView('.si-closing-visual', function() {
       M.animate('.si-closing-visual img', { opacity: [0,1], x: [60,0] }, { duration: .8, delay: .2, easing: [.22,1,.36,1] });
