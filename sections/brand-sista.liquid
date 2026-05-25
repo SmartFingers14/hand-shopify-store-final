@@ -110,17 +110,17 @@
 .si-hero-text {
   position: relative;
   z-index: 3;
-  padding: 80px 0 60px 60px;
+  padding: 140px 0 40px 60px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-self: stretch;
 }
 
 /* Rainbow tagline */
 .si-hero-tagline {
   font-family: var(--si-body);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: .22em;
   text-transform: uppercase;
@@ -133,10 +133,10 @@
 
 /* Rainbow line */
 .si-hero-rainbow-line {
-  width: 280px;
-  height: 4px;
+  width: 320px;
+  height: 5px;
   background: linear-gradient(90deg, #FF0000, #FF8800, #FFDD00, #22CC44, #0088FF, #AA00FF, #FF0088);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   position: relative;
 }
 .si-hero-rainbow-line::after {
@@ -158,23 +158,23 @@
 }
 .si-hero-h1 .si-w1 {
   display: block;
-  font-size: clamp(64px, 10vw, 140px);
+  font-size: clamp(80px, 12vw, 180px);
   color: var(--si-white);
 }
 .si-hero-h1 .si-w2 {
   display: block;
-  font-size: clamp(64px, 10vw, 140px);
+  font-size: clamp(80px, 12vw, 180px);
   color: var(--si-pink);
 }
 
 /* Description */
 .si-hero-desc {
   font-family: var(--si-body);
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.75;
   color: rgba(255,255,255,.5);
-  max-width: 380px;
-  margin-bottom: 36px;
+  max-width: 440px;
+  margin-bottom: 32px;
 }
 
 /* CTA Button — pink with yellow border */
@@ -216,32 +216,33 @@
   display: flex;
   align-items: center;
   gap: 0;
+  margin-top: 8px;
 }
 .si-stat {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 0 28px;
+  gap: 6px;
+  padding: 0 36px;
 }
 .si-stat:first-child { padding-left: 0; }
 .si-stat-n {
   font-family: var(--si-head);
-  font-size: 22px;
+  font-size: 32px;
   font-weight: 800;
   color: var(--si-yellow);
   text-transform: uppercase;
 }
 .si-stat-l {
   font-family: var(--si-mono);
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: rgba(255,206,92,.4);
 }
 .si-stat-sep {
-  width: 1.5px;
-  height: 36px;
-  background: rgba(255,206,92,.2);
+  width: 2px;
+  height: 44px;
+  background: rgba(255,206,92,.25);
 }
 
 /* Right image column */
@@ -975,9 +976,10 @@
 /* ---- Wide desktop: 1440px+ ---- */
 @media (min-width: 1440px) {
   .si-hero { grid-template-columns: 40% 60%; }
-  .si-hero-text { padding: 100px 0 80px 80px; }
+  .si-hero-text { padding: 140px 0 60px 80px; }
   .si-hero-h1 .si-w1,
-  .si-hero-h1 .si-w2 { font-size: 150px; }
+  .si-hero-h1 .si-w2 { font-size: 180px; }
+  .si-stat-n { font-size: 38px; }
   .si-shop-inner { max-width: 1400px; }
 }
 
