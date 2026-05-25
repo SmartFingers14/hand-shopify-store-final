@@ -245,6 +245,76 @@
   background: rgba(255,206,92,.25);
 }
 
+/* Hero trust badges */
+.si-hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(212,54,140,.1);
+}
+.si-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--si-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+}
+.si-trust-item svg {
+  color: var(--si-pink);
+  opacity: .6;
+  flex-shrink: 0;
+}
+.si-trust-dot {
+  color: rgba(212,54,140,.25);
+  font-size: 16px;
+  margin: 0 4px;
+}
+
+/* Scroll indicator */
+.si-scroll-hint {
+  margin-top: auto;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.si-scroll-text {
+  font-family: var(--si-mono);
+  font-size: 9px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.15);
+}
+.si-scroll-line {
+  width: 40px;
+  height: 2px;
+  background: rgba(255,255,255,.08);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1px;
+}
+.si-scroll-dot {
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: 12px;
+  height: 2px;
+  background: var(--si-pink);
+  border-radius: 1px;
+  animation: si-scroll-slide 2s ease-in-out infinite;
+}
+@keyframes si-scroll-slide {
+  0% { left: -12px; }
+  50% { left: 40px; }
+  100% { left: -12px; }
+}
+
 /* Right image column */
 .si-hero-visual {
   position: relative;
@@ -901,6 +971,8 @@
     font-size: clamp(40px, 11vw, 72px);
   }
   .si-hero-desc { font-size: 14px; max-width: 100%; }
+  .si-hero-trust { margin-top: 28px; padding-top: 20px; }
+  .si-scroll-hint { display: none; }
 
   /* Values strip: 2×2 grid */
   .si-values { grid-template-columns: repeat(2, 1fr); }
@@ -1055,6 +1127,37 @@
       <div class="si-stat">
         <span class="si-stat-n">Unity</span>
         <span class="si-stat-l">Strong</span>
+      </div>
+    </div>
+
+    <!-- Trust badges -->
+    <div class="si-hero-trust">
+      <span class="si-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Organic Cotton
+      </span>
+      <span class="si-trust-dot">·</span>
+      <span class="si-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        UK Printed
+      </span>
+      <span class="si-trust-dot">·</span>
+      <span class="si-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Women-Led
+      </span>
+      <span class="si-trust-dot">·</span>
+      <span class="si-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        Worldwide Shipping
+      </span>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="si-scroll-hint" aria-hidden="true">
+      <span class="si-scroll-text">Scroll</span>
+      <div class="si-scroll-line">
+        <div class="si-scroll-dot"></div>
       </div>
     </div>
   </div>
