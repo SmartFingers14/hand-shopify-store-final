@@ -321,7 +321,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 0;
     background:
         radial-gradient(ellipse at 50% 40%, rgba(255, 46, 136, .18), transparent 60%),
         radial-gradient(ellipse at 80% 80%, rgba(79, 194, 247, .15), transparent 50%),
@@ -367,7 +367,7 @@
 .hero-carousel__item {
     display: block;
     flex: 0 0 auto;
-    width: clamp(200px, 60%, 340px);
+    width: clamp(240px, 85%, 480px);
     margin: 0 auto;
     border-radius: 6px;
     overflow: hidden;
@@ -447,7 +447,7 @@
 /* Mobile: smaller items */
 @media(max-width:900px) {
     .hero-carousel__item {
-        width: clamp(160px, 50%, 260px)
+        width: clamp(200px, 80%, 400px)
     }
 
     .hero-carousel__track {
