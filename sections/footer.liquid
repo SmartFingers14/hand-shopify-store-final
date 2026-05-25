@@ -332,6 +332,44 @@
     -webkit-text-stroke-color: #F59DBA;
   }
 
+  /* ===== PAYMENT ICONS ===== */
+  .hand-foot-payments {
+    border-top: 1px solid #1a1a1a;
+    padding: 28px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hand-foot-payments-label {
+    font-family: var(--mono, 'Courier New', monospace);
+    font-size: 9px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 16px;
+  }
+  .hand-foot-payments-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hand-foot-payments-icons .hand-pay-icon {
+    width: 42px;
+    height: 28px;
+    opacity: .7;
+    transition: opacity .2s;
+  }
+  .hand-foot-payments-icons .hand-pay-icon:hover {
+    opacity: 1;
+  }
+  @media (max-width: 520px) {
+    .hand-foot-payments { padding: 24px 20px; }
+    .hand-foot-payments-icons { gap: 8px; }
+    .hand-foot-payments-icons .hand-pay-icon { width: 36px; height: 24px; }
+  }
+
   /* ===== BOTTOM BAR ===== */
   .hand-foot-bottom {
     border-top: 1px solid #1a1a1a;
@@ -520,6 +558,18 @@
   <div class="hand-foot-wordmark" aria-hidden="true">
     <div class="hand-foot-wordmark-text">Have A Nice Day ☻</div>
   </div>
+
+  <!-- Payment Icons -->
+  {%- if shop.enabled_payment_types.size > 0 -%}
+  <div class="hand-foot-payments">
+    <div class="hand-foot-payments-label">We Accept</div>
+    <div class="hand-foot-payments-icons">
+      {%- for type in shop.enabled_payment_types -%}
+        {{ type | payment_type_svg_tag: class: 'hand-pay-icon' }}
+      {%- endfor -%}
+    </div>
+  </div>
+  {%- endif -%}
 
   <!-- Bottom Bar -->
   <div class="hand-foot-bottom">
