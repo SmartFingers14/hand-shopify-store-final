@@ -808,23 +808,30 @@
   .si-closing-text {
     padding: 60px 24px;
   }
+  .si-closing-h2 {
+    font-size: clamp(56px, 14vw, 90px);
+  }
   .si-closing .si-btn-cta {
     width: 100%;
     justify-content: center;
     align-self: stretch;
   }
   .si-closing-visual {
-    height: 400px;
+    height: auto;
+    min-height: 500px;
     order: -1;
   }
+  .si-closing-visual img {
+    object-position: center top;
+  }
   .si-closing-visual::after {
-    background: linear-gradient(180deg, transparent 50%, #050005 100%);
+    background: linear-gradient(180deg, transparent 60%, #050005 100%);
   }
 }
 @media (max-width: 520px) {
   .si-closing-text { padding: 48px 18px; }
-  .si-closing-h2 { font-size: clamp(42px, 12vw, 64px); }
-  .si-closing-visual { height: 320px; }
+  .si-closing-h2 { font-size: clamp(52px, 16vw, 80px); }
+  .si-closing-visual { min-height: 450px; }
 }
 
 /* ================================================================
