@@ -18,19 +18,28 @@
             {%- assign cat_col = collections[block.settings.collection_handle] -%}
             <a class="hand-cat hand-reveal" href="{% if block.settings.link != blank %}{{ block.settings.link }}{% elsif cat_col != blank %}/collections/{{ cat_col.handle }}{% else %}/collections/all{% endif %}" {{ block.shopify_attributes }}>
               <div class="img">
-                {% if block.settings.image_url != blank %}
+                {%- if block.settings.product_handle != blank -%}
+                  {%- assign cat_product = all_products[block.settings.product_handle] -%}
+                  {%- if cat_product and cat_product.featured_image -%}
+                    <img src="{{ cat_product.featured_image | image_url: width: 600 }}" alt="{{ cat_product.title }}" loading="lazy" />
+                  {%- else -%}
+                    <div style="width:100%;height:100%;min-height:300px;background:#ede9e0;display:flex;align-items:center;justify-content:center;">
+                      <span style="color:#999;font-family:monospace;font-size:11px;letter-spacing:.1em;">{{ block.settings.title | upcase }}</span>
+                    </div>
+                  {%- endif -%}
+                {%- elsif block.settings.image_url != blank -%}
                   <img src="{{ block.settings.image_url }}" alt="{{ block.settings.title }}" loading="lazy" />
-                {% elsif block.settings.image %}
+                {%- elsif block.settings.image -%}
                   <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}" loading="lazy" />
-                {% elsif cat_col != blank and cat_col.image %}
+                {%- elsif cat_col != blank and cat_col.image -%}
                   <img src="{{ cat_col.image | img_url: '600x' }}" alt="{{ cat_col.title }}" loading="lazy" />
-                {% elsif cat_col != blank and cat_col.products.first.featured_image %}
+                {%- elsif cat_col != blank and cat_col.products.first.featured_image -%}
                   <img src="{{ cat_col.products.first.featured_image | img_url: '600x' }}" alt="{{ cat_col.title }}" loading="lazy" />
-                {% else %}
+                {%- else -%}
                   <div style="width:100%;height:100%;min-height:300px;background:#111;display:flex;align-items:center;justify-content:center;">
                     <span style="color:#333;font-family:monospace;font-size:11px;letter-spacing:.1em;">{{ block.settings.title | upcase }}</span>
                   </div>
-                {% endif %}
+                {%- endif -%}
               </div>
               <div class="top">
                 <span>{{ block.settings.top_left }}</span>
@@ -92,6 +101,7 @@
       "type": "category",
       "name": "Category",
       "settings": [
+        { "type": "text", "id": "product_handle", "label": "Product handle (shows this product's image)" },
         { "type": "image_picker", "id": "image", "label": "Category image (overrides collection image)" },
         { "type": "text", "id": "image_url", "label": "Image URL (overrides all other images)" },
         { "type": "text", "id": "collection_handle", "label": "Collection handle (e.g. t-shirts)", "default": "all" },

@@ -383,7 +383,8 @@
         "c1": {
           "type": "category",
           "settings": {
-            "collection_handle": "all",
+            "product_handle": "sam-the-man-front-print-t-shirt",
+            "collection_handle": "t-shirts",
             "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/files/Untitled_design_63.png?v=1761074463",
             "top_left": "01 / Sam The Man",
             "top_right": "From £29.99",
@@ -394,7 +395,8 @@
         "c2": {
           "type": "category",
           "settings": {
-            "collection_handle": "all",
+            "product_handle": "vortex-info-the-robot-sweatshirt-grey-edition",
+            "collection_handle": "sweatshirts",
             "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/files/VORTEX-19-Sweatshirt.webp?v=1768033722",
             "top_left": "02 / Vortex",
             "top_right": "From £42.00",
@@ -405,7 +407,8 @@
         "c3": {
           "type": "category",
           "settings": {
-            "collection_handle": "all",
+            "product_handle": "handspun-records-transcendental-front-and-back-print-hoodie",
+            "collection_handle": "hoodies",
             "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/files/HANDSPUN-24_2.png?v=1756067689",
             "top_left": "03 / Handspun",
             "top_right": "From £65.00",
@@ -416,7 +419,8 @@
         "c4": {
           "type": "category",
           "settings": {
-            "collection_handle": "all",
+            "product_handle": "funky-dog-slip-mat",
+            "collection_handle": "accessories",
             "image_url": "https://cdn.shopify.com/s/files/1/0737/7397/3795/files/A1E226C3-863A-401A-B431-9C6F6F8BB8F9.jpg?v=1766000397",
             "top_left": "04 / Funky Dog",
             "top_right": "From £5.00",
