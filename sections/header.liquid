@@ -722,6 +722,19 @@
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgba(255,255,255,.1);
+  flex-shrink: 0;
+}
+
+/* Fix logos that overflow circles in mobile menu */
+.hd-mob-brand[data-brand="dready"] img,
+.hd-mob-brand[data-brand="btka"] img,
+.hd-mob-brand[data-brand="incubator"] img,
+.hd-mob-brand[data-brand="funky-dog"] img,
+.hd-mob-brand[data-brand="dodo"] img,
+.hd-mob-brand[data-brand="vortex"] img {
+  object-fit: contain;
+  padding: 4px;
+  background: #fff;
 }
 .hd-mob-brand-name {
   font-family: var(--hd-display);
@@ -1009,39 +1022,39 @@
 
     <div class="hd-mob-section-title">Our Brands</div>
     <div class="hd-mob-brands">
-      <a class="hd-mob-brand" href="/pages/have-a-nice-day">
+      <a class="hd-mob-brand" data-brand="hand" href="/pages/have-a-nice-day">
         <img src="{{ 'logo-have-a-nice-day.png' | asset_url }}" alt="Have A Nice Day" loading="lazy" width="36" height="36">
         <span class="hd-mob-brand-name">Have A Nice Day</span>
       </a>
-      <a class="hd-mob-brand" href="/pages/dready-original">
+      <a class="hd-mob-brand" data-brand="dready" href="/pages/dready-original">
         <img src="{{ 'logo-dready-vinyl.png' | asset_url }}" alt="Dready OG" loading="lazy" width="36" height="36">
         <span class="hd-mob-brand-name">Dready OG</span>
       </a>
-      <a class="hd-mob-brand" href="/pages/handspun-records">
+      <a class="hd-mob-brand" data-brand="handspun" href="/pages/handspun-records">
         <img src="{{ 'logo-handspun-records.jpeg' | asset_url }}" alt="Handspun" loading="lazy" width="36" height="36">
         <span class="hd-mob-brand-name">Handspun</span>
       </a>
-      <a class="hd-mob-brand" href="/pages/btka">
+      <a class="hd-mob-brand" data-brand="btka" href="/pages/btka">
         <img src="{{ 'logo-btka.png' | asset_url }}" alt="BTKA" loading="lazy" width="36" height="36">
         <span class="hd-mob-brand-name">BTKA</span>
       </a>
-      <a class="hd-mob-brand" href="/pages/vortex">
+      <a class="hd-mob-brand" data-brand="vortex" href="/pages/vortex">
         <img src="{{ 'logo-vortex.png' | asset_url }}" alt="Vortex" loading="lazy" width="36" height="36">
         <span class="hd-mob-brand-name">Vortex</span>
       </a>
-      <a class="hd-mob-brand" href="/pages/funky-dog">
+      <a class="hd-mob-brand" data-brand="funky-dog" href="/pages/funky-dog">
         <img src="{{ 'logo-funky-dog.jpeg' | asset_url }}" alt="Funky Dog" loading="lazy" width="36" height="36">
         <span class="hd-mob-brand-name">Funky Dog</span>
       </a>
-      <a class="hd-mob-brand" href="/pages/dont-do-the-dodo">
+      <a class="hd-mob-brand" data-brand="dodo" href="/pages/dont-do-the-dodo">
         <img src="{{ 'logo-dodo.png' | asset_url }}" alt="Dodo" loading="lazy" width="36" height="36">
         <span class="hd-mob-brand-name">Dodo</span>
       </a>
-      <a class="hd-mob-brand" href="/pages/incubator">
+      <a class="hd-mob-brand" data-brand="incubator" href="/pages/incubator">
         <img src="{{ 'logo-incubator.png' | asset_url }}" alt="Incubator" loading="lazy" width="36" height="36">
         <span class="hd-mob-brand-name">Incubator</span>
       </a>
-      <a class="hd-mob-brand" href="/pages/sista">
+      <a class="hd-mob-brand" data-brand="sista" href="/pages/sista">
         <img src="{{ 'logo-sista.jpeg' | asset_url }}" alt="Sista" loading="lazy" width="36" height="36">
         <span class="hd-mob-brand-name">Sista</span>
       </a>
