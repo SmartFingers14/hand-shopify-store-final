@@ -736,91 +736,210 @@
 <div class="hc-grid-wrap">
   {%- paginate collection.products by 24 -%}
     <div class="hc-grid" id="hcGrid">
-      {%- for product in collection.products -%}
-        {%- liquid
-          assign p = product
-          assign img = p.featured_image
-          assign is_sale = false
-          if p.compare_at_price > p.price
-            assign is_sale = true
-          endif
-        -%}
 
-        {%- comment -%} Insert brand divider every 8 products {%- endcomment -%}
-        {%- if forloop.index == 9 and collection.handle == 'all' -%}
+      {%- comment -%}
+        PRIORITY SORT: Show Sam & Shurl (Have A Nice Day) products first,
+        then all other brands. Only applies to the "all" collection.
+      {%- endcomment -%}
+
+      {%- if collection.handle == 'all' -%}
+
+        {%- comment -%} ── PASS 1: Have A Nice Day / Sam / Shurl products ── {%- endcomment -%}
+        {%- assign hand_count = 0 -%}
+        {%- for product in collection.products -%}
+          {%- liquid
+            assign is_hand = false
+            assign vendor_down = product.vendor | downcase
+            assign title_down = product.title | downcase
+            if vendor_down contains 'have a nice day' or vendor_down contains 'hand'
+              assign is_hand = true
+            elsif title_down contains 'sam the man' or title_down contains 'shurl' or title_down contains 'sam & shurl' or title_down contains 'sam and shurl'
+              assign is_hand = true
+            elsif product.tags contains 'have-a-nice-day' or product.tags contains 'sam' or product.tags contains 'shurl' or product.tags contains 'HAND'
+              assign is_hand = true
+            endif
+          -%}
+
+          {%- if is_hand -%}
+            {%- assign hand_count = hand_count | plus: 1 -%}
+            {%- assign p = product -%}
+            {%- assign img = p.featured_image -%}
+            {%- assign is_sale = false -%}
+            {%- if p.compare_at_price > p.price -%}{%- assign is_sale = true -%}{%- endif -%}
+
+            <article class="hc-card" data-card itemscope itemtype="https://schema.org/Product">
+              <meta itemprop="name" content="{{ p.title | escape }}">
+              <meta itemprop="description" content="{{ p.description | strip_html | truncate: 200 | escape }}">
+              <div class="hc-card-img">
+                {%- if is_sale -%}<span class="hc-badge sale">Sale</span>
+                {%- elsif p.tags contains 'new' or p.tags contains 'new-in' -%}<span class="hc-badge new-in">New In</span>
+                {%- elsif p.tags contains 'bestseller' -%}<span class="hc-badge best">Best Seller</span>
+                {%- else -%}<span class="hc-badge">{{ p.type | default: 'Apparel' }}</span>{%- endif -%}
+                {%- if img -%}
+                  <img src="{{ img | image_url: width: 720 }}" alt="{{ img.alt | escape | default: p.title | escape }}" loading="lazy" width="720" height="960" itemprop="image">
+                {%- else -%}
+                  <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#ede9e0;font-size:48px">☻</div>
+                {%- endif -%}
+                <div class="hc-card-overlay">
+                  <button class="hc-overlay-add" data-variant-id="{{ p.selected_or_first_available_variant.id }}" data-product-title="{{ p.title | escape }}" data-quick-add>
+                    {%- if p.available -%}Quick Add{%- else -%}Sold Out{%- endif -%}
+                  </button>
+                  <a class="hc-overlay-view" href="{{ p.url }}">View Product →</a>
+                </div>
+              </div>
+              <div class="hc-card-info">
+                <a class="hc-card-name" href="{{ p.url }}" itemprop="url">{{ p.title }}</a>
+                <div class="hc-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
+                  <meta itemprop="price" content="{{ p.price | money_without_currency }}">
+                  {%- if is_sale -%}<span class="was">{{ p.compare_at_price | money }}</span><span class="now">{{ p.price | money }}</span>
+                  {%- else -%}{%- if p.price_varies -%}<span style="font-size:9px;opacity:0.5;letter-spacing:0.1em">From</span>{%- endif -%}{{ p.price | money }}{%- endif -%}
+                </div>
+                <div class="hc-card-tag">Organic cotton &middot; UK printed</div>
+              </div>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- comment -%} ── BRAND DIVIDER ── {%- endcomment -%}
+        {%- assign other_count = 0 -%}
+        {%- for product in collection.products -%}
+          {%- liquid
+            assign vendor_down = product.vendor | downcase
+            assign title_down = product.title | downcase
+            assign is_hand = false
+            if vendor_down contains 'have a nice day' or vendor_down contains 'hand'
+              assign is_hand = true
+            elsif title_down contains 'sam the man' or title_down contains 'shurl' or title_down contains 'sam & shurl' or title_down contains 'sam and shurl'
+              assign is_hand = true
+            elsif product.tags contains 'have-a-nice-day' or product.tags contains 'sam' or product.tags contains 'shurl' or product.tags contains 'HAND'
+              assign is_hand = true
+            endif
+          -%}
+          {%- unless is_hand -%}{%- assign other_count = other_count | plus: 1 -%}{%- endunless -%}
+        {%- endfor -%}
+
+        {%- if other_count > 0 -%}
           <div class="hc-brand-divider" data-reveal>
             <div>
-              <div class="hc-brand-divider-label">Featured Brand</div>
-              <div class="hc-brand-divider-title">Have A Nice Day London</div>
+              <div class="hc-brand-divider-label">More From The Family</div>
+              <div class="hc-brand-divider-title">Our Other Brands</div>
             </div>
             <a href="/pages/brands" class="hc-brand-divider-link">Explore All Brands →</a>
           </div>
         {%- endif -%}
 
-        <article class="hc-card" data-card itemscope itemtype="https://schema.org/Product">
-          <meta itemprop="name" content="{{ p.title | escape }}">
-          <meta itemprop="description" content="{{ p.description | strip_html | truncate: 200 | escape }}">
+        {%- comment -%} ── PASS 2: All other brand products ── {%- endcomment -%}
+        {%- for product in collection.products -%}
+          {%- liquid
+            assign is_hand = false
+            assign vendor_down = product.vendor | downcase
+            assign title_down = product.title | downcase
+            if vendor_down contains 'have a nice day' or vendor_down contains 'hand'
+              assign is_hand = true
+            elsif title_down contains 'sam the man' or title_down contains 'shurl' or title_down contains 'sam & shurl' or title_down contains 'sam and shurl'
+              assign is_hand = true
+            elsif product.tags contains 'have-a-nice-day' or product.tags contains 'sam' or product.tags contains 'shurl' or product.tags contains 'HAND'
+              assign is_hand = true
+            endif
+          -%}
 
-          <div class="hc-card-img">
-            {%- if is_sale -%}
-              <span class="hc-badge sale">Sale</span>
-            {%- elsif p.tags contains 'new' or p.tags contains 'new-in' -%}
-              <span class="hc-badge new-in">New In</span>
-            {%- elsif p.tags contains 'bestseller' -%}
-              <span class="hc-badge best">Best Seller</span>
-            {%- else -%}
-              <span class="hc-badge">{{ p.type | default: 'Apparel' }}</span>
-            {%- endif -%}
+          {%- unless is_hand -%}
+            {%- assign p = product -%}
+            {%- assign img = p.featured_image -%}
+            {%- assign is_sale = false -%}
+            {%- if p.compare_at_price > p.price -%}{%- assign is_sale = true -%}{%- endif -%}
 
-            {%- if img -%}
-              <img
-                src="{{ img | image_url: width: 720 }}"
-                alt="{{ img.alt | escape | default: p.title | escape }}"
-                loading="lazy"
-                width="720"
-                height="960"
-                itemprop="image"
-              >
-            {%- else -%}
-              <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#ede9e0;font-size:48px">☻</div>
-            {%- endif -%}
-
-            <div class="hc-card-overlay">
-              <button class="hc-overlay-add"
-                      data-variant-id="{{ p.selected_or_first_available_variant.id }}"
-                      data-product-title="{{ p.title | escape }}"
-                      data-quick-add>
-                {%- if p.available -%}Quick Add{%- else -%}Sold Out{%- endif -%}
-              </button>
-              <a class="hc-overlay-view" href="{{ p.url }}">View Product →</a>
-            </div>
-          </div>
-
-          <div class="hc-card-info">
-            <a class="hc-card-name" href="{{ p.url }}" itemprop="url">{{ p.title }}</a>
-            <div class="hc-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-              <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
-              <meta itemprop="price" content="{{ p.price | money_without_currency }}">
-              {%- if is_sale -%}
-                <span class="was">{{ p.compare_at_price | money }}</span>
-                <span class="now">{{ p.price | money }}</span>
-              {%- else -%}
-                {%- if p.price_varies -%}<span style="font-size:9px;opacity:0.5;letter-spacing:0.1em">From</span>{%- endif -%}
-                {{ p.price | money }}
-              {%- endif -%}
-            </div>
-            <div class="hc-card-tag">Organic cotton &middot; UK printed</div>
-          </div>
-        </article>
+            <article class="hc-card" data-card itemscope itemtype="https://schema.org/Product">
+              <meta itemprop="name" content="{{ p.title | escape }}">
+              <meta itemprop="description" content="{{ p.description | strip_html | truncate: 200 | escape }}">
+              <div class="hc-card-img">
+                {%- if is_sale -%}<span class="hc-badge sale">Sale</span>
+                {%- elsif p.tags contains 'new' or p.tags contains 'new-in' -%}<span class="hc-badge new-in">New In</span>
+                {%- elsif p.tags contains 'bestseller' -%}<span class="hc-badge best">Best Seller</span>
+                {%- else -%}<span class="hc-badge">{{ p.type | default: 'Apparel' }}</span>{%- endif -%}
+                {%- if img -%}
+                  <img src="{{ img | image_url: width: 720 }}" alt="{{ img.alt | escape | default: p.title | escape }}" loading="lazy" width="720" height="960" itemprop="image">
+                {%- else -%}
+                  <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#ede9e0;font-size:48px">☻</div>
+                {%- endif -%}
+                <div class="hc-card-overlay">
+                  <button class="hc-overlay-add" data-variant-id="{{ p.selected_or_first_available_variant.id }}" data-product-title="{{ p.title | escape }}" data-quick-add>
+                    {%- if p.available -%}Quick Add{%- else -%}Sold Out{%- endif -%}
+                  </button>
+                  <a class="hc-overlay-view" href="{{ p.url }}">View Product →</a>
+                </div>
+              </div>
+              <div class="hc-card-info">
+                <a class="hc-card-name" href="{{ p.url }}" itemprop="url">{{ p.title }}</a>
+                <div class="hc-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
+                  <meta itemprop="price" content="{{ p.price | money_without_currency }}">
+                  {%- if is_sale -%}<span class="was">{{ p.compare_at_price | money }}</span><span class="now">{{ p.price | money }}</span>
+                  {%- else -%}{%- if p.price_varies -%}<span style="font-size:9px;opacity:0.5;letter-spacing:0.1em">From</span>{%- endif -%}{{ p.price | money }}{%- endif -%}
+                </div>
+                <div class="hc-card-tag">Organic cotton &middot; UK printed</div>
+              </div>
+            </article>
+          {%- endunless -%}
+        {%- endfor -%}
 
       {%- else -%}
+
+        {%- comment -%} ── NON-ALL COLLECTIONS: normal order ── {%- endcomment -%}
+        {%- for product in collection.products -%}
+          {%- liquid
+            assign p = product
+            assign img = p.featured_image
+            assign is_sale = false
+            if p.compare_at_price > p.price
+              assign is_sale = true
+            endif
+          -%}
+
+          <article class="hc-card" data-card itemscope itemtype="https://schema.org/Product">
+            <meta itemprop="name" content="{{ p.title | escape }}">
+            <meta itemprop="description" content="{{ p.description | strip_html | truncate: 200 | escape }}">
+            <div class="hc-card-img">
+              {%- if is_sale -%}<span class="hc-badge sale">Sale</span>
+              {%- elsif p.tags contains 'new' or p.tags contains 'new-in' -%}<span class="hc-badge new-in">New In</span>
+              {%- elsif p.tags contains 'bestseller' -%}<span class="hc-badge best">Best Seller</span>
+              {%- else -%}<span class="hc-badge">{{ p.type | default: 'Apparel' }}</span>{%- endif -%}
+              {%- if img -%}
+                <img src="{{ img | image_url: width: 720 }}" alt="{{ img.alt | escape | default: p.title | escape }}" loading="lazy" width="720" height="960" itemprop="image">
+              {%- else -%}
+                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#ede9e0;font-size:48px">☻</div>
+              {%- endif -%}
+              <div class="hc-card-overlay">
+                <button class="hc-overlay-add" data-variant-id="{{ p.selected_or_first_available_variant.id }}" data-product-title="{{ p.title | escape }}" data-quick-add>
+                  {%- if p.available -%}Quick Add{%- else -%}Sold Out{%- endif -%}
+                </button>
+                <a class="hc-overlay-view" href="{{ p.url }}">View Product →</a>
+              </div>
+            </div>
+            <div class="hc-card-info">
+              <a class="hc-card-name" href="{{ p.url }}" itemprop="url">{{ p.title }}</a>
+              <div class="hc-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
+                <meta itemprop="price" content="{{ p.price | money_without_currency }}">
+                {%- if is_sale -%}<span class="was">{{ p.compare_at_price | money }}</span><span class="now">{{ p.price | money }}</span>
+                {%- else -%}{%- if p.price_varies -%}<span style="font-size:9px;opacity:0.5;letter-spacing:0.1em">From</span>{%- endif -%}{{ p.price | money }}{%- endif -%}
+              </div>
+              <div class="hc-card-tag">Organic cotton &middot; UK printed</div>
+            </div>
+          </article>
+        {%- endfor -%}
+
+      {%- endif -%}
+
+      {%- if collection.products.size == 0 -%}
         <div class="hc-empty">
           <span class="hc-empty-icon">☻</span>
           <h3 class="hc-empty-title">Nothing here yet</h3>
           <p class="hc-empty-sub">New drops incoming — check back soon</p>
           <a href="{{ routes.all_products_collection_url }}" class="hc-empty-btn">Browse All Products →</a>
         </div>
-      {%- endfor -%}
+      {%- endif -%}
     </div>
 
     {%- if paginate.pages > 1 -%}
