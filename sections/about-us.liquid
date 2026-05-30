@@ -75,6 +75,13 @@
     color: #fff;
   }
   .hand-about-hero-h1 .pink { color: #F59DBA; }
+  .hand-about-hero-h1 .blue { color: #4FC2F7; }
+
+  /* Blue accent class — used to alternate with pink */
+  .hand-about .blue-accent { color: #4FC2F7 !important; }
+  .hand-about .blue-accent-bg { background: #4FC2F7 !important; }
+  .hand-about .blue-accent-border { border-color: #4FC2F7 !important; }
+  .hand-about .blue-accent-stroke:hover { -webkit-text-stroke-color: #4FC2F7 !important; }
   .hand-about-hero-h1 .outline {
     color: transparent;
     -webkit-text-stroke: 2px #fff;
@@ -125,7 +132,7 @@
 
   /* ===== TICKER ===== */
   .hand-about-ticker {
-    background: #F59DBA;
+    background: #4FC2F7;
     overflow: hidden;
     padding: 14px 0;
     border-top: 1px solid rgba(255,255,255,.1);
@@ -634,6 +641,32 @@
     -webkit-text-stroke-color: #F59DBA;
   }
 
+  /* ===== BLUE SECTIONS — Chapter 2, Timeline, Mission ===== */
+  /* Chapter 2 (reverse) → blue */
+  .hand-about-chapter.reverse .hand-about-chapter-tag { color: #4FC2F7; }
+  .hand-about-chapter.reverse .hand-about-chapter-tag::before { background: #4FC2F7; }
+  .hand-about-chapter.reverse .hand-about-chapter-h2 .blue { color: #4FC2F7; }
+  .hand-about-chapter.reverse .hand-about-chapter-badge { background: #4FC2F7; }
+
+  /* Timeline → blue */
+  .hand-about-timeline-tag { color: #4FC2F7; }
+  .hand-about-timeline-tag::before { background: #4FC2F7; }
+  .hand-about-timeline-h2 .blue { color: #4FC2F7; }
+  .hand-about-timeline-items::before { background: linear-gradient(to bottom, transparent, #4FC2F7 10%, #4FC2F7 90%, transparent); }
+  .hand-about-timeline-item::before { background: #4FC2F7; box-shadow: 0 0 0 3px rgba(79,194,247,.25); }
+
+  /* Mission → blue */
+  .hand-about-mission-tag { color: #4FC2F7; }
+  .hand-about-mission-tag::before { background: #4FC2F7; }
+  .hand-about-mission-h2 .blue { color: #4FC2F7; }
+  .hand-about-mission-cta { background: #4FC2F7; }
+  .hand-about-mission-cta:hover { background: #1e96d1; }
+  .hand-about-mission-fact { border-left-color: #4FC2F7; }
+  .hand-about-mission-fact-num { color: #4FC2F7; }
+
+  /* Wordmark → blue on hover */
+  .hand-about-wordmark:hover .hand-about-wordmark-text { -webkit-text-stroke-color: #4FC2F7; }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
     .hand-about-chapter,
@@ -752,7 +785,7 @@
     <div class="hand-about-chapter-text">
       <span class="hand-about-chapter-num" aria-hidden="true">02</span>
       <div class="hand-about-chapter-tag">The History Of...</div>
-      <h2 class="hand-about-chapter-h2">Anthony <span class="pink">Cooper</span></h2>
+      <h2 class="hand-about-chapter-h2">Anthony <span class="blue">Cooper</span></h2>
       <p class="hand-about-chapter-body">
         Anthony Cooper admits to a checked career whilst learning his trade. Starting with Dizzy Skates in the 1980s, he took over <strong>Slick Willies</strong> — the American Sports store on Kensington High Street. It was this move that sparked his love for Americana.
       </p>
@@ -792,7 +825,7 @@
   <section class="hand-about-timeline">
     <div class="hand-about-timeline-head">
       <div class="hand-about-timeline-tag">The Journey</div>
-      <h2 class="hand-about-timeline-h2">From Camden<br><span class="pink">To The World.</span></h2>
+      <h2 class="hand-about-timeline-h2">From Camden<br><span class="blue">To The World.</span></h2>
     </div>
     <div class="hand-about-timeline-items">
       <div class="hand-about-timeline-item">
@@ -978,7 +1011,7 @@ Nine Identities.</h2>
   <section class="hand-about-mission">
     <div class="hand-about-mission-left">
       <div class="hand-about-mission-tag">The Shape Of Things To Come</div>
-      <h2 class="hand-about-mission-h2">Fashion Is A<br><span class="pink">Zeitgeist.</span></h2>
+      <h2 class="hand-about-mission-h2">Fashion Is A<br><span class="blue">Zeitgeist.</span></h2>
       <p class="hand-about-mission-body">
         Triumph, tunes and t-shirts are the shape of things to come. Fashion is not restricted to just clothing — it's a multi-faceted snapshot, stretching from tee shirts to toothbrushes, an ever-changing vibration that manifests through a rotating colour palette with corresponding musical rhythms.
       </p>
