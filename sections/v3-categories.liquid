@@ -18,7 +18,9 @@
             {%- assign cat_col = collections[block.settings.collection_handle] -%}
             <a class="hand-cat hand-reveal" href="{% if block.settings.link != blank %}{{ block.settings.link }}{% elsif cat_col != blank %}/collections/{{ cat_col.handle }}{% else %}/collections/all{% endif %}" {{ block.shopify_attributes }}>
               <div class="img">
-                {% if block.settings.image %}
+                {% if block.settings.image_url != blank %}
+                  <img src="{{ block.settings.image_url }}" alt="{{ block.settings.title }}" loading="lazy" />
+                {% elsif block.settings.image %}
                   <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}" loading="lazy" />
                 {% elsif cat_col != blank and cat_col.image %}
                   <img src="{{ cat_col.image | img_url: '600x' }}" alt="{{ cat_col.title }}" loading="lazy" />
@@ -91,6 +93,7 @@
       "name": "Category",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Category image (overrides collection image)" },
+        { "type": "text", "id": "image_url", "label": "Image URL (overrides all other images)" },
         { "type": "text", "id": "collection_handle", "label": "Collection handle (e.g. t-shirts)", "default": "all" },
         { "type": "text", "id": "top_left", "label": "Top-left label", "default": "01 / Cotton" },
         { "type": "text", "id": "top_right", "label": "Top-right label", "default": "From £29.99" },
