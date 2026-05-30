@@ -744,18 +744,22 @@
 
       {%- if collection.handle == 'all' -%}
 
-        {%- comment -%} ── PASS 1: Have A Nice Day / Sam / Shurl products ── {%- endcomment -%}
+        {%- comment -%} ── PASS 1: Sam & Shurl (Have A Nice Day flagship) products ── {%- endcomment -%}
         {%- assign hand_count = 0 -%}
         {%- for product in collection.products -%}
           {%- liquid
             assign is_hand = false
-            assign vendor_down = product.vendor | downcase
             assign title_down = product.title | downcase
-            if vendor_down contains 'have a nice day' or vendor_down contains 'hand'
+            if product.tags contains 'sam the man' or product.tags contains 'SAM' or product.tags contains 'sam'
               assign is_hand = true
-            elsif title_down contains 'sam the man' or title_down contains 'shurl' or title_down contains 'sam & shurl' or title_down contains 'sam and shurl'
+            endif
+            if product.tags contains 'Shurl' or product.tags contains 'shurl'
               assign is_hand = true
-            elsif product.tags contains 'have-a-nice-day' or product.tags contains 'sam' or product.tags contains 'shurl' or product.tags contains 'HAND'
+            endif
+            if product.tags contains 'Have a nice day' or product.tags contains 'have-a-nice-day'
+              assign is_hand = true
+            endif
+            if title_down contains 'sam the man' or title_down contains 'shurl' or title_down contains 'sam and shurl' or title_down contains 'sam & shurl'
               assign is_hand = true
             endif
           -%}
@@ -805,14 +809,18 @@
         {%- assign other_count = 0 -%}
         {%- for product in collection.products -%}
           {%- liquid
-            assign vendor_down = product.vendor | downcase
-            assign title_down = product.title | downcase
             assign is_hand = false
-            if vendor_down contains 'have a nice day' or vendor_down contains 'hand'
+            assign title_down = product.title | downcase
+            if product.tags contains 'sam the man' or product.tags contains 'SAM' or product.tags contains 'sam'
               assign is_hand = true
-            elsif title_down contains 'sam the man' or title_down contains 'shurl' or title_down contains 'sam & shurl' or title_down contains 'sam and shurl'
+            endif
+            if product.tags contains 'Shurl' or product.tags contains 'shurl'
               assign is_hand = true
-            elsif product.tags contains 'have-a-nice-day' or product.tags contains 'sam' or product.tags contains 'shurl' or product.tags contains 'HAND'
+            endif
+            if product.tags contains 'Have a nice day' or product.tags contains 'have-a-nice-day'
+              assign is_hand = true
+            endif
+            if title_down contains 'sam the man' or title_down contains 'shurl' or title_down contains 'sam and shurl' or title_down contains 'sam & shurl'
               assign is_hand = true
             endif
           -%}
@@ -833,13 +841,17 @@
         {%- for product in collection.products -%}
           {%- liquid
             assign is_hand = false
-            assign vendor_down = product.vendor | downcase
             assign title_down = product.title | downcase
-            if vendor_down contains 'have a nice day' or vendor_down contains 'hand'
+            if product.tags contains 'sam the man' or product.tags contains 'SAM' or product.tags contains 'sam'
               assign is_hand = true
-            elsif title_down contains 'sam the man' or title_down contains 'shurl' or title_down contains 'sam & shurl' or title_down contains 'sam and shurl'
+            endif
+            if product.tags contains 'Shurl' or product.tags contains 'shurl'
               assign is_hand = true
-            elsif product.tags contains 'have-a-nice-day' or product.tags contains 'sam' or product.tags contains 'shurl' or product.tags contains 'HAND'
+            endif
+            if product.tags contains 'Have a nice day' or product.tags contains 'have-a-nice-day'
+              assign is_hand = true
+            endif
+            if title_down contains 'sam the man' or title_down contains 'shurl' or title_down contains 'sam and shurl' or title_down contains 'sam & shurl'
               assign is_hand = true
             endif
           -%}
