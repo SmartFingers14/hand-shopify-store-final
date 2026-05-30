@@ -375,6 +375,15 @@
   box-shadow: 0 8px 24px rgba(0,0,0,.2);
 }
 
+/* Fix specific logos that overflow circles */
+.hd-brand-card[data-brand="dready"] .hd-brand-logo,
+.hd-brand-card[data-brand="funky-dog"] .hd-brand-logo,
+.hd-brand-card[data-brand="incubator"] .hd-brand-logo {
+  object-fit: contain;
+  padding: 6px;
+  background: #fff;
+}
+
 .hd-brand-name {
   font-family: var(--hd-display);
   font-size: 14px;
