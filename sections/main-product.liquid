@@ -932,6 +932,12 @@ function pdpSelectOption(btn) {
   });
   if (variant) {
     document.getElementById('pdpVariantId').value = variant.id;
+    // Update Buy Now link so it sends the CORRECT variant to checkout
+    var buyNowLink = document.getElementById('pdpBuyNow');
+    if (buyNowLink) buyNowLink.href = '/cart/' + variant.id + ':1';
+    // Update URL with variant ID for sharing / Shop app compatibility
+    var newUrl = window.location.pathname + '?variant=' + variant.id;
+    window.history.replaceState({ path: newUrl }, '', newUrl);
     const addBtn = document.getElementById('pdpAddBtn');
     if (addBtn) {
       if (variant.available) {
