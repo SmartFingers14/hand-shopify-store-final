@@ -1,10 +1,60 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "Footer group",
   "sections": {
     "footer": {
       "type": "footer",
-      "settings": {}
+      "settings": {
+        "nl_tag": "Stay In The Loop",
+        "nl_title": "Be First To Know.",
+        "nl_sub": "Drops, archive reissues & Camden-only releases",
+        "nl_btn": "Subscribe",
+        "nl_note": "No spam, ever. Unsubscribe anytime.",
+        "brand_sub": "London — Est. Camden 1990",
+        "about": "The urban fashion legend. Born Camden 1990. Organic cotton. UK printed. Home of Sam The Man, Shurl The Girl & 9 independent sub-brands.",
+        "social_instagram": "",
+        "social_tiktok": "",
+        "social_twitter": "",
+        "social_facebook": "",
+        "social_email": "hello@haveanicedaylondon.com",
+        "trust1": "Organic Cotton — Certified",
+        "trust2": "UK Printed — Every Piece",
+        "trust3": "Free UK Shipping Over £75",
+        "trust4": "30-Day Returns",
+        "shop_col_head": "Shop",
+        "shop_link1_label": "All Merchandise",
+        "shop_link1_url": "",
+        "shop_link2_label": "T-Shirts",
+        "shop_link2_url": "",
+        "shop_link3_label": "Sweatshirts",
+        "shop_link3_url": "",
+        "shop_link4_label": "Hoodies",
+        "shop_link4_url": "",
+        "shop_link5_label": "Accessories",
+        "shop_link5_url": "",
+        "house_col_head": "The House",
+        "house_link1_label": "About Us",
+        "house_link1_url": "",
+        "house_link2_label": "Contact",
+        "house_link2_url": "",
+        "house_link3_label": "Wholesale",
+        "house_link3_url": "",
+        "house_link4_label": "Press",
+        "house_link4_url": "",
+        "house_link5_label": "Licensing",
+        "house_link5_url": "",
+        "wordmark": "Have A Nice Day ☻",
+        "made_in": "Made with ♥ in the UK"
+      }
     }
   },
   "order": [
