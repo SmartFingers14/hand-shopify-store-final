@@ -116,6 +116,63 @@
 </section>
 
 <!-- ============================================================
+     BENEFITS & REWARDS
+     ============================================================ -->
+<section class="ib-benefits">
+  <div class="ib-benefits-inner">
+    <div class="ib-eyebrow"><span class="ib-eye-pulse"></span>Benefits &amp; Rewards</div>
+    <h2 class="ib-benefits-h2">Incubator <span class="ib-neon">rewards.</span></h2>
+
+    <div class="ib-benefits-grid">
+      <div class="ib-benefit-card">
+        <div class="ib-benefit-icon">🏷️</div>
+        <h3>Printed Neck Label</h3>
+        <p>Each new brand will come with a printed Incubator neck label, making it a potentially collectible — and of course a Limited Edition / Investment.</p>
+      </div>
+      <div class="ib-benefit-card">
+        <h3>5% Royalty</h3>
+        <div class="ib-benefit-icon">💰</div>
+        <p>For each shirt sold, you will receive a 5% royalty of the net sale, i.e. after VAT or the equivalent local tax.</p>
+      </div>
+      <div class="ib-benefit-card">
+        <div class="ib-benefit-icon">🚀</div>
+        <h3>100 Days / 100 Sales</h3>
+        <p>If after 100 days, 100 shirts have been sold you will have the option of remaining on the site, on a non-exclusive basis, as a fully fledged brand, with the full range of garments, stickers etc — now upgraded to our standard 10% of the net royalty.</p>
+      </div>
+      <div class="ib-benefit-card">
+        <div class="ib-benefit-icon">🤝</div>
+        <h3>Partnerships</h3>
+        <p>If it is a partnership, the artist will get 2% and the partners the 8% balance — if they so choose. This enables the artist royalty to be split between artists, enabling collaborations on new brands and ideas!</p>
+      </div>
+    </div>
+
+    <div class="ib-sticker-option">
+      <div class="ib-sticker-badge">STICKER OPTION</div>
+      <p>If you would like to invest in 30 A5 custom sticker sheets @ £60 + P&amp;P (which works out at £2 a sheet, Recommended Retail Price £5), we will <strong>not only</strong> offer them for sale on the site as part of your offering, but also supply a free sheet at our own expense, with each and every purchase made — thereby helping spread the word!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ARTIST BIOG — Incubator No. 1: DIVERGENT
+     ============================================================ -->
+<section class="ib-artist">
+  <div class="ib-artist-inner">
+    <div class="ib-eyebrow"><span class="ib-eye-pulse"></span>Incubator No.1</div>
+    <h2 class="ib-artist-h2">DIVERGENT</h2>
+    <div class="ib-artist-subtitle">Introducing <span class="ib-neon">Phillip Long</span></div>
+    <div class="ib-artist-biog">
+      <p>About Phillip Long — Founder of Nagual Creations. Phillip Long is a British artist whose career began in the early 1990s at the heart of London's underground rave scene. Through his visionary project, Nagual Creations, he pioneered large-scale, immersive artworks that brought a new level of depth and atmosphere to music and multimedia events across the world — from iconic London clubs to mountaintops in Japan and deserts in South Africa.</p>
+      <p>Though the setting has shifted from dance floors to living rooms and galleries, Phillip's work still offers an invitation into an otherworldly, immersive experience — one where imagination and emotion meet in rich visual form. Phillip also spent 5 years as an art director for a London marketing agency, where he honed his skills in graphic design, which he now teaches part time at Far Skate Foundation in Whitstable.</p>
+    </div>
+    <div class="ib-artist-submit">
+      <p><strong>Want to submit your designs?</strong> Send your biog, social media links and 4–8 designs to: <a href="mailto:robert@dreadyoriginal.com" class="ib-neon">robert@dreadyoriginal.com</a></p>
+      <p>Finally, if you are a fan of the Incubator concept and logo, please feel free to purchase an Incubator branded shirt!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      PRODUCTS
      ============================================================ -->
 <section class="ib-shop hand-sec" id="ib-shop">
@@ -425,6 +482,80 @@
 }
 .ib-spec-v { font-family: var(--body); font-size: 14px; color: var(--ib-fg); font-weight: 500; }
 
+/* === BENEFITS === */
+.ib-benefits {
+  background: var(--ib-bg); color: var(--ib-fg);
+  padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.ib-benefits-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 32px;
+}
+.ib-benefits-h2 {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(36px, 5vw, 64px); line-height: .92; margin-bottom: 48px;
+}
+.ib-benefits-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px;
+}
+.ib-benefit-card {
+  padding: 32px 24px; border: 1px solid rgba(0,255,136,.12);
+  background: rgba(0,255,136,.03); transition: border-color .3s;
+}
+.ib-benefit-card:hover { border-color: var(--ib-neon); }
+.ib-benefit-icon { font-size: 28px; margin-bottom: 16px; }
+.ib-benefit-card h3 {
+  font-family: var(--display); font-size: 18px; text-transform: uppercase;
+  color: var(--ib-fg); margin: 0 0 12px;
+}
+.ib-benefit-card p {
+  font-size: 14px; line-height: 1.7; color: #888; margin: 0;
+}
+.ib-sticker-option {
+  padding: 32px; border: 1px solid rgba(0,255,136,.2);
+  background: rgba(0,255,136,.04); display: flex; gap: 24px; align-items: flex-start;
+}
+.ib-sticker-badge {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  letter-spacing: .2em; padding: 8px 16px;
+  background: var(--ib-neon); color: #000; white-space: nowrap; flex-shrink: 0;
+}
+.ib-sticker-option p {
+  font-size: 15px; line-height: 1.7; color: #888; margin: 0;
+}
+
+/* === ARTIST BIOG === */
+.ib-artist {
+  background: var(--ib-bg); color: var(--ib-fg);
+  padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+  text-align: center;
+}
+.ib-artist-inner {
+  max-width: 800px; margin: 0 auto; padding: 0 32px;
+}
+.ib-artist-h2 {
+  font-family: var(--display); font-size: clamp(48px, 7vw, 100px);
+  text-transform: uppercase; line-height: .9; margin: 0 0 12px;
+  background: linear-gradient(135deg, var(--ib-neon), var(--ib-neon2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ib-artist-subtitle {
+  font-size: 20px; color: #888; margin-bottom: 36px;
+}
+.ib-artist-biog p {
+  font-size: 16px; line-height: 1.8; color: #888; margin: 0 0 20px;
+  text-align: left;
+}
+.ib-artist-submit {
+  margin-top: 48px; padding: 32px; border: 1px solid rgba(0,255,136,.15);
+  background: rgba(0,255,136,.03); text-align: left;
+}
+.ib-artist-submit p {
+  font-size: 15px; line-height: 1.7; color: #888; margin: 0 0 12px;
+}
+.ib-artist-submit p:last-child { margin-bottom: 0; }
+.ib-artist-submit a { text-decoration: none; }
+
 /* === PRODUCTS === */
 .ib-shop {
   background: var(--ib-bg) !important; border-bottom-color: rgba(255,255,255,.06) !important;
@@ -513,6 +644,11 @@
   .ib-shop-head { flex-direction: column; align-items: flex-start; }
   .ib-cta-btns { flex-direction: column; }
   .ib-code-frags { display: none; }
+  .ib-benefits-grid { grid-template-columns: 1fr 1fr; }
+  .ib-sticker-option { flex-direction: column; }
+}
+@media (max-width: 480px) {
+  .ib-benefits-grid { grid-template-columns: 1fr; }
 }
 </style>
 
