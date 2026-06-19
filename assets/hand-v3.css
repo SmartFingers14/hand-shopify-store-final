@@ -10,7 +10,7 @@
     --line: #1a1a1a;
     --muted: #6b6b6b;
     --pink: #F59DBA;
-    --blue: #68B6E5;
+    --blue: #4FC2F7;
     --yellow: #FFD400;
     --display: 'Anton', Impact, sans-serif;
     --body: 'Inter', system-ui, sans-serif;
@@ -554,7 +554,7 @@
 
 .hand-ticker .track span::after {
     content: "\2726";
-    color: var(--pink);
+    color: var(--blue);
     margin-left: 60px;
     font-size: 14px;
 }
@@ -925,7 +925,7 @@
 }
 
 .hand-roster .accent {
-    background: var(--pink);
+    background: var(--blue);
     color: #fff;
 }
 
@@ -1094,7 +1094,7 @@
 }
 
 .hand-story h2 .yellow {
-    color: #68B6E5;
+    color: var(--blue);
 }
 
 .hand-story p {
