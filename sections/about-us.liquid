@@ -907,8 +907,10 @@
         <a href="/pages/have-a-nice-day" class="featured">
           <span class="num">01 / Flagship</span>
           <span class="arrow">&#8599;</span>
-          <img class="brand-logo" src="{{ 'logo-sam-the-man.png' | asset_url }}" alt="Have A Nice Day logo" loading="lazy" />
-          <div>
+          <div class="brand-logo-wrap">
+            <img class="brand-logo" src="{{ 'logo-sam-the-man.png' | asset_url }}" alt="Have A Nice Day logo" loading="lazy" />
+          </div>
+          <div class="brand-text">
             <div class="name">Have A Nice Day</div>
             <div class="desc">Sam The Man · Shurl The Girl</div>
           </div>
@@ -916,8 +918,10 @@
         <a href="/pages/dready-original" class="">
           <span class="num">02</span>
           <span class="arrow">&#8599;</span>
-          <img class="brand-logo" src="{{ 'logo-dready.png' | asset_url }}" alt="Dready OG logo" loading="lazy" />
-          <div>
+          <div class="brand-logo-wrap">
+            <img class="brand-logo" src="{{ 'logo-dready.png' | asset_url }}" alt="Dready OG logo" loading="lazy" />
+          </div>
+          <div class="brand-text">
             <div class="name">Dready OG</div>
             <div class="desc">Roots · Reggae · Camden</div>
           </div>
@@ -925,8 +929,10 @@
         <a href="/pages/handspun-records" class="accent">
           <span class="num">03</span>
           <span class="arrow">&#8599;</span>
-          <img class="brand-logo" src="{{ 'logo-handspun.png' | asset_url }}" alt="Handspun Records logo" loading="lazy" />
-          <div>
+          <div class="brand-logo-wrap">
+            <img class="brand-logo" src="{{ 'logo-handspun.png' | asset_url }}" alt="Handspun Records logo" loading="lazy" />
+          </div>
+          <div class="brand-text">
             <div class="name">Handspun Records</div>
             <div class="desc">Vinyl · Sound · Wax</div>
           </div>
@@ -934,8 +940,10 @@
         <a href="/pages/btka" class="">
           <span class="num">04</span>
           <span class="arrow">&#8599;</span>
-          <img class="brand-logo" src="{{ 'logo-btka.png' | asset_url }}" alt="BTKA logo" loading="lazy" />
-          <div>
+          <div class="brand-logo-wrap">
+            <img class="brand-logo" src="{{ 'logo-btka.png' | asset_url }}" alt="BTKA logo" loading="lazy" />
+          </div>
+          <div class="brand-text">
             <div class="name">BTKA</div>
             <div class="desc">Punk Rocks · Sleazy Rider</div>
           </div>
@@ -943,8 +951,10 @@
         <a href="/pages/vortex" class="">
           <span class="num">05</span>
           <span class="arrow">&#8599;</span>
-          <img class="brand-logo" src="{{ 'logo-vortex.png' | asset_url }}" alt="Vortex logo" loading="lazy" />
-          <div>
+          <div class="brand-logo-wrap">
+            <img class="brand-logo" src="{{ 'logo-vortex.png' | asset_url }}" alt="Vortex logo" loading="lazy" />
+          </div>
+          <div class="brand-text">
             <div class="name">Vortex</div>
             <div class="desc">Info The Robot · Close Encounter</div>
           </div>
@@ -952,8 +962,10 @@
         <a href="/pages/funky-dog" class="">
           <span class="num">06</span>
           <span class="arrow">&#8599;</span>
-          <img class="brand-logo" src="{{ 'logo-funky-dog.png' | asset_url }}" alt="Funky Dog logo" loading="lazy" />
-          <div>
+          <div class="brand-logo-wrap">
+            <img class="brand-logo" src="{{ 'logo-funky-dog.png' | asset_url }}" alt="Funky Dog logo" loading="lazy" />
+          </div>
+          <div class="brand-text">
             <div class="name">Funky Dog</div>
             <div class="desc">Atomic Dog · Mongrel Soup</div>
           </div>
@@ -961,8 +973,10 @@
         <a href="/pages/dont-do-the-dodo" class="">
           <span class="num">07</span>
           <span class="arrow">&#8599;</span>
-          <img class="brand-logo" src="{{ 'logo-dodo.png' | asset_url }}" alt="Don't Do The Dodo logo" loading="lazy" />
-          <div>
+          <div class="brand-logo-wrap">
+            <img class="brand-logo" src="{{ 'logo-dodo.png' | asset_url }}" alt="Don't Do The Dodo logo" loading="lazy" />
+          </div>
+          <div class="brand-text">
             <div class="name">Don't Do The Dodo</div>
             <div class="desc">Professor Watercooler · Crest</div>
           </div>
@@ -970,8 +984,10 @@
         <a href="/pages/incubator" class="">
           <span class="num">08</span>
           <span class="arrow">&#8599;</span>
-          <img class="brand-logo" src="{{ 'logo-incubator.png' | asset_url }}" alt="Incubator logo" loading="lazy" />
-          <div>
+          <div class="brand-logo-wrap">
+            <img class="brand-logo" src="{{ 'logo-incubator.png' | asset_url }}" alt="Incubator logo" loading="lazy" />
+          </div>
+          <div class="brand-text">
             <div class="name">Incubator</div>
             <div class="desc">Divergent · Outside The Box</div>
           </div>
@@ -979,8 +995,10 @@
         <a href="/pages/sista" class="accent">
           <span class="num">09</span>
           <span class="arrow">&#8599;</span>
-          <img class="brand-logo" src="{{ 'logo-sista.png' | asset_url }}" alt="Sista logo" loading="lazy" />
-          <div>
+          <div class="brand-logo-wrap">
+            <img class="brand-logo" src="{{ 'logo-sista.png' | asset_url }}" alt="Sista logo" loading="lazy" />
+          </div>
+          <div class="brand-text">
             <div class="name">Sista</div>
             <div class="desc">Script · Silhouette · Slip Mats</div>
           </div>
@@ -990,22 +1008,37 @@
   </section>
   <!-- brand-logo positioning (same as homepage v3-brands) -->
   <style>
-    .hand-about .hand-roster a { position: relative; overflow: hidden; }
-    .hand-about .brand-logo {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 140px; height: 140px; object-fit: contain; opacity: .07;
-      pointer-events: none; transition: opacity .5s ease, transform .5s ease;
-      filter: grayscale(100%) brightness(2); mix-blend-mode: screen; z-index: 0;
+    .hand-about .hand-roster a {
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 24px 24px 28px; min-height: 280px;
     }
-    .hand-about .hand-roster a:hover .brand-logo { opacity: .18; transform: translate(-50%, -50%) scale(1.1); filter: grayscale(0%) brightness(1.2); }
-    .hand-about .hand-roster .featured .brand-logo { opacity: .1; filter: grayscale(100%) brightness(3); }
-    .hand-about .hand-roster .featured:hover .brand-logo { opacity: .22; filter: grayscale(0%) brightness(1.3); }
-    .hand-about .hand-roster .accent .brand-logo { opacity: .1; filter: grayscale(100%) brightness(3); }
-    .hand-about .hand-roster .accent:hover .brand-logo { opacity: .22; filter: grayscale(0%) brightness(1.3); }
-    .hand-about .hand-roster a .num,
-    .hand-about .hand-roster a .arrow,
-    .hand-about .hand-roster a > div { position: relative; z-index: 1; }
-    @media (max-width: 820px) { .hand-about .brand-logo { width: 100px; height: 100px; } }
+    .hand-about .hand-roster a .num { position: absolute; top: 16px; left: 18px; z-index: 2; }
+    .hand-about .hand-roster a .arrow { position: absolute; top: 18px; right: 18px; z-index: 2; }
+    .hand-about .brand-logo-wrap {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      width: 100%; padding: 16px 10px 8px;
+    }
+    .hand-about .brand-logo {
+      width: 100%; max-width: 160px; max-height: 140px;
+      object-fit: contain; opacity: 1;
+      transition: opacity .4s ease, transform .4s ease;
+    }
+    .hand-about .hand-roster a:hover .brand-logo { transform: scale(1.06); }
+    .hand-about .brand-text {
+      width: 100%; text-align: center; margin-top: auto; padding-top: 8px;
+    }
+    .hand-about .brand-text .name { font-size: 22px; margin-top: 0; }
+    .hand-about .brand-text .desc { margin-top: 6px; }
+    @media (max-width: 820px) {
+      .hand-about .hand-roster a { min-height: 220px; padding: 20px 18px 24px; }
+      .hand-about .brand-logo { max-width: 120px; max-height: 110px; }
+      .hand-about .brand-text .name { font-size: 18px; }
+    }
+    @media (max-width: 520px) {
+      .hand-about .hand-roster a { min-height: 200px; }
+      .hand-about .brand-logo { max-width: 100px; max-height: 90px; }
+    }
   </style>
 
   <!-- ===== MISSION ===== -->
