@@ -841,12 +841,13 @@
 
 .hand-roster a {
     position: relative;
-    padding: 38px 30px 32px;
+    padding: 24px 24px 28px;
     background: var(--paper);
-    min-height: 240px;
+    min-height: 280px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    text-align: center;
     overflow: hidden;
     transition: background .3s, color .3s;
     text-decoration: none;
@@ -874,11 +875,11 @@
 
 .hand-roster .name {
     font-family: var(--display);
-    font-size: 48px;
+    font-size: 28px;
     line-height: .92;
     letter-spacing: .005em;
     text-transform: uppercase;
-    margin-top: 16px;
+    margin-top: 0;
 }
 
 .hand-roster .desc {
