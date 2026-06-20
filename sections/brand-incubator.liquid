@@ -161,6 +161,13 @@
     <div class="ib-eyebrow"><span class="ib-eye-pulse"></span>Incubator No.1</div>
     <h2 class="ib-artist-h2">DIVERGENT</h2>
     <div class="ib-artist-subtitle">Introducing <span class="ib-neon">Phillip Long</span></div>
+
+    <!-- Divergent Original Instagram -->
+    <a class="ib-divergent-ig" href="https://www.instagram.com/divergentoriginal/" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      <span>@divergentoriginal</span>
+    </a>
+
     <div class="ib-artist-biog">
       <p>About Phillip Long — Founder of Nagual Creations. Phillip Long is a British artist whose career began in the early 1990s at the heart of London's underground rave scene. Through his visionary project, Nagual Creations, he pioneered large-scale, immersive artworks that brought a new level of depth and atmosphere to music and multimedia events across the world — from iconic London clubs to mountaintops in Japan and deserts in South Africa.</p>
       <p>Though the setting has shifted from dance floors to living rooms and galleries, Phillip's work still offers an invitation into an otherworldly, immersive experience — one where imagination and emotion meet in rich visual form. Phillip also spent 5 years as an art director for a London marketing agency, where he honed his skills in graphic design, which he now teaches part time at Far Skate Foundation in Whitstable.</p>
@@ -532,8 +539,22 @@
   background-clip: text;
 }
 .ib-artist-subtitle {
-  font-size: 20px; color: #888; margin-bottom: 36px;
+  font-size: 20px; color: #888; margin-bottom: 16px;
 }
+.ib-divergent-ig {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 13px; letter-spacing: .12em;
+  color: var(--ib-neon); text-decoration: none;
+  padding: 10px 22px; border: 1px solid rgba(0,255,136,.25);
+  background: rgba(0,255,136,.05); margin-bottom: 36px;
+  transition: all .3s ease;
+}
+.ib-divergent-ig:hover {
+  background: var(--ib-neon); color: #000;
+  border-color: var(--ib-neon);
+  box-shadow: 0 0 20px rgba(0,255,136,.3);
+}
+.ib-divergent-ig svg { flex-shrink: 0; }
 .ib-artist-biog p {
   font-size: 16px; line-height: 1.8; color: #888; margin: 0 0 20px;
   text-align: left;
